@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason J. Lai - Legal Builder</title>
-    
-    <!-- 引入 Tailwind CSS (透過 CDN 即時編譯) -->
+
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,10 +20,11 @@
             }
         }
     </script>
-    <!-- 引入 Lucide Icons -->
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        /* 避免頁面載入時閃爍與動畫設定 */
         [x-cloak] { display: none !important; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -31,21 +32,27 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
 
-    <!-- 導覽列 Navigation -->
+    <!-- Navigation -->
     <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex space-x-6 items-center">
                 <a href="/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
                     <i data-lucide="terminal" class="w-5 h-5 inline-block mr-2 mb-1"></i>Jason_Lai
                 </a>
-                <!-- 這裡直接連結到你的 3pwriting 子網域，不開新分頁 -->
+
                 <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
                     Writing on 3P
                 </a>
+
+                <!-- ✅ NEW: 10-Year Plan link -->
+                <a href="/10-yearplan/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    10-Year Plan
+                </a>
             </div>
-            
+
             <div class="flex items-center space-x-4">
                 <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
                     <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
@@ -55,10 +62,10 @@
         </div>
     </nav>
 
-    <!-- 視圖區域：Home Page -->
+    <!-- Home -->
     <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
-        
-        <!-- Hero Section -->
+
+        <!-- Hero -->
         <div class="mb-12">
             <h1 class="text-4xl font-bold font-mono tracking-tight mb-4">Jason Lai</h1>
             <p class="text-xl text-slate-600 dark:text-slate-400 mb-6 font-semibold">Legal Builder & Explorer</p>
@@ -78,7 +85,7 @@
             </div>
         </div>
 
-        <!-- Main Quest (10-Year Plan) -->
+        <!-- Main Quest -->
         <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12">
             <div class="flex items-center gap-3 mb-4">
                 <i data-lucide="target" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
@@ -88,19 +95,21 @@
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 italic">
                 [在此填寫你 10 年願景的一句話概述。例如：成為 Web3 領域最具影響力的 Legal Builder，消弭技術與監管的邊界。]
             </p>
-            <a href="#" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
+
+            <!-- ✅ CHANGED: href from # to /10-yearplan/ -->
+            <a href="/10-yearplan/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
                 View Roadmap <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
             </a>
         </div>
 
-        <!-- Writing on 3P (Blog Entrance Card) -->
+        <!-- Writing on 3P -->
         <div onclick="window.location.href='/3pwriting/'" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[10px_10px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer group">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-3">
                     <i data-lucide="book-open" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
                     <h2 class="text-2xl font-bold font-mono group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Writing on 3P</h2>
                 </div>
-                <!-- RSS 連結，阻止冒泡點擊事件以免觸發整張卡片的跳轉 -->
+
                 <a href="/3pwriting/feed.xml" onclick="event.stopPropagation()" class="text-orange-500 hover:scale-110 transition-transform" aria-label="RSS Feed">
                     <i data-lucide="rss" class="w-6 h-6"></i>
                 </a>
@@ -132,6 +141,7 @@
                         <p class="text-sm text-slate-500 dark:text-slate-400">Visual experiments</p>
                     </div>
                 </a>
+
                 <a href="https://podcasts.apple.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
                     <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg mr-4">
                         <i data-lucide="mic" class="w-6 h-6 text-indigo-600 dark:text-indigo-400"></i>
@@ -145,7 +155,7 @@
         </div>
     </main>
 
-    <!-- 頁尾 Global Footer -->
+    <!-- Footer -->
     <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
         <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center text-sm font-mono text-slate-500">
             <p>© <span id="current-year"></span> Jason Lai. Built with HTML & Tailwind.</p>
@@ -157,13 +167,11 @@
         </div>
     </footer>
 
-    <!-- 主要邏輯 -->
+    <!-- Script -->
     <script>
-        // === 1. 初始化環境與圖示 ===
         document.getElementById('current-year').textContent = new Date().getFullYear();
         lucide.createIcons();
 
-        // === 2. 深色模式邏輯 ===
         const htmlElement = document.documentElement;
         const iconSun = document.getElementById('icon-sun');
         const iconMoon = document.getElementById('icon-moon');
@@ -175,7 +183,7 @@
                 iconSun.classList.add('hidden');
                 iconMoon.classList.remove('hidden');
             } else {
-                htmlElement.classList.add('dark'); // 預設為深色
+                htmlElement.classList.add('dark');
                 iconSun.classList.remove('hidden');
                 iconMoon.classList.add('hidden');
             }
@@ -194,6 +202,7 @@
                 iconMoon.classList.add('hidden');
             }
         }
+
         initTheme();
     </script>
 </body>
