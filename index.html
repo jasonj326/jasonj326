@@ -23,8 +23,12 @@
     <!-- 引入 Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* 避免頁面載入時閃爍 */
+        /* 避免頁面載入時閃爍與動畫設定 */
         [x-cloak] { display: none !important; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
@@ -32,13 +36,14 @@
     <!-- 導覽列 Navigation -->
     <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex space-x-6">
-                <button onclick="navigateTo('home')" id="nav-home" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+            <div class="flex space-x-6 items-center">
+                <a href="/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
                     <i data-lucide="terminal" class="w-5 h-5 inline-block mr-2 mb-1"></i>Jason_Lai
-                </button>
-                <button onclick="navigateTo('3p')" id="nav-3p" class="font-mono font-bold tracking-tight transition-colors hover:text-indigo-600 dark:hover:text-emerald-400">
-                    3P_ZONE
-                </button>
+                </a>
+                <!-- 這裡直接連結到你的 3pwriting 子網域，不開新分頁 -->
+                <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    Writing on 3P
+                </a>
             </div>
             
             <div class="flex items-center space-x-4">
@@ -51,126 +56,94 @@
     </nav>
 
     <!-- 視圖區域：Home Page -->
-    <div id="view-home" class="view-section block">
-        <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
-            <!-- Hero Section -->
-            <div class="mb-12">
-                <h1 class="text-4xl font-bold font-mono tracking-tight mb-4">Jason Lai</h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 mb-6 font-semibold">Legal Builder & Explorer</p>
-                <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                    Transforming regulatory fog into deployment velocity. Building in Web3, AI, and beyond.
-                </p>
-                <div class="flex gap-4">
-                    <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
-                        <i data-lucide="github" class="w-5 h-5"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    </a>
-                    <a href="mailto:hello@jasonjlai.net" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Main Quest (10-Year Plan) -->
-            <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12">
-                <div class="flex items-center gap-3 mb-4">
-                    <i data-lucide="target" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
-                    <h2 class="text-2xl font-bold font-mono">Main Quest</h2>
-                </div>
-                <h3 class="text-xl font-bold mb-2">10-Year Plan</h3>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 italic">
-                    [在此填寫你 10 年願景的一句話概述。例如：成為 Web3 領域最具影響力的 Legal Builder，消弭技術與監管的邊界。]
-                </p>
-                <a href="#" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
-                    View Roadmap <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+    <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+        
+        <!-- Hero Section -->
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold font-mono tracking-tight mb-4">Jason Lai</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 mb-6 font-semibold">Legal Builder & Explorer</p>
+            <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                Transforming regulatory fog into deployment velocity. Building in Web3, AI, and beyond.
+            </p>
+            <div class="flex gap-4">
+                <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="mailto:jason@jasonjlai.net" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
                 </a>
             </div>
+        </div>
 
-            <!-- Side Quests -->
-            <div class="mb-16">
-                <div class="flex items-center gap-3 mb-6">
-                    <h2 class="text-2xl font-bold font-mono">Side Quests</h2>
+        <!-- Main Quest (10-Year Plan) -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="target" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
+                <h2 class="text-2xl font-bold font-mono">Main Quest</h2>
+            </div>
+            <h3 class="text-xl font-bold mb-2">10-Year Plan</h3>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 italic">
+                [在此填寫你 10 年願景的一句話概述。例如：成為 Web3 領域最具影響力的 Legal Builder，消弭技術與監管的邊界。]
+            </p>
+            <a href="#" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
+                View Roadmap <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+            </a>
+        </div>
+
+        <!-- Writing on 3P (Blog Entrance Card) -->
+        <div onclick="window.location.href='/3pwriting/'" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[10px_10px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer group">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="book-open" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
+                    <h2 class="text-2xl font-bold font-mono group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Writing on 3P</h2>
                 </div>
-                <p class="text-slate-600 dark:text-slate-400 mb-6">
-                    Explorations and audio/visual experiments outside of writing code.
-                </p>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
-                        <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg mr-4">
-                            <i data-lucide="youtube" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg font-mono">YouTube Channel</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400">Visual experiments</p>
-                        </div>
-                    </a>
-                    <a href="https://podcasts.apple.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
-                        <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg mr-4">
-                            <i data-lucide="mic" class="w-6 h-6 text-indigo-600 dark:text-indigo-400"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg font-mono">Podcast</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400">Audio thoughts</p>
-                        </div>
-                    </a>
-                </div>
+                <!-- RSS 連結，阻止冒泡點擊事件以免觸發整張卡片的跳轉 -->
+                <a href="/3pwriting/feed.xml" onclick="event.stopPropagation()" class="text-orange-500 hover:scale-110 transition-transform" aria-label="RSS Feed">
+                    <i data-lucide="rss" class="w-6 h-6"></i>
+                </a>
             </div>
-        </main>
-    </div>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Partnership. Playground. Playbooks. <br class="hidden sm:block"/>
+                My public thinking space and experiment logs.
+            </p>
+            <span class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-bold font-mono text-sm group-hover:underline">
+                Read the latest logs <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </span>
+        </div>
 
-    <!-- 視圖區域：3P Zone (目錄) -->
-    <div id="view-3p" class="view-section hidden">
-        <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
-            <div class="mb-12">
-                <h1 class="text-4xl font-bold font-mono tracking-tight mb-4 flex items-center">
-                    3P_ZONE
-                    <a href="#" class="ml-4 text-orange-500 hover:scale-110 transition-transform"><i data-lucide="rss" class="w-6 h-6"></i></a>
-                </h1>
-                <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Partnership. Playground. Playbooks. <br class="hidden sm:block"/>
-                    My public thinking space and experiment logs.
-                </p>
+        <!-- Side Quests -->
+        <div class="mb-16">
+            <div class="flex items-center gap-3 mb-6">
+                <h2 class="text-2xl font-bold font-mono">Side Quests</h2>
             </div>
-
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2 mb-10" id="tags-container">
-                <!-- 標籤將由 JS 動態生成 -->
-            </div>
-
-            <!-- Article List -->
-            <ul class="space-y-6" id="article-list">
-                <!-- 文章列表將由 JS 動態生成 -->
-            </ul>
-        </main>
-    </div>
-
-    <!-- 視圖區域：Article View (文章閱讀) -->
-    <div id="view-article" class="view-section hidden">
-        <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
-            <button onclick="navigateTo('3p')" class="mb-8 flex items-center text-sm font-mono text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
-                <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to 3P Zone
-            </button>
-            
-            <article class="max-w-none">
-                <div class="mb-8 border-b-2 border-slate-300 dark:border-slate-700 pb-8">
-                    <div class="flex items-center space-x-2 font-mono text-sm text-slate-500 dark:text-slate-400 mb-4">
-                        <span id="art-date"></span>
-                        <span>•</span>
-                        <span id="art-tag" class="text-indigo-600 dark:text-emerald-400 font-bold"></span>
+            <p class="text-slate-600 dark:text-slate-400 mb-6">
+                Explorations and audio/visual experiments outside of writing code.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
+                    <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg mr-4">
+                        <i data-lucide="youtube" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
                     </div>
-                    <h1 id="art-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 leading-snug">
-                        <!-- Title here -->
-                    </h1>
-                </div>
-                
-                <div id="art-content" class="text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-                    <!-- Content here -->
-                </div>
-            </article>
-        </main>
-    </div>
+                    <div>
+                        <h3 class="font-bold text-lg font-mono">YouTube Channel</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Visual experiments</p>
+                    </div>
+                </a>
+                <a href="https://podcasts.apple.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
+                    <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg mr-4">
+                        <i data-lucide="mic" class="w-6 h-6 text-indigo-600 dark:text-indigo-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg font-mono">Podcast</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Audio thoughts</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
 
     <!-- 頁尾 Global Footer -->
     <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
@@ -184,7 +157,7 @@
         </div>
     </footer>
 
-    <!-- 主要邏輯與資料 -->
+    <!-- 主要邏輯 -->
     <script>
         // === 1. 初始化環境與圖示 ===
         document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -222,165 +195,6 @@
             }
         }
         initTheme();
-
-        // === 3. 視圖導航邏輯 (SPA 模擬) ===
-        function navigateTo(viewId) {
-            // 隱藏所有視圖
-            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
-            // 顯示目標視圖
-            document.getElementById('view-' + viewId).classList.remove('hidden');
-            
-            // 更新導覽列高亮
-            const navHome = document.getElementById('nav-home');
-            const nav3p = document.getElementById('nav-3p');
-            
-            const activeClass = 'text-indigo-600';
-            const activeDarkClass = 'dark:text-emerald-400';
-            
-            if (viewId === 'home') {
-                navHome.classList.add(activeClass, activeDarkClass);
-                navHome.classList.remove('hover:text-indigo-600', 'dark:hover:text-emerald-400');
-                nav3p.classList.remove(activeClass, activeDarkClass);
-                nav3p.classList.add('hover:text-indigo-600', 'dark:hover:text-emerald-400');
-            } else if (viewId === '3p' || viewId === 'article') {
-                nav3p.classList.add(activeClass, activeDarkClass);
-                nav3p.classList.remove('hover:text-indigo-600', 'dark:hover:text-emerald-400');
-                navHome.classList.remove(activeClass, activeDarkClass);
-                navHome.classList.add('hover:text-indigo-600', 'dark:hover:text-emerald-400');
-            }
-            
-            window.scrollTo(0, 0);
-        }
-
-        // === 4. 文章資料庫 ===
-        const articles = [
-            { 
-                id: 0, date: '2026 Feb 20', title: 'Start Here: The 3P Framework Explained', tag: 'Playbooks', pinned: true,
-                content: `
-                    <div class="space-y-6">
-                        <p>歡迎來到 3P Zone。這套框架是我用來組織專業生涯與知識體系的方法論。</p>
-                        <h3 class="text-2xl font-bold mt-8 text-indigo-500 dark:text-emerald-400">1. Partnership (夥伴關係)</h3>
-                        <p>在這個領域，我們不談零和博弈。我們專注於尋找長期的、正和（Positive-sum）的合作機會。不論是開源社群、商業結盟，還是個人的深度協作。</p>
-                        <h3 class="text-2xl font-bold mt-8 text-indigo-500 dark:text-emerald-400">2. Playground (遊樂場)</h3>
-                        <p>沒有失敗，只有實驗的數據。這裡是試驗新技術（例如 Web3、AI、零知識證明）、新想法的沙盒。不用對營收負責，只對好奇心負責。</p>
-                        <h3 class="text-2xl font-bold mt-8 text-indigo-500 dark:text-emerald-400">3. Playbooks (實戰手冊)</h3>
-                        <p>將偶然的成功轉化為必然的流程。我會在這裡將做過的事情、踩過的坑，整理成可被複製、可被擴展的操作指南（SOP）。</p>
-                    </div>
-                `
-            },
-            { 
-                id: 1, date: '2026 Feb 18', title: 'The Synergy of Open Source Partnerships in Web3', tag: 'Partnership', pinned: false,
-                content: `
-                    <div class="space-y-4">
-                        <p>在 Web3 的世界裡，程式碼是開源的，但「信任」卻是稀缺資源。這篇文章將探討如何在完全透明的環境中，建立無法被輕易分叉（Fork）的深度夥伴關係...</p>
-                        <p>（內容持續建置中...）</p>
-                    </div>
-                `
-            },
-            { id: 2, date: '2026 Jan 05', title: 'A Playbook for Community-Driven Development', tag: 'Playbooks', pinned: false, content: null },
-            { id: 3, date: '2025 Dec 12', title: 'Experimenting with Zero-Knowledge Proofs: My Latest Project', tag: 'Playground', pinned: false, content: null },
-            { id: 4, date: '2025 Nov 20', title: 'Why Playgrounds Matter More Than Resumes', tag: 'Playground', pinned: false, content: null },
-        ];
-
-        // === 5. 渲染 3P_ZONE 文章與標籤 ===
-        const tags = ['All', 'Partnership', 'Playground', 'Playbooks'];
-        let activeTag = 'All';
-
-        function renderTags() {
-            const container = document.getElementById('tags-container');
-            container.innerHTML = '';
-            tags.forEach(tag => {
-                const isActive = activeTag === tag;
-                const activeClasses = 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-[2px_2px_0_0_rgba(15,23,42,1)] dark:shadow-[2px_2px_0_0_rgba(203,213,225,1)]';
-                const inactiveClasses = 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-300';
-                
-                const btn = document.createElement('button');
-                btn.className = `px-4 py-1.5 rounded-full text-sm font-bold font-mono transition-all ${isActive ? activeClasses : inactiveClasses}`;
-                btn.innerText = tag;
-                btn.onclick = () => {
-                    activeTag = tag;
-                    renderTags();
-                    renderArticles();
-                };
-                container.appendChild(btn);
-            });
-        }
-
-        function renderArticles() {
-            const container = document.getElementById('article-list');
-            container.innerHTML = '';
-            
-            let filtered = activeTag === 'All' ? articles : articles.filter(a => a.tag === activeTag);
-            filtered.sort((a, b) => {
-                if (a.pinned && !b.pinned) return -1;
-                if (!a.pinned && b.pinned) return 1;
-                return 0;
-            });
-
-            filtered.forEach(article => {
-                const li = document.createElement('li');
-                li.className = 'flex flex-col sm:flex-row sm:items-baseline group cursor-pointer';
-                li.onclick = () => openArticle(article.id);
-                
-                const pinHtml = article.pinned ? `<i data-lucide="pin" class="w-3 h-3 mr-1.5 text-orange-500 fill-orange-500/20 inline-block"></i>` : '';
-                
-                li.innerHTML = `
-                    <span class="font-mono text-sm text-slate-500 dark:text-slate-400 sm:w-36 shrink-0 mb-1 sm:mb-0 flex items-center">
-                        ${pinHtml} ${article.date}
-                    </span>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">
-                            ${article.title}
-                        </h3>
-                        <span class="inline-block mt-1 text-xs font-bold font-mono text-indigo-500 dark:text-emerald-500 bg-indigo-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded">
-                            ${article.tag}
-                        </span>
-                    </div>
-                `;
-                container.appendChild(li);
-            });
-            lucide.createIcons(); // 重新渲染新加入的圖示
-        }
-
-        // === 6. 開啟單篇文章 ===
-        function openArticle(id) {
-            const article = articles.find(a => a.id === id);
-            if (!article) return;
-
-            document.getElementById('art-title').innerText = article.title;
-            document.getElementById('art-date').innerText = article.date;
-            document.getElementById('art-tag').innerText = article.tag;
-            
-            const contentContainer = document.getElementById('art-content');
-            if (article.content) {
-                contentContainer.innerHTML = article.content;
-            } else {
-                contentContainer.innerHTML = `
-                    <div class="p-8 text-center border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl">
-                        <i data-lucide="book-open" class="w-12 h-12 text-slate-400 mx-auto mb-4 opacity-50 block"></i>
-                        <p class="font-mono text-slate-500 dark:text-slate-400">Content is being forged in the armory...</p>
-                    </div>
-                `;
-            }
-            
-            lucide.createIcons(); // 重新渲染文章內容的圖示
-            navigateTo('article');
-        }
-
-        // 初始化渲染
-        renderTags();
-        renderArticles();
-        
-        // 增加 fadeIn 動畫樣式
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-
     </script>
 </body>
 </html>
