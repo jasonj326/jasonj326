@@ -56,23 +56,25 @@
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
 
     <!-- Navigation -->
-<nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div class="flex space-x-4 sm:space-x-6 items-center ml-4"> <!-- Added ml-4 for rightward shift; adjust as needed -->
-            <!-- Jason_Lai (Active) -->
-            <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-                <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
-            </a>
-            <!-- Main Quest (Inactive) -->
-            <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
-            </a>
-            <!-- Writing on 3P (Inactive) -->
-            <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
-            </a>
-        </div>
-        <div class="flex space-x-4 sm:space-x-6 items-center">
+    <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex space-x-4 sm:space-x-6 items-center">
+        <!-- Jason_Lai (Active) -->
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+        </a>
+        <!-- Main Quest (Inactive) -->
+        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        </a>
+        <!-- Writing on 3P (Inactive) -->
+        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+        </a>
+      </div>
+            <div class="flex space-x-4 sm:space-x-6 items-center">
+ 
+
             <div class="flex items-center space-x-4">
                 <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
                     <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
@@ -80,8 +82,7 @@
                 </button>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Home -->
     <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
