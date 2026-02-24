@@ -59,19 +59,21 @@
     <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex space-x-6 items-center">
+                <!-- Jason_Lai (Active) -->
                 <a href="/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-                    <i data-lucide="terminal" class="w-5 h-5 inline-block mr-2 mb-1"></i>Jason_Lai
+              <i data-lucide="terminal" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
                 </a>
-
-                <!-- 💡 修改這裡：拿掉 /index.html -->
-                <a href="/main-quest/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    Main Quest
-                </a>
-
-                <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    Writing on 3P
-                </a>
-            </div>
+            <!-- Main Quest (Inactive) -->
+            <a href="/main-quest/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+              <i data-lucide="target" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+            </a>
+            <!-- Writing on 3P (Inactive) -->
+            <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+              <i data-lucide="book-open" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+            </a>
+          </div>
+            <div class="flex space-x-4 sm:space-x-6 items-center">
+ 
 
             <div class="flex items-center space-x-4">
                 <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
