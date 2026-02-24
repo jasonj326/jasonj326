@@ -1,99 +1,242 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Main Quest - Jason J. Lai</title>
+
+  <!-- 社群軟體分享預覽縮圖 (Open Graph) -->
+  <meta name="description" content="My overarching goals, roadmap, and actions driving the 10-year vision.">
+  <meta property="og:title" content="Main Quest - Jason J. Lai">
+  <meta property="og:description" content="My overarching goals, roadmap, and actions driving the 10-year vision.">
+  <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+  <meta property="og:url" content="https://jasonjlai.net/main-quest/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 瀏覽器分頁與手機桌面圖示 -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Tailwind & Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { darkMode: 'class' };
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+          }
+      } }
+    }
   </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .game-shadow { box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1); }
+    .dark .game-shadow { box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1); }
+    .game-shadow-hover:hover { box-shadow: 6px 6px 0 0 rgba(15, 23, 42, 1); transform: translateY(-2px); }
+    .dark .game-shadow-hover:hover { box-shadow: 6px 6px 0 0 rgba(203, 213, 225, 1); }
+  </style>
 </head>
-
-<body class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-  <header class="sticky top-0 z-50 border-b border-zinc-200/60 dark:border-zinc-800/60 bg-white/70 dark:bg-zinc-950/60 backdrop-blur">
-    <div class="max-w-4xl mx-auto px-8 py-3 flex items-center justify-between">
-      <a href="/" class="font-mono text-sm font-bold tracking-tight hover:opacity-80">
-        Jason_Lai <span class="opacity-60">Jason</span>
-      </a>
-      <nav class="flex items-center gap-4 text-sm">
-        <a href="/main-quest/" class="hover:opacity-80">Main Quest <span class="opacity-60">Quest</span></a>
-        <a href="/3pwriting/" class="hover:opacity-80">Writing on 3P <span class="opacity-60">3P</span></a>
-        <button id="themeToggle" class="ml-2 rounded-lg border border-zinc-200 dark:border-zinc-800 px-2 py-1 text-xs hover:opacity-80">
-          Theme
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
+  
+  <!-- 導覽列 Navigation -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+       <div class="flex space-x-4 sm:space-x-6 items-center">
+        <!-- Jason_Lai (Inactive) -->
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+        </a>
+        <!-- Main Quest (Active) -->
+        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        </a>
+        <!-- Writing on 3P (Inactive) -->
+        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
+          <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
         </button>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main class="max-w-4xl mx-auto px-8 py-12 space-y-8">
-    <div class="text-sm uppercase tracking-wider opacity-60">Active Mission Log</div>
-
-    <section class="space-y-3">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Main Quest</h1>
-      <p class="opacity-80">
+ 
+  <!-- 內容區塊 Main Content -->
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    
+    <!-- 頁首標題 -->
+    <div class="mb-12">
+      <div class="inline-block px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 dark:text-emerald-900 dark:bg-emerald-400 border-2 border-indigo-900 dark:border-emerald-400 rounded-full mb-4">
+        Active Mission Log
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold font-mono tracking-tight mb-4 flex items-center gap-3">
+        <i data-lucide="target" class="w-10 h-10 text-indigo-600 dark:text-emerald-400"></i>
+        Main Quest
+      </h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
         Tracking the overarching objectives, mid-term roadmaps, and immediate actions driving my 10-year vision.
       </p>
+    </div>
+
+    <!-- Section 1: 2026 In Action -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
+        <i data-lucide="zap" class="w-6 h-6 text-amber-500"></i> 2026 In Action
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        
+        <!-- Task 1 -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg">
+              <i data-lucide="hexagon" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
+            </div>
+            <h3 class="font-bold text-lg font-mono">100 SBT</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Mint and distribute 100 Soul-bound Tokens to map genuine connections and contributions. 
+          </p>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2 bg-rose-100 dark:bg-rose-900/50 rounded-lg">
+              <i data-lucide="activity" class="w-5 h-5 text-rose-600 dark:text-rose-400"></i>
+            </div>
+            <h3 class="font-bold text-lg font-mono">Mind-Body</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Maintain extreme physical and mental readiness through balanced HIIT, Cardio, & Rest.
+          </p>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
+              <i data-lucide="cpu" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
+            </div>
+            <h3 class="font-bold text-lg font-mono">AI-Enhancement</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Integrate Github & Vibe-coding, explore AI-Crypto Synergy, and build Gamification layers.
+          </p>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg">
+              <i data-lucide="mic" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <h3 class="font-bold text-lg font-mono">Comm. Level Up</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Elevate public/improv communication and thought sharing. <i>(Welcome talk invites!)</i>
+          </p>
+        </div>
+
+      </div>
     </section>
 
-    <section class="space-y-4">
-      <h2 class="text-xl font-bold">2026 In Action</h2>
+    <!-- Section 2 & 3: Roadmaps (WIP) -->
+    <div class="grid sm:grid-cols-2 gap-8">
+      
+      <!-- Three-Year Roadmap -->
+      <section>
+        <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
+          <i data-lucide="map" class="w-5 h-5 text-slate-500"></i> Three-Year Roadmap
+        </h2>
+        <div class="p-8 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-center relative overflow-hidden group">
+          <div class="absolute inset-0 bg-slate-200/50 dark:bg-slate-900/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10">
+            <span class="font-mono font-bold text-sm tracking-widest text-slate-600 dark:text-slate-300">FORGING IN PROGRESS...</span>
+          </div>
+          <i data-lucide="hammer" class="w-10 h-10 text-slate-400 mx-auto mb-3 opacity-50"></i>
+          <h3 class="font-bold text-slate-500 dark:text-slate-400 mb-1">Status: WIP</h3>
+          <p class="text-sm text-slate-400 dark:text-slate-500">
+            Plotting the next major milestones. Check back later.
+          </p>
+        </div>
+      </section>
 
-      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2">
-        <h3 class="text-base font-semibold">100 SBT</h3>
-        <p class="opacity-80">Mint and distribute 100 Soul-bound Tokens to map genuine connections and contributions.</p>
-      </div>
+      <!-- 10-Year Vision -->
+      <section>
+        <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
+          <i data-lucide="telescope" class="w-5 h-5 text-slate-500"></i> 10-Year Vision
+        </h2>
+        <div class="p-8 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-center relative overflow-hidden group">
+          <div class="absolute inset-0 bg-slate-200/50 dark:bg-slate-900/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10">
+            <span class="font-mono font-bold text-sm tracking-widest text-slate-600 dark:text-slate-300">CALIBRATING LONG TERM...</span>
+          </div>
+          <i data-lucide="eye" class="w-10 h-10 text-slate-400 mx-auto mb-3 opacity-50"></i>
+          <h3 class="font-bold text-slate-500 dark:text-slate-400 mb-1">Status: WIP</h3>
+          <p class="text-sm text-slate-400 dark:text-slate-500">
+            Defining the ultimate endgame and legacy architecture.
+          </p>
+        </div>
+      </section>
 
-      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2">
-        <h3 class="text-base font-semibold">Mind-Body</h3>
-        <p class="opacity-80">Maintain extreme physical and mental readiness through balanced HIIT, Cardio, &amp; Rest.</p>
-      </div>
-
-      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2">
-        <h3 class="text-base font-semibold">AI-Enhancement</h3>
-        <p class="opacity-80">Integrate Github &amp; Vibe-coding, explore AI-Crypto Synergy, and build Gamification layers.</p>
-      </div>
-
-      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2">
-        <h3 class="text-base font-semibold">Comm. Level Up</h3>
-        <p class="opacity-80">Elevate public/improv communication and thought sharing. (Welcome talk invites!)</p>
-      </div>
-    </section>
-
-    <section class="space-y-3">
-      <h2 class="text-xl font-bold">Three-Year Roadmap</h2>
-      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5">
-        <div class="font-mono text-sm opacity-70">FORGING IN PROGRESS...</div>
-        <div class="mt-2 font-semibold">Status: WIP</div>
-        <p class="mt-2 opacity-80">Plotting the next major milestones. Check back later.</p>
-      </div>
-    </section>
-
-    <section class="space-y-3">
-      <h2 class="text-xl font-bold">10-Year Vision</h2>
-      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5">
-        <div class="font-mono text-sm opacity-70">CALIBRATING LONG TERM...</div>
-        <div class="mt-2 font-semibold">Status: WIP</div>
-        <p class="mt-2 opacity-80">Defining the ultimate endgame and legacy architecture.</p>
-      </div>
-    </section>
-
-    <footer class="pt-10 text-sm opacity-60">© Jason J. Lai. Built with HTML &amp; Tailwind.</footer>
+    </div>
   </main>
 
+  <!-- 頁尾 Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center text-sm font-mono text-slate-500">
+      <p>© <span id="current-year"></span> Jason J. Lai. Built with HTML & Tailwind.</p>
+    </div>
+  </footer>
+
+  <!-- 互動腳本 -->
   <script>
-    (function () {
-      const root = document.documentElement;
-      const saved = localStorage.getItem("theme");
-      if (saved === "light") root.classList.remove("dark");
-      if (saved === "dark") root.classList.add("dark");
-      const btn = document.getElementById("themeToggle");
-      if (!btn) return;
-      btn.addEventListener("click", () => {
-        root.classList.toggle("dark");
-        localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
-      });
-    })();
+    // 設定當前年份
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // 初始化 Lucide 圖示
+    lucide.createIcons();
+    
+    // 深色模式邏輯
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    initTheme();
   </script>
 </body>
 </html>
