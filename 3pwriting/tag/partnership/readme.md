@@ -3,7 +3,7 @@ title: Readme: Jason Lai: A Guide to Working with Me
 date: 2026-02-23
 year: 2026
 slug: readme
-major_tag: playbooks
+major_tag: partnership
 tags:
   - playbooks
   - playgrounds
@@ -11,7 +11,6 @@ tags:
   - y2026
 pinned: true
 summary: This is a living doc helping strengthen our partnership
-hero_image:
 ---
 # Jason Lai: A Guide to Working with Me
 
