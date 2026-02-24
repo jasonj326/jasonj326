@@ -429,10 +429,8 @@ def main():
     posts = []
     all_tags_set = set()
     
-    # 確保 posts 資料夾存在
     ensure_dir(POSTS_DIR)
     
-    # 1. 讀取並轉換所有文章
     for md in POSTS_DIR.glob("*.md"):
         try:
             fm, body = parse_md(md)
@@ -450,11 +448,10 @@ def main():
                 
             pinned = bool(fm.get("pinned", False))
             
-            # 🔥 新增功能：為單篇文章建立精美的 Tags HTML (直接輸出在文章頂部)
+            # 🔥 為單篇文章建立精美的 Tags HTML
             article_tags_html_parts = []
             for t in tags_list:
                 color_class = get_color_for_tag(t)
-                # 這裡產生可點擊的 Tag 連結回到該標籤頁面
                 tag_link = f"/3pwriting/{t.lower()}/"
                 article_tags_html_parts.append(
                     f'<a href="{tag_link}" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">'
@@ -462,7 +459,7 @@ def main():
                 )
             article_tags_html = ' <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> '.join(article_tags_html_parts)
 
-            # 生成文章實體 HTML (直接輸出，避免巢狀)
+            # 生成文章實體 HTML
             out_dir = SITE_DIR / major / date.replace("-", "")
             ensure_dir(out_dir)
             html = HTML_TMPL.replace("{title}", title).replace("{date}", date).replace("{tags_html}", article_tags_html).replace("{content}", markdown.markdown(body, extensions=["fenced_code","tables"]))
@@ -483,24 +480,18 @@ def main():
         except Exception as e:
             print(f"⚠️ Error parsing {md.name}: {e}")
 
-    # 排序：置頂優先，再來依日期新到舊
     posts.sort(key=lambda x: (x["pinned"], x["date"]), reverse=True)
     all_tags = list(all_tags_set)
 
-    # 2. 生成主首頁 (All logs) 與它的分頁
     generate_paginated_list(posts, SITE_DIR, "/3pwriting/", "all", all_tags)
 
-    # 3. 為每一個 Tag 生成專屬目錄與分頁
     for tag in all_tags:
         tag_lower = tag.lower()
         tag_posts = [p for p in posts if any(t.lower() == tag_lower for t in p["tags"])]
-        
         tag_out_dir = SITE_DIR / tag_lower
         tag_url_base = f"/3pwriting/{tag_lower}/"
-        
         generate_paginated_list(tag_posts, tag_out_dir, tag_url_base, tag, all_tags)
 
-    # 4. 生成 RSS Feed
     feed_items = "\n".join([
         ITEM_TMPL.replace("{title}", escape(p["title"])).replace("{link}", p["full_link"]).replace("{pubdate}", rfc2822(p["date"])).replace("{summary}", escape(p["summary"]))
         for p in posts[:20]
