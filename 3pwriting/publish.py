@@ -48,16 +48,16 @@ HTML_TMPL = """<!DOCTYPE html>
     <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex space-x-4 sm:space-x-6 items-center">
         <!-- Jason_Lai (Inactive) -->
-        <a href="/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="terminal" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
         </a>
         <!-- Main Quest (Inactive) -->
-        <a href="/main-quest/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="target" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
         </a>
         <!-- Writing on 3P (Active) -->
-        <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
         </a>
       </div>
       <div class="flex items-center space-x-4">
@@ -198,16 +198,16 @@ INDEX_TMPL = """<!DOCTYPE html>
     <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex space-x-4 sm:space-x-6 items-center">
         <!-- Jason_Lai (Inactive) -->
-        <a href="/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="terminal" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
         </a>
         <!-- Main Quest (Inactive) -->
-        <a href="/main-quest/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="target" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
         </a>
         <!-- Writing on 3P (Active) -->
-        <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
         </a>
       </div>
       <div class="flex items-center space-x-4">
@@ -517,7 +517,7 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
-    print(f"✅ Built {len(posts)} posts. Added explicit icons for unified nav!")
+    print(f"✅ Built {len(posts)} posts. Navigation bar fully flex-aligned!")
 
 if __name__ == "__main__":
     main()
