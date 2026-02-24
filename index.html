@@ -23,12 +23,19 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Chart.js (用於繪製技能雷達圖) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         [x-cloak] { display: none !important; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        /* 用於平滑收合的自訂類別 */
+        .skill-tree-collapsed {
+            display: none;
         }
     </style>
 </head>
@@ -43,7 +50,6 @@
                     <i data-lucide="terminal" class="w-5 h-5 inline-block mr-2 mb-1"></i>Jason_Lai
                 </a>
 
-                <!-- ✅ Swapped order: Main Quest first -->
                 <a href="/10-yearplan/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
                     Main Quest
                 </a>
@@ -65,7 +71,7 @@
     <!-- Home -->
     <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
 
-        <!-- Hero -->
+        <!-- 1. Hero (主角登場) -->
         <div class="mb-12">
             <h1 class="text-4xl font-bold font-mono tracking-tight mb-4">Jason J. Lai</h1>
             <p class="text-xl text-slate-600 dark:text-slate-400 mb-6 font-semibold">Web3 Legal Builder & Explorer</p>
@@ -85,7 +91,17 @@
             </div>
         </div>
 
-        <!-- Main Quest -->
+        <!-- 2. Game Definition Quote -->
+        <div class="mb-14 pl-6 border-l-4 border-indigo-600 dark:border-emerald-400 group cursor-pointer" onclick="window.open('https://www.etymonline.com/word/game', '_blank')">
+            <h2 class="text-2xl font-bold font-mono mb-2 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                game (n.) <i data-lucide="external-link" class="w-5 h-5 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors"></i>
+            </h2>
+            <p class="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed italic">
+                c. 1200, from Old English <span class="font-bold">gamen</span> "joy, fun; game, amusement," ... giving a sense of "people together."
+            </p>
+        </div>
+
+        <!-- 3. Main Quest -->
         <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12">
             <div class="flex items-center gap-3 mb-4">
                 <i data-lucide="target" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
@@ -101,7 +117,7 @@
             </a>
         </div>
 
-        <!-- Writing on 3P -->
+        <!-- 4. Writing on 3P -->
         <div onclick="navigateTo('/3pwriting/')" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[10px_10px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer group">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-3">
@@ -123,7 +139,73 @@
             </span>
         </div>
 
-        <!-- Side Quests -->
+        <!-- 5. Skill Tree & README (上下排列) -->
+        <div class="mb-14">
+            <!-- Header (點擊整條皆可收合) -->
+            <div class="flex items-center justify-between mb-6 cursor-pointer group" onclick="toggleSkillTree()">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="swords" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
+                    <h2 class="text-2xl font-bold font-mono group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Skill Tree & README</h2>
+                </div>
+                <button aria-label="Toggle Skill Tree" class="p-2 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-indigo-100 dark:group-hover:bg-emerald-900/30 transition-colors">
+                    <i data-lucide="chevron-up" id="skill-tree-chevron" class="w-5 h-5 text-slate-600 dark:text-slate-400 transition-transform duration-300"></i>
+                </button>
+            </div>
+            
+            <!-- 內容區塊 (Flex 上下排列) -->
+            <div id="skill-tree-content" class="transition-opacity duration-300 opacity-100">
+                <div class="flex flex-col gap-6">
+                    
+                    <!-- 上方：雷達圖卡片 (縮小卡片內距，放大圖表容器) -->
+                    <div onclick="navigateTo('/skilltree.html')" class="p-4 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[10px_10px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer group relative flex flex-col items-center justify-center">
+                        
+                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 text-indigo-600 dark:text-emerald-400 font-bold font-mono text-sm flex items-center group-hover:underline z-10">
+                            Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+
+                        <!-- Chart Container (放大高度且加寬，讓圖表能盡情伸展) -->
+                        <div class="w-full max-w-[400px] sm:max-w-[550px] h-[300px] sm:h-[420px] relative pointer-events-none mt-6 sm:mt-0">
+                            <canvas id="skillRadarChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 下方：README 工作手冊 (精華摘錄) -->
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-900 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(99,102,241,1)] dark:shadow-[8px_8px_0_0_rgba(52,211,153,1)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <i data-lucide="book-open" class="w-6 h-6 text-indigo-400 dark:text-emerald-600"></i>
+                                <h3 class="text-xl font-bold font-mono">Working Style</h3>
+                            </div>
+                            
+                            <div class="space-y-6 font-mono text-sm leading-relaxed">
+                                <div>
+                                    <div class="text-indigo-400 dark:text-emerald-600 font-bold mb-1">> ROLE & PHILOSOPHY</div>
+                                    <p class="text-slate-300 dark:text-slate-700">Builder-First. Transforming regulatory fog into deployment velocity. Finding the sweet spot of commercial feasibility, tech efforts, and compliance.</p>
+                                </div>
+                                <div>
+                                    <div class="text-indigo-400 dark:text-emerald-600 font-bold mb-1">> COMMUNICATION</div>
+                                    <p class="text-slate-300 dark:text-slate-700">Async-first for deep analysis. Sync (DM/Call) for quick gut-checks and firefighting.</p>
+                                </div>
+                                <div>
+                                    <div class="text-indigo-400 dark:text-emerald-600 font-bold mb-1">> EMBRACE THE GRAY</div>
+                                    <p class="text-slate-300 dark:text-slate-700">Perfect clarity doesn't exist. I underwrite risk, push into gray zones, and give founders the confidence to ship.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 完整 README 連結 -->
+                        <div class="mt-8 pt-5 border-t border-slate-700 dark:border-slate-300">
+                            <a href="/3pwriting/partnership/20260224/readme.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 dark:text-emerald-600 font-bold font-mono text-sm hover:underline transition-all">
+                                Read Full README <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Side Quests (改為 3 欄並排) -->
         <div class="mb-16">
             <div class="flex items-center gap-3 mb-6">
                 <h2 class="text-2xl font-bold font-mono">Side Quests</h2>
@@ -131,37 +213,61 @@
             <p class="text-slate-600 dark:text-slate-400 mb-6">
                 Explorations and audio/visual experiments outside of writing code.
             </p>
-            <div class="grid sm:grid-cols-2 gap-6">
-                <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
-                    <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg mr-4">
-                        <i data-lucide="youtube" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
+            
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 border-2 border-slate-900 dark:border-slate-300 rounded-2xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[6px_6px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer text-center group">
+                    <div class="p-4 bg-red-100 dark:bg-red-900/30 rounded-full mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="youtube" class="w-8 h-8 text-red-600 dark:text-red-400"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-lg font-mono">YouTube Channel</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Visual experiments</p>
-                    </div>
+                    <h3 class="font-bold text-lg font-mono mb-1">YouTube</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-mono">Visual experiments</p>
                 </a>
 
-                <!-- ✅ Podcast now opens a modal instead of external link -->
-                <button type="button" onclick="openPodcastModal()" class="w-full text-left flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
-                    <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg mr-4">
-                        <i data-lucide="mic" class="w-6 h-6 text-indigo-600 dark:text-indigo-400"></i>
+                <!-- Podcast -->
+                <button type="button" onclick="openPodcastModal()" class="w-full flex flex-col items-center justify-center p-6 border-2 border-slate-900 dark:border-slate-300 rounded-2xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[6px_6px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer text-center group">
+                    <div class="p-4 bg-indigo-100 dark:bg-indigo-900/30 rounded-full mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mic" class="w-8 h-8 text-indigo-600 dark:text-indigo-400"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-lg font-mono">Podcast</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Audio thoughts</p>
-                    </div>
+                    <h3 class="font-bold text-lg font-mono mb-1">Podcast</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-mono">Audio thoughts</p>
                 </button>
+
+                <!-- 日本語學習 -->
+                <a href="https://jasonjlai.net/learningjp.html" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 border-2 border-slate-900 dark:border-slate-300 rounded-2xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[6px_6px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer text-center group">
+                    <div class="p-4 bg-pink-100 dark:bg-pink-900/30 rounded-full mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="languages" class="w-8 h-8 text-pink-600 dark:text-pink-400"></i>
+                    </div>
+                    <h3 class="font-bold text-lg font-mono mb-1">日本語學習</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-mono">Language quest</p>
+                </a>
             </div>
         </div>
+
+        <!-- 7. Initiate Co-op Mode (尋找隊友) -->
+        <div class="mt-8 p-8 sm:p-10 rounded-2xl bg-indigo-50 dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] text-center relative overflow-hidden group">
+            <div class="absolute -right-8 -top-8 opacity-[0.03] dark:opacity-[0.05] group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 pointer-events-none">
+                <i data-lucide="users" class="w-64 h-64 text-slate-900 dark:text-white"></i>
+            </div>
+            
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold font-mono mb-4 flex justify-center items-center gap-3">
+                    <i data-lucide="sparkles" class="w-8 h-8 text-amber-500"></i> Initiate Co-op Mode
+                </h2>
+                <p class="text-lg text-slate-700 dark:text-slate-300 mb-8 max-w-xl mx-auto font-medium leading-relaxed">
+                    Got an interesting quest? Need a Legal Builder to navigate the Web3 & AI maze together? Let's form a party.
+                </p>
+                <a href="https://calendar.app.google/oymK9gSMyFx4K4oBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-lg rounded-xl border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[4px_4px_0_0_rgba(203,213,225,0.5)] transition-all">
+                    <i data-lucide="calendar-plus" class="w-5 h-5"></i> Book a Co-op Session
+                </a>
+            </div>
+        </div>
+
     </main>
 
-    <!-- ✅ Podcast Modal -->
+    <!-- Podcast Modal -->
     <div id="podcast-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-        <!-- backdrop -->
         <div class="absolute inset-0 bg-black/50" onclick="closePodcastModal()"></div>
-
-        <!-- dialog -->
         <div class="relative max-w-lg mx-auto mt-24 px-6 animate-[fadeIn_0.2s_ease-out]">
             <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)]">
                 <div class="flex items-start justify-between gap-4 mb-4">
@@ -174,11 +280,8 @@
                     </button>
                 </div>
 
-                <p class="text-slate-600 dark:text-slate-400 mb-6">
-                    Choose your platform:
-                </p>
+                <p class="text-slate-600 dark:text-slate-400 mb-6">Choose your platform:</p>
 
-                <!-- ✅ Beautiful Icons for Podcast Links -->
                 <div class="space-y-4">
                     <a href="https://open.spotify.com/show/2W7ujlF7jaoocrA6A1gwQV?si=ca0b4294325d4158" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-green-500 dark:hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all group">
                         <div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg mr-4 group-hover:bg-green-200 dark:group-hover:bg-green-800/50 transition-colors">
@@ -206,8 +309,7 @@
                 </div>
 
                 <div class="mt-6 flex justify-end">
-                    <button type="button" onclick="closePodcastModal()"
-                            class="px-4 py-2 rounded-lg border-2 border-slate-900 dark:border-slate-300 font-mono font-bold hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,1)] transition-all">
+                    <button type="button" onclick="closePodcastModal()" class="px-4 py-2 rounded-lg border-2 border-slate-900 dark:border-slate-300 font-mono font-bold hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,1)] transition-all">
                         Close
                     </button>
                 </div>
@@ -230,6 +332,97 @@
         const htmlElement = document.documentElement;
         const iconSun = document.getElementById('icon-sun');
         const iconMoon = document.getElementById('icon-moon');
+        
+        let radarChartInstance = null;
+
+        // 繪製與更新雷達圖
+        function renderRadarChart() {
+            try {
+                const canvas = document.getElementById('skillRadarChart');
+                if (!canvas) return; // 防呆機制，確保 canvas 存在才執行
+                
+                const ctx = canvas.getContext('2d');
+                const isDark = htmlElement.classList.contains('dark');
+                
+                // 根據深色/淺色模式定義顏色
+                const gridColor = isDark ? 'rgba(203, 213, 225, 0.2)' : 'rgba(15, 23, 42, 0.1)'; 
+                const labelColor = isDark ? '#cbd5e1' : '#475569'; 
+                const fillColor = isDark ? 'rgba(52, 211, 153, 0.4)' : 'rgba(79, 70, 229, 0.4)'; 
+                const strokeColor = isDark ? '#34d399' : '#4f46e5'; 
+
+                if (radarChartInstance) {
+                    radarChartInstance.destroy(); // 重新繪製前先銷毀舊的
+                }
+
+                radarChartInstance = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        // 💡 關鍵修復：將長單字用陣列 ['字1', '字2'] 包起來讓它強制折行，圖表就不會因為太寬而被壓縮！
+                        labels: ['Communication', 'Execution', ['AI-', 'Enhancement'], 'Crypto', 'Legal', ['Systems', 'Thinking']],
+                        datasets: [{
+                            label: 'Skill Level',
+                            // 嚴格對應數值：5, 5, 6, 6.5, 7, 7
+                            data: [5, 5, 6, 6.5, 7, 7], 
+                            backgroundColor: fillColor,
+                            borderColor: strokeColor,
+                            borderWidth: 2,
+                            pointBackgroundColor: strokeColor,
+                            pointBorderColor: isDark ? '#1e293b' : '#ffffff',
+                            pointHoverBackgroundColor: '#ffffff',
+                            pointHoverBorderColor: strokeColor,
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        layout: {
+                            // 💡 關鍵修復：加入 padding，讓外圈的字絕對不會撞到畫布邊緣被吃掉
+                            padding: 15
+                        },
+                        scales: {
+                            r: {
+                                // 強制設定最大與最小值，解決圖表比例失真問題
+                                min: 0,
+                                max: 10,
+                                angleLines: { color: gridColor },
+                                grid: { color: gridColor, circular: true },
+                                pointLabels: {
+                                    color: labelColor,
+                                    font: { family: 'ui-monospace, SFMono-Regular, monospace', size: 14, weight: 'bold' } 
+                                },
+                                ticks: { display: false, stepSize: 2 } 
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { enabled: false } 
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("雷達圖渲染錯誤:", error);
+            }
+        }
+
+        // Skill Tree 收合邏輯
+        let isSkillTreeOpen = true;
+        function toggleSkillTree() {
+            isSkillTreeOpen = !isSkillTreeOpen;
+            const content = document.getElementById('skill-tree-content');
+            const chevron = document.getElementById('skill-tree-chevron');
+
+            if (isSkillTreeOpen) {
+                content.classList.remove('skill-tree-collapsed');
+                setTimeout(() => { content.style.opacity = '1'; }, 10);
+                chevron.classList.remove('rotate-180');
+            } else {
+                content.style.opacity = '0';
+                setTimeout(() => { content.classList.add('skill-tree-collapsed'); }, 300); // 等待淡出動畫結束
+                chevron.classList.add('rotate-180');
+            }
+        }
 
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
@@ -242,6 +435,8 @@
                 iconSun.classList.remove('hidden');
                 iconMoon.classList.add('hidden');
             }
+            // 延遲一點點繪製圖表，確保 DOM 已經準備好
+            setTimeout(renderRadarChart, 50);
         }
 
         function toggleTheme() {
@@ -256,11 +451,12 @@
                 iconSun.classList.remove('hidden');
                 iconMoon.classList.add('hidden');
             }
+            renderRadarChart();
         }
 
         initTheme();
 
-        // ✅ 安全的導航跳轉 (避免預覽環境報錯)
+        // 安全跳轉
         function navigateTo(path) {
             try {
                 if (window.location.protocol === 'blob:' || window.location.origin === 'null' || !window.location.host) {
@@ -269,7 +465,7 @@
                 }
                 window.location.href = path;
             } catch (error) {
-                console.warn('跳轉被瀏覽器安全機制阻擋:', error);
+                console.warn('跳轉被阻擋:', error);
             }
         }
 
@@ -291,12 +487,11 @@
             document.body.style.overflow = '';
         }
 
-        // ESC to close modal
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closePodcastModal();
         });
 
-        // ✅ fetch latest post title from RSS and render it on Home card
+        // RSS Fetch
         async function loadLatest3P() {
             const el = document.getElementById('latest-3p');
             if (!el) return;
@@ -320,7 +515,7 @@
                 el.style.cursor = 'pointer';
                 el.onclick = (e) => {
                     e.stopPropagation();
-                    navigateTo(safeLink); // ✅ 使用安全跳轉
+                    navigateTo(safeLink);
                 };
 
                 lucide.createIcons();
@@ -329,7 +524,7 @@
                 el.style.cursor = 'pointer';
                 el.onclick = (ev) => {
                     ev.stopPropagation();
-                    navigateTo('/3pwriting/'); // ✅ 使用安全跳轉
+                    navigateTo('/3pwriting/');
                 };
                 lucide.createIcons();
             }
