@@ -1,5 +1,5 @@
 ---
-title: Workhorse
+title: Readme: Jason Lai: A Guide to Working with Me
 date: 2026-02-23
 year: 2026
 slug: readme
