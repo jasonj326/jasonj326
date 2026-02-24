@@ -12,8 +12,6 @@ tags:
 pinned: true
 summary: This is a living doc helping strengthen our partnership
 ---
-# Jason Lai: A Guide to Working with Me
-
 This is a living document inspired by the transparent culture of open-source communities. My goal here is to accelerate our working relationship by being upfront about my communication style, my professional philosophy, my quirks, and my values.
 
 ## 🎯 My Role
