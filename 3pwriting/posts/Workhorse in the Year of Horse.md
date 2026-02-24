@@ -42,4 +42,4 @@ And more importantly, have fun down the road with our very limited time on earth
 
 Reach out. Help me help you.
 
-Adapted from Day 8 of my [30-day AI x N Sprint] (https://substack.com/profile/103204388-jason-j-lai/note/c-218941632).
+Adapted from Day 8 of my [30-day AI x N Sprint](https://substack.com/profile/103204388-jason-j-lai/note/c-218941632).
