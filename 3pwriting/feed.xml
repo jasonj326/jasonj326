@@ -1,23 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
-     xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Writing on 3P — Jason J. Lai</title>
-    <link>https://jasonjlai.net/3pwriting/</link>
-    <description>Partnership. Playground. Playbooks. — Jason’s public thinking space and experiment logs.</description>
-    <language>zh-TW</language>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://jasonjlai.net/3pwriting/feed.xml" rel="self" type="application/rss+xml" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>3P Writing</title>
+<link>https://jasonjlai.net/3pwriting/</link>
+<description>Latest posts</description>
+<item>
+<title>Readme-A Guide to Working with Me</title>
+<link>https://jasonjlai.net/3pwriting/partnership/20260223/readme.html</link>
+<guid>https://jasonjlai.net/3pwriting/partnership/20260223/readme.html</guid>
+<pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+<description>This is a living doc helping strengthen our partnership</description>
+</item>
 
-    <item>
-      <title>Workhorse</title>
-      <link>https://jasonjlai.net/3pwriting/playbooks/20260223/workhorse.html</link>
-      <guid isPermaLink="true">https://jasonjlai.net/3pwriting/playbooks/20260223/workhorse.html</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0800</pubDate>
-      <description><![CDATA[
-In 2026 AI has arrived, as crypto is provisionally bearish, tech, legal, and capital are reshaping the reality...
-      ]]></description>
-    </item>
-
-  </channel>
+</channel>
 </rss>
