@@ -16,7 +16,7 @@ In the Year of Horse, with inevitable incoming waves of AI, help me help you as 
 
 ### It is the best of times. Period.
 
-In the past 43 days entering into 2026, I have created a [demo website](https://jasonj326.github.io/variant-application-b7e3st/) as part of my application for my dream position at Variant Fund (🤞), learned the structure of Git/GitHub by transitioning my website from Google Site, while starting my Japanese-learning journey and celebrating lunar new year with my family, and currently building [ the 10-year plan ](/main-quest/index.html) with a self-started 30-day AI x N sprint.
+In the past 55 days entering into 2026, I have created a [demo website](https://jasonj326.github.io/variant-application-b7e3st/) as part of my application for my dream position at Variant Fund (🤞), learned the structure of Git/GitHub by transitioning my website from Google Site (this article is me trying to put pieces together in Markdown), while starting my Japanese-learning journey and celebrating lunar new year with my family, and currently building [the 10-year plan](/main-quest/index.html) with a self-started 30-day AI x N sprint.
 
 ![Alt text](/assets/images/202602/workhorse.png)
 
