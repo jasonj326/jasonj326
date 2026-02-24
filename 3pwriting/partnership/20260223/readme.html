@@ -1,23 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="zh-TW" class="dark">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Readme-A Guide to Working with Me</title>
+<title>Readme-A Guide to Working with Me - Jason J. Lai</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 <script>
     tailwind.config = { darkMode: 'class' }
 </script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+</style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen py-12 px-6 transition-colors duration-300">
-<main class="max-w-3xl mx-auto">
-    <a href="/3pwriting/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-mono font-bold mb-8 hover:underline">
-        &larr; Back to 3P Writing
-    </a>
-    <article class="prose prose-slate dark:prose-invert max-w-none font-sans">
-        <h1>Readme-A Guide to Working with Me</h1>
-        <p class="font-mono text-sm text-slate-500 not-prose mb-8">> 2026-02-23 · [partnership]</p>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  
+  <!-- 導覽列 Navigation -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex space-x-6 items-center">
+        <a href="/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="arrow-left" class="w-5 h-5 inline-block mr-1 mb-1"></i>Main_Quest
+        </a>
+        <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-2 mb-1"></i>3P_Writing
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
+          <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文章主體 -->
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <h1 class="mb-6 tracking-tight">Readme-A Guide to Working with Me</h1>
+        
+        <!-- 文章 Metadata (日期與所有 Tags) -->
+        <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+          <span class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-02-23</span>
+          <span class="text-slate-300 dark:text-slate-700">|</span>
+          <div class="flex flex-wrap items-center">
+             <a href="/3pwriting/playbooks/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-blue-500"></span>playbooks</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a>
+          </div>
+        </div>
+        
+        <!-- Markdown 轉換後的內容 -->
         <h1>Jason Lai: A Guide to Working with Me</h1>
 <p>This is a living document inspired by the transparent culture of open-source communities. My goal here is to accelerate our working relationship by being upfront about my communication style, my professional philosophy, my quirks, and my values.</p>
 <h2>🎯 My Role</h2>
@@ -50,6 +84,51 @@
 <p>Note: This README is a living document. As I learn, grow, and adapt, this guide will evolve alongside me.</p>
 <p>[Last update: February 23, 2026]</p>
     </article>
-</main>
+  </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center text-sm font-mono text-slate-500">
+      <p>© <span id="current-year"></span> Jason J. Lai. Built with Python & Tailwind.</p>
+    </div>
+  </footer>
+
+  <!-- 互動腳本 -->
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    initTheme();
+  </script>
 </body>
 </html>

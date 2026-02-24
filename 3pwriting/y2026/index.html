@@ -32,6 +32,7 @@
     .tag-btn.active { box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1); }
     .dark .tag-btn.active { box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1); }
     
+    /* Active colors */
     .tag-btn.active.tag-all { background-color: rgb(15 23 42); color: white; border-color: rgb(15 23 42); }
     .dark .tag-btn.active.tag-all { background-color: rgb(241 245 249); color: rgb(15 23 42); border-color: rgb(241 245 249); }
     .tag-btn.active.tag-playbooks { background-color: rgb(37 99 235); color: white; border-color: rgb(30 64 175); }
@@ -40,6 +41,7 @@
     .dark .tag-btn.active.tag-partnership { border-color: rgb(52 211 153); }
     .tag-btn.active.tag-playgrounds { background-color: rgb(217 119 6); color: white; border-color: rgb(146 64 14); }
     .dark .tag-btn.active.tag-playgrounds { border-color: rgb(251 191 36); }
+    /* Default active for unknown tags like 2026 */
     .tag-btn.active { background-color: rgb(124 58 237); color: white; border-color: rgb(91 33 182); }
     .dark .tag-btn.active { border-color: rgb(167 139 250); }
   </style>
@@ -79,6 +81,7 @@
       </p>
     </div>
 
+    <!-- 動態生成的實體連結標籤 -->
     <div class="flex flex-wrap gap-3 mb-8">
       <a href="/3pwriting/" class="tag-btn  tag-all"><i data-lucide="layers" class="w-4 h-4"></i> All Logs</a>
 <a href="/3pwriting/playbooks/" class="tag-btn  tag-playbooks"><i data-lucide="book-open" class="w-4 h-4"></i> Playbooks</a>
@@ -89,6 +92,7 @@
 
     <hr class="border-2 border-slate-900 dark:border-slate-700 mb-8 rounded-full" />
 
+    <!-- 文章列表 -->
     <div class="space-y-6">
       
       <article class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow game-shadow-hover transition-all cursor-pointer group"
@@ -114,6 +118,7 @@
 
     </div>
 
+    <!-- 分頁按鈕 -->
     
   </main>
 
