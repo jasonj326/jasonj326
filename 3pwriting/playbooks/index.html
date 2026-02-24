@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="dark">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3P Writing - Jason J. Lai</title>
+  
+  <!-- 列表頁預設 SEO 與社群縮圖 (OG:Image 固定為 og-cover.jpeg) -->
+  <meta name="description" content="My public thinking space and experiment logs.">
+  <meta property="og:title" content="3P Writing - Jason J. Lai">
+  <meta property="og:description" content="My public thinking space and experiment logs.">
+  <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+  <meta property="og:url" content="https://jasonjlai.net/3pwriting/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -41,7 +55,6 @@
     .dark .tag-btn.active.tag-partnership { border-color: rgb(52 211 153); }
     .tag-btn.active.tag-playgrounds { background-color: rgb(217 119 6); color: white; border-color: rgb(146 64 14); }
     .dark .tag-btn.active.tag-playgrounds { border-color: rgb(251 191 36); }
-    /* Default active for unknown tags like 2026 */
     .tag-btn.active { background-color: rgb(124 58 237); color: white; border-color: rgb(91 33 182); }
     .dark .tag-btn.active { border-color: rgb(167 139 250); }
   </style>
@@ -95,6 +108,28 @@
     <!-- 文章列表 -->
     <div class="space-y-6">
       
+      <article class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow game-shadow-hover transition-all cursor-pointer group"
+               onclick="navigateTo('/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html')">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-3">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <span class="text-sm font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">
+              2026-02-24
+            </span>
+            <div class="flex flex-wrap items-center">
+              <a href="/3pwriting/playbooks/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-blue-500"></span>playbooks</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase px-2 py-1 rounded border-2 border-slate-900 dark:border-slate-300 bg-white/80 dark:bg-slate-900/60"><i data-lucide="pin" class="w-4 h-4"></i> Pinned</span>
+        </div>
+        <h2 class="text-2xl font-bold font-mono mb-3 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">
+          Workhorse in the Year of Horse
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          Help me help you as a workhorse in the year of Horse
+        </p>
+      </article>
+
+
       <article class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow game-shadow-hover transition-all cursor-pointer group"
                onclick="navigateTo('/3pwriting/partnership/20260223/readme.html')">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-3">
