@@ -47,7 +47,7 @@
                     Writing on 3P
                 </a>
 
-                <!-- ✅ NEW: 10-Year Plan link -->
+                <!-- 10-Year Plan link -->
                 <a href="/10-yearplan/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
                     Main Quest
                 </a>
@@ -79,7 +79,7 @@
                 <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
                     <i data-lucide="linkedin" class="w-5 h-5"></i>
                 </a>
-                <a href="mailto:jason@jasonjlai.net" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
+                <a href="mailto:hello@jasonjlai.net" class="p-3 bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-100 dark:hover:bg-emerald-900/30 transition-colors">
                     <i data-lucide="mail" class="w-5 h-5"></i>
                 </a>
             </div>
@@ -96,7 +96,6 @@
                 Build a connected tribe surfing on the incoming wave of AI & Crypto 
             </p>
 
-            <!-- ✅ CHANGED: href from # to /10-yearplan/ -->
             <a href="/10-yearplan/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
                 View Roadmap <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
             </a>
@@ -118,8 +117,10 @@
                 Partnership. Playground. Playbooks. <br class="hidden sm:block"/>
                 My public thinking space and experiment logs.
             </p>
-            <span class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-bold font-mono text-sm group-hover:underline">
-                Read the latest logs <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+
+            <!-- ✅ CHANGED: this line now gets latest post title from /3pwriting/feed.xml -->
+            <span id="latest-3p" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-bold font-mono text-sm group-hover:underline break-all">
+                Latest: loading… <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>
             </span>
         </div>
 
@@ -132,7 +133,7 @@
                 Explorations and audio/visual experiments outside of writing code.
             </p>
             <div class="grid sm:grid-cols-2 gap-6">
-                <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
+                <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)] hover:-translate-y-1 transition-transform cursor-pointer">
                     <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg mr-4">
                         <i data-lucide="youtube" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
                     </div>
@@ -157,13 +158,8 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
-        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center text-sm font-mono text-slate-500">
-            <p>© <span id="current-year"></span> Jason Lai. Built with HTML & Tailwind.</p>
-            <div class="flex space-x-6 mt-4 sm:mt-0">
-                <a href="https://twitter.com/你的推特" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-emerald-400">Twitter</a>
-                <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-emerald-400">GitHub</a>
-                <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-emerald-400">LinkedIn</a>
-            </div>
+        <div class="max-w-4xl mx-auto px-6 flex justify-center items-center text-sm font-mono text-slate-500">
+            <p>© <span id="current-year"></span> Jason J. Lai</p>
         </div>
     </footer>
 
@@ -204,6 +200,60 @@
         }
 
         initTheme();
+
+        // ✅ NEW: fetch latest post title from RSS and render it on Home card
+        async function loadLatest3P() {
+            const el = document.getElementById('latest-3p');
+            if (!el) return;
+
+            try {
+                const res = await fetch('/3pwriting/feed.xml', { cache: 'no-store' });
+                if (!res.ok) throw new Error('feed fetch failed');
+                const text = await res.text();
+
+                const xml = new DOMParser().parseFromString(text, 'application/xml');
+                const item = xml.querySelector('channel > item');
+                if (!item) throw new Error('no item');
+
+                const title = (item.querySelector('title')?.textContent || '').trim();
+                const link = (item.querySelector('link')?.textContent || '').trim();
+
+                const safeTitle = title || 'Latest post';
+                const safeLink = link || '/3pwriting/';
+
+                // Keep same visual style; just swap the text content
+                el.innerHTML = `Latest: ${escapeHtml(safeTitle)} <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>`;
+
+                // Make the line clickable to the latest post (without breaking the card click)
+                el.style.cursor = 'pointer';
+                el.onclick = (e) => {
+                    e.stopPropagation();
+                    window.location.href = safeLink;
+                };
+
+                lucide.createIcons();
+            } catch (e) {
+                // Fallback: keep it simple, still useful
+                el.innerHTML = `Latest: (see all posts) <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>`;
+                el.style.cursor = 'pointer';
+                el.onclick = (ev) => {
+                    ev.stopPropagation();
+                    window.location.href = '/3pwriting/';
+                };
+                lucide.createIcons();
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#039;');
+        }
+
+        loadLatest3P();
     </script>
 </body>
 </html>
