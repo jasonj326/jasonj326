@@ -8,19 +8,29 @@ POSTS_DIR = ROOT / "posts"
 SITE_DIR = ROOT
 SITE_URL = "https://jasonjlai.net"
 
+# 加入 Tailwind CSS 與 Typography 插件，讓產出的文章頁面直接變美！
 HTML_TMPL = """<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{title}</title>
-<link rel="stylesheet" href="/assets/site.css"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = {{ darkMode: 'class' }}
+</script>
 </head>
-<body>
-<main class="post">
-<h1>{title}</h1>
-<p class="meta">{date} · {major_tag}</p>
-<article>{content}</article>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen py-12 px-6 transition-colors duration-300">
+<main class="max-w-3xl mx-auto">
+    <a href="/3pwriting/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-mono font-bold mb-8 hover:underline">
+        &larr; Back to 3P Writing
+    </a>
+    <article class="prose prose-slate dark:prose-invert max-w-none font-sans">
+        <h1>{title}</h1>
+        <p class="font-mono text-sm text-slate-500 not-prose mb-8">> {date} · [{major_tag}]</p>
+        {content}
+    </article>
 </main>
 </body>
 </html>
@@ -81,7 +91,8 @@ def main():
     for md in POSTS_DIR.glob("*.md"):
         fm, body = parse_md(md)
         title = fm["title"]
-        date = fm["date"]
+        # 💡 修正 1: 強制轉為字串，避免 yaml.safe_load 解析成 datetime.date 物件導致後續 replace 失敗
+        date = str(fm["date"]) 
         slug = fm.get("slug") or re.sub(r"[^a-z0-9\-]+", "-", title.lower()).strip("-")
         major = fm["major_tag"]
         summary = fm.get("summary","")
@@ -91,6 +102,7 @@ def main():
             title=title,
             date=date,
             major_tag=major,
+            # 加入 fenced_code 和 tables 套件支援更多 MD 語法
             content=markdown.markdown(body, extensions=["fenced_code","tables"])
         )
         out_path = out_dir / f"{slug}.html"
