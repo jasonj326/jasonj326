@@ -10,7 +10,7 @@ SITE_DIR = ROOT
 SITE_URL = "https://jasonjlai.net"
 POSTS_PER_PAGE = 30 # 設定每頁顯示 30 篇文章
 
-# 1. 單篇文章的 HTML 模板 (lang="en", 包含完美圖示與動態縮圖)
+# 1. 單篇文章的 HTML 模板
 HTML_TMPL = """<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -46,12 +46,18 @@ HTML_TMPL = """<!DOCTYPE html>
   
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex space-x-6 items-center">
+      <div class="flex space-x-4 sm:space-x-6 items-center">
+        <!-- Jason_Lai (Inactive) -->
         <a href="/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="arrow-left" class="w-5 h-5 inline-block mr-1 mb-1"></i>Main_Quest
+          <i data-lucide="terminal" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
         </a>
+        <!-- Main Quest (Inactive) -->
+        <a href="/main-quest/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        </a>
+        <!-- Writing on 3P (Active) -->
         <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-2 mb-1"></i>3P_Writing
+          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
         </a>
       </div>
       <div class="flex items-center space-x-4">
@@ -125,7 +131,7 @@ HTML_TMPL = """<!DOCTYPE html>
 </html>
 """
 
-# 2. 3P Writing 首頁/標籤頁/分頁的共用 HTML 模板 (lang="en")
+# 2. 3P Writing 首頁/標籤頁/分頁的共用 HTML 模板
 INDEX_TMPL = """<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -190,12 +196,18 @@ INDEX_TMPL = """<!DOCTYPE html>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex space-x-6 items-center">
+      <div class="flex space-x-4 sm:space-x-6 items-center">
+        <!-- Jason_Lai (Inactive) -->
         <a href="/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="arrow-left" class="w-5 h-5 inline-block mr-1 mb-1"></i>Main_Quest
+          <i data-lucide="terminal" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
         </a>
+        <!-- Main Quest (Inactive) -->
+        <a href="/main-quest/" class="font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        </a>
+        <!-- Writing on 3P (Active) -->
         <a href="/3pwriting/" class="font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-2 mb-1"></i>3P_Writing
+          <i data-lucide="book-open" class="w-5 h-5 inline-block mr-1 sm:mr-2 mb-1"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
         </a>
       </div>
       <div class="flex items-center space-x-4">
@@ -444,7 +456,6 @@ def main():
             for t in tags_list: all_tags_set.add(t)
             pinned = bool(fm.get("pinned", False))
             
-            # 🔥 優先抓取 Markdown 內文的 `image: `，若沒有則使用預設的 og-cover.jpeg 兜底
             article_image = fm.get("image")
             if article_image:
                 if article_image.startswith("/"):
@@ -465,7 +476,6 @@ def main():
                 article_tags_html_parts.append(f'<a href="{tag_link}" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full {color_class}"></span>{t}</a>')
             article_tags_html = ' <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> '.join(article_tags_html_parts)
 
-            # 生成文章實體 HTML
             out_dir = SITE_DIR / major / date.replace("-", "")
             ensure_dir(out_dir)
             
@@ -500,7 +510,6 @@ def main():
         tag_url_base = f"/3pwriting/{tag_lower}/"
         generate_paginated_list(tag_posts, tag_out_dir, tag_url_base, tag, all_tags)
 
-    # 過濾掉 readme 文章，不讓其進入 RSS 最新文章推播中
     feed_posts = [p for p in posts if "readme" not in p["slug"].lower()]
     feed_items = "\n".join([
         ITEM_TMPL.replace("{title}", escape(p["title"])).replace("{link}", p["full_link"]).replace("{pubdate}", rfc2822(p["date"])).replace("{summary}", escape(p["summary"]))
@@ -508,7 +517,7 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
-    print(f"✅ Built {len(posts)} posts. OG image handling & lang='en' updated!")
+    print(f"✅ Built {len(posts)} posts. Added explicit icons for unified nav!")
 
 if __name__ == "__main__":
     main()
