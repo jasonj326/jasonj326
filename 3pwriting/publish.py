@@ -10,7 +10,7 @@ SITE_DIR = ROOT
 SITE_URL = "https://jasonjlai.net"
 POSTS_PER_PAGE = 30 # 設定每頁顯示 30 篇文章
 
-# 1. 單篇文章的 HTML 模板
+# 1. 單篇文章的 HTML 模板 (加入 JSON-LD, 語意化標籤, 與 Disclaimer)
 HTML_TMPL = """<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -20,12 +20,30 @@ HTML_TMPL = """<!DOCTYPE html>
 
 <!-- 動態 SEO 與社群縮圖 (Open Graph) 標籤 -->
 <meta name="description" content="{summary}">
+<meta name="author" content="Jason J. Lai">
 <meta property="og:title" content="{title} - Jason J. Lai">
 <meta property="og:description" content="{summary}">
 <meta property="og:image" content="{og_image}">
 <meta property="og:url" content="{full_link}">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- 💡 AI 優化：JSON-LD 結構化資料，讓 AI 與搜尋引擎秒懂文章內容 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{title}",
+  "image": "{og_image}",
+  "datePublished": "{date}",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net"
+  },
+  "description": "{summary}"
+}
+</script>
 
 <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -71,17 +89,25 @@ HTML_TMPL = """<!DOCTYPE html>
 
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
     <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
-        <h1 class="mb-6 tracking-tight">{title}</h1>
-        
-        <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
-          <span class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">{date}</span>
-          <span class="text-slate-300 dark:text-slate-700">|</span>
-          <div class="flex flex-wrap items-center">
-             {tags_html}
+        <header>
+          <h1 class="mb-6 tracking-tight">{title}</h1>
+          
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="{date}" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">{date}</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               {tags_html}
+            </div>
           </div>
-        </div>
+        </header>
         
         {content}
+
+        <!-- 💡 免責聲明 Disclaimer (不受 Prose 排版影響，獨立區塊) -->
+        <div class="not-prose mt-16 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">Disclaimer:</strong> 
+          This is my website representing my view only, not my affiliated entities. All information is for informational purpose only. No specific legal, medical, tax, investment advice is rendered here. Seek your own professional advice. The content of this post is provided “as is;” and no representations are made that the content is error-free or up-to-date. Thus, please do your own research and take full responsibility for the consequences if you rely on any information here.
+        </div>
     </article>
   </main>
 
@@ -139,7 +165,7 @@ INDEX_TMPL = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3P Writing - Jason J. Lai</title>
   
-  <!-- 列表頁預設 SEO 與社群縮圖 (OG:Image 固定為 og-cover.jpeg) -->
+  <!-- 列表頁預設 SEO 與社群縮圖 -->
   <meta name="description" content="My public thinking space and experiment logs.">
   <meta property="og:title" content="3P Writing - Jason J. Lai">
   <meta property="og:description" content="My public thinking space and experiment logs.">
@@ -479,9 +505,12 @@ def main():
             out_dir = SITE_DIR / major / date.replace("-", "")
             ensure_dir(out_dir)
             
+            # 使用 json 友善的 escape 處理 summary，避免 JSON-LD 被單引號或雙引號搞壞
+            safe_summary = escape(summary).replace('"', '&quot;')
+            
             html = HTML_TMPL.replace("{title}", escape(title)) \
                             .replace("{date}", escape(date)) \
-                            .replace("{summary}", escape(summary)) \
+                            .replace("{summary}", safe_summary) \
                             .replace("{og_image}", escape(og_image_url)) \
                             .replace("{full_link}", escape(full_link)) \
                             .replace("{tags_html}", article_tags_html) \
@@ -517,7 +546,7 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
-    print(f"✅ Built {len(posts)} posts. Navigation bar fully flex-aligned!")
+    print(f"✅ Built {len(posts)} posts. Added AI JSON-LD schema & Disclaimer!")
 
 if __name__ == "__main__":
     main()
