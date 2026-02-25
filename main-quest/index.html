@@ -73,18 +73,44 @@
   <!-- 內容區塊 Main Content -->
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
     
-    <!-- 頁首標題 -->
-    <div class="mb-12">
+    <!-- 頁首標題與任務引言 -->
+    <div class="mb-16">
       <div class="inline-block px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 dark:text-emerald-900 dark:bg-emerald-400 border-2 border-indigo-900 dark:border-emerald-400 rounded-full mb-4">
         Active Mission Log
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold font-mono tracking-tight mb-4 flex items-center gap-3">
+      <h1 class="text-4xl md:text-5xl font-extrabold font-mono tracking-tight mb-8 flex items-center gap-3">
         <i data-lucide="target" class="w-10 h-10 text-indigo-600 dark:text-emerald-400"></i>
         Main Quest
       </h1>
-      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-        Tracking the overarching objectives, mid-term roadmaps, and immediate actions driving my 10-year vision.
-      </p>
+
+      <!-- 簡約版 RPG 任務卡片 (Minimalist Quest Card) -->
+      <div class="p-6 sm:p-8 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow">
+          <div class="flex flex-col gap-5">
+              <!-- Objective & Challenge Accepted -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                      <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                          <i data-lucide="flag" class="w-3.5 h-3.5"></i> Quest Objective
+                      </span>
+                      <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100">Find and build my tribe.</p>
+                  </div>
+                  <div class="inline-flex items-center text-sm font-mono font-bold text-indigo-600 dark:text-emerald-400 shrink-0">
+                      <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> Challenge Accepted
+                  </div>
+              </div>
+              
+              <!-- 分隔線 -->
+              <div class="h-px w-full bg-slate-200 dark:bg-slate-700 my-1"></div>
+              
+              <!-- Status (Debuff) -->
+              <div>
+                  <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Current Status</span>
+                  <p class="text-sm font-mono font-bold text-purple-600 dark:text-purple-400 mt-1 flex items-center gap-1.5">
+                      <i data-lucide="skull" class="w-4 h-4"></i> Afflicted: Poisoned by tech isolation.
+                  </p>
+              </div>
+          </div>
+      </div>
     </div>
 
     <!-- Section 1: 2026 In Action -->
@@ -100,7 +126,7 @@
             <div class="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg">
               <i data-lucide="hexagon" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">100 SBT</h3>
+            <h3 class="font-bold text-lg font-mono">100 SBT (5%)</h3>
           </div>
           <p class="text-slate-600 dark:text-slate-400 text-sm">
             Mint and distribute 100 Soul-bound Tokens to map genuine connections and contributions. 
@@ -113,7 +139,7 @@
             <div class="p-2 bg-rose-100 dark:bg-rose-900/50 rounded-lg">
               <i data-lucide="activity" class="w-5 h-5 text-rose-600 dark:text-rose-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">Mind-Body</h3>
+            <h3 class="font-bold text-lg font-mono">Mind-Body (5%)</h3>
           </div>
           <p class="text-slate-600 dark:text-slate-400 text-sm">
             Maintain extreme physical and mental readiness through balanced HIIT, Cardio, & Rest.
@@ -126,7 +152,7 @@
             <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
               <i data-lucide="cpu" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">AI-Enhancement</h3>
+            <h3 class="font-bold text-lg font-mono">AI-Enhancement (20%)</h3>
           </div>
           <p class="text-slate-600 dark:text-slate-400 text-sm">
             Integrate Github & Vibe-coding, explore AI-Crypto Synergy, and build Gamification layers.
@@ -139,7 +165,7 @@
             <div class="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg">
               <i data-lucide="mic" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">Comm. Level Up</h3>
+            <h3 class="font-bold text-lg font-mono">Communication Lv-up (15%)</h3>
           </div>
           <p class="text-slate-600 dark:text-slate-400 text-sm">
             Elevate public/improv communication and thought sharing. <i>(Welcome talk invites!)</i>
