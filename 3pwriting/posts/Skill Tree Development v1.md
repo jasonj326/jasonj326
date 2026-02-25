@@ -23,7 +23,7 @@ Enough for the background. This skill tree helps you better use me in your life 
 
 While I'm more than what the skill tree can offer, it's a good start. I believe these six skills are likely to be valuable to you:
 
-![Skill Tree Radar Chart](https://quickchart.io/chart?w=500&h=400&c={type:'radar',data:{labels:['Communication','Execution',['AI','Enhancement'],'Crypto','Legal',['Systems','Thinking']],datasets:[{label:'Skill%20Level',data:[6.5,6.5,7,7.5,8,8],backgroundColor:'rgba(79,70,229,0.4)',borderColor:'%234f46e5',borderWidth:2,pointBackgroundColor:'%234f46e5'}]},options:{scale:{ticks:{min:0,max:10,display:false}},plugins:{legend:{display:false}}}})
+<img src="https://quickchart.io/chart?w=500&h=400&c={type:'radar',data:{labels:['Communication','Execution',['AI','Enhancement'],'Crypto','Legal',['Systems','Thinking']],datasets:[{label:'Skill%20Level',data:[6.5,6.5,7,7.5,8,8],backgroundColor:'rgba(79,70,229,0.4)',borderColor:'%234f46e5',borderWidth:2,pointBackgroundColor:'%234f46e5'}]},options:{scale:{ticks:{min:0,max:10,display:false}},plugins:{legend:{display:false}}}}" alt="Skill Tree Radar Chart" />
 
 ## 1. Systems Thinking: I was born and wired to do this, and I recently came to realize this.
 
