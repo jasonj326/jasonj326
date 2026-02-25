@@ -59,27 +59,26 @@
     <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex space-x-4 sm:space-x-6 items-center">
-        <!-- Jason_Lai (Active) -->
-        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
-        </a>
-        <!-- Main Quest (Inactive) -->
-        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
-        </a>
-        <!-- Writing on 3P (Inactive) -->
-        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
-        </a>
-      </div>
+                <!-- Jason_Lai (Active) -->
+                <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                    <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+                </a>
+                <!-- Main Quest (Inactive) -->
+                <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+                </a>
+                <!-- Writing on 3P (Inactive) -->
+                <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+                </a>
+            </div>
             <div class="flex space-x-4 sm:space-x-6 items-center">
- 
-
-            <div class="flex items-center space-x-4">
-                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-                    <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
-                    <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
-                </button>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                        <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
+                        <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -128,7 +127,6 @@
                 Build a connected tribe surfing on the incoming wave of AI & Crypto 
             </p>
 
-            <!-- 💡 修改這裡：拿掉 /index.html -->
             <a href="/main-quest/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
                 View Roadmap <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
             </a>
@@ -280,6 +278,49 @@
             </div>
         </div>
 
+        <!-- 8. Bonus Content (Life is meaningless toggle) -->
+        <div class="mt-12">
+            <details class="group p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer">
+                
+                <!-- Toggle 標題 -->
+                <summary class="flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 pr-4">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="tv" class="w-6 h-6 text-indigo-600 dark:text-emerald-400 shrink-0 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="font-bold font-mono text-base sm:text-lg text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Got a minute?</span>
+                        </div>
+                        <span class="text-sm sm:text-base font-sans font-medium text-slate-600 dark:text-slate-400 ml-9 sm:ml-0 group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors">
+                            Taking life too seriously? Still don't buy that life is meaningless? Take a look. Sleep on it with humor—or a hammer.
+                        </span>
+                    </div>
+                    <!-- 旋轉箭頭 -->
+                    <span class="text-slate-900 dark:text-slate-100 transition-transform duration-300 group-open:-rotate-180 shrink-0 group-hover:text-indigo-600 dark:group-hover:text-emerald-400">
+                        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                    </span>
+                </summary>
+                
+                <!-- Toggle 展開內容 -->
+                <div class="mt-8 space-y-8 cursor-auto">
+                    
+                    <!-- Video 1: Pete -->
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/OyDpS-GftCk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Video 2: (kYfNvmF0Bqw) -->
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/kYfNvmF0Bqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Video 3: (sctMPouTWiQ) -->
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/sctMPouTWiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
     </main>
 
     <!-- Podcast Modal -->
@@ -356,7 +397,7 @@
         function renderRadarChart() {
             try {
                 const canvas = document.getElementById('skillRadarChart');
-                if (!canvas) return; // 防呆機制，確保 canvas 存在才執行
+                if (!canvas) return; 
                 
                 const ctx = canvas.getContext('2d');
                 const isDark = htmlElement.classList.contains('dark');
@@ -368,17 +409,15 @@
                 const strokeColor = isDark ? '#34d399' : '#4f46e5'; 
 
                 if (radarChartInstance) {
-                    radarChartInstance.destroy(); // 重新繪製前先銷毀舊的
+                    radarChartInstance.destroy(); 
                 }
 
                 radarChartInstance = new Chart(ctx, {
                     type: 'radar',
                     data: {
-                        // 💡 關鍵修復：將長單字用陣列 ['字1', '字2'] 包起來讓它強制折行，圖表就不會因為太寬而被壓縮！
                         labels: ['Communication', 'Execution', ['AI-', 'Enhancement'], 'Crypto', 'Legal', ['Systems', 'Thinking']],
                         datasets: [{
                             label: 'Skill Level',
-                            // 嚴格對應數值：5, 5, 6, 6.5, 7, 7
                             data: [6.5, 6.5, 7, 7.5, 8, 8], 
                             backgroundColor: fillColor,
                             borderColor: strokeColor,
@@ -395,12 +434,10 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         layout: {
-                            // 💡 關鍵修復：加入 padding，讓外圈的字絕對不會撞到畫布邊緣被吃掉
                             padding: 15
                         },
                         scales: {
                             r: {
-                                // 強制設定最大與最小值，解決圖表比例失真問題
                                 min: 0,
                                 max: 10,
                                 angleLines: { color: gridColor },
@@ -436,7 +473,7 @@
                 chevron.classList.remove('rotate-180');
             } else {
                 content.style.opacity = '0';
-                setTimeout(() => { content.classList.add('skill-tree-collapsed'); }, 300); // 等待淡出動畫結束
+                setTimeout(() => { content.classList.add('skill-tree-collapsed'); }, 300);
                 chevron.classList.add('rotate-180');
             }
         }
@@ -452,7 +489,6 @@
                 iconSun.classList.remove('hidden');
                 iconMoon.classList.add('hidden');
             }
-            // 延遲一點點繪製圖表，確保 DOM 已經準備好
             setTimeout(renderRadarChart, 50);
         }
 
