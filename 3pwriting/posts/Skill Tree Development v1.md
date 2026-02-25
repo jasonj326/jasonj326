@@ -53,17 +53,20 @@ I'm excited to share my stories and thoughts. All kinds of talk invites (keynote
 
 ## 5. Legal:
 
-You can't desire what you already own. That's human nature makes most of us unhappy—me included. Ironically, after I spent decades financing and securing my law degree and honorably privileged to practice law, I want to take the label off. It's not a shame to practice law, but I don't like being labelled as such because this seems to cap my potential dancing with the world. There are much to explore and experience; legal world is fun and valuable but definitely not everything.
+You can't desire what you already own. That's human nature makes most of us unhappy—me included. Ironically, after I spent decades financing and securing my law degree and honorably privileged to practice law, I want to take the label off. It's not a shame to practice law, but I don't like being labelled as such because this seems to cap my potential dancing with the world, as well as my systems thinking. There are much to explore and experience; legal world is fun and valuable but definitely not everything.
+
+That said, my systems thinking equips me to help clients align their macro vision with micro precision. And whenever we navigate uncharted waters, ship our deliverables, or get green lights from regulators, that literally makes my year.
 
 ## 6. Crypto:
 
 The 2017 HBR article ["The Blockchain Will Do to the Financial System What the Internet Did to Media"](https://hbr.org/2017/03/the-blockchain-will-do-to-banks-and-law-firms-what-the-internet-did-to-media) nudged me into this crypto world. Of course, my ex-colleagues helped me consolidate the financial perspective and gain hands-on experiences in legal and compliance, along with my ongoing endeavors in helping founders and builders in the decentralized ecosystem worldwide.
 
-I want to dive deeper and actually use blockchain to do something fun and useful (logically speaking, having fun itself is super useful and valuable, anyway). That's why I am starting the SBT project.
+I want to dive deeper and actually use blockchain to do something fun and useful (logically speaking, having fun itself is super useful and valuable, anyway). That's why I am starting the [Soul-bound token project](/main-quest/) and beyond.
 
 If you're new to this world, feel free to take a look at these great resources:  
 1. [Variant Fund](https://variant.fund/writing/) & [a16z crypto](https://a16zcrypto.com/)  
 2. [Guang-Yi's Crypto Compendium](https://www.cryptocompendium.org/)  
 3. [The Crypto Legal Handbook](https://thecryptolegalhandbook.com/)
 
-That's my take on skill tree v1. Looking forward to party up with you soon!
+
+That's my take on skill tree v1. I would love to hear from you so don't hesitate to reach out. Looking forward to party up and level up with you soon!
