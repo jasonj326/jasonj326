@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Skill Tree Development v1 - Jason J. Lai</title>
+
+<!-- 動態 SEO 與社群縮圖 (Open Graph) 標籤 -->
+<meta name="description" content="Why I opt for gaming design and what I can do for you">
+<meta property="og:title" content="Skill Tree Development v1 - Jason J. Lai">
+<meta property="og:description" content="Why I opt for gaming design and what I can do for you">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/3pwriting/skill-tree/20260225/Skill-Tree-Development-v1.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+</style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex space-x-4 sm:space-x-6 items-center">
+        <!-- Jason_Lai (Inactive) -->
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+        </a>
+        <!-- Main Quest (Inactive) -->
+        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+        </a>
+        <!-- Writing on 3P (Active) -->
+        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
+          <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <h1 class="mb-6 tracking-tight">Skill Tree Development v1</h1>
+        
+        <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+          <span class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-02-25</span>
+          <span class="text-slate-300 dark:text-slate-700">|</span>
+          <div class="flex flex-wrap items-center">
+             <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/skill-tree/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>skill-tree</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a>
+          </div>
+        </div>
+        
+        <p>The whole website is designed in gaming style for a reason. Actually, for a couple of reasons.</p>
+<p>First, it's my mantra now: life is a game, and we get to decide our own main quest, side quests, and roles. It's liberating on one hand, and helps me focus on what is truly important. Also, gamification has utility value beyond a life metaphor—it serves as a psychological framework, validated in empirical psychology studies as well as entrepreneurial design (e.g., <em>Actionable Gamification: Beyond Points, Badges, and Leaderboards</em>; <em>For the Win</em>; <em>Reality Is Broken</em>).</p>
+<p>Admittedly, the gaming style may have a detrimental effect on my legal profession from a traditional perspective. Yet, I have to live my mantra and decide what games I'm in. I believe substance is more important than the surface, even though formality matters in both legal and human nature.</p>
+<p>Enough for the background. This skill tree helps you better use me in your life game (along with <a href="https://jasonjlai.net/3pwriting/partnership/20260223/readme.html">README</a>), and we can party up to start a side quest or something.</p>
+<p>While I'm more than what the skill tree can offer, it's a good start. I believe these six skills are likely to be valuable to you:</p>
+<p><img alt="Skill Tree Radar Chart" src="https://quickchart.io/chart?w=500&amp;h=400&amp;c={type:'radar',data:{labels:['Communication','Execution',['AI','Enhancement'],'Crypto','Legal',['Systems','Thinking']],datasets:[{label:'Skill%20Level',data:[6.5,6.5,7,7.5,8,8],backgroundColor:'rgba(79,70,229,0.4)',borderColor:'%234f46e5',borderWidth:2,pointBackgroundColor:'%234f46e5'}]},options:{scale:{ticks:{min:0,max:10,display:false}},plugins:{legend:{display:false}}}" />)</p>
+<h2>1. Systems Thinking: I was born and wired to do this, and I recently came to realize this.</h2>
+<p>From Charlie Munger's multidisciplinary Latticework of Mental Models, to <a href="http://fs.blog/mental-models/">Farnam Street</a>, to the classic reading Donella Meadows's <em>Thinking in Systems: A Primer</em>, I have been thrilled to learn with these ideas—and recently starting to create my own framework building upon their valuable insight.</p>
+<p>The systems thinking is not valuable until we put it into actions. That's what I'm doing, and I believe I'm not alone finding these complex ideas interesting and beautiful.</p>
+<h2>2. Execution: Get things done and shipped</h2>
+<p>As a systems thinker, I am aware of the danger of talking the talk, not walking the talk. Being a talker is annoying. I get it. </p>
+<p>That's probably why high-agency became the buzzword in 2025, describing hyper-ambitious, proactive people acting in a permissionless manner to achieve what they desire, instead of what they need.</p>
+<p>My understanding of level of execution: thinking → talking → writing → rebuttal &amp; revisit → create something to get information feedback in the loop → create a flywheel to speed up the loop → hit the wall and see the physical, cultural, social-economic, legal constraints → overcome the constraints and upgrade or decisively self-correct.</p>
+<p>I have been attempting to create my own flywheel to accelerate exponential growth—this website aiming to build my tribe is one of my efforts.</p>
+<p>There are definitely pitfalls and setbacks for high-agency people. Among other things, burnout and never-satisfied are two major issues. In the gaming mindset, we need to embrace who we are and play our role to the maximum of our potential and talents. Everyone has a role in the game.</p>
+<h2>3. AI-Enhancement</h2>
+<p>This is how I can do the seemingly impossible. I'm still experimenting all kinds of AI tools, and to be honest, they are evolving so fast that you don't really learn what the tools are but use to build and create. AI-enhancement plus execution sounds fascinating and exciting. Stay tuned for more fun projects.</p>
+<h2>4. Communication</h2>
+<p>I'm excited to share my stories and thoughts. All kinds of talk invites (keynote/panelist/moderator/improv etc.) are welcome and appreciated. Audience-focused, emotion-first is probably my key takeaway for communication. Looking forward to sharing more on this topic.</p>
+<h2>5. Legal:</h2>
+<p>You can't desire what you already own. That's human nature makes most of us unhappy—me included. Ironically, after I spent decades financing and securing my law degree and honorably privileged to practice law, I want to take the label off. It's not a shame to practice law, but I don't like being labelled as such because this seems to cap my potential dancing with the world. There are much to explore and experience; legal world is fun and valuable but definitely not everything.</p>
+<h2>6. Crypto:</h2>
+<p>The 2017 HBR article <a href="https://hbr.org/2017/03/the-blockchain-will-do-to-banks-and-law-firms-what-the-internet-did-to-media">"The Blockchain Will Do to the Financial System What the Internet Did to Media"</a> nudged me into this crypto world. Of course, my ex-colleagues helped me consolidate the financial perspective and gain hands-on experiences in legal and compliance, along with my ongoing endeavors in helping founders and builders in the decentralized ecosystem worldwide.</p>
+<p>I want to dive deeper and actually use blockchain to do something fun and useful (logically speaking, having fun itself is super useful and valuable, anyway). That's why I am starting the SBT project.</p>
+<p>If you're new to this world, feel free to take a look at these great resources:<br />
+1. <a href="https://variant.fund/writing/">Variant Fund</a> &amp; <a href="https://a16zcrypto.com/">a16z crypto</a><br />
+2. <a href="https://www.cryptocompendium.org/">Guang-Yi's Crypto Compendium</a><br />
+3. <a href="https://thecryptolegalhandbook.com/">The Crypto Legal Handbook</a></p>
+<p>That's my take on skill tree v1. Looking forward to party up with you soon!</p>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center text-sm font-mono text-slate-500">
+      <p>© <span id="current-year"></span> Jason J. Lai. Built with Python & Tailwind.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    initTheme();
+  </script>
+</body>
+</html>
