@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 核心魔法：設定 0 秒後自動跳轉到 /main-quest/ -->
+    <meta http-equiv="refresh" content="0; url=/main-quest/">
+    <title>Redirecting to /now...</title>
+    
+    <!-- 雙重保險：如果使用者的瀏覽器阻擋 Meta Refresh，就用 JavaScript 幫忙跳轉 -->
+    <script>
+        try {
+            // Check to avoid SyntaxError in preview environments (e.g., blob: URLs)
+            if (window.location.protocol !== 'blob:' && window.location.origin !== 'null') {
+                window.location.replace("/main-quest/");
+            } else {
+                console.log("Automatic redirect blocked in preview environment (Target: /main-quest/)");
+            }
+        } catch (e) {
+            console.warn("Redirect failed:", e);
+        }
+    </script>
+</head>
+<body style="background-color: #0f172a; color: #cbd5e1; font-family: monospace; text-align: center; padding-top: 20vh;">
+    <!-- 三重保險：萬一腳本和 Meta 都失效，給一個手動點擊的連結 -->
+    <p>Redirecting to Main Quest...</p>
+    <p>If you are not redirected automatically, <a href="/main-quest/" style="color: #34d399; text-decoration: underline;">click here</a>.</p>
+</body>
+</html>
