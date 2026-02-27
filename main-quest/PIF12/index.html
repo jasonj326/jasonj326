@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIF12: The Circle - Jason Lai</title>
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Turning ritual wishes into an annual blessing lucky charm. A 12-Year Journey Connecting the Brightest Stars.">
+    <meta property="og:title" content="PIF12: The Circle - Jason Lai">
+    <meta property="og:description" content="Turning ritual wishes into an annual blessing lucky charm. A 12-Year Journey Connecting the Brightest Stars.">
+    <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+    <meta property="og:url" content="https://jasonjlai.net/main-quest/PIF12/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- JSON-LD for AEO/SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Project",
+      "name": "PIF12: The Circle",
+      "description": "Turning ritual wishes into an annual blessing lucky charm. A 12-Year Journey Connecting the Brightest Stars.",
+      "url": "https://jasonjlai.net/main-quest/PIF12/",
+      "creator": {
+        "@type": "Person",
+        "name": "Jason J. Lai"
+      }
+    }
+    </script>
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-500 selection:bg-indigo-200 dark:selection:bg-emerald-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex space-x-4 sm:space-x-6 items-center">
+                <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="terminal" class="w-5 h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden">Jason</span>
+                </a>
+                <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                    <i data-lucide="target" class="w-5 h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden">Quest</span>
+                </a>
+                <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden">3P</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                    <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
+                    <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <main class="pt-24 pb-20 px-6 max-w-4xl mx-auto space-y-32">
+
+        <!-- Slide 1: Title_Slide -->
+        <section class="min-h-[70vh] flex flex-col justify-center text-center animate-fade-up">
+            <div class="inline-block mx-auto mb-6 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800/50 text-indigo-600 dark:text-indigo-300 font-mono text-sm tracking-widest uppercase font-semibold">
+                Initiating Connection
+            </div>
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
+                PIF<span class="text-indigo-500 dark:text-emerald-400">12</span>: The Circle
+            </h1>
+            <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+                A 12-Year of Pay-it-Forward Journey Connecting the Brightest Stars to Light Up Lives.
+            </p>
+        </section>
+
+        <!-- Slide 2: The Origin & The Omamori -->
+        <section class="bg-slate-100 dark:bg-slate-800/50 rounded-[3rem] p-8 sm:p-12 border border-slate-200 dark:border-slate-700/50 overflow-hidden relative animate-fade-up" style="animation-delay: 0.2s;">
+            <div class="grid sm:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold font-mono text-slate-900 dark:text-white">The <span class="text-indigo-500 dark:text-emerald-400">Ritual</span></h2>
+                    <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                        <p>I’ve been incredibly fortunate to meet so many kind, brilliant, and giving people. But most of you don't know each other.</p>
+                        <p>What started as my personal ritual of making wishes and greetings is now evolving. PIF12 turns these ritual wishes into an annual blessing lucky charm—an <strong class="text-indigo-600 dark:text-emerald-400 font-semibold">Omamori (御守)</strong>.</p>
+                        <p>Minted as a non-transferable token (SBT), this blessing is recorded on the blockchain for good, forming our unbreakable bond.</p>
+                    </div>
+                </div>
+                <!-- Image Wrapper (Using reliable Unsplash image temporarily) -->
+                <div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1614531341655-1bd2906b3bc4?q=80&w=1200&auto=format&fit=crop" alt="Abstract mystical glow representing a digital Omamori" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Core Commitments -->
+        <section class="max-w-4xl mx-auto animate-fade-up" style="animation-delay: 0.3s;">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold font-mono text-slate-900 dark:text-white mb-4">My Core <span class="text-indigo-500 dark:text-emerald-400">Commitments</span></h2>
+                <p class="text-slate-600 dark:text-slate-400 text-lg">The foundation of our 12-year journey.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 gap-8">
+                <!-- Commitment 1 -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border-2 border-slate-900 dark:border-slate-700 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="award" class="w-7 h-7 text-indigo-600 dark:text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">The Annual Omamori</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I am committed to sending out these digital blessing charms every single year. Let's allow this circle of goodwill to grow organically over the next 12 years.
+                    </p>
+                </div>
+                
+                <!-- Commitment 2 -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border-2 border-slate-900 dark:border-slate-700 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="coffee" class="w-7 h-7 text-amber-600 dark:text-amber-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">The Physical Gathering</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Taking this to the next level. I promise to host at least one onsite event per year, bridging the digital connection into a physical constellation of brilliant minds.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: The Vision (Possibilities) -->
+        <section class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <i data-lucide="sparkles" class="w-10 h-10 mx-auto text-amber-500 mb-4"></i>
+                <h2 class="text-3xl font-bold font-mono text-slate-900 dark:text-white mb-4">The <span class="text-amber-500">Vision</span></h2>
+                <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+                    Beyond my solid commitments, here are the directions we <em>might</em> explore together as a community. These are possibilities, driven by curiosity and collaboration.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 gap-8">
+                <!-- Vision 1 -->
+                <div class="p-8 border border-slate-200 dark:border-slate-700 rounded-3xl bg-transparent">
+                    <i data-lucide="cpu" class="w-8 h-8 text-slate-400 dark:text-slate-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">dApp & Karma System</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                        With the blessing of AI and the passion of potential contributors, we could build interactive dApp experiences and a support system to trace and foster "Karma" interactions within the circle.
+                    </p>
+                </div>
+                
+                <!-- Vision 2 -->
+                <div class="p-8 border border-slate-200 dark:border-slate-700 rounded-3xl bg-transparent">
+                    <i data-lucide="palette" class="w-8 h-8 text-slate-400 dark:text-slate-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Member-Driven Design</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                        If feasible, I envision opening up the creative process. Future annual Omamori could be co-designed by members, making each token a true reflection of our shared journey.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Timeline -->
+        <section class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-900 dark:text-white">Drawing the <span class="text-indigo-500 dark:text-emerald-400">Constellation</span></h2>
+            <div class="relative border-l-2 border-indigo-100 dark:border-slate-700 ml-4 sm:ml-8 space-y-12">
+                
+                <div class="relative pl-8 sm:pl-12">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 dark:bg-emerald-400 ring-4 ring-white dark:ring-slate-900"></div>
+                    <h3 class="text-xl font-bold font-mono text-slate-900 dark:text-white mb-2">Year 1</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Genesis. Distributing the very first Omamori and forming the core connections.</p>
+                </div>
+                
+                <div class="relative pl-8 sm:pl-12">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-900"></div>
+                    <h3 class="text-xl font-bold font-mono text-slate-900 dark:text-white mb-2">Years 2-11</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Organic Growth. A new Omamori every year. Exploring visions, hosting gatherings, and letting the network of goodwill compound.</p>
+                </div>
+                
+                <div class="relative pl-8 sm:pl-12">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-400 dark:bg-amber-500 ring-4 ring-white dark:ring-slate-900 shadow-[0_0_15px_rgba(251,191,36,0.6)]"></div>
+                    <h3 class="text-xl font-bold font-mono text-slate-900 dark:text-white mb-2">Year 12</h3>
+                    <p class="text-slate-600 dark:text-slate-400">The Cycle Complete. The ultimate star map is revealed, and a fully connected tribe is established.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Slide 6: Quote -->
+        <section class="text-center py-12">
+            <i data-lucide="quote" class="w-12 h-12 mx-auto text-indigo-200 dark:text-slate-700 mb-6"></i>
+            <blockquote class="text-2xl sm:text-3xl font-medium italic text-slate-800 dark:text-slate-200 leading-relaxed mb-6">
+                "Every act of kindness is a star. Together, we are drawing a constellation that will light up the dark."
+            </blockquote>
+            <cite class="text-lg font-mono text-indigo-500 dark:text-emerald-400 font-bold not-italic">— Jason's Circle</cite>
+        </section>
+
+        <!-- Slide 7: Outro Image -->
+        <section class="relative w-full aspect-[21/9] sm:aspect-[3/1] rounded-[2rem] sm:rounded-[3rem] overflow-hidden flex items-center justify-center shadow-xl">
+            <!-- Using reliable Unsplash image for stars -->
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Starry night background" class="absolute inset-0 w-full h-full object-cover">
+            <!-- 暗色疊加層讓文字更清晰 -->
+            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+            <div class="relative z-10 text-center px-6">
+                <h2 class="text-3xl sm:text-5xl font-bold text-white mb-4">Join the Constellation</h2>
+                <p class="text-lg sm:text-xl text-slate-200 font-medium">Your 12-year journey begins today.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+        <div class="max-w-4xl mx-auto px-6 flex justify-center items-center text-sm font-mono text-slate-500">
+            <p>© <span id="current-year"></span> Jason J. Lai. PIF12 Initiative.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        lucide.createIcons();
+        const htmlElement = document.documentElement;
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                htmlElement.classList.remove('dark');
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            } else {
+                htmlElement.classList.add('dark');
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            }
+        }
+        
+        function toggleTheme() {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            }
+        }
+        
+        initTheme();
+    </script>
+</body>
+</html>
