@@ -58,6 +58,11 @@ HTML_TMPL = """<!DOCTYPE html>
 <style>
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     [x-cloak] { display: none !important; }
+    
+    /* 微調註解 (Footnotes) 在 Tailwind Typography 下的樣式 */
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
 </style>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
@@ -553,8 +558,8 @@ def main():
         
         safe_summary = escape(p["summary"]).replace('"', '&quot;')
         
-        # 將轉換過內部連結的 body 丟給 Markdown 渲染
-        content_html = markdown.markdown(body, extensions=["fenced_code","tables"])
+        # 💡 [修正] 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
+        content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
                         .replace("{date}", escape(p["date"])) \
@@ -592,7 +597,7 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
-    print(f"✅ Built {len(posts)} posts. Added AI JSON-LD schema, Disclaimer & Obsidian Wikilinks support!")
+    print(f"✅ Built {len(posts)} posts. Added AI JSON-LD schema, Disclaimer & Obsidian Wikilinks & Footnotes support!")
 
 if __name__ == "__main__":
     main()
