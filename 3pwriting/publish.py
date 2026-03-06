@@ -63,6 +63,7 @@ HTML_TMPL = """<!DOCTYPE html>
     .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
     .dark .footnote-ref { color: rgb(52 211 153) !important; }
     .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; } /* 修 UI 缺點：跳轉時不擋 navbar */
 </style>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
