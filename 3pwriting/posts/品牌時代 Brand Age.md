@@ -1,5 +1,5 @@
 ---
-title: 品牌時代  (trans. from Paul Graham's Brand Age)
+title: 品牌時代  (trans. from Paul Graham's The Brand Age)
 date: 2026-03-06
 year: 2026
 slug: brand-age-translation
@@ -9,10 +9,10 @@ tags:
   - y2026
   - translated
 pinned: false
-summary: Chinese Translation of Paul Graham's "Brand Age"
+summary: Chinese Translation of Paul Graham's "The Brand Age"
 hero_image:
 ---
-This is Paul Graham's [Brand Age](https://paulgraham.com/brandage.html), originally translated on March 6, 2026. 
+This is Paul Graham's [The Brand Age](https://paulgraham.com/brandage.html), originally translated on March 6, 2026. 
 
 **2026 年 3 月**
 
