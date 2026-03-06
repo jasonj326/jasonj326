@@ -468,6 +468,10 @@ def main():
     all_tags_set = set()
     ensure_dir(POSTS_DIR)
     
+    # 💡 第一階段 (Pass 1)：收集所有文章資訊，建立「標題 -> 網址」的對應字典
+    raw_posts = []
+    link_dict = {} # 用來儲存 {"文章標題": "/3pwriting/.../slug.html"}
+
     for md in POSTS_DIR.glob("*.md"):
         try:
             fm, body = parse_md(md)
@@ -494,39 +498,81 @@ def main():
                 og_image_url = f"{SITE_URL}/og-cover.jpeg"
 
             full_link = f"{SITE_URL}/3pwriting/{major}/{date.replace('-','')}/{slug}.html"
+            relative_link = f"/3pwriting/{major}/{date.replace('-','')}/{slug}.html"
 
-            article_tags_html_parts = []
-            for t in tags_list:
-                color_class = get_color_for_tag(t)
-                tag_link = f"/3pwriting/{t.lower()}/"
-                article_tags_html_parts.append(f'<a href="{tag_link}" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full {color_class}"></span>{t}</a>')
-            article_tags_html = ' <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> '.join(article_tags_html_parts)
-
-            out_dir = SITE_DIR / major / date.replace("-", "")
-            ensure_dir(out_dir)
-            
-            # 使用 json 友善的 escape 處理 summary，避免 JSON-LD 被單引號或雙引號搞壞
-            safe_summary = escape(summary).replace('"', '&quot;')
-            
-            html = HTML_TMPL.replace("{title}", escape(title)) \
-                            .replace("{date}", escape(date)) \
-                            .replace("{summary}", safe_summary) \
-                            .replace("{og_image}", escape(og_image_url)) \
-                            .replace("{full_link}", escape(full_link)) \
-                            .replace("{tags_html}", article_tags_html) \
-                            .replace("{content}", markdown.markdown(body, extensions=["fenced_code","tables"]))
-            
-            out_path = out_dir / f"{slug}.html"
-            out_path.write_text(html, encoding="utf-8")
-            
-            posts.append({
-                "title": title, "date": date, "major": major, "slug": slug,
-                "link": f"/3pwriting/{major}/{date.replace('-','')}/{slug}.html",
-                "full_link": full_link, "summary": summary, "tags": tags_list, "pinned": pinned
+            # 暫存第一階段解析結果
+            raw_posts.append({
+                "md_path": md, "title": title, "date": date, "major": major, "slug": slug,
+                "link": relative_link, "full_link": full_link, "summary": summary, 
+                "tags": tags_list, "pinned": pinned, "og_image_url": og_image_url,
+                "body": body # 暫存內文，留待第二階段替換內部連結
             })
-        except Exception as e:
-            print(f"⚠️ Error parsing {md.name}: {e}")
 
+            # 將「文章標題」和「檔案名稱」都加入字典，支援兩種 Obsidian 連結寫法
+            link_dict[title] = relative_link
+            link_dict[md.stem] = relative_link
+
+        except Exception as e:
+            print(f"⚠️ Error parsing {md.name} in pass 1: {e}")
+
+    # 💡 第二階段 (Pass 2)：轉換 Obsidian 內部連結並生成 HTML
+    for p in raw_posts:
+        body = p["body"]
+
+        # 替換邏輯：處理 [[目標文章]] 或 [[目標文章|顯示文字]]
+        def wikilink_replacer(match):
+            inner = match.group(1)
+            if '|' in inner:
+                target, display = inner.split('|', 1)
+            else:
+                target = inner
+                display = inner
+
+            target_clean = target.strip()
+            # 如果能在我們建立的字典中找到這篇文章的網址
+            if target_clean in link_dict:
+                # 替換成帶有 Tailwind 樣式的 HTML 連結，延續你的網站風格
+                return f'<a href="{link_dict[target_clean]}" class="text-indigo-600 dark:text-emerald-400 hover:text-indigo-800 dark:hover:text-emerald-300 font-medium underline transition-colors">{display}</a>'
+            else:
+                # 如果找不到對應文章，就保留文字
+                return display
+
+        # 執行替換
+        body = re.sub(r'\[\[(.*?)\]\]', wikilink_replacer, body)
+
+        # 產生標籤 HTML
+        article_tags_html_parts = []
+        for t in p["tags"]:
+            color_class = get_color_for_tag(t)
+            tag_link = f"/3pwriting/{t.lower()}/"
+            article_tags_html_parts.append(f'<a href="{tag_link}" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full {color_class}"></span>{t}</a>')
+        article_tags_html = ' <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> '.join(article_tags_html_parts)
+
+        out_dir = SITE_DIR / p["major"] / p["date"].replace("-", "")
+        ensure_dir(out_dir)
+        
+        safe_summary = escape(p["summary"]).replace('"', '&quot;')
+        
+        # 將轉換過內部連結的 body 丟給 Markdown 渲染
+        content_html = markdown.markdown(body, extensions=["fenced_code","tables"])
+        
+        html = HTML_TMPL.replace("{title}", escape(p["title"])) \
+                        .replace("{date}", escape(p["date"])) \
+                        .replace("{summary}", safe_summary) \
+                        .replace("{og_image}", escape(p["og_image_url"])) \
+                        .replace("{full_link}", escape(p["full_link"])) \
+                        .replace("{tags_html}", article_tags_html) \
+                        .replace("{content}", content_html)
+        
+        out_path = out_dir / f"{p['slug']}.html"
+        out_path.write_text(html, encoding="utf-8")
+        
+        posts.append({
+            "title": p["title"], "date": p["date"], "major": p["major"], "slug": p["slug"],
+            "link": p["link"], "full_link": p["full_link"], "summary": p["summary"], "tags": p["tags"], "pinned": p["pinned"]
+        })
+
+    # 排序與分頁
     posts.sort(key=lambda x: (x["pinned"], x["date"]), reverse=True)
     all_tags = list(all_tags_set)
 
@@ -546,7 +592,7 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
-    print(f"✅ Built {len(posts)} posts. Added AI JSON-LD schema & Disclaimer!")
+    print(f"✅ Built {len(posts)} posts. Added AI JSON-LD schema, Disclaimer & Obsidian Wikilinks support!")
 
 if __name__ == "__main__":
     main()
