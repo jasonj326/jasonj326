@@ -12,7 +12,7 @@ pinned: false
 summary: Chinese Translation of Paul Graham's "Brand Age"
 hero_image:
 ---
-This is Paul Graham's essay [Brand Age](https://paulgraham.com/brandage.html) originally translated on March 6, 2026. 
+This is Paul Graham's essay [Brand Age](https://paulgraham.com/brandage.html), originally translated on March 6, 2026. 
 
 **2026 年 3 月**
 
