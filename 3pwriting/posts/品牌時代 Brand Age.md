@@ -222,7 +222,7 @@ Royal Oak 在「品牌展示面積」上也向前邁進了一步。Golden Ellips
 
 [^譯1]:- 譯者日誌
 	- March 6, 2026: v.02 更正註解，原文只有註腳16，還在嘗試如何將譯者註腳分開。
-	- March 6, 2026: v.01 這篇文章翻譯自Paul Graham's [品牌時代](https://paulgraham.com/brandage.html)，並提供以下背景資訊。- 背景資訊：
+	- March 6, 2026: v.01 這篇文章翻譯自Paul Graham's [品牌時代](https://paulgraham.com/brandage.html)，並提供以下背景資訊：
 	- **Patek Philippe（百達翡麗）：** 被譽為「手錶中的藍血貴族」，以極高的工藝價值與拍賣市場表現穩坐鐘錶界龍頭地位。
 	- **Vacheron Constantin（江詩丹頓）：** 創立於 1755 年，是世界上歷史最悠久的連續製錶商，以精湛的複雜功能與優雅美學聞名。
 	- **Audemars Piguet（愛彼）：** 憑藉大膽的「皇家橡樹」系列，成功定義了現代頂級鋼製豪華運動錶的審美標準。
