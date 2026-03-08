@@ -10,6 +10,9 @@ SITE_DIR = ROOT
 SITE_URL = "https://jasonjlai.net"
 POSTS_PER_PAGE = 30 # 設定每頁顯示 30 篇文章
 
+# 💡 新增：全站 AEO/SEO 權威描述 (Authoritative Description)
+SITE_AUTHOR_DESC = "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+
 # 1. 單篇文章的 HTML 模板 (加入 JSON-LD, 語意化標籤, 與 Disclaimer)
 HTML_TMPL = """<!DOCTYPE html>
 <html lang="{lang}" class="dark">
@@ -28,7 +31,7 @@ HTML_TMPL = """<!DOCTYPE html>
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- 💡 AI 優化：JSON-LD 結構化資料，讓 AI 與搜尋引擎秒懂文章內容 -->
+<!-- 💡 AI 優化：JSON-LD 結構化資料，讓 AI 與搜尋引擎秒懂文章內容與作者權威 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,7 +42,9 @@ HTML_TMPL = """<!DOCTYPE html>
   "author": {
     "@type": "Person",
     "name": "Jason J. Lai",
-    "url": "https://jasonjlai.net"
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "{site_author_desc}"
   },
   "description": "{summary}"
 }
@@ -179,13 +184,30 @@ INDEX_TMPL = """<!DOCTYPE html>
   <title>3P Writing - Jason J. Lai</title>
   
   <!-- 列表頁預設 SEO 與社群縮圖 -->
-  <meta name="description" content="My public thinking space and experiment logs.">
+  <meta name="description" content="{site_description}">
   <meta property="og:title" content="3P Writing - Jason J. Lai">
-  <meta property="og:description" content="My public thinking space and experiment logs.">
+  <meta property="og:description" content="{site_description}">
   <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
   <meta property="og:url" content="https://jasonjlai.net/3pwriting/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 💡 AI 優化：首頁專用 JSON-LD，讓搜尋引擎收錄網站整體背景 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "3P Writing - Jason J. Lai",
+    "url": "https://jasonjlai.net/3pwriting/",
+    "description": "{site_description}",
+    "author": {
+      "@type": "Person",
+      "name": "Jason J. Lai",
+      "jobTitle": "Attorney & Legal Engineer",
+      "description": "{site_description}"
+    }
+  }
+  </script>
 
   <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -480,7 +502,12 @@ def generate_paginated_list(posts_subset, out_base_dir, url_base, active_tag, al
         tags_nav_html = build_tags_nav(active_tag, all_tags)
         pagination_html = build_pagination_html(prev_url, next_url, page_num, total_pages)
         articles_html = build_articles_html(chunk)
-        html = INDEX_TMPL.replace("{tags_nav}", tags_nav_html).replace("{items}", articles_html).replace("{pagination}", pagination_html)
+        
+        # 💡 將全站 AEO 描述注入列表頁
+        html = INDEX_TMPL.replace("{tags_nav}", tags_nav_html)\
+                         .replace("{items}", articles_html)\
+                         .replace("{pagination}", pagination_html)\
+                         .replace("{site_description}", escape(SITE_AUTHOR_DESC))
         (page_dir / "index.html").write_text(html, encoding="utf-8")
 
 # 💡 新增：自動判定內文語系 (支援中、日、英)
@@ -521,7 +548,9 @@ def main():
             date = str(fm["date"]) 
             slug = fm.get("slug") or re.sub(r"[^a-z0-9\-]+", "-", title.lower()).strip("-")
             major = fm["major_tag"]
-            summary = fm.get("summary","")
+            
+            # 💡 SEO Fallback：如果文章沒寫 summary，就用你的專業簡介墊底
+            summary = fm.get("summary", "").strip() or SITE_AUTHOR_DESC
             
             raw_tags = fm.get("tags", [])
             tags_list = [t.strip() for t in raw_tags.split(',')] if isinstance(raw_tags, str) else raw_tags
@@ -601,8 +630,7 @@ def main():
         
         # 💡 [修正] 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
-        
-        # 💡 將動態語言 `p["lang"]` 傳遞進去取代 `{lang}`
+        # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
                         .replace("{lang}", p["lang"]) \
                         .replace("{date}", escape(p["date"])) \
@@ -610,7 +638,8 @@ def main():
                         .replace("{og_image}", escape(p["og_image_url"])) \
                         .replace("{full_link}", escape(p["full_link"])) \
                         .replace("{tags_html}", article_tags_html) \
-                        .replace("{content}", content_html)
+                        .replace("{content}", content_html) \
+                        .replace("{site_author_desc}", escape(SITE_AUTHOR_DESC))
         
         out_path = out_dir / f"{p['slug']}.html"
         out_path.write_text(html, encoding="utf-8")
