@@ -14,6 +14,11 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- 💡 效能優化：預先建立 CDN 連線，加速資源下載 -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- 💡 AEO 優化：JSON-LD 個人與網站結構化資料 (讓 ChatGPT / Perplexity 秒懂你是誰) -->
     <script type="application/ld+json">
     {
@@ -60,11 +65,7 @@
         }
     </script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Chart.js (用於繪製技能雷達圖) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- (移除原本在這裡的 Lucide 和 Chart.js，把它們移到網頁最下方以加速初始渲染) -->
 
     <style>
         [x-cloak] { display: none !important; }
@@ -332,17 +333,17 @@
                     
                     <!-- Video 1: Pete -->
                     <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/OyDpS-GftCk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/OyDpS-GftCk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                     </div>
                     
                     <!-- Video 2: (kYfNvmF0Bqw) -->
                     <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/kYfNvmF0Bqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/kYfNvmF0Bqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                     </div>
                     
                     <!-- Video 3: (sctMPouTWiQ) -->
                     <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/sctMPouTWiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/sctMPouTWiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                     </div>
 
                 </div>
@@ -412,6 +413,10 @@
             <p class="shrink-0 whitespace-nowrap">© <span id="current-year"></span> Jason J. Lai</p>
         </div>
     </footer>
+
+    <!-- 💡 效能優化：將非緊急的外部腳本移到網頁最底部 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Script -->
     <script>
