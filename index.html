@@ -7,6 +7,10 @@
 
     <!-- 💡 SEO 與社群軟體分享預覽縮圖 (Open Graph) -->
     <meta name="description" content="Jason Lai - Tribe & Trust Builder wielding a legal wand. Life's meaningless—let's dare to build our own">
+    
+    <!-- 💡 AEO/SEO 隱藏關鍵字：這些詞彙不會顯示在畫面上，但會告訴搜尋引擎與 AI 你的專業領域 -->
+    <meta name="keywords" content="Jason Lai, New York attorney, Systems Thinker, high agency, Web3 lawyer, AI-enhanced lawyer, APAC Regulatory, Risk management, Tech lawyer, Digital asset regulation">
+    
     <meta property="og:title" content="Jason Lai - Designing Trust for Playful Tribes">
     <meta property="og:description" content="Tribe & Trust Builder wielding a legal wand. Life's meaningless—let's dare to build our own">
     <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
@@ -30,6 +34,17 @@
           "url": "https://jasonjlai.net/",
           "jobTitle": "Web3 & AI Legal Builder",
           "description": "Tribe & Trust Builder wielding a legal wand.",
+          "knowsAbout": [
+            "New York Attorney",
+            "Crypto Attorney",
+            "Web3 Lawyer",
+            "AI Lawyer",
+            "AI Attorney",
+            "Risk Management",
+            "Technology Law",
+            "Digital Asset Compliance",
+            "AI Governance"
+          ],
           "sameAs": [
             "https://github.com/jasonj326",
             "https://linkedin.com/in/psjasonlai"
@@ -580,7 +595,7 @@
             if (e.key === 'Escape') closePodcastModal();
         });
 
-        // RSS Fetch
+        // RSS Fetch: 抓取最新文章 (不論是否有置頂)
         async function loadLatest3P() {
             const el = document.getElementById('latest-3p');
             if (!el) return;
@@ -591,11 +606,20 @@
                 const text = await res.text();
 
                 const xml = new DOMParser().parseFromString(text, 'application/xml');
-                const item = xml.querySelector('channel > item');
-                if (!item) throw new Error('no item');
+                const items = Array.from(xml.querySelectorAll('channel > item'));
+                if (items.length === 0) throw new Error('no items');
 
-                const title = (item.querySelector('title')?.textContent || '').trim();
-                const link = (item.querySelector('link')?.textContent || '').trim();
+                // 將所有文章依照發布日期 (pubDate) 從新到舊排序
+                items.sort((a, b) => {
+                    const dateA = new Date(a.querySelector('pubDate')?.textContent || 0);
+                    const dateB = new Date(b.querySelector('pubDate')?.textContent || 0);
+                    return dateB - dateA;
+                });
+
+                // 取排序後的第一筆 (也就是真正的最新文章)
+                const latestItem = items[0];
+                const title = (latestItem.querySelector('title')?.textContent || '').trim();
+                const link = (latestItem.querySelector('link')?.textContent || '').trim();
 
                 const safeTitle = title || 'Latest post';
                 const safeLink = link || '/3pwriting/';
