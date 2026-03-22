@@ -29,7 +29,7 @@
     }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
- 
+  
   <style>
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .game-shadow { box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1); }
@@ -39,7 +39,7 @@
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
- 
+  
   <!-- 導覽列 Navigation -->
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -72,7 +72,7 @@
 
   <!-- 內容區塊 Main Content -->
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
-   
+    
     <!-- 頁首標題與任務引言 -->
     <div class="mb-16">
       <div class="inline-block px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 dark:text-emerald-900 dark:bg-emerald-400 border-2 border-indigo-900 dark:border-emerald-400 rounded-full mb-4">
@@ -97,10 +97,10 @@
                       <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> Challenge Accepted
                   </div>
               </div>
-             
+              
               <!-- 分隔線 -->
               <div class="h-px w-full bg-slate-200 dark:bg-slate-700 my-1"></div>
-             
+              
               <!-- Status (Debuff) -->
               <div>
                   <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Current Status</span>
@@ -111,72 +111,264 @@
           </div>
       </div>
     </div>
-    <!-- Section 1: 2026 In Action -->
+
+    <!-- Section 1: 2026 In Action (Gamified Dashboards) -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-baseline gap-2">
         <i data-lucide="zap" class="w-6 h-6 text-amber-500 self-center"></i>
         2026 In Action for Antidote
-        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2 relative -top-0.5">(Late Feb.)</span>
+        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2 relative -top-0.5">(Late Mar.)</span>
       </h2>
+      
       <div class="grid sm:grid-cols-2 gap-6">
-       
-        <!-- Task 1 -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+        
+        <!-- ========================================== -->
+        <!-- Task 1: SBT: PIF12 -->
+        <!-- ========================================== -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
+          <!-- 卡片標題區 -->
           <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg">
+            <div class="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg shrink-0">
               <i data-lucide="hexagon" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">100 SBT (5%)</h3>
+            <a href="https://jasonjlai.net/main-quest/PIF12/" class="font-bold text-lg font-mono text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors underline decoration-2 underline-offset-4">
+              SBT: PIF12: The Circle (25%)
+            </a>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            Mint and distribute 100 Soul-bound Tokens to map genuine connections and contributions. <br>
-            <strong>Progress</strong>: Smart contract under test
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
+            Mint and distribute Soul-bound Tokens to map genuine connections and contributions.
           </p>
+          
+          <!-- 🎮 進度儀表板 (手動更新區) -->
+          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+            <!-- [手動更新] 等級與狀態標題 -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🚀</span>
+              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.3 Starter</span>
+            </div>
+            
+            <!-- [手動更新] 進度條：修改 style="width: 100%" 內的數值 -->
+            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
+              <div class="bg-indigo-600 dark:bg-indigo-400 h-full rounded-full transition-all duration-500" style="width: 25%"></div>
+            </div>
+            
+            <!-- [手動更新] 數據：修改目前進度與目標 -->
+            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span>Progress: 2/5</span>
+              <span>Goals: 5</span>
+            </div>
+            
+            <!-- [手動更新] 任務清單：
+                 已完成使用：<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                 未完成使用：<i data-lucide="circle-dashed" class="text-slate-400"></i> 
+                 進行中使用：<i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i> -->
+            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>(1) High-level design completed</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>(2) Landing page & contract drafted</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span>(3) Smart contract under test</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span>(4) Image onchain</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span>(5) Mainnet deployment</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- Task 2 -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+
+        <!-- ========================================== -->
+        <!-- Task 2: Mind-Body -->
+        <!-- ========================================== -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
+          <!-- 卡片標題區 -->
           <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-rose-100 dark:bg-rose-900/50 rounded-lg">
+            <div class="p-2 bg-rose-100 dark:bg-rose-900/50 rounded-lg shrink-0">
               <i data-lucide="activity" class="w-5 h-5 text-rose-600 dark:text-rose-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">Mind-Body (5%)</h3>
+            <h3 class="font-bold text-lg font-mono">Mind-Body (45%)</h3>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            Maintain extreme physical and mental readiness through balanced HIIT, Cardio, & Rest. <br>
-            <strong>Progress</strong>: Injured and currently on pause and rest mode.
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
+            Maintain extreme physical and mental readiness through balanced HIIT, Cardio, & Rest.
           </p>
+
+          <!-- 🎮 進度儀表板 (手動更新區) -->
+          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+            <!-- [手動更新] 等級與狀態標題 -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🩹</span>
+              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.3 Rest & Recovery Mode</span>
+            </div>
+            
+            <!-- [手動更新] 進度條：修改 style="width: 25%" 內的數值 -->
+            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
+              <div class="bg-rose-600 dark:bg-rose-400 h-full rounded-full transition-all duration-500" style="width: 45%"></div>
+            </div>
+            
+            <!-- [手動更新] 數據：修改目前進度與目標 -->
+            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span>Progress: 1/4 </span>
+              <span>Goals: Subjectively stronger daily </span>
+            </div>
+            
+            <!-- [手動更新] 任務清單 -->
+            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>Three HIIT workouts and three 10k runs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span class="font-bold text-amber-600 dark:text-amber-400">Recovering from injury</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span class="font-bold text-amber-600 dark:text-amber-400">Good Sleep: 10 day in a row</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle-dashed" class="w-4 h-4 text-slate-400 mt-0.5 shrink-0"></i>
+                <span>Completed one half-marathon in Q1</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- Task 3 -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+
+        <!-- ========================================== -->
+        <!-- Task 3: AI-Enhancement -->
+        <!-- ========================================== -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
+          <!-- 卡片標題區 -->
           <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
+            <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg shrink-0">
               <i data-lucide="cpu" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">AI-Enhancement (20%)</h3>
+            <h3 class="font-bold text-lg font-mono">AI-Enhancement (35%)</h3>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            Integrate Github & Vibe-coding, explore AI-Crypto Synergy, and build Gamification layers.<br>
-            <strong>Progress</strong>: Having fun building this site with AI and designing SBT.
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
+            Integrate Github & Vibe-coding, explore AI-Crypto Synergy, and build Gamification layers.
           </p>
+
+          <!-- 🎮 進度儀表板 (手動更新區) -->
+          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+            <!-- [手動更新] 等級與狀態標題 -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🛠️</span>
+              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.2 Vibe Coding Phase</span>
+            </div>
+            
+            <!-- [手動更新] 進度條：修改 style="width: 50%" 內的數值 -->
+            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
+              <div class="bg-emerald-600 dark:bg-emerald-400 h-full rounded-full transition-all duration-500" style="width: 50%"></div>
+            </div>
+            
+            <!-- [手動更新] 數據：修改目前進度與目標 -->
+            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span>Progress: 2/5</span>
+              <span>Goals: 5</span>
+            </div>
+            
+            <!-- [手動更新] 任務清單 -->
+            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>Have fun building this site with AI</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>Designing SBT mechanics</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span> <a href="https://jasonjlai.net" class="underline decoration-slate-400 dark:decoration-slate-500 underline-offset-4 hover:text-indigo-600 dark:hover:text-emerald-400 hover:decoration-indigo-600 dark:hover:decoration-emerald-400 transition-colors">
+                  Improve Qualia's capacity </a>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span>Integrate Claude Cowork & Skills</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle-dashed" class="w-4 h-4 text-slate-400 mt-0.5 shrink-0"></i>
+                <span>Integrate deeper Github workflows</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- Task 4 -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all">
+
+        <!-- ========================================== -->
+        <!-- Task 4: Communication -->
+        <!-- ========================================== -->
+        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
+          <!-- 卡片標題區 -->
           <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg">
+            <div class="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg shrink-0">
               <i data-lucide="mic" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-bold text-lg font-mono">Communication Level-up (15%)</h3>
+            <h3 class="font-bold text-lg font-mono">Communication Level-up (50%)</h3>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            Elevate written and verbal communication via thought sharing. <i>(Welcome talk invites!)</i> <br>
-            <strong>Progress</strong>: Speaking proposal submitted; on 30-Day AI x N Sprint.
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
+            Elevate written and verbal communication via thought sharing. <i>(Welcome talk invites!)</i>
           </p>
+
+          <!-- 🎮 進度儀表板 (手動更新區) -->
+          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+            <!-- [手動更新] 等級與狀態標題 -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🎙️</span>
+              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.2 Active Outreach</span>
+            </div>
+            
+            <!-- [手動更新] 進度條：修改 style="width: 66%" 內的數值 -->
+            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
+              <div class="bg-blue-600 dark:bg-blue-400 h-full rounded-full transition-all duration-500" style="width: 66%"></div>
+            </div>
+            
+            <!-- [手動更新] 數據：修改目前進度與目標 -->
+            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span>Progress：3/5</span>
+              <span>Goals：5</span>
+            </div>
+            
+            <!-- [手動更新] 任務清單 -->
+            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>2 Speaking engagements completed</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+                <span>Debrief 30-Day AI x N Sprint</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span>Daily Live recording practice </span>
+              </li>
+               <li class="flex items-start gap-2">
+                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
+                <span> 24 speaking engagement in 2026 </span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle-dashed" class="w-4 h-4 text-slate-400 mt-0.5 shrink-0"></i>
+                <span>Migrate MR.PS writings in 2021</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
       </div>
     </section>
+
     <!-- Section 2 & 3: Roadmaps (WIP) -->
     <div class="grid sm:grid-cols-2 gap-8">
-     
       <!-- Three-Year Roadmap -->
       <section>
         <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
@@ -212,7 +404,7 @@
     </div>
   </main>
 
-  <!-- 頁尾 Footer (已改為絕對置中排列) -->
+  <!-- 頁尾 Footer -->
   <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
     <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-4 text-sm font-mono text-slate-500">
       <p class="italic text-center leading-relaxed max-w-2xl">
@@ -226,15 +418,15 @@
   <script>
     // 設定當前年份
     document.getElementById('current-year').textContent = new Date().getFullYear();
-   
+    
     // 初始化 Lucide 圖示
     lucide.createIcons();
-   
+    
     // 深色模式邏輯
     const htmlElement = document.documentElement;
     const iconSun = document.getElementById('icon-sun');
     const iconMoon = document.getElementById('icon-moon');
-   
+    
     function initTheme() {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
@@ -247,7 +439,7 @@
         iconMoon.classList.add('hidden');
       }
     }
-   
+    
     function toggleTheme() {
       if (htmlElement.classList.contains('dark')) {
         htmlElement.classList.remove('dark');
@@ -261,7 +453,7 @@
         iconMoon.classList.add('hidden');
       }
     }
-   
+    
     initTheme();
   </script>
 </body>
