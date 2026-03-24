@@ -13,7 +13,7 @@ POSTS_PER_PAGE = 30 # 設定每頁顯示 30 篇文章
 # 💡 新增：全站 AEO/SEO 權威描述 (Authoritative Description)
 SITE_AUTHOR_DESC = "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
 
-# 1. 單篇文章的 HTML 模板 (加入 JSON-LD, 語意化標籤, 與 Disclaimer)
+# 1. 單篇文章的 HTML 模板 (加入 JSON-LD, 語意化標籤, 與 Disclaimer, 以及最新訂閱表單與導覽列)
 HTML_TMPL = """<!DOCTYPE html>
 <html lang="{lang}" class="dark">
 <head>
@@ -73,33 +73,58 @@ HTML_TMPL = """<!DOCTYPE html>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
   
+  <!-- 導覽列 Navigation (已同步首頁的社群圖示排版) -->
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex space-x-3 sm:space-x-6 items-center">
-        <!-- Jason_Lai (Inactive) -->
-        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
-        </a>
-        <!-- Main Quest (Inactive) -->
-        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
-        </a>
-        <!-- Writing on 3P (Active) -->
-        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
-        </a>
-        <!-- Qualia (Inactive) -->
-        <a href="/qualia/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
-        </a>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          
+          <!-- 左側：站內連結 (Internal Navigation) -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+              </a>
+              <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+              </a>
+              <!-- Writing on 3P (Active) -->
+              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                  <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+              </a>
+              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+              </a>
+          </div>
+
+          <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-          <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
-          <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
-        </button>
-      </div>
-    </div>
   </nav>
 
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
@@ -118,8 +143,52 @@ HTML_TMPL = """<!DOCTYPE html>
         
         {content}
 
+        <!-- 💡 訂閱表單 Subscribe / Newsletter (使用 not-prose 隔離排版污染) -->
+        <div class="not-prose">
+            <section class="mt-16 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+                <div class="space-y-4">
+                    <h2 class="text-lg font-bold font-mono flex items-center gap-2">
+                        <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
+                        Stay Connected
+                        <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
+                        訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
+                    </p>
+                    <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name (optional)"
+                            aria-label="Name"
+                            class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                        >
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                            aria-label="Email Address"
+                            class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                        >
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
+                            Join
+                        </button>
+                    </form>
+                    <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
+                        You can also get updates the old-school way / 或是選擇老派的更新方式 
+                        <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
+                            <i data-lucide="rss" class="w-4 h-4"></i> RSS
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <!-- 💡 免責聲明 Disclaimer (不受 Prose 排版影響，獨立區塊) -->
-        <div class="not-prose mt-16 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
           <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">Disclaimer:</strong> 
           This is my website representing my view only, not my affiliated entities. All information is for informational purpose only. No specific legal, medical, tax, investment advice is rendered here. Seek your own professional advice. The content of this post is provided “as is;” and no representations are made that the content is error-free or up-to-date. Thus, please do your own research and take full responsibility for the consequences if you rely on any information here.
         </div>
@@ -255,33 +324,59 @@ INDEX_TMPL = """<!DOCTYPE html>
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
+  
+  <!-- 導覽列 Navigation (已同步首頁的社群圖示排版) -->
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex space-x-3 sm:space-x-6 items-center">
-        <!-- Jason_Lai (Inactive) -->
-        <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
-        </a>
-        <!-- Main Quest (Inactive) -->
-        <a href="/main-quest/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
-        </a>
-        <!-- Writing on 3P (Active) -->
-        <a href="/3pwriting/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-          <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
-        </a>
-        <!-- Qualia (Inactive) -->
-        <a href="/qualia/" class="flex items-center gap-1.5 sm:gap-2 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
-        </a>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          
+          <!-- 左側：站內連結 (Internal Navigation) -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+              </a>
+              <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+              </a>
+              <!-- Writing on 3P (Active) -->
+              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                  <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+              </a>
+              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+              </a>
+          </div>
+
+          <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-          <i data-lucide="sun" id="icon-sun" class="w-5 h-5 text-amber-400 hidden"></i>
-          <i data-lucide="moon" id="icon-moon" class="w-5 h-5 text-slate-600"></i>
-        </button>
-      </div>
-    </div>
   </nav>
 
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
@@ -313,6 +408,49 @@ INDEX_TMPL = """<!DOCTYPE html>
 
     <!-- 分頁按鈕 -->
     {pagination}
+
+    <!-- 💡 訂閱表單 Subscribe / Newsletter (放置於文章列表底部) -->
+    <section class="mt-16 mb-12 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+        <div class="space-y-4">
+            <h2 class="text-lg font-bold font-mono flex items-center gap-2">
+                <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
+                Stay Connected
+                <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
+            </h2>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
+                訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
+            </p>
+            <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Name (optional)"
+                    aria-label="Name"
+                    class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                >
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                    aria-label="Email Address"
+                    class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                >
+                <input type="hidden" name="_gotcha" style="display:none !important">
+                <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
+                    Join
+                </button>
+            </form>
+            <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
+                You can also get updates the old-school way / 或是選擇老派的更新方式 
+                <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
+                    <i data-lucide="rss" class="w-4 h-4"></i> RSS
+                </a>
+            </div>
+        </div>
+    </section>
+
   </main>
 
   <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
@@ -628,7 +766,7 @@ def main():
         
         safe_summary = escape(p["summary"]).replace('"', '&quot;')
         
-        # 💡 [修正] 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
+        # 💡 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
