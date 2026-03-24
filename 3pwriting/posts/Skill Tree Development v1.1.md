@@ -79,6 +79,7 @@ If you're new to this world, feel free to take a look at these great resources:
 That's my take on skill tree v1.1. Looking forward to party up with you soon!
 
 Update log:
-1. v1: Feb 25, 2026
 
-2. v1.1: Last update: March 24, 2026
+- v1: Feb 25, 2026
+  
+- v1.1: Last update: March 24, 2026
