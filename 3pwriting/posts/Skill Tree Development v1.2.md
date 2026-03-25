@@ -31,15 +31,15 @@ I was practically born for this, and only recently have I fully realized it. Fro
 
 To begin with, let's start with the opposite of systems thinking: the law of instrument. "When you're holding a hammer, everything looks like a nail." It has probably been very valuable to master one or two crafts to live a fulfilling life. However, the complexity of the modern world makes this path too narrow. If I attempt to solve my daily problems with mostly my legal expertise — legal reasoning and advocacy, litigation (and threat of litigation), negotiation with BATNA (best alternative to a negotiated agreement) — I'd no doubt be miserable. By the same token, if I only live by the principle of economics and efficiency, I am going nowhere further. 
 
-Now we move to the other end of the spectrum - complex and uncertain mindset: I cannot capture everything in systems thinking even in one article, but I will still try to give you a gist of it in one paragraph: Three key elements in systems thinking — thinking in bets[^1], the whole is greater than the sum of the parts, and feedback loops.
+Now we move to the other end of the spectrum - complex and uncertain mindset: I cannot capture everything in systems thinking even in one article, but I will still try to give you a gist of it in one paragraph with three key elements in systems thinking: (1) thinking in bets[^1], (2) the whole is greater than the sum of the parts, and (3) feedback loops.
 
 Professional poker players do not judge their performance by a specific game result. Instead, they ask whether the move is the most likely to win in that situation. This requires them to consistently adjust their thoughts and judgment based on new information. Similarly, we should regularly reconsider our portfolio and decisions: whether the underlying facts have changed for a particular investment, whether the assumption has proven wrong, or vice versa. This thinking in bets, or more academically speaking — Bayesian mindset — substantially improves my decision-making process in life and at work.
 
 "The whole is greater than the sum of the parts" is often misattributed to Aristotle due to a translation error. Gestalt psychologist Kurt Koffka suggested a different version: "The whole is other than the sum of the parts," which shows [how our human brains process information](https://en.wikipedia.org/wiki/Gestalt_psychology). Another related concept is emergence: Water — two hydrogen plus one oxygen — shows completely different features from hydrogen (highly flammable) and oxygen (supports combustion).
 
-One of my favorite examples of emergence is from Morgan Housel’s book *Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life*. A cold front from the north is not a big deal. A warm breeze from the south is cozy. Yet when the timing of both mixes in Missouri, they become a tornado that destroys everything it touches. We don't have crystal balls to tell the future — when and where emergence will appear — yet I'm glad a few men and women get the balls to try new things as pioneers and trailblazers, pushing our civilization forward. And as an individual, we can definitely connect our own unrelated, negligible dots and see what mini-emergence shows up.
+One of my favorite examples of emergence is from Morgan Housel.[^2] A cold front from the north is not a big deal. A warm breeze from the south is cozy. Yet when the timing of both mixes in Missouri, they become a tornado that destroys everything it touches. We don't have crystal balls to tell the future — when and where emergence will appear — yet I'm glad a few men and women get the balls to try new things as pioneers and trailblazers, pushing our civilization forward. And as an individual, we can definitely connect our own unrelated, negligible dots and see what mini-emergence shows up.
 
-Lastly, feedback loops. We humans have the tendency to think and believe there is a linear relationship in growth and success, or even a straightforward causation chain. That's how our brain is wired: we love the [causation "why/because" structure](https://www.harvardmagazine.com/2010/08/the-mindfulness-chronicles?page=all). Of course, because we have systems thinking, we know "because" isn't the determinant factor for getting your way. The feedback loops in place help me stay humble and hungry for all possibilities.
+Lastly, feedback loops. We humans have the tendency to think and believe there is a linear relationship in growth and success, or even a straightforward causation chain. That's how our brain is wired: we love the causation "why/because" structure[^3]. Of course, with systems thinking, we now know "because" isn't the only determinant for getting our way. What matters more is that feedback loops give us a bird's-eye view of how we reach our destination. Sometimes we can take shortcuts, sometimes we need to detour, and sometimes we even have to give up our most profitable business line just to stay alive.[^4]
 
 Systems thinking only becomes powerful when applied. That’s exactly what I’m doing, and I know I’m not alone in finding these complex ideas useful, fascinating, and beautiful.
 
@@ -77,6 +77,7 @@ You can't desire or even appreciate what you already own. That's human nature th
 That said, I view legal skills and credential as a plus, not a box. Thus, my systems thinking equips me to help clients align their macro vision with micro precision. And whenever we navigate uncharted waters and get green lights from regulator, ship our deliverables, or get the deal done, that literally makes my year.
 
 Combining with AI, legal work becomes much more fun and scalable. This is unimaginable before 2022, but it is reality now - a small firm of five may compete with a traditional law firm of 500 lawyers. And I hope someday soon legal service becomes affordable for everyone. 
+
 ## 6. Crypto:
 
 The 2017 HBR article ["The Blockchain Will Do to the Financial System What the Internet Did to Media"](https://hbr.org/2017/03/the-blockchain-will-do-to-banks-and-law-firms-what-the-internet-did-to-media) nudged me into this crypto world. Of course, my ex-colleagues helped me consolidate the financial perspective and gain hands-on experiences in legal and compliance, along with my ongoing endeavors in helping founders and builders in the decentralized ecosystem worldwide.
@@ -91,6 +92,7 @@ If you're new to this world, feel free to take a look at these great resources:
 That's my take on skill tree v1.2. Looking forward to party up with you soon!
 
 Update log:
+
 - v1.2: March 25, 2026 (last update)
 
 - v1.1: March 24, 2026
@@ -98,3 +100,9 @@ Update log:
 - v1: Feb 25, 2026
 
 [^1]: The concept of "thinking in bets" comes from Annie Duke’s book *Thinking in Bets: Making Smarter Decisions When You Don’t Have All the Facts*. It means evaluating decisions based on probability and expected value rather than on whether the outcome was good or bad.
+
+[^2]: His book *Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life*
+
+[^3]: [Harvard Magzine, Mindfulness—the unconventional research of psychologist Ellen Langer](https://www.harvardmagazine.com/2010/08/the-mindfulness-chronicles?page=all)
+
+[^4]: In 1975, Kodak engineer Steve Sasson invented the first digital camera, but management shelved it to protect film. Decades later, Kodak acquired Ofoto (2001)—a precursor to Instagram—yet used it to push physical prints rather than social sharing. By ignoring these digital feedback loops to save a dying business line, Kodak eventually sold the platform to Shutterfly for a fraction of its potential value during its 2012 bankruptcy.
