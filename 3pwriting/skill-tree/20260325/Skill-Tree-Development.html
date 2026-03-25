@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Skill Tree Development v1.5 - Jason J. Lai</title>
+
+<!-- 動態 SEO 與社群縮圖 (Open Graph) 標籤 -->
+<meta name="description" content="Why I opt for gaming design and what I can do for you">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="Skill Tree Development v1.5 - Jason J. Lai">
+<meta property="og:description" content="Why I opt for gaming design and what I can do for you">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/3pwriting/skill-tree/20260325/Skill-Tree-Development.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- 💡 AI 優化：JSON-LD 結構化資料，讓 AI 與搜尋引擎秒懂文章內容與作者權威 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Skill Tree Development v1.5",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-03-25",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "Why I opt for gaming design and what I can do for you"
+}
+</script>
+
+<!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    
+    /* 微調註解 (Footnotes) 在 Tailwind Typography 下的樣式 */
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; } /* 修 UI 缺點：跳轉時不擋 navbar */
+</style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  
+  <!-- 導覽列 Navigation (已同步首頁的社群圖示排版) -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          
+          <!-- 左側：站內連結 (Internal Navigation) -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+              </a>
+              <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+              </a>
+              <!-- Writing on 3P (Active) -->
+              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                  <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+              </a>
+              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+              </a>
+          </div>
+
+          <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">Skill Tree Development v1.5</h1>
+          
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-03-25" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-03-25</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/skill-tree/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>skill-tree</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a>
+            </div>
+          </div>
+        </header>
+        
+        <p>The whole website is designed in gaming style for a reason. Actually, for a couple of reasons.</p>
+<p>First, it reflects my current mantra: life is a game, and we get to choose our own main quest, side quests, and even the rules. This mindset is liberating, and it helps me focus on what truly matters. Beyond the metaphor, gamification offers real psychological utility. It is backed by empirical studies in psychology and proven in entrepreneurial design—see books such as <em>Actionable Gamification: Beyond Points, Badges, and Leaderboards</em> by Yu-kai Chou, <em>For the Win</em> by Kevin Werbach and Dan Hunter, and <em>Reality Is Broken</em> by Jane McGonigal.</p>
+<p>Admittedly, the gaming aesthetic may make some clients or more conservative legal professionals frown. Even so, I choose to stay true to my mantra and forge my own path. I believe substance ultimately outweighs surface appearances—though I recognize that formality still has its place in law and human nature.</p>
+<p>With that background covered, this skill tree will help you use me more effectively in your own life game (alongside the <a href="https://jasonjlai.net/3pwriting/partnership/20260223/readme.html">README</a> and my digital trainee <a href="/jasonjlai.net/qualia">Lia</a>). Together, we can party up and tackle a side quest—or something even more fun.</p>
+<p>While I am far more than what any skill tree can capture, these six skills are the ones I believe will prove most valuable to you right now:</p>
+<p><img src="https://quickchart.io/chart?w=500&h=400&c={type:'radar',data:{labels:['Communication','Execution',['AI','Enhancement'],'Crypto','Legal',['Systems','Thinking']],datasets:[{label:'Skill%20Level',data:[6.5,6.5,7,7.5,8,8],backgroundColor:'rgba(79,70,229,0.4)',borderColor:'%234f46e5',borderWidth:2,pointBackgroundColor:'%234f46e5'}]},options:{scale:{ticks:{min:0,max:10,display:false}},plugins:{legend:{display:false}}}}" alt="Skill Tree Radar Chart" /></p>
+<h2>1. Systems Thinking</h2>
+<p>I was practically born for this, and only recently have I fully realized it. From Charlie Munger’s latticework of mental models and <a href="http://fs.blog/mental-models/">Farnam Street</a>, to Donella Meadows’ classic <em>Thinking in Systems: A Primer</em>, I’ve been thrilled to absorb these ideas—and I’ve now begun building my own framework on top of their insights.</p>
+<p>To begin with, let's start with the opposite of systems thinking: the law of instrument. "When you're holding a hammer, everything looks like a nail." It has probably been very valuable to master one or two crafts to live a fulfilling life. However, the complexity of the modern world makes this path too narrow. If I attempt to solve my daily problems with mostly my legal expertise — legal reasoning and advocacy, litigation (and threat of litigation), negotiation with BATNA (best alternative to a negotiated agreement) — I'd no doubt be miserable. By the same token, if I only live by the principle of economics and efficiency, I am going nowhere further. </p>
+<p>Now we move to the other end of the spectrum - complex and uncertain mindset: I cannot capture everything in systems thinking even in one article, but I will still try to give you a gist of it in one paragraph: Three key elements in systems thinking — thinking in bets<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, the whole is greater than the sum of the parts, and feedback loops.</p>
+<p>Professional poker players do not judge their performance by a specific game result. Instead, they ask whether the move is the most likely to win in that situation. This requires them to consistently adjust their thoughts and judgment based on new information. Similarly, we should regularly reconsider our portfolio and decisions: whether the underlying facts have changed for a particular investment, whether the assumption has proven wrong, or vice versa. This thinking in bets, or more academically speaking — Bayesian mindset — substantially improves my decision-making process in life and at work.</p>
+<p>"The whole is greater than the sum of the parts" is often misattributed to Aristotle due to a translation error. Gestalt psychologist Kurt Koffka suggested a different version: "The whole is other than the sum of the parts," which shows <a href="https://en.wikipedia.org/wiki/Gestalt_psychology">how our human brains process information</a>. Another related concept is emergence: Water — two hydrogen plus one oxygen — shows completely different features from hydrogen (highly flammable) and oxygen (supports combustion).</p>
+<p>One of my favorite examples of emergence is from Morgan Housel’s book <em>Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life</em>. A cold front from the north is not a big deal. A warm breeze from the south is cozy. Yet when the timing of both mixes in Missouri, they become a tornado that destroys everything it touches. We don't have crystal balls to tell the future — when and where emergence will appear — yet I'm glad a few men and women get the balls to try new things as pioneers and trailblazers, pushing our civilization forward. And as an individual, we can definitely connect our own unrelated, negligible dots and see what mini-emergence shows up.</p>
+<p>Lastly, feedback loops. We humans have the tendency to think and believe there is a linear relationship in growth and success, or even a straightforward causation chain. That's how our brain is wired: we love the <a href="https://www.harvardmagazine.com/2010/08/the-mindfulness-chronicles?page=all">causation "why/because" structure</a>. Of course, because we have systems thinking, we know "because" isn't the determinant factor for getting your way. The feedback loops in place help me stay humble and hungry for all possibilities.</p>
+<p>Systems thinking only becomes powerful when applied. That’s exactly what I’m doing, and I know I’m not alone in finding these complex ideas useful, fascinating, and beautiful.</p>
+<h2>2. Execution: Get things done and shipped</h2>
+<p>As a systems thinker, I am aware of the danger of talking the talk, not walking the talk. Being a talker is annoying. I get it. </p>
+<p>That’s likely why “high-agency” became such a buzzword in 2025: it describes hyper-ambitious, proactive people who act in a permissionless manner to achieve what they truly desire, not just what they need.</p>
+<p>My understanding of level of execution: thinking → talking → writing → rebuttal &amp; revisit → create something to get information feedback in the loop → create a flywheel to speed up the loop → hit the wall and see the physical, cultural, social-economic, legal constraints → overcome the constraints and upgrade or decisively self-correct.</p>
+<p>I have been attempting to create my own flywheel to accelerate exponential growth—this website aiming to build my tribe is one of my efforts.</p>
+<p>Of course, high-agency comes with pitfalls—burnout and perpetual dissatisfaction are two of the biggest. I was recently reminded that I need to rest—point taken, though the action is still pending. In the gaming mindset, the solution is simple: embrace who you are, play your role to the fullest, and maximize your unique potential and talents. If burnout is the side effect of me being highly productive and high-agency, then so be it. I may come with other antidote to speed up my recovery, to increase my endurance before next burnout, or level up to live with the built-in burnout feature.</p>
+<h2>3. AI-Enhancement</h2>
+<p>This is how I can do the seemingly impossible. I'm still experimenting all kinds of AI tools, and to be honest, they are evolving so fast that you don't really learn what the tools are but use to build and create. AI-enhancement plus execution sounds fascinating and exciting. </p>
+<p>Right now, I use Claude for my highest-priority tasks. I’m currently drafting an article titled “How I Write Smart Contracts and Legal Contracts with Claude,” but it will only be published after my own smart contract is live on-chain. (Fair warning: it may already feel outdated by then, given how fast AI is moving.)</p>
+<p>I also rely heavily on Gemini and NotebookLM to build and maintain this website, and to learn across every area of my life—from main quests to side quests. My current top priorities are getting the smart contract tested, developing offline software that can redact legal contracts, and exploring even more exciting projects.</p>
+<h2>4. Communication</h2>
+<p>I love sharing my stories and ideas. <a href="https://jasonjlai.net/main-quest/communication/">Invitations to speak—whether as keynote, panelist, moderator, or even improv—are always welcome</a>.</p>
+<p>My biggest takeaway in communication is audience-focused, emotion-first. The hardest communication challenge is when you don’t truly know your audience. A great example is Shohei Ohtani: He initially wanted to jump straight to the U.S. minor leagues at the age of 18. It was Hokkaido Nippon-Ham Fighters (北海道日本火腿鬥士) that presented a detailed, persuasive argument that changed his mind. The 30-page document titled <a href="https://gigazine.net/gsc_news/en/20121213-nippon-ham-fighters-ohtani/#:~:text=However%2C%20Hokkaido%20Nippon%20Ham%20Fighters,disclosure%20such%20as%20personal%20information%22.">"The Path to Realizing Your Dream" (夢への道しるべ)</a> . It started from what Ohtani wanted, not just what the team could offer, and successfully changed his mind to stay in Japan. </p>
+<p>Another skill I’ve been deliberately practicing is rhythm—especially the strategic use of the pause. This is an undervalued element in communication. Pauses give the audience time to think, process, and let ideas sink in. I can’t emphasize this enough, which is why I’ve embedded <a href="https://youtube.com/shorts/GfafD6pycoE?si=Bse9l8hve1fnnjI_">Vinh Giang's video</a> to drive this point home.   </p>
+<h2>5. Legal:</h2>
+<p>You can't desire or even appreciate what you already own. That's human nature that makes a lot of us unhappy—me included. Ironically, after I spent decades financing and securing my law degree and honorably privileged to practice law, I want to take the label off. It's not a shame to practice law, but I don't like being labelled as such because this seems to cap my potential dancing with the world. There are much to explore and experience; legal world is fun and valuable but definitely not everything.</p>
+<p>That said, I view legal skills and credential as a plus, not a box. Thus, my systems thinking equips me to help clients align their macro vision with micro precision. And whenever we navigate uncharted waters and get green lights from regulator, ship our deliverables, or get the deal done, that literally makes my year.</p>
+<p>Combining with AI, legal work becomes much more fun and scalable. This is unimaginable before 2022, but it is reality now - a small firm of five may compete with a traditional law firm of 500 lawyers. And I hope someday soon legal service becomes affordable for everyone. </p>
+<h2>6. Crypto:</h2>
+<p>The 2017 HBR article <a href="https://hbr.org/2017/03/the-blockchain-will-do-to-banks-and-law-firms-what-the-internet-did-to-media">"The Blockchain Will Do to the Financial System What the Internet Did to Media"</a> nudged me into this crypto world. Of course, my ex-colleagues helped me consolidate the financial perspective and gain hands-on experiences in legal and compliance, along with my ongoing endeavors in helping founders and builders in the decentralized ecosystem worldwide.</p>
+<p>I want to dive deeper and actually use blockchain to do something fun and useful (logically speaking, having fun itself is super useful and valuable, anyway). That's why I am starting the PIF12 project.</p>
+<p>If you're new to this world, feel free to take a look at these great resources:<br />
+1. <a href="https://variant.fund/writing/">Variant Fund</a> &amp; <a href="https://a16zcrypto.com/">a16z crypto</a><br />
+2. <a href="https://www.cryptocompendium.org/">Guang-Yi's Crypto Compendium</a><br />
+3. <a href="https://thecryptolegalhandbook.com/">The Crypto Legal Handbook</a></p>
+<p>That's my take on skill tree v1.2. Looking forward to party up with you soon!</p>
+<p>Update log:
+- v1.2: March 25, 2026 (last update)</p>
+<ul>
+<li>
+<p>v1.1: March 24, 2026</p>
+</li>
+<li>
+<p>v1: Feb 25, 2026</p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The concept of "thinking in bets" comes from Annie Duke’s book <em>Thinking in Bets: Making Smarter Decisions When You Don’t Have All the Facts</em>. It means evaluating decisions based on probability and expected value rather than on whether the outcome was good or bad.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+        <!-- 💡 訂閱表單 Subscribe / Newsletter (使用 not-prose 隔離排版污染) -->
+        <div class="not-prose">
+            <section class="mt-16 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+                <div class="space-y-4">
+                    <h2 class="text-lg font-bold font-mono flex items-center gap-2">
+                        <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
+                        Stay Connected
+                        <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
+                        訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
+                    </p>
+                    <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name (optional)"
+                            aria-label="Name"
+                            class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                        >
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                            aria-label="Email Address"
+                            class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                        >
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
+                            Join
+                        </button>
+                    </form>
+                    <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
+                        You can also get updates the old-school way / 或是選擇老派的更新方式 
+                        <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
+                            <i data-lucide="rss" class="w-4 h-4"></i> RSS
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 💡 免責聲明 Disclaimer (不受 Prose 排版影響，獨立區塊) -->
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">Disclaimer:</strong> 
+          This is my website representing my view only, not my affiliated entities. All information is for informational purpose only. No specific legal, medical, tax, investment advice is rendered here. Seek your own professional advice. The content of this post is provided “as is;” and no representations are made that the content is error-free or up-to-date. Thus, please do your own research and take full responsibility for the consequences if you rely on any information here.
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-4 text-sm font-mono text-slate-500">
+        <p class="italic text-center leading-relaxed max-w-2xl">
+            "Maturity in a man: that means to have re-found the seriousness that one had as a child at play"
+        </p>
+        <p class="shrink-0 whitespace-nowrap">© <span id="current-year"></span> Jason J. Lai</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    initTheme();
+  </script>
+</body>
+</html>
