@@ -1,6 +1,6 @@
 ---
-title: Skill Tree Development v1.1
-date: 2026-03-24
+title: Skill Tree Development v1.5
+date: 2026-03-25
 year: 2026
 slug: Skill-Tree-Development
 major_tag: skill-tree
@@ -27,7 +27,19 @@ While I am far more than what any skill tree can capture, these six skills are t
 
 ## 1. Systems Thinking
 
-I was practically born for this, and only recently have I fully realized it. From Charlie Munger’s latticework of mental models and  [Farnam Street](http://fs.blog/mental-models/), to Donella Meadows’ classic _Thinking in Systems: A Primer_, I’ve been thrilled to absorb these ideas—and I’ve now begun building my own framework on top of their insights.
+I was practically born for this, and only recently have I fully realized it. From Charlie Munger’s latticework of mental models and [Farnam Street](http://fs.blog/mental-models/), to Donella Meadows’ classic _Thinking in Systems: A Primer_, I’ve been thrilled to absorb these ideas—and I’ve now begun building my own framework on top of their insights.
+
+To begin with, let's start with the opposite of systems thinking: the law of instrument. "When you're holding a hammer, everything looks like a nail." It has probably been very valuable to master one or two crafts to live a fulfilling life. However, the complexity of the modern world makes this path too narrow. If I attempt to solve my daily problems with mostly my legal expertise — legal reasoning and advocacy, litigation (and threat of litigation), negotiation with BATNA (best alternative to a negotiated agreement) — I'd no doubt be miserable. By the same token, if I only live by the principle of economics and efficiency, I am going nowhere further. 
+
+Now we move to the other end of the spectrum - complex and uncertain mindset: I cannot capture everything in systems thinking even in one article, but I will still try to give you a gist of it in one paragraph: Three key elements in systems thinking — thinking in bets[^1], the whole is greater than the sum of the parts, and feedback loops.
+
+Professional poker players do not judge their performance by a specific game result. Instead, they ask whether the move is the most likely to win in that situation. This requires them to consistently adjust their thoughts and judgment based on new information. Similarly, we should regularly reconsider our portfolio and decisions: whether the underlying facts have changed for a particular investment, whether the assumption has proven wrong, or vice versa. This thinking in bets, or more academically speaking — Bayesian mindset — substantially improves my decision-making process in life and at work.
+
+"The whole is greater than the sum of the parts" is often misattributed to Aristotle due to a translation error. Gestalt psychologist Kurt Koffka suggested a different version: "The whole is other than the sum of the parts," which shows [how our human brains process information](https://en.wikipedia.org/wiki/Gestalt_psychology). Another related concept is emergence: Water — two hydrogen plus one oxygen — shows completely different features from hydrogen (highly flammable) and oxygen (supports combustion).
+
+One of my favorite examples of emergence is from Morgan Housel’s book *Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life*. A cold front from the north is not a big deal. A warm breeze from the south is cozy. Yet when the timing of both mixes in Missouri, they become a tornado that destroys everything it touches. We don't have crystal balls to tell the future — when and where emergence will appear — yet I'm glad a few men and women get the balls to try new things as pioneers and trailblazers, pushing our civilization forward. And as an individual, we can definitely connect our own unrelated, negligible dots and see what mini-emergence shows up.
+
+Lastly, feedback loops. We humans have the tendency to think and believe there is a linear relationship in growth and success, or even a straightforward causation chain. That's how our brain is wired: we love the [causation "why/because" structure](https://www.harvardmagazine.com/2010/08/the-mindfulness-chronicles?page=all). Of course, because we have systems thinking, we know "because" isn't the determinant factor for getting your way. The feedback loops in place help me stay humble and hungry for all possibilities.
 
 Systems thinking only becomes powerful when applied. That’s exactly what I’m doing, and I know I’m not alone in finding these complex ideas useful, fascinating, and beautiful.
 
@@ -52,7 +64,7 @@ Right now, I use Claude for my highest-priority tasks. I’m currently drafting 
 I also rely heavily on Gemini and NotebookLM to build and maintain this website, and to learn across every area of my life—from main quests to side quests. My current top priorities are getting the smart contract tested, developing offline software that can redact legal contracts, and exploring even more exciting projects.
 
 ## 4. Communication
-I love sharing my stories and ideas. Invitations to speak—whether as keynote, panelist, moderator, or even improv—are always welcome.
+I love sharing my stories and ideas. [Invitations to speak—whether as keynote, panelist, moderator, or even improv—are always welcome](https://jasonjlai.net/main-quest/communication/).
 
 My biggest takeaway in communication is audience-focused, emotion-first. The hardest communication challenge is when you don’t truly know your audience. A great example is Shohei Ohtani: He initially wanted to jump straight to the U.S. minor leagues at the age of 18. It was Hokkaido Nippon-Ham Fighters (北海道日本火腿鬥士) that presented a detailed, persuasive argument that changed his mind. The 30-page document titled ["The Path to Realizing Your Dream" (夢への道しるべ)](https://gigazine.net/gsc_news/en/20121213-nippon-ham-fighters-ohtani/#:~:text=However%2C%20Hokkaido%20Nippon%20Ham%20Fighters,disclosure%20such%20as%20personal%20information%22.) . It started from what Ohtani wanted, not just what the team could offer, and successfully changed his mind to stay in Japan. 
 
@@ -76,10 +88,13 @@ If you're new to this world, feel free to take a look at these great resources:
 2. [Guang-Yi's Crypto Compendium](https://www.cryptocompendium.org/)  
 3. [The Crypto Legal Handbook](https://thecryptolegalhandbook.com/)
 
-That's my take on skill tree v1.1. Looking forward to party up with you soon!
+That's my take on skill tree v1.2. Looking forward to party up with you soon!
 
 Update log:
+- v1.2: March 25, 2026 (last update)
+
+- v1.1: March 24, 2026
 
 - v1: Feb 25, 2026
-  
-- v1.1: Last update: March 24, 2026
+
+[^1]: The concept of "thinking in bets" comes from Annie Duke’s book *Thinking in Bets: Making Smarter Decisions When You Don’t Have All the Facts*. It means evaluating decisions based on probability and expected value rather than on whether the outcome was good or bad.
