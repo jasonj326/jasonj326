@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>沒有魔法而理想的一天 - Jason J. Lai</title>
+
+<!-- 動態 SEO 與社群縮圖 (Open Graph) 標籤 -->
+<meta name="description" content="Three ideal days visualized, plus a normal ideal one visualized">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="沒有魔法而理想的一天 - Jason J. Lai">
+<meta property="og:description" content="Three ideal days visualized, plus a normal ideal one visualized">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/3pwriting/playgrounds/20260331/magic-day.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- 💡 AI 優化：JSON-LD 結構化資料，讓 AI 與搜尋引擎秒懂文章內容與作者權威 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "沒有魔法而理想的一天",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-03-31",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "Three ideal days visualized, plus a normal ideal one visualized"
+}
+</script>
+
+<!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    
+    /* 微調註解 (Footnotes) 在 Tailwind Typography 下的樣式 */
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; } /* 修 UI 缺點：跳轉時不擋 navbar */
+</style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  
+  <!-- 導覽列 Navigation (已同步首頁的社群圖示排版) -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          
+          <!-- 左側：站內連結 (Internal Navigation) -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+              </a>
+              <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+              </a>
+              <!-- Writing on 3P (Active) -->
+              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                  <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+              </a>
+              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+              </a>
+          </div>
+
+          <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">沒有魔法而理想的一天</h1>
+          
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-03-31" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-03-31</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a>
+            </div>
+          </div>
+        </header>
+        
+        <h2>理想的一天 Ａ</h2>
+<p>7:30 無鬧鐘自然醒</p>
+<p>7:30–8:30 在晨曦第一道陽光下完成我的5公里跑步。力量訓練、保持水分補充、洗澡完成。</p>
+<p>8:30–9:30 享受一天中的第一杯咖啡，確認所有郵件回覆草稿，看看<a href="/main-quest/PIF12">PIF社群</a>有沒有誰提出有趣的任務需要協助。檢視我的AI首席幕僚<a href="https://jasonjlai.net/qualia">Lia</a>昨晚的工作，給她一些指令讓他可以去發號施令給其他小兵。</p>
+<p>09:30–13:30 開船跟朋友和我的狗一起玩樂。在海灘純粹放鬆，偶而玩水，偶而享受閱讀時光，不在意時光流逝。想起上週經過海盜猖獗的海域還是心有餘悸，但現在在近海比較不會PTSD</p>
+<p>13:00–14:30 吃一頓當地海鮮當作午餐。</p>
+<p>14:30–16:00 最終定稿今晚的演講。</p>
+<p>16:00–17:00 跟Lia確認是否有任何緊急訊息，還好沒有。</p>
+<p>17:00–18:00 在前往演講會場的路上抓一份輕食晚餐</p>
+<p>18:00–19:00 跟其他講者和主辦方 networking，都是傳統眼中的奇葩</p>
+<p>19:00–20:00 開始我的分享：《從毫無意義的人生中創造屬於你的生命意義》，介紹從2026年成立的Pay-It-Forward互助社群，也把握這個年度實體見面的機會和大家互動 </p>
+<p>20:30–22:30 前往當地爵士酒吧，和朋友們即興唱歌，與新朋友調琴也調情。</p>
+<p>22:30–23:00 回到舒適的飯店，檢查訊息、陪狗狗玩耍，確認文件都準備好、盤點一個月航程返回台灣的物資是否充足，畢竟我可是船長。</p>
+<p>23:00 洗澡（或不洗）然後睡覺。</p>
+<hr />
+<h2>理想的一天 B</h2>
+<p>5:30 無鬧鐘自然醒</p>
+<p>6:30–7:30 帶著狗狗完成每天的5公里晨跑，然後洗澡。</p>
+<p>7:30–9:30 親吻另一半道別，送小孩上學，動手修修補補自己的side projects。</p>
+<p>9:30–10:30 享受一天第一杯咖啡，在辦公室開始工作。準備下午會議的備忘錄。</p>
+<p>10:30–12:30 檢視專案進度，和產品團隊確認細節。</p>
+<p>12:30–14:00 快速吃飯，同時翻閱備忘錄。</p>
+<p>14:00–17:00 董事會會議：推動導入新AI工具的R&amp;D提案。</p>
+<p>17:00–18:00 結束今天工作，和團隊hi-five 開心獲得董事會批准AI提案。</p>
+<p>18:00–19:00 回家，另一半已經接回小孩並遛完狗。</p>
+<p>19:00–20:30 跟家人享用一頓沒有電視的美好晚餐，聊聊各自的一天、上週末的電玩時光，並規劃今年的非洲旅行。</p>
+<p>20:30–21:30 洗澡，哄小孩睡覺 | 再動手玩一些自己的專案，PIF往Republic Labs邁進。</p>
+<p>21:30–22:30 閱讀30-45分鐘，和伴侶pillow talk，一同入睡。</p>
+<hr />
+<h2>理想的一天 C</h2>
+<p>5:30 鬧鐘喚醒</p>
+<p>6:30–7:00 檢查老闆和／或客戶的郵件，先回覆緊急事件</p>
+<p>7:30–8:30 完成每天5公里跑步，喝水然後洗澡，腦中盤點今天工作的事情。</p>
+<p>8:30–10:30 路上買餐點，9點跟對造律師見面。和解失敗，訴訟無法避免——回辦公室的路上跟我們律師事務所開電話會議。</p>
+<p>10:30–12:30 向高層簡報此案，說明最壞／最好的情境。</p>
+<p>12:30–13:30 回到辦公室，途中15分鐘小睡／NSDR，醒來後光速吃掉營養補充品，一邊走向會議室</p>
+<p>13:00–14:00 向董事解釋為什麼捐贈1億美元給教育慈善機構對公司長期有益。</p>
+<p>14:00–15:00 線上與政府官員通話，說明為什麼100億美元投資是三贏：公眾、政府、公司。</p>
+<p>15:00–15:30 向內部利害關係人更新政府會議的態度。</p>
+<p>15:30–16:00 得知公司爆發醜聞，媒體要求回應。</p>
+<p>16:00–16:30 事實查核，整理事件概要，安排17:30記者會。</p>
+<p>16:30–17:30 再次確認事實與可行補救措施，為CEO準備備忘錄。</p>
+<p>17:30–18:30 現場記者會，發表立場並提供書面資料給媒體。</p>
+<p>18:30–19:00 與公關團隊補充資料。</p>
+<p>19:00–20:30 在會議室吃壽司便當，一邊檢討危機與後續步驟。</p>
+<p>20:30–21:00 董事告知明天投票她決定否決捐款案。</p>
+<p>21:00–22:00 收到政府email 表示初步同意投資案但需要更多細節，一邊尖叫一邊回覆郵件與羅列待處理事項。</p>
+<p>22:00–23:00 洗澡＋NSDR。</p>
+<p>23:30–00:30 閱讀工作相關資料，檢視今天，準備明天，同時在腦中模擬如何說服董事改變心意，邊想邊進入夢鄉。</p>
+<hr />
+<h2>魔法的世界需要想像力</h2>
+<p>這是我2025年想像中理想一天的三種版本：浪漫的冒險家、生活工作平衡者、具有影響力的爆肝專業人士（甚至不用是法律工作，也可以是和劇組連續拍戲一個禮拜、空中飛人的銷售，或不間斷直播帶貨，感覺都很精彩），和很多朋友分享過這三個版本，也趁這個計劃把它文字化、具象化，畢竟過幾年又不一樣了。</p>
+<p>我一直無法決定哪一個才是我最想要的，直到某個朋友說：你真正想要的理想生活其實是這三者的混合——在世界上產生影響力、冒險探索未知與樂趣，同時又保有工作與生活的平衡。</p>
+<p>好有道理啊！我可是最會做白日夢的人，居然還是太務實了一點，只敢想三個不同的情境。
+雖然還是懷疑這樣的組合可行嗎？有可能把所有吸引我的有趣元素都融入單一人生嗎？
+但是「有夢最美，希望相隨」
+畢竟要成為魔法師，就得要有強大的想像力啊！<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </p>
+<hr />
+<h2>理想的一天</h2>
+<p>睡到自然醒，天還沒亮，早上帶著狗狗跑步，突然接到電話通知，上次的100億美元投資案通過了！</p>
+<p>噢原來是來自台北的電話，想說怎麼這麼早有人要打給我。
+雖然正在休年假，但有跟<a href="qualia">Lia</a>說如果是投資案的事情，可以隨時轉給我。
+一早有這個好消息，真的太好了！
+不然剛剛跑步還在想，昨天船到底是哪裡壞了，心情有夠漚。
+等等和H分享這件事，她一定也很開心，今天要去哪裡慶祝呢？</p>
+<p>跑完步回到住處，先在庭院泡個咖啡，曬曬太陽，一邊看書，也寫一些手札。
+沒過多久，H也醒來了來到庭院，和他分享這個消息
+決定後天開個Party 找美國PIF的朋友一起同樂
+今天就照原定計劃，中午簡單吃個牛排，美國的牛排與冰淇淋總是不會讓人失望。
+下午就到自己的琴房，隨意彈一些「噪音」
+雖然很希望自己能去酒吧自彈自唱，但平常太少練習
+不是很想被噓，就留到Party去荼毒朋友的耳朵吧</p>
+<p>晚上H煮了好吃的鮭魚義大利麵，廚藝還是一樣好
+他也依照每年慣例跟我分享他的新年成長計劃
+我和他聊那筆順利通過的慈善捐款，感覺我們的世界越來越好，好得不太真實。</p>
+<p>當然還是有煩人的地方
+雖然每年才來佛羅里達避冬，畢竟原本等小孩這週冬令營結束
+就要一起出海，船壞了還是有點煩躁
+美國這邊修船很麻煩，技師又貴工人又難找
+或許考慮先租一台，之後請人來處理吧</p>
+<p>晚餐過後，一起窩在沙發上看電影阿凡達最終部
+2035年初上映剛開始怕被雷到
+到後來也就無所謂了，畢竟忙到年底才可以好好看
+重點其實還是和誰一起看吧
+終於可以一邊吃開心果跟洋芋片——</p>
+<p>看完電影，準備洗洗睡了，Lia回報沒有什麼緊急的事情，真是可喜可賀
+明天也不想處理船的事情，就打一整天的電動吧</p>
+<hr />
+<h2>回到2026現實而理想的一天</h2>
+<p>睡到自然醒已經是早上八點，與另一半賴床
+曬著太陽，敲打鍵盤，看著車水馬龍，沒有狗狗，沒有小孩
+或許，想在照顧其他生命以前，先打點好自己的生活</p>
+<p>喝杯咖啡，做著春秋大夢，趕在截稿日前，刪掉英文版，把這一版「理想的一天」送出。
+想到月底還有一些行政瑣事，想著第一季要過去了還有許多待辦未完成、許多KPI未達標。
+難掩情緒上的失落與失望，即使理智上明白已經盡力</p>
+<p>或許，不要急著追趕想像中理想的一天的模樣。
+改變對世界的認知與對自我的期待
+重視過程而不是結果，直面那些拖延與逃避
+或許，簡單的一天，即使沒有改變外在世界，照顧好自己，也是理想的一天</p>
+<p>過好陽春版的理想，人生一路上總會獲得各式各樣的魔法與夥伴</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>靈感來自芙莉蓮的動漫 <strong>「魔法とはイメージの世界であり、イメージできないものは魔法では実現できない。」</strong>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+        <!-- 💡 訂閱表單 Subscribe / Newsletter (使用 not-prose 隔離排版污染) -->
+        <div class="not-prose">
+            <section class="mt-16 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+                <div class="space-y-4">
+                    <h2 class="text-lg font-bold font-mono flex items-center gap-2">
+                        <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
+                        Stay Connected
+                        <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
+                        訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
+                    </p>
+                    <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name (optional)"
+                            aria-label="Name"
+                            class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                        >
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                            aria-label="Email Address"
+                            class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+                        >
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
+                            Join
+                        </button>
+                    </form>
+                    <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
+                        You can also get updates the old-school way / 或是選擇老派的更新方式 
+                        <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
+                            <i data-lucide="rss" class="w-4 h-4"></i> RSS
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 💡 免責聲明 Disclaimer (不受 Prose 排版影響，獨立區塊) -->
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">Disclaimer:</strong> 
+          This is my website representing my view only, not my affiliated entities. All information is for informational purpose only. No specific legal, medical, tax, investment advice is rendered here. Seek your own professional advice. The content of this post is provided “as is;” and no representations are made that the content is error-free or up-to-date. Thus, please do your own research and take full responsibility for the consequences if you rely on any information here.
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-4 text-sm font-mono text-slate-500">
+        <p class="italic text-center leading-relaxed max-w-2xl">
+            "Maturity in a man: that means to have re-found the seriousness that one had as a child at play"
+        </p>
+        <p class="shrink-0 whitespace-nowrap">© <span id="current-year"></span> Jason J. Lai</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+    
+    initTheme();
+  </script>
+</body>
+</html>
