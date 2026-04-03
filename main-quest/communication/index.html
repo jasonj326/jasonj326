@@ -71,7 +71,14 @@
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
         }
-        .flip-card:hover .flip-card-inner {
+        /* Desktop: hover to flip */
+        @media (hover: hover) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+        /* Mobile: tap to toggle via JS class */
+        .flip-card.is-flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
         .flip-card-front,
@@ -223,7 +230,7 @@
 
             <p class="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-6">
                 Tech moves fast. Law moves slow. Human nature drives both. I deliver cross-disciplinary insights to help your audience make sense of all three.
-                <span class="block text-base mt-1 opacity-80">科技很快、法律很慢，帶你看背後的人心，讓你以法律為盾，科技當車，小步快跑。</span>
+                <span class="block text-base mt-1 opacity-80">科技很快、法律很慢，一起看背後的人心，讓你以法律為盾，科技當車，小步快跑。</span>
             </p>
 
             <!-- 活動形式提示區塊 -->
@@ -435,6 +442,16 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
         lucide.createIcons();
+
+        // Flip card: tap toggle for touch devices
+        document.querySelectorAll('.flip-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                // Only toggle on touch devices (no hover capability)
+                if (!window.matchMedia('(hover: hover)').matches) {
+                    card.classList.toggle('is-flipped');
+                }
+            });
+        });
 
         function initTheme() {
             const htmlElement = document.documentElement;
