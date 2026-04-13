@@ -196,9 +196,26 @@
 </ol>
 </div>
 
+        <!-- 💡 文章導覽：上一篇 / Random / 下一篇 -->
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    <a href="/3pwriting/playgrounds/20260306/brand-age-translation.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="品牌時代  (trans. from Paul Graham's Brand Age)"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">品牌時代  (trans. from Paul Graham's Brand Age)</span></a>
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> Random
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    <a href="/3pwriting/playgrounds/20260331/magic-day.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="沒有魔法而理想的一天"><span class="truncate max-w-[120px] sm:max-w-[200px]">沒有魔法而理想的一天</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+        </div>
+
         <!-- 💡 訂閱表單 Subscribe / Newsletter (使用 not-prose 隔離排版污染) -->
         <div class="not-prose">
-            <section class="mt-16 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+            <section class="mt-8 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
                 <div class="space-y-4">
                     <h2 class="text-lg font-bold font-mono flex items-center gap-2">
                         <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
@@ -292,6 +309,16 @@
     }
     
     initTheme();
+
+    // 💡 Random Post Logic (排除當前頁面)
+    const allPosts = ["/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
   </script>
 </body>
 </html>

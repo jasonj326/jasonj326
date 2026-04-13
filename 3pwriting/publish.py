@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, re, yaml, markdown, datetime
+import os, re, yaml, markdown, datetime, json
 from pathlib import Path
 from xml.sax.saxutils import escape
 import math
@@ -143,9 +143,26 @@ HTML_TMPL = """<!DOCTYPE html>
         
         {content}
 
+        <!-- 💡 文章導覽：上一篇 / Random / 下一篇 -->
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    {prev_button}
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> Random
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    {next_button}
+                </div>
+            </div>
+        </div>
+
         <!-- 💡 訂閱表單 Subscribe / Newsletter (使用 not-prose 隔離排版污染) -->
         <div class="not-prose">
-            <section class="mt-16 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+            <section class="mt-8 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
                 <div class="space-y-4">
                     <h2 class="text-lg font-bold font-mono flex items-center gap-2">
                         <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
@@ -239,6 +256,16 @@ HTML_TMPL = """<!DOCTYPE html>
     }
     
     initTheme();
+
+    // 💡 Random Post Logic (排除當前頁面)
+    const allPosts = {all_links_array};
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
   </script>
 </body>
 </html>
@@ -728,8 +755,14 @@ def main():
         except Exception as e:
             print(f"⚠️ Error parsing {md.name} in pass 1: {e}")
 
+    # 💡 在生成 HTML 前，依日期由新到舊排序（確保 Prev/Next 邏輯正確）
+    raw_posts.sort(key=lambda x: x["date"], reverse=True)
+
+    # 提取所有文章網址給 Random 按鈕使用
+    all_links_json = json.dumps([p["link"] for p in raw_posts])
+
     # 💡 第二階段 (Pass 2)：轉換 Obsidian 內部連結並生成 HTML
-    for p in raw_posts:
+    for i, p in enumerate(raw_posts):
         body = p["body"]
 
         # 替換邏輯：處理 [[目標文章]] 或 [[目標文章|顯示文字]]
@@ -761,11 +794,18 @@ def main():
             article_tags_html_parts.append(f'<a href="{tag_link}" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full {color_class}"></span>{t}</a>')
         article_tags_html = ' <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> '.join(article_tags_html_parts)
 
+        # 💡 生成 Prev/Next 導覽按鈕（陣列由新到舊，i+1 = 較舊，i-1 = 較新）
+        older_post = raw_posts[i+1] if i + 1 < len(raw_posts) else None
+        newer_post = raw_posts[i-1] if i - 1 >= 0 else None
+
+        prev_btn_html = f'<a href="{older_post["link"]}" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="{escape(older_post["title"])}"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">{escape(older_post["title"])}</span></a>' if older_post else '<span></span>'
+        next_btn_html = f'<a href="{newer_post["link"]}" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="{escape(newer_post["title"])}"><span class="truncate max-w-[120px] sm:max-w-[200px]">{escape(newer_post["title"])}</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>' if newer_post else '<span></span>'
+
         out_dir = SITE_DIR / p["major"] / p["date"].replace("-", "")
         ensure_dir(out_dir)
-        
+
         safe_summary = escape(p["summary"]).replace('"', '&quot;')
-        
+
         # 💡 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
@@ -777,7 +817,10 @@ def main():
                         .replace("{full_link}", escape(p["full_link"])) \
                         .replace("{tags_html}", article_tags_html) \
                         .replace("{content}", content_html) \
-                        .replace("{site_author_desc}", escape(SITE_AUTHOR_DESC))
+                        .replace("{site_author_desc}", escape(SITE_AUTHOR_DESC)) \
+                        .replace("{prev_button}", prev_btn_html) \
+                        .replace("{next_button}", next_btn_html) \
+                        .replace("{all_links_array}", all_links_json)
         
         out_path = out_dir / f"{p['slug']}.html"
         out_path.write_text(html, encoding="utf-8")
@@ -807,7 +850,7 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
-    print(f"✅ Built {len(posts)} posts. Added AI JSON-LD schema, Disclaimer & Obsidian Wikilinks & Footnotes support!")
+    print(f"✅ Built {len(posts)} posts with Prev/Next/Random navigation, JSON-LD, Disclaimer & Wikilinks!")
 
 if __name__ == "__main__":
     main()
