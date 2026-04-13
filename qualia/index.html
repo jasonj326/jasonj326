@@ -136,33 +136,42 @@
             </p>
         </div>
 
-        <!-- STATE 1: Access Gate (Hidden if valid code exists) -->
+        <!-- STATE 1: Email Gate (Hidden if user already signed in) -->
         <div id="access-gate" class="w-full max-w-md mx-auto mt-10">
-            <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow text-center">
-                <div class="w-16 h-16 bg-slate-100 dark:bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-slate-300 dark:border-slate-700">
-                    <i data-lucide="lock" class="w-8 h-8 text-slate-500 dark:text-slate-400"></i>
+            <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-slate-100 dark:bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-slate-300 dark:border-slate-700">
+                        <i data-lucide="mail" class="w-8 h-8 text-indigo-500 dark:text-emerald-400"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-white">Chat with Lia</h2>
                 </div>
-                <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-white">Restricted Access</h2>
-                <p class="text-slate-600 dark:text-slate-400 mb-8 text-sm">
-                    Please enter your private invitation code to initiate the neural link with Qualia.
-                    <a href="mailto:hello@jasonjlai.net" class="underline decoration-2 underline-offset-4 hover:text-slate-500 transition-colors">Request one here.</a>
-
+                <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed text-left">
+                    Drop your email to start the conversation.
+                    You'll also stay connected with bilingual (EN/中) personal thoughts & collab invites. No spam, cancel anytime.<br>
+                    <span class="text-slate-500 dark:text-slate-500">訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！</span>
                 </p>
                 <form id="auth-form" class="space-y-4">
-                    <input 
-                        type="password" 
-                        id="access-code-input" 
-                        placeholder="Enter Access Code..." 
-                        class="w-full bg-slate-50 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 font-mono text-center focus:outline-none focus:border-indigo-500 dark:focus:border-emerald-400 transition-colors"
+                    <input
+                        type="text"
+                        id="auth-name-input"
+                        placeholder="Name (optional)"
+                        class="w-full bg-slate-50 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-indigo-500 dark:focus:border-emerald-400 transition-colors"
+                    />
+                    <input
+                        type="email"
+                        id="auth-email-input"
+                        placeholder="your@email.com"
+                        class="w-full bg-slate-50 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-indigo-500 dark:focus:border-emerald-400 transition-colors"
                         required
                     />
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
+                        id="auth-submit-btn"
                         class="w-full bg-indigo-600 dark:bg-emerald-500 text-white dark:text-slate-900 font-bold font-mono text-lg rounded-xl border-2 border-slate-900 dark:border-slate-100 py-3 game-shadow-btn transition-all"
                     >
-                        Authenticate
+                        Start Chatting
                     </button>
-                    <p id="auth-error" class="text-red-500 text-sm font-mono hidden">Invalid or expired code.</p>
+                    <p id="auth-error" class="text-red-500 text-sm font-mono hidden">Something went wrong. Please try again.</p>
                 </form>
             </div>
         </div>
@@ -230,54 +239,6 @@
                 </div>
             </div>
         </div>
-            <!-- Subscribe / Newsletter (素雅版 - 移至 Writing on 3P 下方) -->
-        <section class="mt-12 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-            <div class="space-y-4">
-                <!-- 標題：更短 + 圖示 -->
-                <h2 class="text-lg font-bold font-mono flex items-center gap-2">
-                    <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
-                    Stay Connected
-                    <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
-                </h2>
-        
-                <!-- 描述：壓縮成 2 行，重點突出 -->
-                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
-                    訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
-                </p>
-        
-                <!-- 表單：一行布局，Name 縮小或 optional 隱藏提示 -->
-                <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Name (optional)"
-                        aria-label="Name"
-                        class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                    >
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="your@email.com"
-                        required
-                        aria-label="Email Address"
-                        class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                    >
-                    <input type="hidden" name="_gotcha" style="display:none !important">
-                    <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
-                        Join
-                    </button>
-                </form>
-            <!-- 新增 RSS 訂閱連結 -->
-                <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                    You can also get updates the old-school way / 或是選擇老派的更新方式 
-                    <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
-                        <i data-lucide="rss" class="w-4 h-4"></i> RSS
-                    </a>
-                </div>
-                
-            </div>
-        </section>
 
     </main>
 
@@ -327,9 +288,11 @@
         const accessGate = document.getElementById('access-gate');
         const chatInterface = document.getElementById('chat-interface');
         const authForm = document.getElementById('auth-form');
-        const authInput = document.getElementById('access-code-input');
+        const authNameInput = document.getElementById('auth-name-input');
+        const authEmailInput = document.getElementById('auth-email-input');
+        const authSubmitBtn = document.getElementById('auth-submit-btn');
         const authError = document.getElementById('auth-error');
-        
+
         const chatBox = document.getElementById('chat-box');
         const chatForm = document.getElementById('chat-form');
         const chatInput = document.getElementById('chat-input');
@@ -339,10 +302,10 @@
         // Store conversation history for API context
         let conversationHistory = [];
 
-        // Check if user already has a code saved
+        // Check if user already has an email saved
         function checkAuth() {
-            const savedCode = localStorage.getItem('qualia_access_code');
-            if (savedCode) {
+            const savedEmail = localStorage.getItem('qualia_user_email');
+            if (savedEmail) {
                 accessGate.classList.add('hidden');
                 chatInterface.classList.remove('hidden');
                 chatInterface.classList.add('flex');
@@ -350,25 +313,53 @@
             }
         }
 
-        // Handle Login
-        authForm.addEventListener('submit', (e) => {
+        // Handle Login — submit email to Formspree, then unlock chat
+        authForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const code = authInput.value.trim();
-            if (code) {
-                localStorage.setItem('qualia_access_code', code);
-                authError.classList.add('hidden');
+            const email = authEmailInput.value.trim();
+            const name = authNameInput.value.trim();
+            if (!email) return;
+
+            authSubmitBtn.disabled = true;
+            authSubmitBtn.textContent = 'Connecting...';
+            authError.classList.add('hidden');
+
+            try {
+                // Send to Formspree (same endpoint as newsletter)
+                const formData = new FormData();
+                formData.append('email', email);
+                if (name) formData.append('name', name);
+                formData.append('_source', 'qualia');
+                formData.append('_gotcha', ''); // honeypot
+
+                await fetch('https://formspree.io/f/xgonbqgr', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                // Save email and unlock chat regardless of Formspree response
+                localStorage.setItem('qualia_user_email', email);
                 checkAuth();
+            } catch (err) {
+                // Still unlock — don't block chat if Formspree is down
+                localStorage.setItem('qualia_user_email', email);
+                checkAuth();
+            } finally {
+                authSubmitBtn.disabled = false;
+                authSubmitBtn.textContent = 'Start Chatting';
             }
         });
 
         // Handle Logout
         function logout() {
-            localStorage.removeItem('qualia_access_code');
+            localStorage.removeItem('qualia_user_email');
             conversationHistory = [];
             chatInterface.classList.add('hidden');
             chatInterface.classList.remove('flex');
             accessGate.classList.remove('hidden');
-            authInput.value = '';
+            authEmailInput.value = '';
+            authNameInput.value = '';
         }
 
         // Function to render a message in the UI
@@ -404,14 +395,14 @@
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const message = chatInput.value.trim();
-            const accessCode = localStorage.getItem('qualia_access_code');
-            
+            const userEmail = localStorage.getItem('qualia_user_email');
+
             if (!message) return;
 
             // 1. Render User Message
             appendMessage('user', message);
             conversationHistory.push({ role: 'user', content: message });
-            
+
             // 2. Prepare UI for loading
             chatInput.value = '';
             chatInput.disabled = true;
@@ -421,13 +412,12 @@
 
             try {
                 // 3. Call Cloudflare Worker API
-                // (This fetch will fail gracefully until you deploy your actual worker)
                 const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        code: accessCode, 
-                        history: conversationHistory 
+                    body: JSON.stringify({
+                        email: userEmail,
+                        history: conversationHistory
                     })
                 });
 
