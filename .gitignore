@@ -1,0 +1,22 @@
+# === 私有檔案（永不上 GitHub） ===
+
+# Claude Code 管理檔案
+CLAUDE.md
+.claude/
+
+# 安全與工程文件
+docs/SECURITY.md
+docs/engineering-log/
+
+# 草稿與筆記
+drafts/
+notes/
+
+# 環境與密鑰
+.env
+.env.*
+*.local
+
+# 系統檔案
+.DS_Store
+Thumbs.db
