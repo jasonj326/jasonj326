@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>直播 Thumbnail 產生器 — Jason Lai</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang TC', 'Noto Sans TC', sans-serif; background: #0f0f0f; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; }
+  h1 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: #ccc; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; align-items: center; justify-content: center; max-width: 800px; }
+  .controls label { font-size: 13px; color: #999; }
+  .controls input[type="text"] { background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 16px; width: 320px; font-family: inherit; }
+  .controls input[type="text"]:focus { outline: none; border-color: #FF4444; }
+  .controls input[type="date"] { background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 14px; font-family: inherit; }
+  .controls select { background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 14px; }
+
+  .mood-chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; max-width: 700px; }
+  .mood-chip { padding: 6px 14px; border-radius: 20px; border: 1px solid #333; background: #1a1a1a; color: #aaa; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+  .mood-chip:hover, .mood-chip.active { border-color: #FF4444; color: #fff; background: #2a1a1a; }
+
+  .preview-area { position: relative; margin-bottom: 24px; }
+
+  /* Thumbnail canvas */
+  .thumbnail { width: 640px; height: 360px; position: relative; overflow: hidden; border-radius: 12px; background: #000; }
+
+  /* Gradient overlay styles */
+  .thumb-gradient-dark { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .thumb-gradient-warm { background: linear-gradient(135deg, #2d1b00 0%, #4a2c0a 50%, #1a0a00 100%); }
+  .thumb-gradient-cool { background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0a2035 100%); }
+  .thumb-gradient-sunset { background: linear-gradient(135deg, #2d1a2e 0%, #4a1a3e 40%, #1a2a4a 100%); }
+
+  /* Light themes */
+  .thumb-gradient-light-sand { background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd2 50%, #f0ebe0 100%); }
+  .thumb-gradient-light-fog { background: linear-gradient(135deg, #e8ecf0 0%, #dce2ea 50%, #e4e9f0 100%); }
+  .thumb-gradient-light-cloud { background: linear-gradient(135deg, #f0f0f0 0%, #e6e6e6 50%, #ececec 100%); }
+
+  /* Light mode: dark text overrides */
+  .thumbnail.light-mode .thumb-quote { color: #1a1a1a; text-shadow: 0 1px 8px rgba(255,255,255,0.5); }
+  .thumbnail.light-mode .thumb-day { color: rgba(30,30,30,0.85); text-shadow: none; }
+  .thumbnail.light-mode .thumb-top-date { color: rgba(40,40,40,0.7); }
+  .thumbnail.light-mode .thumb-name-en { color: rgba(30,30,30,0.85); }
+  .thumbnail.light-mode .thumb-name-zh { color: rgba(60,60,60,0.5); }
+  .thumbnail.light-mode .thumb-attribution { color: rgba(40,40,40,0.45); text-shadow: none; }
+  .thumbnail.light-mode .thumb-series-badge { background: #E03030; color: #fff; }
+  .thumbnail.light-mode .thumb-accent { background: linear-gradient(90deg, #E03030, transparent); }
+
+  .thumb-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 100px 48px 80px; }
+
+  .thumb-quote { font-size: 40px; font-weight: 800; line-height: 1.3; color: #fff; max-width: 480px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+
+  .thumb-attribution { position: absolute; bottom: 56px; right: 32px; font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.45); font-style: italic; text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
+
+  .thumb-day-block { position: absolute; top: 20px; right: 32px; text-align: right; pointer-events: none; }
+  .thumb-day { font-size: 48px; font-weight: 900; color: rgba(255,255,255,0.85); line-height: 1; min-width: 250px; display: inline-block; }
+
+  .thumb-series-badge { position: absolute; top: 24px; left: 48px; background: #FF4444; padding: 5px 14px; border-radius: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; }
+
+  .thumb-top-info { position: absolute; top: 56px; left: 48px; right: 32px; }
+  .thumb-top-date { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+  .thumb-name-row { display: flex; align-items: baseline; justify-content: space-between; }
+  .thumb-name-en { border-left: 3px solid #FF4444; padding-left: 10px; font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.85); white-space: nowrap; }
+  .thumb-name-zh { border-left: 3px solid #FF4444; padding-left: 10px; font-size: 13px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+
+  /* Banner region (top strip) */
+  .thumb-banner { position: absolute; top: 0; left: 0; right: 0; height: 130px; }
+
+  /* Accent line */
+  .thumb-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #FF4444, transparent); }
+
+  .actions { display: flex; gap: 12px; }
+  .btn { padding: 12px 28px; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .btn-primary { background: #FF4444; color: #fff; }
+  .btn-primary:hover { background: #ff5555; transform: translateY(-1px); }
+  .btn-secondary { background: #222; color: #ccc; border: 1px solid #333; }
+  .btn-secondary:hover { background: #2a2a2a; color: #fff; }
+
+  .hint { font-size: 12px; color: #555; margin-top: 16px; text-align: center; max-width: 500px; line-height: 1.6; }
+
+  /* Portrait preview — same theme as landscape, just resized */
+  .thumbnail.portrait { width: 360px; height: 640px; }
+  .thumbnail.portrait .thumb-quote { font-size: 32px; max-width: 280px; }
+  .thumbnail.portrait .thumb-attribution { bottom: 80px; right: 32px; font-size: 16px; }
+  .thumbnail.portrait .thumb-content { padding: 60px 32px; justify-content: flex-end; padding-bottom: 160px; }
+  .thumbnail.portrait .thumb-series-badge { left: 32px; }
+  .thumbnail.portrait .thumb-top-info { left: 32px; }
+  .thumbnail.portrait .thumb-day-block { top: 18px; right: 24px; }
+  .thumbnail.portrait .thumb-day { font-size: 42px; min-width: 180px; }
+
+  /* Banner export mode: transparent bg + strong text shadows */
+  .thumbnail.banner-export-mode { background: transparent !important; background-image: none !important; }
+  .thumbnail.banner-export-mode .thumb-day { text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7), 0 0 4px rgba(0,0,0,1); }
+  .thumbnail.banner-export-mode .thumb-top-date,
+  .thumbnail.banner-export-mode .thumb-name-en,
+  .thumbnail.banner-export-mode .thumb-name-zh { text-shadow: 0 1px 6px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.7); }
+  .thumbnail.banner-export-mode .thumb-series-badge { box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+
+  .format-toggle { display: flex; gap: 0; margin-bottom: 20px; border-radius: 8px; overflow: hidden; border: 1px solid #333; }
+  .format-btn { padding: 8px 20px; background: #1a1a1a; color: #888; border: none; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; transition: all 0.2s; }
+  .format-btn.active { background: #FF4444; color: #fff; }
+</style>
+</head>
+<body>
+
+<h1>直播 Thumbnail 產生器</h1>
+
+<div class="format-toggle">
+  <button class="format-btn active" onclick="setFormat('landscape')">橫式 16:9</button>
+  <button class="format-btn" onclick="setFormat('portrait')">直式 9:16</button>
+</div>
+
+<div class="controls">
+  <div>
+    <label>今日心情一句話</label><br>
+    <input type="text" id="quoteInput" placeholder="例：今天決定不再猶豫" oninput="updatePreview()" maxlength="120" style="width:400px;">
+  </div>
+  <div>
+    <label>日期</label><br>
+    <input type="date" id="dateInput" onchange="updatePreview()">
+  </div>
+  <div>
+    <label>色調</label><br>
+    <select id="themeSelect" onchange="updatePreview()">
+      <option value="dark">深邃藍黑</option>
+      <option value="warm">暖棕</option>
+      <option value="cool">冷調藍</option>
+      <option value="sunset">暮紫</option>
+      <option value="light-sand">淺砂（淺色）</option>
+      <option value="light-fog">霧灰（淺色）</option>
+      <option value="light-cloud">雲白（淺色）</option>
+    </select>
+  </div>
+  <div>
+    <label>Day（空白=自動算）</label><br>
+    <input type="text" id="dayOverride" placeholder="例：21" oninput="updatePreview()" style="width:100px; font-size:14px;">
+  </div>
+  <div>
+    <label>出處/人名（選填）</label><br>
+    <input type="text" id="attributionInput" placeholder="例：— 村上春樹" oninput="updatePreview()" style="width:180px; font-size:14px;">
+  </div>
+</div>
+
+<div style="display:flex; gap:24px; align-items:center; justify-content:center; margin-bottom:20px;">
+  <div style="display:flex; align-items:center; gap:8px;">
+    <label style="font-size:13px; color:#999;">主文字大小</label>
+    <input type="range" id="fontSizeSlider" min="14" max="72" value="40" oninput="updatePreview()" style="width:180px; accent-color:#FF4444;">
+    <span id="fontSizeLabel" style="font-size:13px; color:#FF4444; font-weight:700; min-width:40px;">40px</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:8px;">
+    <label style="font-size:13px; color:#999;">出處字大小</label>
+    <input type="range" id="attrSizeSlider" min="10" max="36" value="18" oninput="updatePreview()" style="width:120px; accent-color:#FF4444;">
+    <span id="attrSizeLabel" style="font-size:13px; color:#FF4444; font-weight:700; min-width:40px;">18px</span>
+  </div>
+</div>
+
+<div class="mood-chips">
+  <span class="mood-chip" onclick="setQuote(this, '今天只想好好活著')">今天只想好好活著</span>
+  <span class="mood-chip" onclick="setQuote(this, '有點迷路但還在走')">有點迷路但還在走</span>
+  <span class="mood-chip" onclick="setQuote(this, '突然覺得什麼都有可能')">突然覺得什麼都有可能</span>
+  <span class="mood-chip" onclick="setQuote(this, '累但值得')">累但值得</span>
+  <span class="mood-chip" onclick="setQuote(this, '今天學到一件事')">今天學到一件事</span>
+  <span class="mood-chip" onclick="setQuote(this, '比昨天勇敢一點點')">比昨天勇敢一點點</span>
+  <span class="mood-chip" onclick="setQuote(this, '沒什麼好說但還是來了')">沒什麼好說但還是來了</span>
+</div>
+
+<div class="preview-area">
+  <div class="thumbnail thumb-gradient-dark" id="thumbnailPreview">
+    <div class="thumb-series-badge">直播日記</div>
+    <div class="thumb-top-info">
+      <div class="thumb-top-date" id="dateDisplay"></div>
+      <div class="thumb-name-row">
+        <div class="thumb-name-en">Jason Lai</div>
+        <div class="thumb-name-zh">地球智人－賴建順</div>
+      </div>
+    </div>
+    <div class="thumb-day-block">
+      <div class="thumb-day" id="dayNumber"></div>
+    </div>
+    <div class="thumb-content">
+      <div class="thumb-quote" id="quoteDisplay">輸入今天的心情...</div>
+    </div>
+    <div class="thumb-attribution" id="attributionDisplay"></div>
+    <div class="thumb-accent"></div>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn btn-primary" onclick="exportImage()">下載完整 PNG</button>
+  <button class="btn btn-primary" onclick="exportBanner()" style="background:#cc3333;">下載 Banner PNG</button>
+  <button class="btn btn-primary" onclick="exportBannerSVG()" style="background:#0a8a4a;">下載 Banner SVG（透明）</button>
+  <button class="btn btn-secondary" onclick="copyToClipboard()">複製到剪貼簿</button>
+</div>
+
+<p class="hint">
+  直接輸入心情 → 選色調 → 下載 PNG → 上傳到 YouTube 當 Thumbnail<br>
+  建議文字控制在 15 字以內效果最好
+</p>
+
+<script>
+  // Set today's date
+  const today = new Date();
+  document.getElementById('dateInput').value = today.toISOString().split('T')[0];
+
+  // Day 1 = March 13, so April 2 = Day 21
+  const startDate = new Date('2026-03-13');
+  let currentFormat = 'landscape';
+
+  function updatePreview() {
+    const quote = document.getElementById('quoteInput').value || '輸入今天的心情...';
+    const dateStr = document.getElementById('dateInput').value;
+    const theme = document.getElementById('themeSelect').value;
+    const date = new Date(dateStr);
+
+    const diffDays = Math.floor((date - startDate) / (1000 * 60 * 60 * 24)) + 1;
+    const manualDay = document.getElementById('dayOverride').value.trim();
+
+    document.getElementById('quoteDisplay').textContent = quote;
+
+    // Manual font size from slider
+    const quoteEl = document.getElementById('quoteDisplay');
+    const fontSize = document.getElementById('fontSizeSlider').value;
+    quoteEl.style.fontSize = fontSize + 'px';
+    document.getElementById('fontSizeLabel').textContent = fontSize + 'px';
+
+    // Attribution font size from slider
+    const attrSize = document.getElementById('attrSizeSlider').value;
+    document.getElementById('attributionDisplay').style.fontSize = attrSize + 'px';
+    document.getElementById('attrSizeLabel').textContent = attrSize + 'px';
+    document.getElementById('dateDisplay').textContent = date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+    const dayNum = manualDay ? manualDay : (diffDays > 0 ? diffDays : '?');
+    document.getElementById('dayNumber').textContent = 'Day ' + dayNum;
+
+    const attribution = document.getElementById('attributionInput').value.trim();
+    document.getElementById('attributionDisplay').textContent = attribution;
+
+    const thumb = document.getElementById('thumbnailPreview');
+    const isLight = theme.startsWith('light-');
+    thumb.className = 'thumbnail thumb-gradient-' + theme + (currentFormat === 'portrait' ? ' portrait' : '') + (isLight ? ' light-mode' : '');
+  }
+
+  function setQuote(el, text) {
+    document.querySelectorAll('.mood-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('quoteInput').value = text;
+    updatePreview();
+  }
+
+  function setFormat(format) {
+    currentFormat = format;
+    document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    updatePreview();
+  }
+
+  async function exportImage() {
+    const el = document.getElementById('thumbnailPreview');
+    try {
+      const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: null });
+      const link = document.createElement('a');
+      const dateStr = document.getElementById('dateInput').value;
+      link.download = 'thumbnail-' + dateStr + '-' + currentFormat + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch(e) {
+      alert('Export requires html2canvas library. Open this file in a browser with internet access, or use screenshot instead.');
+    }
+  }
+
+  async function exportBanner() {
+    const el = document.getElementById('thumbnailPreview');
+    const isPortrait = currentFormat === 'portrait';
+    // Landscape: transparent background for overlay use; Portrait: keep gradient background
+    const origBg = el.style.background;
+    const origBgColor = el.style.backgroundColor;
+    const origBgImage = el.style.backgroundImage;
+    if (!isPortrait) {
+      el.style.setProperty('background', 'transparent', 'important');
+      el.style.setProperty('background-image', 'none', 'important');
+      el.classList.add('banner-export-mode');
+    }
+    try {
+      const scale = 2;
+      const canvas = await html2canvas(el, { scale: scale, useCORS: true, backgroundColor: null });
+      // Crop to top banner area only
+      const bannerH = 130 * scale;
+      const fullW = canvas.width;
+      const cropped = document.createElement('canvas');
+      cropped.width = fullW;
+      cropped.height = bannerH;
+      const ctx = cropped.getContext('2d');
+      // Apply rounded corners mask (transparent outside the rounded rect)
+      const r = 12 * scale;
+      ctx.beginPath();
+      ctx.moveTo(r, 0);
+      ctx.lineTo(fullW - r, 0);
+      ctx.quadraticCurveTo(fullW, 0, fullW, r);
+      ctx.lineTo(fullW, bannerH - r);
+      ctx.quadraticCurveTo(fullW, bannerH, fullW - r, bannerH);
+      ctx.lineTo(r, bannerH);
+      ctx.quadraticCurveTo(0, bannerH, 0, bannerH - r);
+      ctx.lineTo(0, r);
+      ctx.quadraticCurveTo(0, 0, r, 0);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(canvas, 0, 0, fullW, bannerH, 0, 0, fullW, bannerH);
+      const link = document.createElement('a');
+      const dateStr = document.getElementById('dateInput').value;
+      link.download = 'banner-' + dateStr + '-' + currentFormat + '.png';
+      link.href = cropped.toDataURL('image/png');
+      link.click();
+    } catch(e) {
+      alert('Export requires html2canvas. Open in a browser with internet access.');
+    } finally {
+      if (!isPortrait) {
+        el.style.background = origBg;
+        el.style.backgroundColor = origBgColor;
+        el.style.backgroundImage = origBgImage;
+        el.classList.remove('banner-export-mode');
+      }
+    }
+  }
+
+  function exportBannerSVG() {
+    const dateStr = document.getElementById('dateInput').value;
+    const d = new Date(dateStr);
+    const zhDate = d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日 直播日記';
+    const dayText = document.getElementById('dayNumber').textContent || 'Day 1';
+    // SVG canvas: 1280 x 260 (banner proportions, landscape 16:9 top strip at 2x)
+    const W = 1280, H = 260;
+    const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs>
+    <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.95"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="strongShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="1"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Red "直播日記" badge -->
+  <g filter="url(#strongShadow)">
+    <rect x="60" y="38" width="180" height="44" rx="6" fill="#FF4444"/>
+    <text x="150" y="69" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="3">直播日記</text>
+  </g>
+
+  <!-- Date -->
+  <text x="60" y="122" font-family="'PingFang TC','Noto Sans TC',sans-serif" font-size="24" font-weight="600" fill="#ffffff" filter="url(#textShadow)">${escapeXml(zhDate)}</text>
+
+  <!-- Jason Lai with red bar -->
+  <rect x="60" y="158" width="5" height="34" fill="#FF4444" filter="url(#strongShadow)"/>
+  <text x="78" y="184" font-family="-apple-system,'Helvetica Neue',sans-serif" font-size="26" font-weight="700" fill="#ffffff" filter="url(#textShadow)">Jason Lai</text>
+
+  <!-- 地球智人 with red bar (right side of banner) -->
+  <rect x="720" y="158" width="5" height="34" fill="#FF4444" filter="url(#strongShadow)"/>
+  <text x="738" y="184" font-family="'PingFang TC','Noto Sans TC',sans-serif" font-size="22" fill="rgba(255,255,255,0.9)" filter="url(#textShadow)">地球智人－賴建順</text>
+
+  <!-- Day number (big, right side) -->
+  <text x="${W - 60}" y="100" font-family="-apple-system,'Helvetica Neue',sans-serif" font-size="78" font-weight="900" fill="#ffffff" text-anchor="end" filter="url(#strongShadow)">${escapeXml(dayText)}</text>
+</svg>`;
+    const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'banner-' + dateStr + '.svg';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function escapeXml(s) {
+    return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]));
+  }
+
+  async function copyToClipboard() {
+    const el = document.getElementById('thumbnailPreview');
+    try {
+      const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: null });
+      canvas.toBlob(blob => {
+        navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+        alert('已複製到剪貼簿！');
+      });
+    } catch(e) {
+      alert('Copy requires html2canvas library and clipboard API support.');
+    }
+  }
+
+  // Load html2canvas from CDN
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+  document.head.appendChild(script);
+
+  updatePreview();
+</script>
+
+</body>
+</html>
