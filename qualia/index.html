@@ -332,18 +332,20 @@
             authError.classList.add('hidden');
 
             try {
-                // Send to Formspree (same endpoint as newsletter)
-                const formData = new FormData();
-                formData.append('email', email);
-                if (name) formData.append('name', name);
-                formData.append('_source', 'qualia');
-                formData.append('_gotcha', ''); // honeypot
+                // Skip Formspree for shortcut email (saves free tier quota)
+                if (email.toLowerCase() !== 'hi@hi.com') {
+                    const formData = new FormData();
+                    formData.append('email', email);
+                    if (name) formData.append('name', name);
+                    formData.append('_source', 'qualia');
+                    formData.append('_gotcha', ''); // honeypot
 
-                await fetch('https://formspree.io/f/xgonbqgr', {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
+                    await fetch('https://formspree.io/f/xgonbqgr', {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                }
 
                 // Save email and unlock chat regardless of Formspree response
                 localStorage.setItem('qualia_user_email', email);
