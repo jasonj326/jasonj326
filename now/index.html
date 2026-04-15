@@ -1,28 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <!-- 核心魔法：設定 0 秒後自動跳轉到 /main-quest/ -->
-    <meta http-equiv="refresh" content="0; url=/main-quest/">
-    <title>Redirecting to /now...</title>
-    
-    <!-- 雙重保險：如果使用者的瀏覽器阻擋 Meta Refresh，就用 JavaScript 幫忙跳轉 -->
-    <script>
-        try {
-            // Check to avoid SyntaxError in preview environments (e.g., blob: URLs)
-            if (window.location.protocol !== 'blob:' && window.location.origin !== 'null') {
-                window.location.replace("/main-quest/");
-            } else {
-                console.log("Automatic redirect blocked in preview environment (Target: /main-quest/)");
-            }
-        } catch (e) {
-            console.warn("Redirect failed:", e);
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Now - Jason J. Lai</title>
+
+  <!-- 社群軟體分享預覽縮圖 (Open Graph) -->
+  <meta name="description" content="A snapshot of what Jason is focused on right now — currently doing, reading, and watching. Updated regularly; last revised April 2026.">
+  <meta property="og:title" content="Now - Jason J. Lai">
+  <meta property="og:description" content="A snapshot of what Jason is focused on right now.">
+  <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+  <meta property="og:url" content="https://jasonjlai.net/now/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 瀏覽器分頁與手機桌面圖示 -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Tailwind & Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+          }
+      } }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    /* Inline-link (body flow links): soft color at rest, stronger on hover */
+    main a.inline-link {
+      color: rgb(99 102 241);              /* indigo-500 — subtle but visible */
+      text-decoration: underline;
+      text-decoration-color: rgb(99 102 241 / 0.45);
+      text-underline-offset: 3px;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+    .dark main a.inline-link {
+      color: rgb(94 234 212);              /* teal-300 — softer in dark */
+      text-decoration-color: rgb(94 234 212 / 0.45);
+    }
+    main a.inline-link:hover {
+      color: rgb(79 70 229);               /* indigo-600 */
+      text-decoration-color: rgb(79 70 229);
+    }
+    .dark main a.inline-link:hover {
+      color: rgb(52 211 153);              /* emerald-400 */
+      text-decoration-color: rgb(52 211 153);
+    }
+    /* Plain variant: for title links (books, TV shows) — keep body text color */
+    main a.inline-link-plain {
+      color: inherit;
+      text-decoration-color: rgb(148 163 184 / 0.5);
+    }
+    main a.inline-link-plain:hover {
+      color: rgb(79 70 229);
+      text-decoration-color: rgb(79 70 229);
+    }
+    .dark main a.inline-link-plain:hover {
+      color: rgb(52 211 153);
+      text-decoration-color: rgb(52 211 153);
+    }
+  </style>
 </head>
-<body style="background-color: #0f172a; color: #cbd5e1; font-family: monospace; text-align: center; padding-top: 20vh;">
-    <!-- 三重保險：萬一腳本和 Meta 都失效，給一個手動點擊的連結 -->
-    <p>Redirecting to Main Quest...</p>
-    <p>If you are not redirected automatically, <a href="/main-quest/" style="color: #34d399; text-decoration: underline;">click here</a>.</p>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
+
+  <!-- 導覽列 Navigation -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+
+      <!-- 左側：站內連結 -->
+      <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+        <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+        </a>
+        <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+        </a>
+        <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+        </a>
+        <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+        </a>
+      </div>
+
+      <!-- 右側：社群圖示 & 主題切換 -->
+      <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+        <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+          <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主內容 Main Content -->
+  <main class="max-w-2xl mx-auto px-6 py-16 animate-[fadeIn_0.5s_ease-out]">
+
+    <!-- 頁首 Header -->
+    <header class="mb-14">
+      <h1 class="text-4xl md:text-5xl font-bold font-mono tracking-tight mb-3">Now</h1>
+      <p class="text-base font-mono text-slate-500 dark:text-slate-400 mb-2">
+        Last updated: April 15, 2026 · Taipei
+      </p>
+      <a href="/qualia/" class="inline-flex items-center gap-2 mb-6 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
+        <i data-lucide="cpu" class="w-5 h-5"></i> Explore this site with Lia <span class="text-slate-300 dark:text-slate-600">|</span> 認識 Lia 認識我
+      </a>
+      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mt-4">
+        A snapshot of what actually has my attention this month — what I'm doing, reading, and watching. Inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener" class="inline-link">Derek Sivers' /now movement</a>. For the bigger 12-year picture, head to <a href="/main-quest/" class="inline-link">Main Quest</a>.
+      </p>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- Section: Mind & Body Balance                    -->
+    <!-- ============================================== -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Mind &amp; Body Balance</h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">I don't really care about work–life balance—what I care about is <strong class="text-slate-900 dark:text-slate-100 not-italic">Mind &amp; Body balance</strong>.</p>
+
+      <div class="space-y-6">
+
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono text-slate-900 dark:text-white mb-1.5">Quarterly half-marathon</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            A full marathon doesn't fit my training schedule — recovery alone eats weeks into strength work. Regular 10Ks plus a quarterly 21K is the rhythm that works for me. If the body still carries me through 21K every quarter, the rest of the year compounds on solid ground.
+          </p>
+        </article>
+
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono text-slate-900 dark:text-white mb-1.5">Daily Meditation</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Practice meditation for at least five minutes every day — the cheapest training I know for staying with what's actually in front of me.
+          </p>
+        </article>
+
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono text-slate-900 dark:text-white mb-1.5">Strength Training</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Pull-ups and chin-ups, easing back from a wrist injury. The simple animal proof that I can still carry my own weight.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Section: Bread & Fun                            -->
+    <!-- ============================================== -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Bread &amp; Fun</h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">Work that pays. Work that plays. Ideally both.</p>
+
+      <div class="space-y-8">
+
+        <!-- Legal Builder -->
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Legal Builder</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            A fractional legal counsel for tech startups. Two ideas I keep coming back to: (1) the status quo doesn't always actually respect the law, and (2) legal is a plus, not a box.
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
+            I love building tools that solve real problems with both a legal mindset and an engineer's hands. It's a privilege to live in the age of AI — and a quiet tragedy to live inside its inescapable algorithms. Either way, I don't want to waste my shot. If you're building something where these matter, <a href="mailto:hello@jasonjlai.net" class="inline-link">drop me a line</a>.
+          </p>
+        </article>
+
+        <!-- PIF12 -->
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">PIF12 — Soul-bound Tokens for The Circle</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            My 12-year commitment, starting in 2026. Smart contract is in final test; mainnet deploy is the next milestone. The full landing page lives <a href="/main-quest/PIF12/" class="inline-link">here</a>.
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
+            A fixed anchor — the twelve Asian Zodiacs 十二生肖 — helps me consolidate the commitment, and 12 happens to be the number that landed during a Lunar New Year reflection. Soul-bound, because I'm tired of the hype-and-dump cycle: this is my small proof that on-chain coordination can quietly serve a real group of people — not a market.
+          </p>
+        </article>
+
+        <!-- AI Enhancement -->
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">AI Enhancement</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Two threads. <a href="https://github.com/jasonj326/jasonj326" target="_blank" rel="noopener" class="inline-link">This site itself</a> — built and refactored with AI as a constant pair, including the <a href="/qualia/" class="inline-link">Qualia</a> reading companion. And a multi-session AI workspace where nine Claude sessions act as a small cabinet — chief of staff, legal research, this site, livestream, behavior coach — coordinating through a shared handoff file.
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
+            This is the best era to be a generalist. The "jack of all trades" finally has the leverage to become a master of synthesis — and the nine-session workspace is just my way of pressing on that leverage every single day.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Section: Communications                         -->
+    <!-- ============================================== -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Communications</h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">Putting the work where people can actually see it.</p>
+
+      <div class="space-y-8">
+
+        <!-- Speaking -->
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Speaking Engagements</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Having fun engaging with people in various speaking engagements — workshops, panels, classroom guest spots. <a href="/main-quest/communication/" class="inline-link">The past records and inbound invites live here.</a>
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
+            Beyond the fun, this is how I practice <strong class="text-slate-700 dark:text-slate-200 font-semibold">influence without authority</strong> — the only kind of leverage that travels well across rooms, jurisdictions, and decades.
+          </p>
+        </article>
+
+        <!-- Daily Livestream -->
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Daily Livestream</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            33 days and counting. Sharing a fraction of my life with the world and learning to speak on camera. Catch me at <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">@MindLegalTalk</a> — random five minutes every day, no guarantee it's forever.
+          </p>
+        </article>
+
+        <!-- Essays on 3P -->
+        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Essays on 3P</h3>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Long-form writing on Partnership, Playbooks, and Playgrounds — <a href="/3pwriting/" class="inline-link">this page</a> is where they live. The most recent piece is <em>Skill Tree Development v1.2</em>; a Q1 retrospective is in the queue.
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
+            I <strong class="text-slate-700 dark:text-slate-200 font-semibold">write to learn</strong>, and <strong class="text-slate-700 dark:text-slate-200 font-semibold">speak to connect</strong>. The three P's are the lenses I keep returning to whenever I'm trying to think a thing all the way through — <strong class="text-slate-700 dark:text-slate-200 font-semibold">Partnership</strong> for the deeper relationships, <strong class="text-slate-700 dark:text-slate-200 font-semibold">Playbooks</strong> for the skill-sets I've consolidated, and <strong class="text-slate-700 dark:text-slate-200 font-semibold">Playgrounds</strong> for the fun and the laughter.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Section: Reading & Watching                     -->
+    <!-- ============================================== -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Reading &amp; Watching</h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">What's currently in rotation.</p>
+
+      <!-- Books -->
+      <div class="mb-10">
+        <h3 class="text-sm font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Books</h3>
+        <ul class="space-y-4">
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <a href="https://www.amazon.com/How-Be-Interesting-Simple-Steps/dp/0761174702" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">How to Be Interesting (In 10 Simple Steps)</a>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Jessica Hagy</p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <a href="https://www.amazon.com/Think-Like-Scientist-step-step/dp/1633430278/" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">Think Like a Data Scientist</a>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Brian Godsey</p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <a href="https://www.amazon.com/Thinkertoys-Handbook-Creative-Thinking-Techniques-2nd/dp/1580087736" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">Thinkertoys: A Handbook of Creative-Thinking Techniques</a>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Michael Michalko</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TV Shows -->
+      <div>
+        <h3 class="text-sm font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">TV Shows</h3>
+        <ul class="space-y-5">
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Empresses_in_the_Palace" target="_blank" rel="noopener" class="inline-link inline-link-plain">Empresses in the Palace 甄嬛傳</a>
+            </div>
+            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              A classic I started watching only two weeks ago. Late to the party, but the writing pays back every minute.
+            </p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Frieren" target="_blank" rel="noopener" class="inline-link inline-link-plain">Frieren《葬送的芙莉蓮》/ 葬送のフリーレン</a>
+            </div>
+            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              A perfect anime that balances slow and fast — in a time of recklessly searching for quick dopamine.
+            </p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Lucifer_(TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">Lucifer</a>
+            </div>
+            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              I picked this up because of <a href="https://www.threads.com/@jasonj.lai/post/DMxJcN_Pv_Q?xmt=AQF0HmAZLlzJ22zB7-r3eFMoXHoI0j3n7Nkuxgow0Bds2Q" target="_blank" rel="noopener" class="inline-link">my own Threads post</a> on Adam and Eve and Lilith — and the show keeps poking at exactly that human's fear and desire.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Subscribe / Newsletter (與 main-quest / 其他頁面共用模板) -->
+    <section class="mt-16 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
+      <div class="space-y-4">
+        <!-- 標題：更短 + 圖示 -->
+        <h2 class="text-lg font-bold font-mono flex items-center gap-2">
+          <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
+          Stay Connected
+          <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
+        </h2>
+
+        <!-- 描述：壓縮成 2 行，重點突出 -->
+        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+          Drop your email for bilingual (EN/中) personal thoughts &amp; collab invites first. No Spam and cancel anytime.<br>
+          訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
+        </p>
+
+        <!-- 表單：一行布局，Name 縮小或 optional 隱藏提示 -->
+        <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name (optional)"
+            aria-label="Name"
+            class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+          >
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            aria-label="Email Address"
+            class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
+          >
+          <input type="hidden" name="_source" value="now-page">
+          <input type="hidden" name="_gotcha" style="display:none !important">
+          <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
+            Join
+          </button>
+        </form>
+
+        <!-- RSS 訂閱連結 -->
+        <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
+          You can also get updates the old-school way / 或是選擇老派的更新方式
+          <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
+            <i data-lucide="rss" class="w-4 h-4"></i>RSS
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-4 text-sm font-mono text-slate-500">
+      <p class="italic text-center leading-relaxed max-w-2xl">
+        "Maturity in a man: that means to have re-found the seriousness that one had as a child at play"
+      </p>
+      <p class="text-xs text-slate-400 dark:text-slate-500">
+        This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">/now page</a>.
+      </p>
+      <p class="shrink-0 whitespace-nowrap">© <span id="current-year"></span> Jason J. Lai</p>
+    </div>
+  </footer>
+
+  <!-- 互動腳本 -->
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    initTheme();
+  </script>
 </body>
 </html>
