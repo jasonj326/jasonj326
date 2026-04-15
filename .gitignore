@@ -3,19 +3,35 @@
 # Claude Code 管理檔案
 CLAUDE.md
 .claude/
+Webb_BACKLOG.md
 
 # 安全與工程文件
 docs/SECURITY.md
 docs/engineering-log/
+docs/engineering-notes.md
+sop/
 
 # 草稿與筆記
 drafts/
 notes/
 
+# 私人外部資料
+facebook */
+每日猜招*/
+
 # 環境與密鑰
 .env
 .env.*
 *.local
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+credentials.*
+private-key*
+mnemonic*
+wallet.json
 
 # 系統檔案
 .DS_Store
