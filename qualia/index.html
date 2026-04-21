@@ -373,17 +373,79 @@
             authNameInput.value = '';
         }
 
+        // ---- Rich link rendering for assistant messages ------------------
+        // Feature flag — set to false to roll back to plain-text rendering.
+        const ENABLE_RICH_LINKS = true;
+        // Optional domain allow-list. Empty = allow any http/https URL.
+        // Add e.g. ['jasonjlai.net', 'github.com'] to restrict.
+        const ALLOWED_DOMAINS = [];
+
+        function escapeHTML(str) {
+            return String(str).replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[c]);
+        }
+
+        function isSafeUrl(url) {
+            // Only allow http:// and https://. Reject javascript:, data:, vbscript:, file:, etc.
+            if (!/^https?:\/\//i.test(url)) return false;
+            if (ALLOWED_DOMAINS.length > 0) {
+                try {
+                    const host = new URL(url).hostname.toLowerCase();
+                    return ALLOWED_DOMAINS.some(d => host === d || host.endsWith('.' + d));
+                } catch (e) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Convert text containing markdown [text](url) and bare https?://... into safe HTML.
+        // All non-link content is HTML-escaped. Unsafe URL schemes are stripped.
+        function renderRichContent(text) {
+            const LINK_CLASS = 'underline text-indigo-600 dark:text-emerald-400 hover:text-indigo-800 dark:hover:text-emerald-300 break-all';
+            const MD_LINK = /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g;
+            const PLAIN_URL = /(^|[\s(])(https?:\/\/[^\s<>"')\]]+[^\s<>"')\].,;:!?])/g;
+
+            // Step 1: extract markdown links into placeholders so URL regex doesn't double-match
+            const placeholders = [];
+            let working = String(text).replace(MD_LINK, (m, linkText, url) => {
+                if (!isSafeUrl(url)) return linkText; // strip unsafe scheme, keep label as text
+                const idx = placeholders.length;
+                placeholders.push({ text: linkText, url });
+                return `\u0000LINK${idx}\u0000`;
+            });
+
+            // Step 2: escape all remaining HTML special chars
+            working = escapeHTML(working);
+
+            // Step 3: auto-link bare URLs (these are still in their original form because
+            // escapeHTML only touches & < > " ' — none of which appear in valid URLs we'd link)
+            working = working.replace(PLAIN_URL, (m, pre, url) => {
+                if (!isSafeUrl(url)) return m;
+                return `${pre}<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" class="${LINK_CLASS}">${escapeHTML(url)}</a>`;
+            });
+
+            // Step 4: substitute markdown placeholders back as anchor tags
+            working = working.replace(/\u0000LINK(\d+)\u0000/g, (m, idx) => {
+                const { text: linkText, url } = placeholders[parseInt(idx, 10)];
+                return `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" class="${LINK_CLASS}">${escapeHTML(linkText)}</a>`;
+            });
+
+            return working;
+        }
+
         // Function to render a message in the UI
         function appendMessage(role, text) {
             const wrapper = document.createElement('div');
             wrapper.className = `flex gap-4 ${role === 'user' ? 'flex-row-reverse' : ''}`;
-            
+
             // Icon
             const iconDiv = document.createElement('div');
-            iconDiv.className = role === 'user' 
+            iconDiv.className = role === 'user'
                 ? 'w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center shrink-0 mt-1'
                 : 'w-8 h-8 rounded-full bg-indigo-100 dark:bg-emerald-900/50 border border-indigo-200 dark:border-emerald-700 flex items-center justify-center shrink-0 mt-1';
-            iconDiv.innerHTML = role === 'user' 
+            iconDiv.innerHTML = role === 'user'
                 ? '<i data-lucide="user" class="w-5 h-5 text-slate-500 dark:text-slate-300"></i>'
                 : '<i data-lucide="bot" class="w-5 h-5 text-indigo-600 dark:text-emerald-400"></i>';
 
@@ -392,7 +454,13 @@
             bubbleDiv.className = role === 'user'
                 ? 'bg-slate-900 dark:bg-slate-200 text-white dark:text-slate-900 p-4 rounded-2xl rounded-tr-sm shadow-sm max-w-[85%] whitespace-pre-wrap'
                 : 'bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 p-4 rounded-2xl rounded-tl-sm shadow-sm max-w-[85%] whitespace-pre-wrap leading-relaxed';
-            bubbleDiv.textContent = text; // Safe against XSS
+            // Assistant: render markdown links + auto-link bare URLs (XSS-safe via escape + scheme allow-list).
+            // User: keep textContent — user input shouldn't auto-render hyperlinks in their own bubble.
+            if (role === 'assistant' && ENABLE_RICH_LINKS) {
+                bubbleDiv.innerHTML = renderRichContent(text);
+            } else {
+                bubbleDiv.textContent = text; // Safe against XSS
+            }
 
             wrapper.appendChild(iconDiv);
             wrapper.appendChild(bubbleDiv);
