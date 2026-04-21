@@ -3,6 +3,7 @@ title: Workhorse in the Year of Horse
 date: 2026-02-24
 year: 2026
 slug: workhorse-in-the-year-of-horse
+url: "https://jasonjlai.net/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html"
 major_tag: partnership
 tags:
   - playbooks

@@ -3,6 +3,7 @@ title: 品牌時代  (trans. from Paul Graham's Brand Age)
 date: 2026-03-06
 year: 2026
 slug: brand-age-translation
+url: "https://jasonjlai.net/3pwriting/playgrounds/20260306/brand-age-translation.html"
 major_tag: playgrounds
 tags:
   - playgrounds

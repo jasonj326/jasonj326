@@ -736,6 +736,15 @@ def main():
             full_link = f"{SITE_URL}/3pwriting/{major}/{date.replace('-','')}/{slug}.html"
             relative_link = f"/3pwriting/{major}/{date.replace('-','')}/{slug}.html"
 
+            # CLia RAG ingest reads frontmatter `url:` directly from the .md file
+            # (not from this generated full_link). So the .md must include url: itself.
+            # Warn loudly if it's missing or stale — easy footgun for new posts.
+            fm_url = fm.get("url", "").strip() if isinstance(fm.get("url"), str) else ""
+            if not fm_url:
+                print(f"⚠️  {md.name}: frontmatter missing `url:` field — CLia RAG won't have URL metadata. Add: url: \"{full_link}\"")
+            elif fm_url != full_link:
+                print(f"⚠️  {md.name}: frontmatter `url:` ({fm_url}) doesn't match computed ({full_link}) — check slug/date/major_tag drift")
+
             # 💡 判斷文章語言
             detected_lang = detect_language(body)
 
