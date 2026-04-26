@@ -11,6 +11,9 @@ docs/engineering-log/
 Webb_engineering_log.md
 sop/
 
+# QL Worker 後端（CLia 移交 2026-04-26，含 system prompt + Cloudflare credentials）
+qualia/worker/
+
 # 草稿與筆記
 drafts/
 notes/
