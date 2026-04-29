@@ -149,10 +149,8 @@
                     <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-white">Chat with Lia</h2>
                 </div>
                 <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed text-left">
-                    Drop your email to chat with Lia and stay connected with bilingual (EN/中) personal thoughts & collab invites.
-                    No spam, cancel anytime.
-                    Already subscribed? Type hi@hi.com to jump straight in.<br>
-                    <span class="text-slate-500 dark:text-slate-500">填入 email 即可與 Lia 聊天，同時訂閱中英雙語個人動態與活動邀請。保證無垃圾信，隨時取消。已經訂閱？輸入 hi@hi.com 直接開槓。</span>
+                    Drop your email to chat with Lia and stay connected with bilingual (EN/中) personal thoughts & collab invites. No spam, cancel anytime.<br>
+                    <span class="text-slate-500 dark:text-slate-500">填入 email 即可與 Lia 聊天，同時訂閱中英雙語個人動態與活動邀請。保證無垃圾信，隨時取消。</span>
                 </p>
                 <form id="auth-form" class="space-y-4">
                     <input
@@ -174,6 +172,13 @@
                         class="w-full bg-indigo-600 dark:bg-emerald-500 text-white dark:text-slate-900 font-bold font-mono text-lg rounded-xl border-2 border-slate-900 dark:border-slate-100 py-3 game-shadow-btn transition-all"
                     >
                         Start Chatting
+                    </button>
+                    <button
+                        type="button"
+                        onclick="skipChat()"
+                        class="w-full text-center text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors py-1 underline decoration-slate-400/30 underline-offset-4 hover:decoration-current"
+                    >
+                        or just chat without sharing → <span class="text-slate-400 dark:text-slate-500">不留 email 直接開槓</span>
                     </button>
                     <p id="auth-error" class="text-red-500 text-sm font-mono hidden">Something went wrong. Please try again.</p>
                 </form>
@@ -334,20 +339,17 @@
             authError.classList.add('hidden');
 
             try {
-                // Skip Formspree for shortcut email (saves free tier quota)
-                if (email.toLowerCase() !== 'hi@hi.com') {
-                    const formData = new FormData();
-                    formData.append('email', email);
-                    if (name) formData.append('name', name);
-                    formData.append('_source', 'qualia');
-                    formData.append('_gotcha', ''); // honeypot
+                const formData = new FormData();
+                formData.append('email', email);
+                if (name) formData.append('name', name);
+                formData.append('_source', 'qualia');
+                formData.append('_gotcha', ''); // honeypot
 
-                    await fetch('https://formspree.io/f/xgonbqgr', {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                }
+                await fetch('https://formspree.io/f/xgonbqgr', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
 
                 // Save email and unlock chat regardless of Formspree response
                 localStorage.setItem('qualia_user_email', email);
@@ -361,6 +363,12 @@
                 authSubmitBtn.textContent = 'Start Chatting';
             }
         });
+
+        // Skip the email gate — mark as anonymous and unlock chat (no Formspree submit)
+        function skipChat() {
+            localStorage.setItem('qualia_user_email', 'anonymous');
+            checkAuth();
+        }
 
         // Handle Logout
         function logout() {
