@@ -86,6 +86,67 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* === Flip Card avatar (parity with /main-quest/communication/) === */
+        .flip-card {
+            perspective: 800px;
+            width: 140px;
+            height: 140px;
+        }
+        @media (min-width: 640px) {
+            .flip-card {
+                width: 170px;
+                height: 170px;
+            }
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        @media (hover: hover) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .flip-card-front { z-index: 2; }
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-align: center;
+            padding: 16px;
+        }
+        .flip-card-ring {
+            border-radius: 9999px;
+            padding: 4px;
+            background: conic-gradient(from 0deg, #6366f1, #8b5cf6, #a78bfa, #6366f1);
+        }
+        .dark .flip-card-ring {
+            background: conic-gradient(from 0deg, #34d399, #6ee7b7, #a7f3d0, #34d399);
+        }
     </style>
 </head>
 
@@ -152,20 +213,45 @@
     <!-- Home -->
     <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
 
-        <!-- 1. Hero (更簡約的設計，圖示已移至上方 NavBar) -->
+        <!-- 1. Hero -->
         <header class="mb-12">
-            <h1 class="text-4xl font-bold font-mono tracking-tight mb-4">Jason J. Lai</h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400 mb-4 font-semibold"> Tribe & Trust Builder wielding a legal wand </p>
-            <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-2">
-                Life's meaningless—let's dare to build our own: connect, destroy, explore, freestyle, and goof around.
-            </p>
-            <a href="/PIF12/" class="inline-flex items-center gap-2 mt-3 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
-                <i data-lucide="rocket" class="w-5 h-5"></i> Join my 12-year Journey <span class="text-slate-300 dark:text-slate-600">|</span> 加入 12 年旅程
-            </a>
-            <br>
-            <a href="/qualia/" class="inline-flex items-center gap-2 mt-2 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
-                <i data-lucide="cpu" class="w-5 h-5"></i> Explore this site with Lia <span class="text-slate-300 dark:text-slate-600">|</span> 認識 Lia 認識我
-            </a>
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
+
+                <!-- 🎴 Flip-card avatar (hover desktop / tap mobile) -->
+                <div class="flip-card shrink-0">
+                    <div class="flip-card-ring w-full h-full">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="/headshot-1.jpg" alt="Jason J. Lai headshot"
+                                     onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-emerald-500 dark:to-teal-600 flex items-center justify-center\'><span class=\'text-white text-5xl font-bold font-mono select-none\'>JL</span></div>'"
+                                />
+                            </div>
+                            <div class="flip-card-back p-0">
+                                <img src="/headshot-2.jpg" alt="Jason J. Lai speaking"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-emerald-600 dark:to-teal-700 flex items-center justify-center text-white\'><span class=\'text-sm font-bold font-mono leading-snug text-center px-4\'>Law × Tech<br>× Human Nature</span></div>'"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Title + tagline + CTAs -->
+                <div class="text-center sm:text-left">
+                    <h1 class="text-4xl font-bold font-mono tracking-tight mb-3">Jason J. Lai</h1>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-4 font-semibold">Tribe &amp; Trust Builder wielding a legal wand</p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                        Life's meaningless—let's dare to build our own: connect, destroy, explore, freestyle, and goof around.
+                    </p>
+                    <a href="/PIF12/" class="inline-flex items-center gap-2 mt-2 text-xl font-bold font-mono text-indigo-600 dark:text-emerald-400 hover:text-indigo-800 dark:hover:text-emerald-300 transition-colors">
+                        <i data-lucide="star" class="w-6 h-6"></i> Build with me, for 12 years <span class="text-indigo-300 dark:text-emerald-700">|</span> 與我共建 12 年
+                    </a>
+                    <br>
+                    <a href="/qualia/" class="inline-flex items-center gap-2 mt-2 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
+                        <i data-lucide="cpu" class="w-5 h-5"></i> Explore this site with Lia <span class="text-slate-300 dark:text-slate-600">|</span> 認識 Lia 認識我
+                    </a>
+                </div>
+            </div>
         </header>
 
         <!-- Now (left-border style, eye-catching) -->
@@ -437,6 +523,15 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
         lucide.createIcons();
+
+        // Flip-card: tap toggle for touch devices (desktop uses :hover via CSS)
+        document.querySelectorAll('.flip-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                if (!window.matchMedia('(hover: hover)').matches) {
+                    card.classList.toggle('is-flipped');
+                }
+            });
+        });
 
         const htmlElement = document.documentElement;
         const iconSun = document.getElementById('icon-sun');
