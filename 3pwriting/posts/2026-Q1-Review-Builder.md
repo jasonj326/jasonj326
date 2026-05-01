@@ -1,5 +1,5 @@
 ---
-title: 2026 第一季回顧：成為建造者
+title: 2026 Q1 Review · 成為建造者 | Becoming a Builder
 date: 2026-05-01
 year: 2026
 slug: 2026-q1-review-builder
@@ -82,7 +82,7 @@ Builder 對我雙重意義，一個是練習解決問題的工具，一個是解
 
 現在我想換一種方式回答——**用 build 的方式**。
 
-如果一個技術真的有用，除了資本主義的市場（~~炒作~~）認可之外，它應該能承載某種具體的效益、人類社群會在意的價值，而且透過區塊鏈能完成更有相對效率——例如，數位身分、跨越時間的祝福、不可轉讓的見證、一個自願加入的社群結構。
+如果一個技術真的有用，除了資本主義的市場（<del>炒作</del>）認可之外，它應該能承載某種具體的效益、人類社群會在意的價值，而且透過區塊鏈能完成更有相對效率——例如，數位身分、跨越時間的祝福、不可轉讓的見證、一個自願加入的社群結構。
 
 這就引出了 PIF12。
 
@@ -131,7 +131,7 @@ Builder 對我雙重意義，一個是練習解決問題的工具，一個是解
 
 總之，我覺得是有趣、有意義的事，歡迎共襄盛舉，拍打餵食，讓他有機生長。
 
-→ [PIF12 計畫頁面](https://jasonjlai.net/PIF12/)
+→ [PIF12 計畫頁面](https://jasonjlai.net/PIF12/zh/)
 
 ---
 
@@ -158,6 +158,8 @@ Builder 對我雙重意義，一個是練習解決問題的工具，一個是解
 ![Elon Musk: Stop being patient and start asking yourself: How can I accomplish my 10-year plan in 6 months? You will probably fail, but you'll be far ahead of the person who simply accepted it would take 10 years.](/assets/images/2026-q1-review/elon-impatient.png)
 
 就這樣長年的內在衝突，有時候覺得不用急，有時候覺得來不及，活成不要命的樣子。
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vYbdQAeO0vo?si=eKXOcQ6HUduZUjlV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 這一季的啟發是，其實這兩個沒有互斥，而是我們要心中有對未來美好理想的想像，但每天專心當下的工作與任務，觀察自己與周邊的問題，把手邊的工具與資源用到極致，試圖去解決這些問題。
 
@@ -228,9 +230,13 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 ---
 
-## 心胸開了一點
+## 心態改變的小事
 
-這季有兩件小事，剛好印證自己心境寬了一點。
+這季有三件小事，不是什麼驚天動地，而是覺察自己的轉變，又更認識自己一點。
+
+**留頭髮**
+
+第一個是已經三個月沒剪頭髮，還在持續留頭髮。從前覺得自己不適合留長，我不知道是開始學著喜歡自己，所以頭髮不重要了，還是什麼緣故。
 
 **重看七龍珠**
 
@@ -244,7 +250,9 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 **隨機跳上火車的瑞芳**
 
-除此之外，還有去瑞芳。這算是第一次在臺灣隨機跳上火車的旅行。這次是隨機跳上火車，到了終點站就去北海岸兜了一天。雖然沒有什麼特別的記憶點，但或許這種隨機本身創造出來的一日遊，就是一種特別吧。
+除此之外，還有去瑞芳。這算是第一次在臺灣隨機跳上火車的旅行。某一天覺得天氣好好、心情很糟，就拿著悠遊卡，隨機跳上火車，到了終點站是瑞芳，就去北海岸兜了一天。
+
+其實沒有什麼特別的記憶點，但或許這種隨機本身創造出來的一日遊，就是一種特別吧。
 
 
 ---
@@ -269,7 +277,7 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 最近發現 **Emergent Ventures** 的獎助贊助，或許可以把 PIF12 跟之掛鉤——理由有兩個：透過遞交申請的過程本身就會強迫我把計畫想得更清楚；二是 Emergent Ventures 生態系也是和自己價值觀很像，強調能動性與非傳統跨領域人才，下一季我會分享 [Tyler Cowen 的新作「邊際主義革命」](https://tylercowen.com/marginal-revolution-generative-book/)讀後心得，你也可以自己先透過上面的連結，和他的AI共讀。
 
-希望大家可以多督促我、沒事問問進度——我把這個計畫公開寫出來，某種程度上也是在期待親友監督與~~鞭斥~~餵食。
+希望大家可以多督促我、沒事問問進度——我把這個計畫公開寫出來，某種程度上也是在期待親友監督與<del>鞭斥</del>餵食。
 
 ### 3. 學習、分享與創作 x AI
 
@@ -319,7 +327,7 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 🎵 **Edith Piaf — Non, Je ne regrette rien**（〈不，我什麼都不後悔〉, 1960）
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FuXJWb9iSI0?si=HHL2kHuB483coAda" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3Kvu6Kgp88?si=dSAzWdB5HIfG_M_f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 > Je repars à zéro.
@@ -331,8 +339,9 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 ---
 祝你建造順利！
 
-*建順 Jason Lai
-2026.5.1*
+*建順 Jason Lai*
+
+*2026.5.1*
 
 [^1]: 史提格勒（George Stigler）《經濟監管論》（The Theory of Economic Regulation）(1971)：保護消費者的法案，要問的不是「它宣稱要做什麼」，而是「誰能從中獲利」。
 
