@@ -10,7 +10,7 @@ tags:
   - playgrounds
   - partnership
   - y2026
-pinned: true
+pinned: false
 summary: This is a living doc helping strengthen our partnership
 ---
 This is a living document inspired by the transparent culture of open-source communities. My goal here is to accelerate our working relationship by being upfront about my communication style, my professional philosophy, my quirks, and my values.

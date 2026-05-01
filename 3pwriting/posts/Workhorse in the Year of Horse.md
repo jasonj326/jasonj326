@@ -10,7 +10,7 @@ tags:
   - playgrounds
   - partnership
   - y2026
-pinned: true
+pinned: false
 summary: Help me help you as a workhorse in the year of Horse
 ---
 In the Year of Horse, with inevitable incoming waves of AI, help me help you as a workhorse.

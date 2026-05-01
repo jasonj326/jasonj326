@@ -10,7 +10,7 @@ tags:
   - skill-tree
   - playgrounds
   - partnership
-pinned: true
+pinned: false
 summary: Why I opt for gaming design and what I can do for you
 hero_image:
 ---
