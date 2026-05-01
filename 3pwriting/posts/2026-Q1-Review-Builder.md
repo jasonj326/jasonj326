@@ -1,5 +1,5 @@
 ---
-title: 2026 Q1 Review · 成為建造者 | Becoming a Builder
+title: 季報 2026 Q1 Review · Becoming a Builder
 date: 2026-05-01
 year: 2026
 slug: 2026-q1-review-builder
