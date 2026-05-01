@@ -587,6 +587,26 @@ def rfc2822(date_str):
     dt = datetime.datetime.fromisoformat(date_str)
     return dt.strftime("%a, %d %b %Y 00:00:00 +0000")
 
+def add_target_blank_to_external(html):
+    """Auto-add target='_blank' rel='noopener noreferrer' to external links.
+    Internal (jasonjlai.net), relative (/...), anchors (#...), mailto:, tel: stay same-window."""
+    def repl(m):
+        attrs = m.group(1)
+        if 'target=' in attrs:
+            return m.group(0)
+        href_m = re.search(r'href=["\']([^"\']+)["\']', attrs)
+        if not href_m:
+            return m.group(0)
+        href = href_m.group(1)
+        if href.startswith(('/', '#', 'mailto:', 'tel:')):
+            return m.group(0)
+        if 'jasonjlai.net' in href:
+            return m.group(0)
+        if not href.startswith(('http://', 'https://')):
+            return m.group(0)
+        return f'<a {attrs} target="_blank" rel="noopener noreferrer">'
+    return re.sub(r'<a ([^>]+)>', repl, html)
+
 def get_color_for_tag(t):
     t_lower = t.lower()
     if 'playbook' in t_lower: return "bg-blue-500"
@@ -817,6 +837,7 @@ def main():
 
         # 💡 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
+        content_html = add_target_blank_to_external(content_html)
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
                         .replace("{lang}", p["lang"]) \
