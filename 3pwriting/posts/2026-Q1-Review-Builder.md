@@ -343,7 +343,7 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 *2026.5.1*
 
-[^1]: 史提格勒（George Stigler）《經濟監管論》（The Theory of Economic Regulation）(1971)：保護消費者的法案，要問的不是「它宣稱要做什麼」，而是「誰能從中獲利」。
+[^1]: 史提格勒（George Stigler）《經濟監管論》（The Theory of Economic Regulation）(1971) 指出，原本要監管的法律，反而會被市場吸收，成為市場進入的貿易障礙。我今年二月寫了篇[未公開的觀點](https://docs.google.com/document/d/1h5EfXQ4K9jahjbv0RpFRjHxS1wG5TQZUgverXoGoEuY/edit?usp=sharing)：Circle 希望提議納管「合成美元」。所以下次你看到保護消費者的法案，要問的不是「它宣稱要做什麼」，而是「誰能從中獲利」。
 
 [^2]: 只是每天隨筆，資訊量其實沒有很多，但有興趣不妨看看，[30 天 AI × N Posts 系列](https://substack.com/@jasonl/note/c-215983043?utm_source=notes-share-action&r=1pg10k)
 
