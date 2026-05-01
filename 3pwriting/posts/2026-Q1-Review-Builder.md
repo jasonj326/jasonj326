@@ -18,13 +18,13 @@ summary: 從一份紐約職缺，意外開出一個 12 年的 Pay-it-Forward 計
 
 ### TL;DR 太忙的話，這篇講三件事
 1. 前言：塞內卡說，人生不是太短，而是浪費太多。想搶在忘記以前，養成每季回顧的習慣，本篇是開和你分享的第一篇。
-2. 2026 年初被一份紐約工作吸引，啟動了我今年這季最大的改變與成長：建立新的自我認同—— **Legal Builder**——中文不好翻譯，或許冥冥中搭上我的中文名——建順，建造順利。這個新身份，開啟一個 [12 年的 Pay-it-Forward 計畫（PIF12 / 佩福12年）](https://jasonjlai.net/PIF12/)，歡迎你加入。
-3. 我在 2026 年第一季看到或是自己做的計畫，值得分享與你的好東西：
+2. 2026 年初被一份紐約工作吸引，啟動了我今年這季最大的改變與成長：建立新的自我認同——「Builder」——中文不好翻譯，或許冥冥中搭上我的中文名——建順，建造順利。這個 Builder 新身份，開啟一個 [12 年的 Pay-it-Forward 計畫（PIF12 / 佩福12年）](https://jasonjlai.net/PIF12/)，歡迎你加入。
+3. 我在 2026 年第一季看到或是自己做的計畫，想和你分享的好東西：
 	- 區塊鏈先行者 Ping Chen 的十年回顧：[在 2026 年，搞區塊鏈還是有意義的嗎？](https://artistic709.medium.com/ethereum-10y-review-da69592be39f)；Stacy 分享他根據 a16z 的資料，寫出[區塊鏈商業實戰手冊](https://x.com/stacy_muur/status/2029828226101698879)
 	- 新書 [The Book of Elon](https://www.elonmuskbook.org/)，中文可以看劉勇志的[伊隆馬斯克之書 - 中文學習網站](https://eugeneintw.github.io/book-of-elon/)
 	- Paul Graham 的 [The Brand Age](https://www.paulgraham.com/brandage.html)，覺得很有趣所以和 AI 協力翻譯成中文版「[品牌時代](https://jasonjlai.net/3pwriting/playgrounds/20260306/brand-age-translation.html)」
 	- 關於法律與 AI 的實務發展，第一季肯定不能錯過 [Claude Native Law firm](https://x.com/zackbshapiro/status/2027389987444957625?s=20)，曼尼提供[導讀並翻譯成中文](https://www.threads.com/@manny_li/post/DVSh9cgkmcg?xmt=AQF0lYkwYa4y_G5feKb7VtoubdlGMSVGtglfvPp8GI2Juw)。
-	- 改變的第一步是面對，與其痛恨手機成癮的自己，我想讓逝去的時間產生價值，所以透過 AI 分析第一季超過 2,000 個 YouTube & Instagram 影片紀錄，從中間我想推薦 [Tony](https://www.threads.com/@tonyenjoyslife)，特別是他「[我兒子說我是白痴系列](https://www.threads.com/@jasonj.lai/post/DW3SCYTEWoE?xmt=AQF0lYkwYa4y_G5feKb7VtoubdlGMSVGtglfvPp8GI2Juw)」；[比特幣內戰](https://youtu.be/p5F0vg-BgVg?si=hs_mwAITrmrsAAS2)，很精彩介紹比特幣的故事，同時結合西方悲劇典故，談沒有對錯的理念戰爭；律師兼溝通專家 Jefferson Fisher 談到關於成年人交友的方法：[The 3 Rules for Strong Adult Friendships](https://www.youtube.com/watch?v=9jQR5UyLfc4)；[影帝 Kevin Spacey 回到牛津辯論社 (Oxford Union) 演講](https://youtu.be/tJZMQ6Mg6RM?si=YV9mx-bpuFy9_vm-)，希望提醒自己法律與司法有其極限，社會獵巫沒有下限，讓子彈飛一會。最後，想要多一點好運嗎？YC 創業家 Garry Tan [Youtube - 創造自己的好運](https://youtu.be/IoOMs7U93eY?si=JWlnybRJSu_pNftx)，教我們主動出擊。
+	- 改變的第一步是面對，與其痛恨手機成癮的自己，我想讓逝去的時間產生價值，所以透過 AI 分析第一季超過 2,000 個 YouTube & Instagram 影片紀錄，從中間我想推薦：[游庭皓的財經皓角](https://www.youtube.com/@yutinghaofinance)，很認真的節目，雖然我印象最深的只有這個[羅素變位的段子](https://www.threads.com/@haoooo_0524/post/DUZqyQ7EXky?xmt=AQF0-bG2st-sRtZT83LyDdFFA9hzoiwt1AA65VFqcdHQ7g)，也佩服他可以想出這麼多段子；[Tony](https://www.threads.com/@tonyenjoyslife)，特別是他「[我兒子說我是白痴系列](https://www.threads.com/@jasonj.lai/post/DW3SCYTEWoE?xmt=AQF0lYkwYa4y_G5feKb7VtoubdlGMSVGtglfvPp8GI2Juw)」；[比特幣內戰](https://youtu.be/p5F0vg-BgVg?si=hs_mwAITrmrsAAS2)，很精彩介紹比特幣的故事，同時結合西方悲劇典故，談沒有對錯的理念戰爭；律師兼溝通專家 Jefferson Fisher 談到關於成年人交友的方法：[The 3 Rules for Strong Adult Friendships](https://www.youtube.com/watch?v=9jQR5UyLfc4)；[影帝 Kevin Spacey 回到牛津辯論社 (Oxford Union) 演講](https://youtu.be/tJZMQ6Mg6RM?si=YV9mx-bpuFy9_vm-)，希望提醒自己法律與司法有其極限，社會獵巫沒有下限，讓子彈飛一會。最後，想要多一點好運嗎？YC 創業家 Garry Tan [Youtube - 創造自己的好運](https://youtu.be/IoOMs7U93eY?si=JWlnybRJSu_pNftx)，教我們主動出擊。
 	- 我想要接續貳樓餐廳的活動，邀請跑友吃飯；[中英/日文語言交換](https://jasonjlai.net/side-quest/learning-japanese/)，或是簡單和我的數位助理實習生 [Lia 聊天](https://jasonjlai.net/qualia/)、[留 email 給我](https://forms.gle/f7A1BBotfTbv6nJo8)，或看[為什麼我要做日記直播](https://www.youtube.com/live/LNVD6_VMyXo?si=DZ0TMPd0i5yPvCWA)
 
 
@@ -157,7 +157,7 @@ Builder 對我雙重意義，一個是練習解決問題的工具，一個是解
 
 ![Elon Musk: Stop being patient and start asking yourself: How can I accomplish my 10-year plan in 6 months? You will probably fail, but you'll be far ahead of the person who simply accepted it would take 10 years.](/assets/images/2026-q1-review/elon-impatient.png)
 
-就這樣長年的內在衝突，有時候覺得不用急，有時候覺得來不及，活成不要命的樣子。
+> 就這樣長年的內在衝突，有時候覺得不用急，有時候覺得來不及，活成不要命的樣子。
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vYbdQAeO0vo?si=eKXOcQ6HUduZUjlV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -167,7 +167,7 @@ Builder 對我雙重意義，一個是練習解決問題的工具，一個是解
 
 要真的改變世界，你需要支點才有槓桿，最好的槓桿，就是表達創作與電腦軟體，自媒體解放了報社與電視台的寡占地位，AI 正在快速彌平創作軟體的技術門檻。
 
-2019 年我找台灣廠商要做我現在 2026 年第一季的網站，廠商開價 30 萬台幣、工期一個月——現在只要月費 US$20，一個禮拜對著電腦自言自語，就做出來。我不是說我的網站比專業工程師好，就如同我不覺得普通人可以用 AI 取代律師，但的確快速消除知識壁壘中。
+2019 年我找台灣廠商要做我現在 2026 年第一季的網站，廠商開價 30 萬台幣、工期一個月——現在只要月費 US$20，一個禮拜對著電腦自言自語，就做出來。我不是說我的網站比專業工程師好，就如同我不覺得普通人可以用 AI 取代律師，但 AI 的確快速消除知識、技術壁壘。
 
 當然，想改變世界，還需要運氣。關於運氣，這輩子我要感謝的人太多太多，連說謝天都顯得矯情。
 
