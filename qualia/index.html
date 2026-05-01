@@ -41,6 +41,11 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Reserve scrollbar space so navigating between Qualia (short page,
+           no scrollbar) and other pages (long, scrollbar present) doesn't
+           shift content horizontally. */
+        html { scrollbar-gutter: stable; }
+
         [x-cloak] { display: none !important; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
