@@ -5,6 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PIF12 — A 12-Year Onchain Experiment in Trust</title>
 <meta name="description" content="Twelve people. Twelve years. Twelve non-transferable digital omamori. A constellation built one year at a time, on Base.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is PIF12?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIF12 (Pay it Forward 12) is a twelve-year community experiment by Jason Lai. Each year, one Soulbound Token (SBT) is minted on the Base blockchain and given to a person Jason admires or shares values with. The tokens cannot be bought, sold, or transferred — their only value is that you actually showed up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Soulbound Token (SBT)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The concept of Soulbound Tokens (SBT) originates from Vitalik Buterin's paper. PIF12 currently uses the ERC-1155 format, with a smart-contract non-transferability constraint binding tokens to wallet addresses chosen by the holder. The reason for the non-transferable design: having watched several crypto bull-bear cycles and NFT hype-pump-dump rounds, I want PIF12's SBTs to stay community-oriented — keeping room for game-like interactions, proposal mechanisms, and whatever future shape this community wants to grow into."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my wallet is hacked or I lose my private key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By default, Jason serves as admin: after verifying your identity, he can help recover a lost or compromised SBT. We're not pursuing absolute decentralization at this experimental stage — it's neither realistic nor practical right now; that may evolve later. If you prefer a different setup, two alternatives are available: (1) Lone-wolf mode — remove Jason's admin permissions entirely and self-custody your SBT, full risk on you, fully aligned with web3 principles; (2) Social-recovery mode — designate two guardian angels who can help recover your SBT if your wallet is hacked or your private key is lost. These three modes are scheduled to ship with the 6/21 mainnet launch; details may still adjust."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who receives a PIF12 SBT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIF12 SBTs cannot be purchased or traded. Recipients are people Jason admires — those who think across disciplines and like to build through hands-on experimentation, typically friends both old and new who embrace both technology and humanities, alongside companions who genuinely help others. The intent is to weave an organic community that resists tech-driven loneliness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does PIF12 connect to AI and human cooperation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIF12 is Jason's reaction to the AI era. As AI makes it easier to operate without human cooperation, PIF12 is a deliberate experiment in the opposite direction — using blockchain to build a slow, durable, human-centered circle of trust across twelve years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after twelve years?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's hard to predict twelve years out — twelve years ago (2014), Ethereum hadn't even launched yet. That uncertainty is part of what makes this experiment interesting and beautiful. Technically, the most certain thing is: as long as nothing happens to me, the SBTs will live onchain for the full twelve years and beyond — though forks or chain migrations remain possible. By then, crypto adoption should be much wider — comparable to how 2007–2019 took us from the Nokia 3310 to a smartphone in every pocket. Blockchain's affordances should be everywhere yet invisible in daily use. After PIF12 completes, the hope is to evolve into Republic Labs — Republic from res publica (the public's matter), a self-sustaining community holding the public space and giving members a sense of belonging; Labs encourages experimentation, where members can launch their own small experiments. Maybe by then countless new PIF12s will appear — a constellation of small experiments lighting up."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -518,6 +574,35 @@
     line-height: 1.6;
   }
 
+  /* ===== FAQ SECTION ===== */
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-item {
+    border-top: 1px solid rgba(201, 169, 110, 0.18);
+    padding-top: 1.6rem;
+  }
+  .faq-item h3 {
+    color: var(--star-gold);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+  .faq-item p {
+    color: var(--soft-white);
+    opacity: 0.75;
+    font-size: 0.92rem;
+    line-height: 1.85;
+  }
+
   /* ===== FOOTER ===== */
   footer {
     position: relative;
@@ -670,7 +755,7 @@
   <div class="section-inner fade-in">
     <p class="section-label">What is Omamori?</p>
     <h2 class="section-title">Your Omamori isn't an NFT.<br>It's <span class="gold">proof that you showed up</span>.</h2>
-    <p class="section-body">For years, I've kept a quiet ritual — sending blessings to people I care about around Lunar New Year. PIF12 brings that ritual onchain. The form is inspired by Japan's omamori (御守) — small temple charms holding a hand-written wish. PIF12 isn't religious; it just borrows the spirit of the gesture — something small, deliberate, and yours. Each year I mint one as a Soulbound Token, given to those willing to walk this twelve-year journey with me. You can't buy it. You can't transfer it. Its only value is that you actually came.</p>
+    <p class="section-body"><strong>PIF12 (short for Pay it Forward 12)</strong> is a twelve-year community experiment by Jason Lai — one Soulbound Token (SBT) minted on Base each year, given to people I admire and friends willing to walk together across a full zodiac cycle.<br><br>For years, I've kept a quiet ritual — sending blessings to people I care about around Lunar New Year. PIF12 brings that ritual onchain. The form is inspired by Japan's omamori (御守) — small temple charms holding a hand-written wish. PIF12 isn't religious; it just borrows the spirit of the gesture — something small, deliberate, and yours. Each year I mint one as a Soulbound Token, given to those willing to walk this twelve-year journey with me. You can't buy it. You can't transfer it. Its only value is that you actually came.</p>
 
     <div class="compare-grid">
       <div class="compare-card">
@@ -801,6 +886,40 @@
         <h3>Save the Date</h3>
         <p>Official launch: June 21, 2026. Join the invite list — or talk to Lia about this project, and about me.</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner fade-in">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Q1. What is PIF12?</h3>
+        <p>PIF12 (Pay it Forward 12) is a twelve-year community experiment by Jason Lai. Each year, one Soulbound Token (SBT) is minted on the Base blockchain and given to a person Jason admires or shares values with. The tokens cannot be bought, sold, or transferred — their only value is that you actually showed up.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q2. What is a Soulbound Token (SBT)?</h3>
+        <p>The concept of Soulbound Tokens (SBT) originates from Vitalik Buterin's paper. PIF12 currently uses the ERC-1155 format, with a smart-contract non-transferability constraint binding tokens to wallet addresses chosen by the holder. The reason for the non-transferable design: having watched several crypto bull-bear cycles and NFT hype-pump-dump rounds, I want PIF12's SBTs to stay community-oriented — keeping room for game-like interactions, proposal mechanisms, and whatever future shape this community wants to grow into.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q3. What if my wallet is hacked or I lose my private key?</h3>
+        <p>By default, Jason serves as admin: after verifying your identity, he can help recover a lost or compromised SBT. We're not pursuing absolute decentralization at this experimental stage — it's neither realistic nor practical right now; that may evolve later. If you prefer a different setup, two alternatives are available: (1) <strong>Lone-wolf mode</strong> — remove Jason's admin permissions entirely and self-custody your SBT, full risk on you, fully aligned with web3 principles; (2) <strong>Social-recovery mode</strong> — designate two guardian angels who can help recover your SBT if your wallet is hacked or your private key is lost. <em>These three modes are scheduled to ship with the 6/21 mainnet launch; details may still adjust.</em></p>
+      </div>
+      <div class="faq-item">
+        <h3>Q4. Who receives a PIF12 SBT?</h3>
+        <p>PIF12 SBTs cannot be purchased or traded. Recipients are people Jason admires — those who think across disciplines and like to build through hands-on experimentation, typically friends both old and new who embrace both technology and humanities, alongside companions who genuinely help others. The intent is to weave an organic community that resists tech-driven loneliness.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q5. How does PIF12 connect to AI and human cooperation?</h3>
+        <p>PIF12 is Jason's reaction to the AI era. As AI makes it easier to operate without human cooperation, PIF12 is a deliberate experiment in the opposite direction — using blockchain to build a slow, durable, human-centered circle of trust across twelve years.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q6. What happens after twelve years?</h3>
+        <p>It's hard to predict twelve years out — twelve years ago (2014), Ethereum hadn't even launched yet. That uncertainty is part of what makes this experiment interesting and beautiful. Technically, the most certain thing is: as long as nothing happens to me, the SBTs will live onchain for the full twelve years and beyond — though forks or chain migrations remain possible.<br><br>By then, crypto adoption should be much wider — comparable to how 2007–2019 took us from the Nokia 3310 to a smartphone in every pocket. Blockchain's affordances should be everywhere yet invisible in daily use. After PIF12 completes, the hope is to evolve into <strong>Republic Labs</strong> — <em>Republic</em> from <em>res publica</em> (the public's matter), a self-sustaining community holding the public space and giving members a sense of belonging; <em>Labs</em> encourages experimentation, where members can launch their own small experiments. Maybe by then countless new PIF12s will appear — a constellation of small experiments lighting up.</p>
+      </div>
     </div>
   </div>
 </section>

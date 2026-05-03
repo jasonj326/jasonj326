@@ -5,6 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PIF12 — 善的循環｜12 年鏈上社會實驗</title>
 <meta name="description" content="PIF12 是一個建立在 Base 區塊鏈上的社會實驗。12 個人、12 年、12 枚不可轉讓的數位御守，共同畫出一個信任的星座。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "PIF12 是什麼？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIF12（佩福12年）是 Pay it Forward 12 的縮寫，由 Jason Lai 發起的 12 年社群實驗。每年在 Base 鏈上鑄造一枚不可轉讓的 Soulbound Token（SBT），送給生命中敬重佩服或志同道合的人。SBT 不能買賣、不能轉讓——唯一的價值是你真的來了。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "什麼是靈魂綁定代幣（SBT）？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "靈魂綁定代幣（SBT）的概念源自 Vitalik Buterin 的論文。佩福12年目前以 ERC-1155 格式為基礎，透過智能合約限制不可轉讓，綁定持有者指定的錢包地址。不可轉讓的設計是，經歷過幾輪牛熊與 NFT 的 hype-pump-dump 後，我希望 PIF12 的 SBT 是社群導向，同時兼具遊戲互動與提案機制的可能性，盡可能保留這個社群未來發展的最大空間。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如果錢包被駭、私鑰忘記怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "目前預設模式：由 Jason 作為管理者，確認你的身份後可以協助還原。早期實驗階段不強調絕對去中心化——實際上目前也做不到，未來或許可以演進。如果你偏好其他設計，有兩個選項：(1) 獨狼模式——移除 Jason 的管理權限，完全自主保護你的 SBT，風險自負，最符合 web3 精神；(2) 社群互助模式——指定兩位守護天使（guardian angels），一旦你的 SBT 被駭或私鑰遺失，可以由他們協助還原。這三種模式預定隨 6/21 主網上線提供，細節仍可能調整。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "誰能拿到 PIF12 SBT？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIF12 SBT 不能購買、也不能交易。受贈者是 Jason 敬重佩服的人——喜歡跨界思考與動手嘗試體驗，通常是同時擁抱科技與人文的舊雨新知，以及樂於助人的夥伴。目的是凝聚一個有機社群，對抗科技帶來的孤獨。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PIF12 跟 AI 有什麼關係？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIF12 是 Jason 對 AI 時代的反向回應。當 AI 讓「不需要與人合作」變得越來越容易，PIF12 故意走相反方向——用區塊鏈打造一個慢的、耐久的、以人為本的信任圈，跨越 12 年。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "12 年後這個項目會怎麼樣？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "我很難預測未來的樣貌，就像 12 年前（2014 年）以太幣都還沒正式發布——這也是這個實驗有趣好玩的地方。技術上最確定的是：只要我沒發生意外，SBT 都會記錄在鏈上完整保存 12 年，但也不排除可能 fork 甚至換鏈。12 年後，crypto adoption 應該會更普及——對比 2007–2019 從 Nokia 3310 變成人手一支智慧型手機，blockchain 的賦能將無所不在卻又使用上無感。PIF12 完成後，目前希望可以演化成 Republic Labs（共和實驗室）——Republic 源自 res publica（眾人之事），自發持續地維繫這個社群的公共性，讓大家有歸屬感；Labs 則鼓勵冒險與實驗，成員可以自己發起小實驗。或許到時候會有無數個新的 PIF12 百花齊放。"
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -518,6 +574,35 @@
     line-height: 1.6;
   }
 
+  /* ===== FAQ SECTION ===== */
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-item {
+    border-top: 1px solid rgba(201, 169, 110, 0.18);
+    padding-top: 1.6rem;
+  }
+  .faq-item h3 {
+    color: var(--star-gold);
+    font-family: 'Space Grotesk', 'Noto Serif TC', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+  .faq-item p {
+    color: var(--soft-white);
+    opacity: 0.75;
+    font-size: 0.92rem;
+    line-height: 1.85;
+  }
+
   /* ===== FOOTER ===== */
   footer {
     position: relative;
@@ -670,7 +755,7 @@
   <div class="section-inner fade-in">
     <p class="section-label">What is Omamori?</p>
     <h2 class="section-title">你的 Omamori 不是 NFT。<br>它是你「在場」的證明。</h2>
-    <p class="section-body">我一直有一個年度儀式 — 在農曆新年前後，向身邊的人送出祝福。PIF12 把這個儀式搬上鏈。形式靈感來自日本的「御守」（Omamori，源自神社的小型護身符）。PIF12 不具宗教性質，只是借用那份「小小的、刻意的、屬於你」的心意——每年鑄造一枚 Soulbound Token，送給願意走過這段十二年旅程的人。它不能被購買、不能被轉讓。它唯一的價值，是你真的來了。</p>
+    <p class="section-body"><strong>PIF12（佩福12年，Pay it Forward 12 縮寫）</strong>是 Jason Lai 發起的 12 年社群實驗——每年在 Base 鏈上鑄造一枚不可轉讓的 Soulbound Token（SBT），送給生命中敬重佩服、志同道合的人，跨越完整的十二生肖週期。<br><br>我一直有一個年度儀式 — 在農曆新年前後，向身邊的人送出祝福。PIF12 把這個儀式搬上鏈。形式靈感來自日本的「御守」（Omamori，源自神社的小型護身符）。PIF12 不具宗教性質，只是借用那份「小小的、刻意的、屬於你」的心意——每年鑄造一枚 Soulbound Token，送給願意走過這段十二年旅程的人。它不能被購買、不能被轉讓。它唯一的價值，是你真的來了。</p>
 
     <div class="compare-grid">
       <div class="compare-card">
@@ -801,6 +886,40 @@
         <h3>搶先登記不忘記</h3>
         <p>6/21 正式開放領取，加入邀請清單，你可以跟 Lia 聊聊這個專案、也可以更認識我。</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner fade-in">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">常見問題</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Q1. PIF12 是什麼？</h3>
+        <p>PIF12（佩福12年）是 Pay it Forward 12 的縮寫，由 Jason Lai 發起的 12 年社群實驗。每年在 Base 鏈上鑄造一枚不可轉讓的 Soulbound Token（SBT），送給生命中敬重佩服或志同道合的人。SBT 不能買賣、不能轉讓——唯一的價值是你真的來了。</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q2. 什麼是靈魂綁定代幣（SBT）？</h3>
+        <p>靈魂綁定代幣（SBT）的概念源自 Vitalik Buterin 的論文。佩福12年目前以 ERC-1155 格式為基礎，透過智能合約限制不可轉讓，綁定持有者指定的錢包地址。不可轉讓的設計是，經歷過幾輪牛熊與 NFT 的 hype-pump-dump 後，我希望 PIF12 的 SBT 是社群導向，同時兼具遊戲互動與提案機制的可能性，盡可能保留這個社群未來發展的最大空間。</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q3. 如果錢包被駭、私鑰忘記怎麼辦？</h3>
+        <p>目前預設模式：由 Jason 作為管理者，確認你的身份後可以協助還原。早期實驗階段不強調絕對去中心化——實際上目前也做不到，未來或許可以演進。如果你偏好其他設計，有兩個選項：(1) <strong>獨狼模式</strong>——移除 Jason 的管理權限，完全自主保護你的 SBT，風險自負，最符合 web3 精神；(2) <strong>社群互助模式</strong>——指定兩位守護天使（guardian angels），一旦你的 SBT 被駭或私鑰遺失，可以由他們協助還原。<em>這三種模式預定隨 6/21 主網上線提供，細節仍可能調整。</em></p>
+      </div>
+      <div class="faq-item">
+        <h3>Q4. 誰能拿到 PIF12 SBT？</h3>
+        <p>PIF12 SBT 不能購買、也不能交易。受贈者是 Jason 敬重佩服的人——喜歡跨界思考與動手嘗試體驗，通常是同時擁抱科技與人文的舊雨新知，以及樂於助人的夥伴。目的是凝聚一個有機社群，對抗科技帶來的孤獨。</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q5. PIF12 跟 AI 有什麼關係？</h3>
+        <p>PIF12 是 Jason 對 AI 時代的反向回應。當 AI 讓「不需要與人合作」變得越來越容易，PIF12 故意走相反方向——用區塊鏈打造一個慢的、耐久的、以人為本的信任圈，跨越 12 年。</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q6. 12 年後這個項目會怎麼樣？</h3>
+        <p>我很難預測未來的樣貌，就像 12 年前（2014 年）以太幣都還沒正式發布——這也是這個實驗有趣好玩的地方。技術上最確定的是：只要我沒發生意外，SBT 都會記錄在鏈上完整保存 12 年，但也不排除可能 fork 甚至換鏈。<br><br>12 年後，crypto adoption 應該會更普及——對比 2007–2019 從 Nokia 3310 變成人手一支智慧型手機，blockchain 的賦能將無所不在卻又使用上無感。PIF12 完成後，目前希望可以演化成 <strong>Republic Labs（共和實驗室）</strong>——<em>Republic</em> 源自 <em>res publica</em>（眾人之事），自發持續地維繫這個社群的公共性，讓大家有歸屬感；<em>Labs</em> 則鼓勵冒險與實驗，成員可以自己發起小實驗。或許到時候會有無數個新的 PIF12 百花齊放。</p>
+      </div>
     </div>
   </div>
 </section>
