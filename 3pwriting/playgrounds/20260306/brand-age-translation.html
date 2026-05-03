@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="dark">
+<html lang="zh-Hant" class="dark">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -37,6 +37,7 @@
 <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -123,8 +124,9 @@
                <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/translated/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>translated</a>
             </div>
           </div>
+          
         </header>
-        
+
         <p>This is Paul Graham's <a href="https://paulgraham.com/brandage.html" target="_blank" rel="noopener noreferrer">Brand Age</a>, originally translated on March 6, 2026. </p>
 <p><strong>2026 年 3 月</strong></p>
 <p>1970 年代初期，災難降臨了瑞士鐘錶業。現在人們稱之為石英危機，但事實上，那是大約在同一時間發生的三場獨立災難的結合。</p>
@@ -418,7 +420,7 @@
     initTheme();
 
     // 💡 Random Post Logic (排除當前頁面)
-    const allPosts = ["/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
+    const allPosts = ["/3pwriting/partnership/20260503/2026-q1-review-builder-en.html", "/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
     function goToRandomPost() {
         const currentPath = window.location.pathname;
         const otherPosts = allPosts.filter(p => p !== currentPath);

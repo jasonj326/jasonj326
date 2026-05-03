@@ -11,6 +11,15 @@ REPO_ROOT = ROOT.parent  # for sitemap.xml at site root
 SITE_URL = "https://jasonjlai.net"
 POSTS_PER_PAGE = 30 # 設定每頁顯示 30 篇文章
 
+# Language conventions for sibling-detection / hreflang / switcher.
+# A post named "Foo.en.md" / "Foo.ja.md" is treated as an EN / JA variant of "Foo.md".
+# When variants exist, each generated HTML gets cross-language hreflang + a top-of-article
+# switcher. Detected ZH is normalized to zh-Hant for hreflang correctness.
+KNOWN_LANG_CODES = {'en', 'ja', 'zh', 'es', 'fr', 'de'}
+LANG_NORMALIZE = {'zh': 'zh-Hant', 'zh-TW': 'zh-Hant'}  # match PIF12 convention (script-based)
+LANG_LABELS = {'en': 'English', 'zh-Hant': '中文', 'zh': '中文', 'zh-TW': '中文', 'ja': '日本語'}
+LANG_DISPLAY_ORDER = ['zh-Hant', 'en', 'ja']  # how the switcher arranges alternates
+
 # Sitemap: static landing pages with priority + changefreq.
 # Excludes redirect pages (main-quest/PIF12) and dev tools (tools/thumbnail).
 SITEMAP_STATIC_PAGES = [
@@ -69,6 +78,7 @@ HTML_TMPL = """<!DOCTYPE html>
 <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+{hreflang_tags}
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -155,8 +165,9 @@ HTML_TMPL = """<!DOCTYPE html>
                {tags_html}
             </div>
           </div>
+          {lang_switcher}
         </header>
-        
+
         {content}
 
         <!-- 💡 文章導覽：上一篇 / Random / 下一篇 -->
@@ -812,6 +823,18 @@ def main():
             updated_raw = fm.get("updated")
             updated = str(updated_raw) if updated_raw else None
 
+            # Sibling-language detection via filename suffix.
+            # "Foo.en.md" → family_stem="Foo", lang_explicit="en"
+            # "Foo.md"    → family_stem="Foo", lang_explicit=None (use detected lang, normalized)
+            stem_parts = md.stem.rsplit('.', 1)
+            if len(stem_parts) == 2 and stem_parts[1].lower() in KNOWN_LANG_CODES:
+                family_stem = stem_parts[0]
+                lang_explicit = stem_parts[1].lower()
+            else:
+                family_stem = md.stem
+                lang_explicit = None
+            final_lang = LANG_NORMALIZE.get(lang_explicit or detected_lang, lang_explicit or detected_lang)
+
             # 暫存第一階段解析結果
             raw_posts.append({
                 "md_path": md, "title": title, "date": date, "major": major, "slug": slug,
@@ -819,7 +842,10 @@ def main():
                 "tags": tags_list, "pinned": pinned, "og_image_url": og_image_url,
                 "body": body, # 暫存內文，留待第二階段替換內部連結
                 "lang": detected_lang, # 存入判斷結果
-                "updated": updated # None unless author manually sets `updated:` in frontmatter
+                "updated": updated, # None unless author manually sets `updated:` in frontmatter
+                "family_stem": family_stem, # for sibling-language grouping
+                "lang_explicit": lang_explicit, # explicit code from filename suffix, or None
+                "final_lang": final_lang # canonical lang tag used in hreflang + switcher
             })
 
             # 將「文章標題」和「檔案名稱」都加入字典，支援兩種 Obsidian 連結寫法
@@ -831,6 +857,12 @@ def main():
 
     # 💡 在生成 HTML 前，依日期由新到舊排序（確保 Prev/Next 邏輯正確）
     raw_posts.sort(key=lambda x: x["date"], reverse=True)
+
+    # Build language family map: family_stem -> {lang: post}
+    # Used downstream to emit hreflang tags + a top-of-article language switcher.
+    lang_families = {}
+    for p in raw_posts:
+        lang_families.setdefault(p["family_stem"], {})[p["final_lang"]] = p
 
     # 提取所有文章網址給 Random 按鈕使用
     all_links_json = json.dumps([p["link"] for p in raw_posts])
@@ -889,9 +921,38 @@ def main():
             else:
                 label, sep = '最後更新', '：'
             content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">{label}{sep}{p["updated"]}</p>'
+
+        # Build hreflang tags + language switcher when sibling-language posts exist.
+        family = lang_families.get(p["family_stem"], {})
+        if len(family) > 1:
+            hreflang_lines = [f'<link rel="alternate" hreflang="{p["final_lang"]}" href="{p["full_link"]}" />']
+            for lang_code, sibling in family.items():
+                if sibling is p:
+                    continue
+                hreflang_lines.append(f'<link rel="alternate" hreflang="{lang_code}" href="{sibling["full_link"]}" />')
+            # x-default points to zh-Hant when present (canonical first publish), else self.
+            default_url = family.get("zh-Hant", p)["full_link"]
+            hreflang_lines.append(f'<link rel="alternate" hreflang="x-default" href="{default_url}" />')
+            hreflang_html = "\n".join(hreflang_lines)
+
+            switcher_parts = []
+            for lang_code in LANG_DISPLAY_ORDER:
+                if lang_code not in family:
+                    continue
+                label = LANG_LABELS.get(lang_code, lang_code.upper())
+                if lang_code == p["final_lang"]:
+                    switcher_parts.append(f'<span class="font-bold text-slate-900 dark:text-slate-100">{label}</span>')
+                else:
+                    switcher_parts.append(f'<a href="{family[lang_code]["full_link"]}" class="hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">{label}</a>')
+            sep_html = ' <span class="text-slate-300 dark:text-slate-700">|</span> '
+            switcher_html = f'<div class="not-prose flex gap-2 items-center text-sm font-mono text-slate-500 dark:text-slate-400 mb-8 -mt-4">{sep_html.join(switcher_parts)}</div>'
+        else:
+            hreflang_html = ""
+            switcher_html = ""
+
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
-                        .replace("{lang}", p["lang"]) \
+                        .replace("{lang}", p["final_lang"]) \
                         .replace("{date}", escape(p["date"])) \
                         .replace("{summary}", safe_summary) \
                         .replace("{og_image}", escape(p["og_image_url"])) \
@@ -901,7 +962,9 @@ def main():
                         .replace("{site_author_desc}", escape(SITE_AUTHOR_DESC)) \
                         .replace("{prev_button}", prev_btn_html) \
                         .replace("{next_button}", next_btn_html) \
-                        .replace("{all_links_array}", all_links_json)
+                        .replace("{all_links_array}", all_links_json) \
+                        .replace("{hreflang_tags}", hreflang_html) \
+                        .replace("{lang_switcher}", switcher_html)
         
         out_path = out_dir / f"{p['slug']}.html"
         out_path.write_text(html, encoding="utf-8")

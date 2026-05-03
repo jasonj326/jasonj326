@@ -38,6 +38,7 @@
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 <script>
@@ -123,8 +124,9 @@
                <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/skill-tree/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>skill-tree</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a>
             </div>
           </div>
+          
         </header>
-        
+
         <p>The whole website is designed in gaming style for a reason. Actually, for a couple of reasons.</p>
 <p>First, it reflects my current mantra: life is a game, and we get to choose our own main quest, side quests, and even the rules. This mindset is liberating, and it helps me focus on what truly matters. Beyond the metaphor, gamification offers real psychological utility. It is backed by empirical studies in psychology and proven in entrepreneurial design—see books such as <em>Actionable Gamification: Beyond Points, Badges, and Leaderboards</em> by Yu-kai Chou, <em>For the Win</em> by Kevin Werbach and Dan Hunter, and <em>Reality Is Broken</em> by Jane McGonigal.</p>
 <p>Admittedly, the gaming aesthetic may make some clients or more conservative legal professionals frown. Even so, I choose to stay true to my mantra and forge my own path. I believe substance ultimately outweighs surface appearances—though I recognize that formality still has its place in law and human nature.</p>
@@ -311,7 +313,7 @@
     initTheme();
 
     // 💡 Random Post Logic (排除當前頁面)
-    const allPosts = ["/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
+    const allPosts = ["/3pwriting/partnership/20260503/2026-q1-review-builder-en.html", "/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
     function goToRandomPost() {
         const currentPath = window.location.pathname;
         const otherPosts = allPosts.filter(p => p !== currentPath);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="dark">
+<html lang="zh-Hant" class="dark">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -37,6 +37,7 @@
 <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -123,8 +124,9 @@
                <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a>
             </div>
           </div>
+          
         </header>
-        
+
         <h4><em>這是由Wiwi發起中文的<a href="https://blogblog.club/party/" target="_blank" rel="noopener noreferrer">部落格同樂會</a>，本次壓線投稿三月份這期由<a href="https://alexhsu.com/perfect-days" target="_blank" rel="noopener noreferrer">Alex主辦的同樂會</a>，希望今年有機會改寫成英文。</em></h4>
 <h2>理想的一天 Ａ</h2>
 <p>7:30 無鬧鐘自然醒</p>
@@ -252,7 +254,7 @@
                     </button>
                 </div>
                 <div class="w-full sm:w-2/5 flex justify-end text-right">
-                    <a href="/3pwriting/partnership/20260501/2026-q1-review-builder.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="季報 2026 Q1 Review · Becoming a Builder"><span class="truncate max-w-[120px] sm:max-w-[200px]">季報 2026 Q1 Review · Becoming a Builder</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
+                    <a href="/3pwriting/partnership/20260501/2026-q1-review-builder.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="2026 Q1 季報：成為建造者"><span class="truncate max-w-[120px] sm:max-w-[200px]">2026 Q1 季報：成為建造者</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
             </div>
         </div>
@@ -355,7 +357,7 @@
     initTheme();
 
     // 💡 Random Post Logic (排除當前頁面)
-    const allPosts = ["/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
+    const allPosts = ["/3pwriting/partnership/20260503/2026-q1-review-builder-en.html", "/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
     function goToRandomPost() {
         const currentPath = window.location.pathname;
         const otherPosts = allPosts.filter(p => p !== currentPath);

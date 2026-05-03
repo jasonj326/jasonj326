@@ -38,6 +38,7 @@
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 <script>
@@ -123,8 +124,9 @@
                <a href="/3pwriting/playbooks/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-blue-500"></span>playbooks</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a>
             </div>
           </div>
+          
         </header>
-        
+
         <p>This is a living document inspired by the transparent culture of open-source communities. My goal here is to accelerate our working relationship by being upfront about my communication style, my professional philosophy, my quirks, and my values.</p>
 <h2>🎯 My Role</h2>
 <p>As a Legal Builder, my core function is to transform regulatory fog into deployment velocity. In the fast-paced worlds of Web3 and AI, "legal" must move at the speed of product.</p>
@@ -271,7 +273,7 @@
     initTheme();
 
     // 💡 Random Post Logic (排除當前頁面)
-    const allPosts = ["/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
+    const allPosts = ["/3pwriting/partnership/20260503/2026-q1-review-builder-en.html", "/3pwriting/partnership/20260501/2026-q1-review-builder.html", "/3pwriting/playgrounds/20260331/magic-day.html", "/3pwriting/skill-tree/20260325/Skill-Tree-Development.html", "/3pwriting/playgrounds/20260306/brand-age-translation.html", "/3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/20260223/readme.html"];
     function goToRandomPost() {
         const currentPath = window.location.pathname;
         const otherPosts = allPosts.filter(p => p !== currentPath);
