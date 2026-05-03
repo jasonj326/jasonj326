@@ -884,7 +884,11 @@ def main():
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         content_html = add_target_blank_to_external(content_html)
         if p.get('updated'):
-            content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：{p["updated"]}</p>'
+            if p.get('lang') == 'en':
+                label, sep = 'Last updated', ': '
+            else:
+                label, sep = '最後更新', '：'
+            content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">{label}{sep}{p["updated"]}</p>'
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
                         .replace("{lang}", p["lang"]) \
