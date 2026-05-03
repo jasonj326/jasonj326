@@ -6,9 +6,25 @@ import math
 
 ROOT = Path(__file__).parent
 POSTS_DIR = ROOT / "posts"
-SITE_DIR = ROOT 
+SITE_DIR = ROOT
+REPO_ROOT = ROOT.parent  # for sitemap.xml at site root
 SITE_URL = "https://jasonjlai.net"
 POSTS_PER_PAGE = 30 # 設定每頁顯示 30 篇文章
+
+# Sitemap: static landing pages with priority + changefreq.
+# Excludes redirect pages (main-quest/PIF12) and dev tools (tools/thumbnail).
+SITEMAP_STATIC_PAGES = [
+    ("/",                                  "1.0", "weekly"),
+    ("/now/",                              "0.9", "weekly"),
+    ("/3pwriting/",                        "0.9", "weekly"),
+    ("/PIF12/",                            "0.9", "weekly"),
+    ("/PIF12/zh/",                         "0.9", "weekly"),
+    ("/main-quest/",                       "0.7", "monthly"),
+    ("/main-quest/2026-in-action/",        "0.6", "monthly"),
+    ("/main-quest/communication/",         "0.6", "monthly"),
+    ("/side-quest/learning-japanese/",     "0.6", "monthly"),
+    ("/qualia/",                           "0.5", "monthly"),
+]
 
 # 💡 新增：全站 AEO/SEO 權威描述 (Authoritative Description)
 SITE_AUTHOR_DESC = "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
@@ -587,6 +603,30 @@ def rfc2822(date_str):
     dt = datetime.datetime.fromisoformat(date_str)
     return dt.strftime("%a, %d %b %Y 00:00:00 +0000")
 
+def generate_sitemap(posts, all_tags):
+    """Write sitemap.xml at repo root listing static pages, 3pwriting articles, and tag listings."""
+    today = datetime.date.today().isoformat()
+    entries = []
+
+    for path, priority, freq in SITEMAP_STATIC_PAGES:
+        entries.append((SITE_URL + path, today, freq, priority))
+
+    for tag in sorted(all_tags):
+        entries.append((f"{SITE_URL}/3pwriting/{tag.lower()}/", today, "weekly", "0.5"))
+
+    for p in posts:
+        if "readme" in p["slug"].lower():
+            continue
+        entries.append((p["full_link"], p["date"], "monthly", "0.7"))
+
+    body = "\n".join(
+        f'  <url>\n    <loc>{escape(loc)}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{priority}</priority>\n  </url>'
+        for loc, lastmod, freq, priority in entries
+    )
+    xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}\n</urlset>\n'
+    (REPO_ROOT / "sitemap.xml").write_text(xml, encoding="utf-8")
+    return len(entries)
+
 def add_target_blank_to_external(html):
     """Auto-add target='_blank' rel='noopener noreferrer' to external links.
     Internal (jasonjlai.net), relative (/...), anchors (#...), mailto:, tel: stay same-window."""
@@ -880,7 +920,10 @@ def main():
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
 
+    sitemap_count = generate_sitemap(posts, all_tags)
+
     print(f"✅ Built {len(posts)} posts with Prev/Next/Random navigation, JSON-LD, Disclaimer & Wikilinks!")
+    print(f"✅ sitemap.xml: {sitemap_count} URLs")
 
 if __name__ == "__main__":
     main()
