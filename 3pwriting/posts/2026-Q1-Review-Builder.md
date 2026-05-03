@@ -46,19 +46,21 @@ summary: 從一份紐約職缺，意外開出一個 12 年的 Pay-it-Forward 計
 
 我覺得這個思路打開了新宇宙，拿走了自我設限的禁錮，產生未來充滿希望（的錯覺）。
 
-原本想做簡報，但是 consulting 的朋友或甚至是較有美感小朋友，做出來的 canva 都比我好一百倍。我知道自己並不擅長做精美的簡報——想說與其如此，不如做個網站。
+原本想做簡報，但是相比於 consulting 的朋友或甚至是較有美感小朋友，做出來的都比我好一百倍。不擅長做精美的簡報——想說與其獻醜不如藏拙，乾脆做個網站。
 
 於是我用 vibe coding（用自然語言寫程式）做了一個一頁式網站，根據該職缺需求逐項對應，同時跟紐約的移民律師聊了簽證的可行做法。
 
-研究過程中我進一步認識了 Variant Fund——最吸引我的不是他們做區塊鏈種子輪，而是他們把**法律與政策視為公司的護城河**。
+研究過程中我進一步認識了 Variant Fund——最吸引我的不是他們做區塊鏈種子輪，而是他們把**法律與政策視為公司的護城河**(Legal is a plus, not a box)。法律專業在企業不該只是待辦清單或是成本單位，而是可以主動創造價值的單位。
 
 在他們的文化裡，法務不是成本中心、不是風險管理，而是政策制定的角色，要主動去對話、去宣講，去參與規則制定。這產生有趣的矛盾——我一方面喜歡他們 Ownership economy 的理想也相信區塊鏈的潛能，一方面看見幣圈鏈圈慢慢變成了 1971 年諾貝爾獎得主史提格勒（George Stigler）筆下的「監管俘虜」（Regulatory Capture）[^1]，說不上好或是不好，總是內心五味雜陳。
 
+除了從企業角度看這句 **Legal is a plus, not a box**，個人層面有第二層解釋：「法律是加分項，不是職涯盔甲」。法律的專業，應該是我的加分武器，解決問題的工具箱**其中之一**， 而不是只能用這項工具，將自己限縮單薄的想像空間，畫地為牢。
+
 ### 從 Pitch 網頁到 Builder 的雙重意義
 
-從 Variant Fund 的 Pitch 網頁開始，我進入了 vibe coding 的旅程。
+從 Variant Fund 的 Pitch 網頁開始，我進入了 vibe coding 的Builder旅程。
 
-我把網站從 Google Site 搬到 GitHub Page，開始用 Git 寫部落格。在前輩 Alex Liu 的啟發與鼓勵下，我做了 AI Chatbot——經過多次迭代，終於可以拿出來[分享](https://jasonjlai.net/qualia/)，歡迎和 Lia 聊聊。
+我先把個人網站從 Google Site 搬到 GitHub Page，開始用 Git/python 寫部落格。在前輩 Alex Liu 的啟發與鼓勵下，我做了 AI Chatbot——經過多次迭代，終於可以拿出來[分享](https://jasonjlai.net/qualia/)，歡迎和 Lia 聊聊。
 
 同時也為自己做了個專屬機器人，串上 Telegram 當我的助理兼注意力教練，目前他還是很多幻覺並且不斷說謊，希望第二季結束就可以穩定，到時候再來開源分享。
 
@@ -350,6 +352,8 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 *建順 Jason Lai*
 
 *2026.5.1*
+
+Updated: yyyymmdd 
 
 [^1]: 史提格勒（George Stigler）《經濟監管論》（The Theory of Economic Regulation）(1971) 指出，原本要監管的法律，反而會被市場吸收，成為市場進入的貿易障礙。我今年二月寫了篇[未公開的觀點](https://docs.google.com/document/d/1h5EfXQ4K9jahjbv0RpFRjHxS1wG5TQZUgverXoGoEuY/view?usp=sharing)：Circle 希望提議納管「合成美元」。所以下次你看到保護消費者的法案，要問的不是「它宣稱要做什麼」，而是「誰能從中獲利」。
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, re, yaml, markdown, datetime, json
+import os, re, yaml, markdown, datetime, json, subprocess
 from pathlib import Path
 from xml.sax.saxutils import escape
 import math
@@ -603,6 +603,26 @@ def rfc2822(date_str):
     dt = datetime.datetime.fromisoformat(date_str)
     return dt.strftime("%a, %d %b %Y 00:00:00 +0000")
 
+def get_last_modified(md_path):
+    """Last-modified date for a file. Uses git log if clean; today if uncommitted edits exist.
+    Falls back to today if git unavailable."""
+    today = datetime.date.today().isoformat()
+    try:
+        rel = md_path.relative_to(REPO_ROOT)
+        diff = subprocess.run(
+            ['git', 'diff', '--quiet', 'HEAD', '--', str(rel)],
+            cwd=REPO_ROOT, capture_output=True
+        )
+        if diff.returncode != 0:
+            return today
+        result = subprocess.run(
+            ['git', 'log', '-1', '--format=%ad', '--date=short', '--', str(rel)],
+            cwd=REPO_ROOT, capture_output=True, text=True
+        )
+        return result.stdout.strip() or today
+    except Exception:
+        return today
+
 def generate_sitemap(posts, all_tags):
     """Write sitemap.xml at repo root listing static pages, 3pwriting articles, and tag listings."""
     today = datetime.date.today().isoformat()
@@ -878,6 +898,8 @@ def main():
         # 💡 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         content_html = add_target_blank_to_external(content_html)
+        last_modified = get_last_modified(p['md_path'])
+        content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：{last_modified}</p>'
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
                         .replace("{lang}", p["lang"]) \
