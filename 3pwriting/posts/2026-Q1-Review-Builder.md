@@ -1,6 +1,7 @@
 ---
 title: 季報 2026 Q1 Review · Becoming a Builder
 date: 2026-05-01
+updated: 2026-05-03
 year: 2026
 slug: 2026-q1-review-builder
 url: https://jasonjlai.net/3pwriting/partnership/20260501/2026-q1-review-builder.html
@@ -52,9 +53,9 @@ summary: 從一份紐約職缺，意外開出一個 12 年的 Pay-it-Forward 計
 
 研究過程中我進一步認識了 Variant Fund——最吸引我的不是他們做區塊鏈種子輪，而是他們把**法律與政策視為公司的護城河**(Legal is a plus, not a box)。法律專業在企業不該只是待辦清單或是成本單位，而是可以主動創造價值的單位。
 
-在他們的文化裡，法務不是成本中心、不是風險管理，而是政策制定的角色，要主動去對話、去宣講，去參與規則制定。這產生有趣的矛盾——我一方面喜歡他們 Ownership economy 的理想也相信區塊鏈的潛能，一方面看見幣圈鏈圈慢慢變成了 1971 年諾貝爾獎得主史提格勒（George Stigler）筆下的「監管俘虜」（Regulatory Capture）[^1]，說不上好或是不好，總是內心五味雜陳。
+在他們的文化裡，法務不是成本中心、不是風險管理，而是政策制定的角色，要主動去對話、去宣講，去參與規則制定。這產生有趣的矛盾——我一方面喜歡他們 Ownership economy 的理想也相信區塊鏈的潛能。但是，一方面看見幣圈與鏈圈的演化，逐漸成了 1971 年諾貝爾獎得主史提格勒（George Stigler）筆下的「監管俘虜」（Regulatory Capture）[^1]，說不上好或是不好，總是內心五味雜陳。
 
-除了從企業角度看這句 **Legal is a plus, not a box**，個人層面有第二層解釋：「法律是加分項，不是職涯盔甲」。法律的專業，應該是我的加分武器，解決問題的工具箱**其中之一**， 而不是只能用這項工具，將自己限縮單薄的想像空間，畫地為牢。
+除了從企業角度看這句 **Legal is a plus, not a box**，個人層面的解釋是：「法律是加分項，不是職涯盔甲」。法律的專業，應該是我的加分武器，解決問題的工具箱**其中之一**， 而不是只能用這項工具，將自己限縮單薄的想像空間，畫地為牢。
 
 ### 從 Pitch 網頁到 Builder 的雙重意義
 
@@ -353,7 +354,6 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 *2026.5.1*
 
-Updated: yyyymmdd 
 
 [^1]: 史提格勒（George Stigler）《經濟監管論》（The Theory of Economic Regulation）(1971) 指出，原本要監管的法律，反而會被市場吸收，成為市場進入的貿易障礙。我今年二月寫了篇[未公開的觀點](https://docs.google.com/document/d/1h5EfXQ4K9jahjbv0RpFRjHxS1wG5TQZUgverXoGoEuY/view?usp=sharing)：Circle 希望提議納管「合成美元」。所以下次你看到保護消費者的法案，要問的不是「它宣稱要做什麼」，而是「誰能從中獲利」。
 

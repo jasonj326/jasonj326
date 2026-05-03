@@ -1,6 +1,7 @@
 ---
 title: Readme-A Guide to Working with Me
 date: 2026-02-23
+updated:
 year: 2026
 slug: readme
 url: "https://jasonjlai.net/3pwriting/partnership/20260223/readme.html"

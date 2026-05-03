@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, re, yaml, markdown, datetime, json, subprocess
+import os, re, yaml, markdown, datetime, json
 from pathlib import Path
 from xml.sax.saxutils import escape
 import math
@@ -603,26 +603,6 @@ def rfc2822(date_str):
     dt = datetime.datetime.fromisoformat(date_str)
     return dt.strftime("%a, %d %b %Y 00:00:00 +0000")
 
-def get_last_modified(md_path):
-    """Last-modified date for a file. Uses git log if clean; today if uncommitted edits exist.
-    Falls back to today if git unavailable."""
-    today = datetime.date.today().isoformat()
-    try:
-        rel = md_path.relative_to(REPO_ROOT)
-        diff = subprocess.run(
-            ['git', 'diff', '--quiet', 'HEAD', '--', str(rel)],
-            cwd=REPO_ROOT, capture_output=True
-        )
-        if diff.returncode != 0:
-            return today
-        result = subprocess.run(
-            ['git', 'log', '-1', '--format=%ad', '--date=short', '--', str(rel)],
-            cwd=REPO_ROOT, capture_output=True, text=True
-        )
-        return result.stdout.strip() or today
-    except Exception:
-        return today
-
 def generate_sitemap(posts, all_tags):
     """Write sitemap.xml at repo root listing static pages, 3pwriting articles, and tag listings."""
     today = datetime.date.today().isoformat()
@@ -828,13 +808,18 @@ def main():
             # 💡 判斷文章語言
             detected_lang = detect_language(body)
 
+            # Optional manual `updated:` frontmatter — string date or yaml date.
+            updated_raw = fm.get("updated")
+            updated = str(updated_raw) if updated_raw else None
+
             # 暫存第一階段解析結果
             raw_posts.append({
                 "md_path": md, "title": title, "date": date, "major": major, "slug": slug,
-                "link": relative_link, "full_link": full_link, "summary": summary, 
+                "link": relative_link, "full_link": full_link, "summary": summary,
                 "tags": tags_list, "pinned": pinned, "og_image_url": og_image_url,
                 "body": body, # 暫存內文，留待第二階段替換內部連結
-                "lang": detected_lang # 存入判斷結果
+                "lang": detected_lang, # 存入判斷結果
+                "updated": updated # None unless author manually sets `updated:` in frontmatter
             })
 
             # 將「文章標題」和「檔案名稱」都加入字典，支援兩種 Obsidian 連結寫法
@@ -898,8 +883,8 @@ def main():
         # 💡 將轉換過內部連結的 body 丟給 Markdown 渲染，並加入 "footnotes" 擴充
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         content_html = add_target_blank_to_external(content_html)
-        last_modified = get_last_modified(p['md_path'])
-        content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：{last_modified}</p>'
+        if p.get('updated'):
+            content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：{p["updated"]}</p>'
         # 💡 將動態語言 `p["lang"]` 與 `{site_author_desc}` 傳遞進去取代
         html = HTML_TMPL.replace("{title}", escape(p["title"])) \
                         .replace("{lang}", p["lang"]) \
@@ -919,7 +904,8 @@ def main():
         
         posts.append({
             "title": p["title"], "date": p["date"], "major": p["major"], "slug": p["slug"],
-            "link": p["link"], "full_link": p["full_link"], "summary": p["summary"], "tags": p["tags"], "pinned": p["pinned"]
+            "link": p["link"], "full_link": p["full_link"], "summary": p["summary"], "tags": p["tags"], "pinned": p["pinned"],
+            "updated": p.get("updated")
         })
 
     # 排序與分頁
@@ -936,8 +922,10 @@ def main():
         generate_paginated_list(tag_posts, tag_out_dir, tag_url_base, tag, all_tags)
 
     feed_posts = [p for p in posts if "readme" not in p["slug"].lower()]
+    # RSS pubDate prefers `updated:` when set — substantive revisions resurface in feed readers.
+    # Trivial polish (no `updated:` bump) keeps original publish date so subscribers aren't spammed.
     feed_items = "\n".join([
-        ITEM_TMPL.replace("{title}", escape(p["title"])).replace("{link}", p["full_link"]).replace("{pubdate}", rfc2822(p["date"])).replace("{summary}", escape(p["summary"]))
+        ITEM_TMPL.replace("{title}", escape(p["title"])).replace("{link}", p["full_link"]).replace("{pubdate}", rfc2822(p.get("updated") or p["date"])).replace("{summary}", escape(p["summary"]))
         for p in feed_posts[:20]
     ])
     (SITE_DIR / "feed.xml").write_text(FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items), encoding="utf-8")
