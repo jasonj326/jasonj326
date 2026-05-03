@@ -39,3 +39,11 @@ wallet.json
 # 系統檔案
 .DS_Store
 Thumbs.db
+
+# Obsidian 工作區狀態（per-user，不該共享）
+.obsidian/
+*alias
+
+# Apple HEIC 原檔（瀏覽器不支援，只用 JPG 版本）
+*.heic
+*.HEIC
