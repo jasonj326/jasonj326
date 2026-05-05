@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>直播專題 Thumbnail 產生器 — Jason Lai</title>
+<meta name="description" content="Internal tool for generating YouTube livestream feature episode thumbnails (1280×720 + 1080×1080 IG) with editorial layout, custom backgrounds, and bilingual title support. Used for Jason's @MindLegalTalk feature episodes.">
+<style>
+  :root { --accent: #FF4444; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang TC', 'Noto Sans TC', sans-serif; background: #0f0f0f; color: #fff; min-height: 100vh; padding: 32px 16px 80px; display: flex; flex-direction: column; align-items: center; }
+  h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; color: #ccc; }
+  .page-sub { font-size: 12px; color: #666; margin-bottom: 22px; }
+  .page-sub a { color: #888; text-decoration: none; }
+  .page-sub a:hover { color: var(--accent); }
+
+  /* Format toggle */
+  .format-toggle { display: flex; gap: 0; margin-bottom: 18px; border-radius: 8px; overflow: hidden; border: 1px solid #333; }
+  .format-btn { padding: 8px 20px; background: #1a1a1a; color: #888; border: none; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; transition: all 0.2s; }
+  .format-btn.active { background: var(--accent); color: #fff; }
+
+  /* Controls */
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 16px; max-width: 880px; width: 100%; margin-bottom: 18px; padding: 16px 18px; background: #161616; border: 1px solid #2a2a2a; border-radius: 10px; }
+  .control-group { display: flex; flex-direction: column; gap: 6px; }
+  .control-group.span-2 { grid-column: span 2; }
+  .control-group label { font-size: 11px; color: #888; letter-spacing: 0.4px; text-transform: uppercase; font-weight: 600; }
+  .control-group input[type="text"] { background: #0d0d0d; border: 1px solid #333; color: #fff; padding: 9px 12px; border-radius: 6px; font-size: 14px; font-family: inherit; }
+  .control-group input[type="text"]:focus { outline: none; border-color: var(--accent); }
+  .control-group select { background: #0d0d0d; border: 1px solid #333; color: #fff; padding: 9px 12px; border-radius: 6px; font-size: 13px; font-family: inherit; cursor: pointer; }
+  .control-group input[type="file"] { font-size: 11px; color: #aaa; padding: 4px 0; }
+  .control-group input[type="file"]::file-selector-button { background: #2a2a2a; color: #ccc; border: 1px solid #3a3a3a; padding: 4px 10px; border-radius: 5px; font-size: 11px; cursor: pointer; margin-right: 8px; font-family: inherit; }
+  .slider-row { display: flex; align-items: center; gap: 10px; }
+  .slider-row input[type="range"] { flex: 1; accent-color: var(--accent); }
+  .slider-row .val { font-size: 11px; color: var(--accent); font-weight: 700; min-width: 44px; text-align: right; }
+  .btn-mini { background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a; padding: 5px 10px; border-radius: 5px; font-size: 11px; cursor: pointer; font-family: inherit; align-self: flex-start; }
+  .btn-mini:hover { background: #333; color: #fff; }
+
+  /* Preview */
+  .preview-area { margin-bottom: 22px; }
+  .thumbnail { position: relative; overflow: hidden; border-radius: 10px; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.4); }
+  .thumbnail.landscape { width: 640px; height: 360px; }
+  .thumbnail.square { width: 540px; height: 540px; }
+
+  /* Background layers */
+  .thumb-bg { position: absolute; inset: 0; background-position: center; background-repeat: no-repeat; }
+  .thumb-bg.has-gradient.gradient-dark { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .thumb-bg.has-gradient.gradient-warm { background: linear-gradient(135deg, #2d1b00 0%, #4a2c0a 50%, #1a0a00 100%); }
+  .thumb-bg.has-gradient.gradient-sunset { background: linear-gradient(135deg, #2d1a2e 0%, #4a1a3e 40%, #1a2a4a 100%); }
+  .thumb-bg.has-gradient.gradient-light-sand { background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd2 50%, #f0ebe0 100%); }
+  .thumb-bg.has-gradient.gradient-light-cloud { background: linear-gradient(135deg, #f0f0f0 0%, #e6e6e6 50%, #ececec 100%); }
+
+  .thumb-overlay { position: absolute; inset: 0; pointer-events: none; }
+
+  /* Content layout — editorial */
+  .thumb-content { position: absolute; inset: 0; padding: 56px 64px; display: flex; flex-direction: column; justify-content: center; }
+
+  .thumb-eyebrow { position: absolute; top: 44px; left: 64px; right: 64px; }
+  .thumb-eyebrow-line { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.82); letter-spacing: 2.5px; text-transform: uppercase; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+  .thumb-eyebrow-bar { width: 38px; height: 3px; background: var(--accent); margin-top: 10px; }
+
+  .thumb-hook { font-size: 64px; font-weight: 900; line-height: 1.08; color: #fff; max-width: 92%; text-shadow: 0 2px 16px rgba(0,0,0,0.55); margin-bottom: 18px; letter-spacing: -1px; }
+  .thumb-subtitle { font-size: 24px; font-weight: 500; color: rgba(255,255,255,0.88); line-height: 1.4; max-width: 88%; text-shadow: 0 1px 8px rgba(0,0,0,0.5); letter-spacing: 0.4px; }
+
+  .thumb-branding { position: absolute; bottom: 38px; left: 64px; right: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .thumb-branding-left { display: flex; align-items: center; gap: 12px; }
+  .thumb-branding-bar { width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
+  .thumb-branding-name { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.92); letter-spacing: 0.5px; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+  .thumb-branding-zh { font-size: 12px; color: rgba(255,255,255,0.55); text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+
+  /* Light theme overrides */
+  .thumbnail.light-mode .thumb-hook { color: #1a1a1a; text-shadow: 0 1px 8px rgba(255,255,255,0.4); }
+  .thumbnail.light-mode .thumb-subtitle { color: rgba(40,40,40,0.88); text-shadow: none; }
+  .thumbnail.light-mode .thumb-eyebrow-line { color: rgba(40,40,40,0.85); text-shadow: none; }
+  .thumbnail.light-mode .thumb-branding-name { color: rgba(20,20,20,0.92); text-shadow: none; }
+  .thumbnail.light-mode .thumb-branding-zh { color: rgba(60,60,60,0.6); text-shadow: none; }
+
+  /* When using bg image, never apply light-mode overrides (image dictates) */
+  .thumbnail.has-bg-image.light-mode .thumb-hook,
+  .thumbnail.has-bg-image.light-mode .thumb-subtitle,
+  .thumbnail.has-bg-image.light-mode .thumb-eyebrow-line,
+  .thumbnail.has-bg-image.light-mode .thumb-branding-name,
+  .thumbnail.has-bg-image.light-mode .thumb-branding-zh { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+  .thumbnail.has-bg-image.light-mode .thumb-branding-name { color: rgba(255,255,255,0.92); }
+  .thumbnail.has-bg-image.light-mode .thumb-branding-zh { color: rgba(255,255,255,0.6); }
+
+  /* Square format adjustments */
+  .thumbnail.square .thumb-content { padding: 64px 60px; }
+  .thumbnail.square .thumb-eyebrow { top: 50px; left: 60px; right: 60px; }
+  .thumbnail.square .thumb-branding { bottom: 46px; left: 60px; right: 60px; }
+  .thumbnail.square .thumb-hook { font-size: 76px; }
+  .thumbnail.square .thumb-subtitle { font-size: 26px; }
+
+  /* Export modes — applied transiently during html2canvas */
+  .thumbnail.export-white .thumb-bg { background: #ffffff !important; background-image: none !important; }
+  .thumbnail.export-white .thumb-overlay { display: none; }
+  .thumbnail.export-white .thumb-hook { color: #1a1a1a; text-shadow: none; }
+  .thumbnail.export-white .thumb-subtitle { color: #444; text-shadow: none; }
+  .thumbnail.export-white .thumb-eyebrow-line { color: #555; text-shadow: none; }
+  .thumbnail.export-white .thumb-branding-name { color: #1a1a1a; text-shadow: none; }
+  .thumbnail.export-white .thumb-branding-zh { color: #666; text-shadow: none; }
+
+  .thumbnail.export-transparent { background: transparent !important; }
+  .thumbnail.export-transparent .thumb-bg { background: transparent !important; background-image: none !important; }
+  .thumbnail.export-transparent .thumb-overlay { display: none; }
+  .thumbnail.export-transparent .thumb-hook { text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 6px rgba(0,0,0,0.7); }
+  .thumbnail.export-transparent .thumb-subtitle,
+  .thumbnail.export-transparent .thumb-eyebrow-line,
+  .thumbnail.export-transparent .thumb-branding-name,
+  .thumbnail.export-transparent .thumb-branding-zh { text-shadow: 0 1px 8px rgba(0,0,0,0.9), 0 0 4px rgba(0,0,0,0.7); }
+
+  /* Actions */
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; }
+  .btn { padding: 11px 22px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #ff5555; transform: translateY(-1px); }
+  .btn-secondary { background: #2a2a2a; color: #ccc; border: 1px solid #3a3a3a; }
+  .btn-secondary:hover { background: #333; color: #fff; }
+  .btn-export-white { background: #e8e8e8; color: #1a1a1a; }
+  .btn-export-white:hover { background: #fff; transform: translateY(-1px); }
+  .btn-export-transparent { background: #0a8a4a; color: #fff; }
+  .btn-export-transparent:hover { background: #0c9a55; transform: translateY(-1px); }
+
+  .hint { font-size: 11px; color: #555; margin-top: 8px; text-align: center; max-width: 580px; line-height: 1.65; }
+  .hint code { background: #1a1a1a; color: #aaa; padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+
+  /* Preset chips */
+  .preset-chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; max-width: 720px; }
+  .preset-chip { padding: 5px 12px; border-radius: 14px; border: 1px solid #2a2a2a; background: #161616; color: #888; cursor: pointer; font-size: 12px; transition: all 0.2s; font-family: inherit; }
+  .preset-chip:hover { border-color: var(--accent); color: #fff; background: #2a1a1a; }
+</style>
+</head>
+<body>
+
+<h1>直播專題 Thumbnail 產生器</h1>
+<p class="page-sub">編輯風 · 16:9 + 1:1 雙格式 · 支援自訂背景圖 ｜ 日常款 → <a href="../thumbnail/">每日直播 generator</a></p>
+
+<div class="format-toggle">
+  <button class="format-btn active" data-format="landscape">16:9 YouTube（1280×720）</button>
+  <button class="format-btn" data-format="square">1:1 IG（1080×1080）</button>
+</div>
+
+<div class="preset-chips">
+  <span class="preset-chip" data-preset='{"hook":"成功的失敗","subtitle":"19 週 ／ 466 公里 ／ 5:15","series":"直播專題 #001","topic":"跑步系列"}'>富士馬拉松（範例）</span>
+  <span class="preset-chip" data-preset='{"hook":"AI 不是工具","subtitle":"它是一個會學的隊友","series":"直播專題 #002","topic":"AI 系列"}'>AI 系列（範例）</span>
+  <span class="preset-chip" data-preset='{"hook":"說服力","subtitle":"6 個讓人聽完還想再聽的開頭","series":"直播專題 #003","topic":"溝通技藝"}'>溝通工坊（範例）</span>
+</div>
+
+<div class="controls">
+  <div class="control-group span-2">
+    <label>主標 Hook（大字）</label>
+    <input type="text" id="hookInput" placeholder="例：成功的失敗" value="成功的失敗" maxlength="30">
+  </div>
+  <div class="control-group span-2">
+    <label>副標 ／ 數字 ／ 引述</label>
+    <input type="text" id="subtitleInput" placeholder="例：19 週 / 466 公里 / 5:15" value="19 週 ／ 466 公里 ／ 5:15" maxlength="80">
+  </div>
+  <div class="control-group">
+    <label>系列編號</label>
+    <input type="text" id="seriesInput" value="直播專題 #001" maxlength="30">
+  </div>
+  <div class="control-group">
+    <label>主題標籤</label>
+    <input type="text" id="topicInput" placeholder="例：跑步系列" value="跑步系列" maxlength="20">
+  </div>
+
+  <div class="control-group">
+    <label>色調</label>
+    <select id="themeSelect">
+      <option value="dark">深邃藍黑</option>
+      <option value="warm">暖棕</option>
+      <option value="sunset">暮紫</option>
+      <option value="light-sand">淺砂（淺色）</option>
+      <option value="light-cloud">雲白（淺色）</option>
+    </select>
+  </div>
+
+  <div class="control-group">
+    <label>背景圖（選填，本地處理不上傳）</label>
+    <input type="file" id="bgFileInput" accept="image/*">
+    <button class="btn-mini" id="bgClearBtn" style="display:none;">清除背景圖</button>
+  </div>
+
+  <div class="control-group span-2" id="bgAdjustGroup" style="display:none;">
+    <label>背景圖縮放</label>
+    <div class="slider-row">
+      <input type="range" id="bgScale" min="50" max="300" value="100">
+      <span class="val" id="bgScaleVal">100%</span>
+    </div>
+    <label>水平位置</label>
+    <div class="slider-row">
+      <input type="range" id="bgX" min="0" max="100" value="50">
+      <span class="val" id="bgXVal">50%</span>
+    </div>
+    <label>垂直位置</label>
+    <div class="slider-row">
+      <input type="range" id="bgY" min="0" max="100" value="50">
+      <span class="val" id="bgYVal">50%</span>
+    </div>
+    <label>暗化覆蓋（提升文字可讀）</label>
+    <div class="slider-row">
+      <input type="range" id="bgOverlay" min="0" max="80" value="40">
+      <span class="val" id="bgOverlayVal">40%</span>
+    </div>
+  </div>
+
+  <div class="control-group span-2">
+    <label>主標字級</label>
+    <div class="slider-row">
+      <input type="range" id="hookSize" min="32" max="120" value="64">
+      <span class="val" id="hookSizeVal">64px</span>
+    </div>
+    <label>副標字級</label>
+    <div class="slider-row">
+      <input type="range" id="subtitleSize" min="14" max="48" value="24">
+      <span class="val" id="subtitleSizeVal">24px</span>
+    </div>
+  </div>
+</div>
+
+<div class="preview-area">
+  <div class="thumbnail landscape" id="thumb">
+    <div class="thumb-bg has-gradient gradient-dark" id="thumbBg"></div>
+    <div class="thumb-overlay" id="thumbOverlay"></div>
+    <div class="thumb-eyebrow">
+      <div class="thumb-eyebrow-line" id="eyebrowDisplay">直播專題 #001 ／ 跑步系列</div>
+      <div class="thumb-eyebrow-bar"></div>
+    </div>
+    <div class="thumb-content">
+      <div class="thumb-hook" id="hookDisplay">成功的失敗</div>
+      <div class="thumb-subtitle" id="subtitleDisplay">19 週 ／ 466 公里 ／ 5:15</div>
+    </div>
+    <div class="thumb-branding">
+      <div class="thumb-branding-left">
+        <div class="thumb-branding-bar"></div>
+        <div class="thumb-branding-name">Jason Lai</div>
+      </div>
+      <div class="thumb-branding-zh">地球智人－賴建順</div>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn btn-primary" id="exportFull">下載完整 PNG</button>
+  <button class="btn btn-export-white" id="exportWhite">白底 PNG</button>
+  <button class="btn btn-export-transparent" id="exportTransparent">透明背景 PNG</button>
+  <button class="btn btn-secondary" id="copyClip">複製到剪貼簿</button>
+</div>
+
+<p class="hint">
+  輸入 → 選色調或上傳背景圖 → 下載。<br>
+  匯出檔名格式：<code>thumbnail-special-YYYY-MM-DD-{landscape|square}-{full|white|transparent}.png</code><br>
+  16:9 輸出 1280×720（YouTube），1:1 輸出 1080×1080（IG/FB）。背景圖建議 &lt; 10MB（本地處理，無上傳）。
+</p>
+
+<script>
+  const $ = id => document.getElementById(id);
+  let bgImageDataUrl = null;
+  let currentFormat = 'landscape';
+
+  function update() {
+    const hook = $('hookInput').value || '主標';
+    const subtitle = $('subtitleInput').value;
+    const series = $('seriesInput').value.trim();
+    const topic = $('topicInput').value.trim();
+    const theme = $('themeSelect').value;
+
+    $('hookDisplay').textContent = hook;
+    $('subtitleDisplay').textContent = subtitle;
+    $('subtitleDisplay').style.display = subtitle ? '' : 'none';
+
+    const eyebrow = [series, topic].filter(Boolean).join(' ／ ');
+    $('eyebrowDisplay').textContent = eyebrow;
+    $('eyebrowDisplay').style.display = eyebrow ? '' : 'none';
+
+    // Theme + format classes
+    const isLight = theme.startsWith('light-');
+    const thumb = $('thumb');
+    thumb.className = 'thumbnail ' + currentFormat + (isLight ? ' light-mode' : '') + (bgImageDataUrl ? ' has-bg-image' : '');
+
+    // Background layer
+    const bg = $('thumbBg');
+    if (bgImageDataUrl) {
+      bg.classList.remove('has-gradient', 'gradient-dark', 'gradient-warm', 'gradient-sunset', 'gradient-light-sand', 'gradient-light-cloud');
+      const scale = $('bgScale').value;
+      const x = $('bgX').value;
+      const y = $('bgY').value;
+      bg.style.backgroundImage = `url(${bgImageDataUrl})`;
+      bg.style.backgroundSize = scale + '%';
+      bg.style.backgroundPosition = `${x}% ${y}%`;
+      $('bgScaleVal').textContent = scale + '%';
+      $('bgXVal').textContent = x + '%';
+      $('bgYVal').textContent = y + '%';
+    } else {
+      bg.style.backgroundImage = '';
+      bg.style.backgroundSize = '';
+      bg.style.backgroundPosition = '';
+      bg.className = 'thumb-bg has-gradient gradient-' + theme;
+    }
+
+    // Overlay (only when bg image present)
+    const overlay = $('thumbOverlay');
+    if (bgImageDataUrl) {
+      const v = $('bgOverlay').value;
+      const o = v / 100;
+      overlay.style.background = `linear-gradient(135deg, rgba(0,0,0,${o*0.4}) 0%, rgba(0,0,0,${o}) 100%)`;
+      $('bgOverlayVal').textContent = v + '%';
+    } else {
+      overlay.style.background = '';
+    }
+
+    // Font sizes
+    const hookS = $('hookSize').value;
+    $('hookDisplay').style.fontSize = hookS + 'px';
+    $('hookSizeVal').textContent = hookS + 'px';
+
+    const subS = $('subtitleSize').value;
+    $('subtitleDisplay').style.fontSize = subS + 'px';
+    $('subtitleSizeVal').textContent = subS + 'px';
+  }
+
+  function loadBg(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      bgImageDataUrl = ev.target.result;
+      $('bgAdjustGroup').style.display = '';
+      $('bgClearBtn').style.display = '';
+      update();
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function clearBg() {
+    bgImageDataUrl = null;
+    $('bgFileInput').value = '';
+    $('bgAdjustGroup').style.display = 'none';
+    $('bgClearBtn').style.display = 'none';
+    update();
+  }
+
+  function setFormat(fmt) {
+    currentFormat = fmt;
+    document.querySelectorAll('.format-btn').forEach(b => b.classList.toggle('active', b.dataset.format === fmt));
+    update();
+  }
+
+  function applyPreset(p) {
+    if (p.hook !== undefined) $('hookInput').value = p.hook;
+    if (p.subtitle !== undefined) $('subtitleInput').value = p.subtitle;
+    if (p.series !== undefined) $('seriesInput').value = p.series;
+    if (p.topic !== undefined) $('topicInput').value = p.topic;
+    update();
+  }
+
+  async function exportPNG(mode) {
+    if (typeof html2canvas === 'undefined') {
+      alert('html2canvas 還沒載入完成，請等 1-2 秒再試。');
+      return;
+    }
+    const el = $('thumb');
+    const cls = mode === 'white' ? 'export-white' : mode === 'transparent' ? 'export-transparent' : null;
+    if (cls) el.classList.add(cls);
+    try {
+      const canvas = await html2canvas(el, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: mode === 'transparent' ? null : (mode === 'white' ? '#ffffff' : null),
+        logging: false
+      });
+      const link = document.createElement('a');
+      const ts = new Date().toISOString().slice(0, 10);
+      const suffix = mode || 'full';
+      link.download = `thumbnail-special-${ts}-${currentFormat}-${suffix}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (err) {
+      alert('Export 失敗：' + (err.message || err));
+    } finally {
+      if (cls) el.classList.remove(cls);
+    }
+  }
+
+  async function copyClip() {
+    if (typeof html2canvas === 'undefined') { alert('html2canvas 還沒載入完成'); return; }
+    const el = $('thumb');
+    try {
+      const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: null, logging: false });
+      canvas.toBlob(blob => {
+        navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        alert('已複製到剪貼簿');
+      });
+    } catch (err) {
+      alert('複製失敗：' + (err.message || err));
+    }
+  }
+
+  // Wire up
+  ['hookInput','subtitleInput','seriesInput','topicInput','themeSelect','bgScale','bgX','bgY','bgOverlay','hookSize','subtitleSize'].forEach(id => {
+    const el = $(id);
+    if (!el) return;
+    el.addEventListener('input', update);
+    el.addEventListener('change', update);
+  });
+  document.querySelectorAll('.format-btn').forEach(b => b.addEventListener('click', () => setFormat(b.dataset.format)));
+  document.querySelectorAll('.preset-chip').forEach(c => c.addEventListener('click', () => {
+    try { applyPreset(JSON.parse(c.dataset.preset)); } catch (e) {}
+  }));
+  $('bgFileInput').addEventListener('change', loadBg);
+  $('bgClearBtn').addEventListener('click', clearBg);
+  $('exportFull').addEventListener('click', () => exportPNG(null));
+  $('exportWhite').addEventListener('click', () => exportPNG('white'));
+  $('exportTransparent').addEventListener('click', () => exportPNG('transparent'));
+  $('copyClip').addEventListener('click', copyClip);
+
+  // Load html2canvas from CDN
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+  document.head.appendChild(s);
+
+  update();
+</script>
+
+</body>
+</html>
