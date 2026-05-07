@@ -255,10 +255,17 @@
     }
     function statusLabel(st) { return ({dormant:'Dormant', sprouted:'Sprouted', archived:'Petrified'})[st] || st; }
     function formatDate(ts) { return ts.slice(0, 10); }
+    // Day count from epoch 2020-12-31 = grounding truth for cackle seed numbering
+    // (skip 2021-12-17 which has no seed; later days don't shift back)
+    const SEED_EPOCH_MS = Date.parse('2020-12-31T00:00:00+08:00');
+    function dayCountNo(ts) {
+      const d = Date.parse(ts);
+      return Math.round((d - SEED_EPOCH_MS) / 86400000);
+    }
     function seedShortLabel(id) {
       const s = SEEDS.find(x => x.id === id);
       if (!s) return id;
-      return s.source_no != null ? `No.${s.source_no}` : s.ts.slice(0, 10);
+      return s.source_no != null ? `No.${dayCountNo(s.ts)}` : s.ts.slice(0, 10);
     }
     // Render body text: escape HTML, then convert markdown [text](url) links to <a> tags.
     // Preserves newlines (parent uses whitespace-pre-line).
@@ -493,7 +500,7 @@
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${formatDate(s.ts)}</time>
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
-            ${s.source_no != null ? `<span class="text-slate-400">No.${s.source_no}</span>` : ''}
+            ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
             ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
             ${descendantLinks ? `<span class="ml-1">Grew into ${descendantLinks}</span>` : ''}
             ${sproutLinks ? `<span class="ml-1">${sproutLinks}</span>` : ''}
@@ -638,7 +645,7 @@
           const seed = item.seed;
           const quote = (seed.ocr_quotes && seed.ocr_quotes[0]) ? seed.ocr_quotes[0].text : '';
           pop.innerHTML = `
-            <div class="text-xs font-mono text-slate-500 mb-1">${formatDate(seed.ts)}${seed.source_no != null ? ` · No.${seed.source_no}` : ''}</div>
+            <div class="text-xs font-mono text-slate-500 mb-1">${formatDate(seed.ts)}${seed.source_no != null ? ` · No.${dayCountNo(seed.ts)}` : ''}</div>
             ${quote ? `<blockquote class="seed-quote text-sm text-slate-700 dark:text-slate-300 border-l-2 border-slate-400 pl-2 italic whitespace-pre-line mb-2">${escapeHtml(quote.slice(0, 200))}${quote.length > 200 ? '…' : ''}</blockquote>` : ''}
             ${seed.body_text ? `<div class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${escapeHtml(seed.excerpt || seed.body_text.slice(0, 120))}…</div>` : ''}
           `;
@@ -718,7 +725,7 @@
 
       node.innerHTML = `
         <div style="font-family: ui-monospace, monospace; font-size: ${dateFontSize}px; color: ${muted}; letter-spacing: 0.05em; margin-bottom: 32px;">
-          ${formatDate(seed.ts)} · No.${seed.source_no || '—'}
+          ${formatDate(seed.ts)}${seed.source_no != null ? ` · No.${dayCountNo(seed.ts)}` : ''}
         </div>
         ${quotes ? `<div style="border-left: 4px solid ${accent}; padding-left: 24px; margin-bottom: 40px; font-family: Georgia, serif; font-style: italic; font-size: ${quoteFontSize}px; line-height: 1.5; white-space: pre-line; color: ${fg};">${escapeHtml(quotes)}</div>` : ''}
         ${body ? `<div style="font-size: ${bodyFontSize}px; line-height: 1.7; white-space: pre-line; color: ${fg}; flex: 1; overflow: hidden;">${escapeHtml(body.slice(0, ratio === '1:1' ? 400 : 700))}${body.length > (ratio === '1:1' ? 400 : 700) ? '…' : ''}</div>` : ''}
