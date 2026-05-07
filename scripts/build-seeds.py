@@ -158,6 +158,11 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
             i += 1
             continue
 
+        # Found a `>` line — pop trailing separators (`---` / blank) from
+        # leftover; they're OCR formatting buffer to this run, not body.
+        while leftover and (leftover[-1].strip() == "" or leftover[-1].strip() == "---"):
+            leftover.pop()
+
         # Collect a blockquote run. `---` and blank lines are intra-run when
         # there's another `>` block ahead (skipping past more separators).
         run: list[str] = []
@@ -168,17 +173,19 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
                 i += 1
                 continue
             if s == "" or s == "---":
-                # Peek past consecutive separators looking for a `>` line
                 j = i
                 while j < n and (lines[j].strip() == "" or lines[j].strip() == "---"):
                     j += 1
                 if j < n and lines[j].strip().startswith(">"):
-                    # All separators between current pos and next `>` are intra-run
                     while i < j:
                         run.append(lines[i])
                         i += 1
                     continue
             break
+
+        # Run ended. Skip past trailing separators so they don't pollute body.
+        while i < n and (lines[i].strip() == "" or lines[i].strip() == "---"):
+            i += 1
 
         # Split run by `---` into individual quote blocks
         block: list[str] = []
