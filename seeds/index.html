@@ -175,7 +175,7 @@
     </section>
 
     <!-- Timeline view -->
-    <section id="timeline-view" class="space-y-4"></section>
+    <section id="timeline-view" class="space-y-8"></section>
 
     <!-- Garden view (desktop only) -->
     <section id="garden-view" class="hidden relative">
@@ -345,7 +345,7 @@
 
     // ─── Timeline render ───────────────────────────────────────
     let TIMELINE_FULLY_RENDERED = false;
-    const INITIAL_RENDER_CAP = 200;
+    const INITIAL_RENDER_CAP = 100;
 
     function renderTimeline(full = false) {
       const list = full ? FILTERED : FILTERED.slice(0, INITIAL_RENDER_CAP);
@@ -465,7 +465,7 @@
 
       const quotes = (s.ocr_quotes || []).map((q, i) => {
         const sep = i > 0 ? '<hr class="my-2 border-slate-300 dark:border-slate-700">' : '';
-        return sep + `<blockquote class="seed-quote text-base text-slate-700 dark:text-slate-300 border-l-2 border-slate-400 dark:border-slate-500 pl-3 italic whitespace-pre-line">${escapeHtml(q.text)}</blockquote>`;
+        return sep + `<blockquote class="seed-quote text-lg text-slate-700 dark:text-slate-300 border-l-2 border-slate-400 dark:border-slate-500 pl-4 italic whitespace-pre-line leading-loose">${escapeHtml(q.text)}</blockquote>`;
       }).join('');
 
       const sproutLinks = (s.sprouted_into || []).map(x => `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener" class="inline-link">→ ${escapeHtml(x.title)}</a>`).join(' · ');
@@ -480,15 +480,14 @@
       const mediaHtml = (s.media || []).map(m => `<img src="${escapeHtml(m.url)}" alt="${escapeHtml(m.alt)}" loading="lazy" class="w-full max-h-96 object-contain rounded-lg border border-slate-200 dark:border-slate-700 mt-3">`).join('');
 
       return `
-        <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
+        <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-7 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
           ${quotes ? `<div class="mb-3">${quotes}</div>` : ''}
-          ${s.body_text ? `<div class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line max-h-48 overflow-hidden seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
+          ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 leading-loose whitespace-pre-line max-h-72 overflow-hidden seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
           ${mediaHtml}
-          <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${formatDate(s.ts)}</time>
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
             ${s.source_no != null ? `<span class="text-slate-400">No.${s.source_no}</span>` : ''}
-            ${(s.tags || []).slice(0, 4).map(t => `<span class="text-slate-400">${escapeHtml(t)}</span>`).join('')}
             ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
             ${descendantLinks ? `<span class="ml-1">Grew into ${descendantLinks}</span>` : ''}
             ${sproutLinks ? `<span class="ml-1">${sproutLinks}</span>` : ''}
