@@ -12,10 +12,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "Just copy this for new post:\ngit add seeds/posts/\n\ngit commit -m \"Seeds update\"\n\ngit push",
-    "word_count": 17,
-    "excerpt": "Just copy this for new post: git add seeds/posts/ git commit -m \"Seeds update\" g…",
-    "search_text": "just copy this for new post git add seeds posts git commit m seeds update git push y2026",
+    "body_text": "Just copy this for new post:\ngit pull\ngit add seeds/posts/\ngit diff --cached\ngit commit -m \"Seeds update\"\n\ngit push",
+    "word_count": 22,
+    "excerpt": "Just copy this for new post: git pull git add seeds/posts/ git diff --cached git…",
+    "search_text": "just copy this for new post git pull git add seeds posts git diff cached git commit m seeds update git push y2026",
     "media_count": 0
   },
   {
