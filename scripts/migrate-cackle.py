@@ -96,6 +96,44 @@ def extract_seed_num(filename: str) -> int | None:
     return int(match.group(1)) if match else None
 
 
+def parse_body_date(body: str, fb_date: str) -> str | None:
+    """Extract Jason's stated date from body's first content line.
+
+    The FB metadata date (`fb_date`, e.g. '2020-12-30') is the day Jason
+    *wrote* the post. The first body line contains the date the seed is
+    *for* (e.g. '12/31/2020' or '4月10日'). Body date is the canonical
+    'seed date'.
+
+    Returns 'YYYY-MM-DD' string, or None if cannot parse.
+    """
+    if not fb_date or len(fb_date) != 10:
+        return None
+    fb_year = int(fb_date[0:4])
+    fb_month = int(fb_date[5:7])
+
+    first_line = body.lstrip().split("\n", 1)[0]
+
+    # Pattern 1: MM/DD/YYYY (explicit year, e.g. '12/31/2020')
+    m = re.match(r"^\s*(\d{1,2})/(\d{1,2})/(\d{4})", first_line)
+    if m:
+        mm, dd, yyyy = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        return f"{yyyy:04d}-{mm:02d}-{dd:02d}"
+
+    # Pattern 2: M月D日 (Chinese, year inferred from fb context)
+    m = re.search(r"(\d{1,2})月(\d{1,2})日", first_line)
+    if m:
+        bm, bd = int(m.group(1)), int(m.group(2))
+        # Cross-year heuristic: fb in late year (Nov/Dec) and body in early year (Jan/Feb) → next year
+        year = fb_year
+        if fb_month >= 11 and bm <= 2:
+            year = fb_year + 1
+        elif fb_month <= 2 and bm >= 11:
+            year = fb_year - 1
+        return f"{year:04d}-{bm:02d}-{bd:02d}"
+
+    return None
+
+
 def strip_body(body: str) -> str:
     """Drop image wikilinks + embedded OCR section; keep just Jason's prose."""
     parts = re.split(r"\n+---\n+", body, maxsplit=1)
@@ -145,10 +183,13 @@ def render_yaml(fm: dict) -> str:
 
 def build_seed_md(seed_num: int, fm: dict, body: str, ocr_blocks: list, has_image_speaks: bool) -> str:
     """Assemble the new seed .md content."""
-    seed_id = make_seed_id(fm.get("date", "0000-00-00"), seed_num)
+    fb_date = fm.get("date", "0000-00-00")
+    seed_date = parse_body_date(body, fb_date) or fb_date
+    seed_id = make_seed_id(seed_date, seed_num)
     out_fm = {
         "id": seed_id,
-        "ts": f"{fm.get('date', '0000-00-00')}T00:00:00+08:00",
+        "ts": f"{seed_date}T00:00:00+08:00",
+        "fb_date": fb_date,  # original FB metadata date (writing date) for traceability
         "tags": fm.get("tags", []),
         "source": "cackle",
         "source_no": seed_num,
@@ -183,7 +224,10 @@ def main(dry_run: bool, verbose: bool) -> int:
 
     if not dry_run:
         OUTPUT.mkdir(parents=True, exist_ok=True)
-        print(f"Output → {OUTPUT.relative_to(REPO_ROOT)}")
+        # Clean stale output (so renames from old IDs to new IDs don't leave duplicates)
+        for stale in OUTPUT.glob("*.md"):
+            stale.unlink()
+        print(f"Output → {OUTPUT.relative_to(REPO_ROOT)} (cleaned)")
 
     stats = {
         "total": 0,
@@ -214,7 +258,9 @@ def main(dry_run: bool, verbose: bool) -> int:
         has_image_speaks = "一圖勝千言" in body_full
 
         new_md = build_seed_md(seed_num, fm, body, ocr_blocks, has_image_speaks)
-        seed_id = make_seed_id(fm.get("date", "0000-00-00"), seed_num)
+        fb_date = fm.get("date", "0000-00-00")
+        seed_date = parse_body_date(body, fb_date) or fb_date
+        seed_id = make_seed_id(seed_date, seed_num)
         out_path = OUTPUT / f"{seed_id}.md"
 
         if not dry_run:

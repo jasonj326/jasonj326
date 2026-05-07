@@ -158,13 +158,18 @@ def make_search_text(quotes: list, commentary: str, tags: list) -> str:
     return text
 
 
+EXCLUDE_TAGS = {"playbook", "playgrounds", "partnership"}  # 3pwriting major_tags, not seed tags
+
+
 def build_seed(fm: dict, body: str) -> dict:
     quotes, commentary = split_ocr_and_body(body)
     all_text = " ".join([q["text"] for q in quotes] + [commentary])
+    raw_tags = fm.get("tags", [])
+    tags = [t for t in raw_tags if t not in EXCLUDE_TAGS]
     seed = {
         "id": fm.get("id", ""),
         "ts": fm.get("ts", ""),
-        "tags": fm.get("tags", []),
+        "tags": tags,
         "source": fm.get("source"),
         "source_no": fm.get("source_no"),
         "source_title": fm.get("source_title"),
@@ -175,7 +180,7 @@ def build_seed(fm: dict, body: str) -> dict:
         "body_text": commentary,
         "word_count": count_words(all_text),
         "excerpt": make_excerpt(commentary, quotes[0]["text"] if quotes else ""),
-        "search_text": make_search_text(quotes, commentary, fm.get("tags", [])),
+        "search_text": make_search_text(quotes, commentary, tags),
         "media_count": 0,
     }
     # Optional fields, only emit if present
