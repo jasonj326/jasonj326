@@ -203,8 +203,26 @@ def make_search_text(quotes: list, commentary: str, tags: list) -> str:
 EXCLUDE_TAGS = {"playbook", "playgrounds", "partnership"}  # 3pwriting major_tags, not seed tags
 
 
+IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+
+
+def extract_media(text: str) -> tuple[list, str]:
+    """Extract markdown image refs into media list; return (media, text_without_imgs)."""
+    media: list[dict] = []
+
+    def _swap(m: re.Match) -> str:
+        media.append({"type": "image", "url": m.group(2), "alt": m.group(1) or ""})
+        return ""
+
+    cleaned = IMG_RE.sub(_swap, text)
+    # collapse triple-newlines that result from removed lines
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned).strip()
+    return media, cleaned
+
+
 def build_seed(fm: dict, body: str) -> dict:
     quotes, commentary = split_ocr_and_body(body)
+    media, commentary = extract_media(commentary)
     all_text = " ".join([q["text"] for q in quotes] + [commentary])
     raw_tags = fm.get("tags", [])
     tags = [t for t in raw_tags if t not in EXCLUDE_TAGS]
@@ -223,10 +241,12 @@ def build_seed(fm: dict, body: str) -> dict:
         "word_count": count_words(all_text),
         "excerpt": make_excerpt(commentary, quotes[0]["text"] if quotes else ""),
         "search_text": make_search_text(quotes, commentary, tags),
-        "media_count": 0,
+        "media_count": len(media),
     }
+    if media:
+        seed["media"] = media
     # Optional fields, only emit if present
-    for opt in ("sprouted_into", "archived_at", "derived_from", "media"):
+    for opt in ("sprouted_into", "archived_at", "derived_from"):
         if opt in fm and fm[opt] not in (None, []):
             seed[opt] = fm[opt]
     return seed

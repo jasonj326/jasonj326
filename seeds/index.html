@@ -317,10 +317,13 @@
 
       const sproutLinks = (s.sprouted_into || []).map(x => `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener" class="inline-link">→ ${escapeHtml(x.title)}</a>`).join(' · ');
 
+      const mediaHtml = (s.media || []).map(m => `<img src="${escapeHtml(m.url)}" alt="${escapeHtml(m.alt)}" loading="lazy" class="w-full max-h-96 object-contain rounded-lg border border-slate-200 dark:border-slate-700 mt-3">`).join('');
+
       return `
         <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
           ${quotes ? `<div class="mb-3">${quotes}</div>` : ''}
           ${s.body_text ? `<div class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line max-h-48 overflow-hidden seed-body">${escapeHtml(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
+          ${mediaHtml}
           <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${formatDate(s.ts)}</time>
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
