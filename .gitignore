@@ -47,3 +47,4 @@ Thumbs.db
 # Apple HEIC 原檔（瀏覽器不支援，只用 JPG 版本）
 *.heic
 *.HEIC
+seeds-audit.md
