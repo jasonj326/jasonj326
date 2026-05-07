@@ -43,7 +43,7 @@
     .seed-quote em { font-style: italic; }
 
     /* Status colors */
-    .status-waiting { color: rgb(16 185 129); }   /* emerald-500 */
+    .status-dormant { color: rgb(16 185 129); }   /* emerald-500 */
     .status-sprouted { color: rgb(217 119 6); }   /* amber-600 */
     .status-archived { color: rgb(148 163 184); } /* slate-400 */
 
@@ -71,6 +71,32 @@
     /* Toast */
     #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); padding: 10px 18px; background: rgb(15 23 42 / 0.95); color: white; font-family: ui-monospace, monospace; font-size: 13px; border-radius: 6px; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 60; }
     #toast.show { opacity: 1; }
+
+    /* Month nav (sticky right side, md+ only) */
+    #month-nav {
+      position: fixed;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 30;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      max-height: calc(100vh - 8rem);
+      overflow-y: auto;
+      padding: 4px;
+    }
+    .month-nav-year { font-size: 10px; color: rgb(148 163 184); letter-spacing: 0.08em; padding: 6px 8px 2px; }
+    .month-nav-link { display: flex; justify-content: space-between; gap: 14px; padding: 2px 8px; border-radius: 4px; color: rgb(100 116 139); cursor: pointer; white-space: nowrap; }
+    .month-nav-link:hover { background: rgb(241 245 249); color: rgb(99 102 241); }
+    .dark .month-nav-link { color: rgb(148 163 184); }
+    .dark .month-nav-link:hover { background: rgb(30 41 59); color: rgb(94 234 212); }
+    .month-nav-link.active { color: rgb(99 102 241); font-weight: 600; }
+    .dark .month-nav-link.active { color: rgb(94 234 212); }
+    .month-nav-count { color: rgb(148 163 184); font-size: 10px; opacity: 0.7; }
+    #back-to-top { display: block; width: 100%; text-align: center; padding: 4px; border-radius: 4px; color: rgb(100 116 139); cursor: pointer; margin-bottom: 4px; font-size: 14px; line-height: 1; }
+    #back-to-top:hover { background: rgb(241 245 249); color: rgb(99 102 241); }
+    .dark #back-to-top { color: rgb(148 163 184); }
+    .dark #back-to-top:hover { background: rgb(30 41 59); color: rgb(94 234 212); }
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
@@ -136,7 +162,7 @@
       <!-- Status filter chips -->
       <div class="flex flex-wrap gap-1.5 text-xs">
         <button class="status-chip active px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="all">All</button>
-        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="waiting"><span class="status-waiting">●</span> Waiting</button>
+        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="dormant"><span class="status-dormant">●</span> Dormant</button>
         <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="sprouted"><span class="status-sprouted">●</span> Sprouted</button>
         <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="archived"><span class="status-archived">●</span> Petrified</button>
       </div>
@@ -162,6 +188,9 @@
     <div id="loading" class="text-center py-12 text-slate-500 dark:text-slate-400 font-mono text-sm">Loading seeds…</div>
 
   </main>
+
+  <!-- Month nav (sticky right, md+ only) -->
+  <aside id="month-nav" class="hidden md:block" aria-label="Jump to month"></aside>
 
   <!-- Resurface modal -->
   <div id="resurface-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeResurface()">
@@ -218,9 +247,9 @@
     function statusOf(s) {
       if (s.sprouted_into && s.sprouted_into.length) return 'sprouted';
       if (s.archived_at) return 'archived';
-      return 'waiting';
+      return 'dormant';
     }
-    function statusLabel(st) { return ({waiting:'Waiting', sprouted:'Sprouted', archived:'Petrified'})[st] || st; }
+    function statusLabel(st) { return ({dormant:'Dormant', sprouted:'Sprouted', archived:'Petrified'})[st] || st; }
     function formatDate(ts) { return ts.slice(0, 10); }
 
     // ─── Fetch seeds ───────────────────────────────────────────
@@ -295,18 +324,123 @@
     document.querySelector('[data-view="timeline"]').classList.add('bg-indigo-100', 'dark:bg-emerald-900/40');
 
     // ─── Timeline render ───────────────────────────────────────
-    function renderTimeline() {
-      const html = FILTERED.slice(0, 200).map(seedCardHtml).join('');
-      $('timeline-view').innerHTML = html;
+    let TIMELINE_FULLY_RENDERED = false;
+    const INITIAL_RENDER_CAP = 200;
+
+    function renderTimeline(full = false) {
+      const list = full ? FILTERED : FILTERED.slice(0, INITIAL_RENDER_CAP);
+      $('timeline-view').innerHTML = list.map(seedCardHtml).join('');
+      TIMELINE_FULLY_RENDERED = full || FILTERED.length <= INITIAL_RENDER_CAP;
       lucide.createIcons();
       requestAnimationFrame(refreshExpandButtons);
+      buildMonthNav();
+      observeMonthsForActiveHighlight();
     }
+
+    function ensureFullyRendered() {
+      if (TIMELINE_FULLY_RENDERED) return;
+      renderTimeline(true);
+    }
+
+    // ─── Month nav ─────────────────────────────────────────────
+    const MONTH_LABELS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    function buildMonthNav() {
+      const nav = $('month-nav');
+      if (!nav) return;
+      // Group FILTERED by YYYY-MM (preserve desc order — FILTERED is already desc by ts)
+      const buckets = new Map();  // 'YYYY-MM' → count
+      for (const s of FILTERED) {
+        const ym = s.ts.slice(0, 7);
+        buckets.set(ym, (buckets.get(ym) || 0) + 1);
+      }
+      if (buckets.size === 0) { nav.innerHTML = ''; return; }
+      // Group by year
+      const byYear = new Map();  // 'YYYY' → [['YYYY-MM', count], ...]
+      for (const [ym, count] of buckets) {
+        const year = ym.slice(0, 4);
+        if (!byYear.has(year)) byYear.set(year, []);
+        byYear.get(year).push([ym, count]);
+      }
+      const parts = [
+        `<button id="back-to-top" title="Back to top" aria-label="Back to top">↑</button>`,
+      ];
+      for (const [year, months] of byYear) {
+        parts.push(`<div class="month-nav-year">${year}</div>`);
+        for (const [ym, count] of months) {
+          const m = parseInt(ym.slice(5, 7), 10);
+          const label = MONTH_LABELS[m - 1];
+          parts.push(`<a class="month-nav-link" data-month="${ym}"><span>${label}</span><span class="month-nav-count">${count}</span></a>`);
+        }
+      }
+      nav.innerHTML = parts.join('');
+      // Wire handlers
+      $('back-to-top').addEventListener('click', () => {
+        // 'instant' — smooth scroll fails over very long pages (browser distance cap)
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        updateActiveMonth();
+      });
+      nav.querySelectorAll('.month-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const ym = link.dataset.month;
+          // Switch to timeline if in garden
+          if (state.view === 'garden') {
+            document.querySelector('[data-view="timeline"]').click();
+            setTimeout(() => scrollToMonth(ym), 80);
+          } else {
+            scrollToMonth(ym);
+          }
+        });
+      });
+    }
+
+    function scrollToMonth(ym) {
+      ensureFullyRendered();
+      const target = FILTERED.find(s => s.ts.slice(0, 7) === ym);
+      if (!target) return;
+      // Synchronous: innerHTML is set, getBoundingClientRect forces layout.
+      // 'instant' scroll — smooth fails over very long page heights (browser cap).
+      const card = document.querySelector(`[data-seed-id="${CSS.escape(target.id)}"]`);
+      if (!card) return;
+      const navHeight = 64;
+      const y = card.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top: y, behavior: 'instant' });
+      updateActiveMonth();
+    }
+
+    let activeMonthRafScheduled = false;
+    function updateActiveMonth() {
+      activeMonthRafScheduled = false;
+      const cards = document.querySelectorAll('.seed-card');
+      if (!cards.length) return;
+      // First card whose bottom edge is below the top nav (96 = 64 nav + 32 padding)
+      const threshold = 96;
+      let activeYm = null;
+      for (const card of cards) {
+        const rect = card.getBoundingClientRect();
+        if (rect.bottom > threshold) {
+          activeYm = card.dataset.seedId.slice(0, 7);
+          break;
+        }
+      }
+      document.querySelectorAll('.month-nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.month === activeYm);
+      });
+    }
+    function observeMonthsForActiveHighlight() {
+      // Initial mark + scroll-driven update (rAF-throttled)
+      updateActiveMonth();
+    }
+    window.addEventListener('scroll', () => {
+      if (activeMonthRafScheduled) return;
+      activeMonthRafScheduled = true;
+      requestAnimationFrame(updateActiveMonth);
+    }, { passive: true });
 
     function seedCardHtml(s) {
       const st = statusOf(s);
-      const stColor = ({waiting:'status-waiting', sprouted:'status-sprouted', archived:'status-archived'})[st];
+      const stColor = ({dormant:'status-dormant', sprouted:'status-sprouted', archived:'status-archived'})[st];
       const flags = [];
-      if (s.ocr_pending) flags.push('<span class="flag-indicator text-amber-500 font-mono" title="OCR pending — needs case-by-case review">⚠️ ocr_pending</span>');
       if (s.multi_image) flags.push(`<span class="flag-indicator font-mono" title="Multiple OCR images, may want to consolidate">📷×${s.ocr_quotes.length}</span>`);
       if (s.category === 'image_speaks') flags.push('<span class="flag-indicator font-mono" title="Tagged 一圖勝千言 (a picture is worth a thousand words)">🖼 image_speaks</span>');
 
@@ -413,9 +547,7 @@
       setTimeout(() => {
         let card = document.querySelector(`[data-seed-id="${CSS.escape(seedId)}"]`);
         if (!card) {
-          // Beyond 200-card cap — re-render with full FILTERED so this seed renders too
-          $('timeline-view').innerHTML = FILTERED.map(seedCardHtml).join('');
-          lucide.createIcons();
+          ensureFullyRendered();
           card = document.querySelector(`[data-seed-id="${CSS.escape(seedId)}"]`);
         }
         if (card) {
@@ -446,7 +578,7 @@
         const angle = i * phi;
         const x = r * Math.cos(angle), y = r * Math.sin(angle);
         const st = statusOf(s);
-        const fill = ({waiting:'#10b981', sprouted:'#d97706', archived:'#94a3b8'})[st];
+        const fill = ({dormant:'#10b981', sprouted:'#d97706', archived:'#94a3b8'})[st];
         const radius = i === 0 ? 8 : (i < 30 ? 5 : 3.5);
         return { x, y, fill, radius, seed: s };
       });

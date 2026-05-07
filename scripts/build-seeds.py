@@ -113,60 +113,86 @@ def reflow_ocr_text(text: str) -> str:
     return "\n\n".join(out_paragraphs)
 
 
+def _strip_blockquote_prefix(line: str) -> str:
+    """Strip leading `>` markdown blockquote marker from a line.
+
+    `> foo` → `foo`, `>foo` → `foo`, `>` → ``, `> > nested` → `> nested`.
+    """
+    s = line.strip()
+    if s == ">":
+        return ""
+    if s.startswith("> "):
+        return s[2:]
+    if s.startswith(">"):
+        return s[1:].lstrip()
+    return s
+
+
+def _block_to_quote_text(block_lines: list[str]) -> str:
+    """Convert a block of `>`-prefixed lines (one quote) to clean text."""
+    text_lines = [_strip_blockquote_prefix(ln) if ln.strip() else "" for ln in block_lines]
+    text = "\n".join(text_lines).strip()
+    return reflow_ocr_text(text) if text else ""
+
+
 def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
-    """Split body into OCR blockquotes (at top) + Jason's commentary.
+    """Split body into OCR quotes + Jason's commentary.
 
-    OCR section format:
-      > line one of quote
-      > line two
-      >
+    Pure markdown semantics: `>`-prefixed lines = quote, everything else = body.
+    Within a contiguous blockquote run, `---` separates multiple quotes (and
+    blank lines stay grouped with the surrounding `>` block).
 
-      ---
-
-      > another quote
-      > ...
-
-    Returns (ocr_quotes_list, commentary_text).
+    Jason hand-curates OCR sections in source files, so any line that should
+    appear as a quote must have `> ` prefix. No commentary-header heuristics
+    or plain-text fallbacks — what you write is what gets quoted.
     """
     lines = body.split("\n")
-    in_ocr = False
-    last_ocr_idx = -1
+    quotes: list[dict] = []
+    leftover: list[str] = []
     i = 0
-    while i < len(lines):
-        line = lines[i]
-        stripped = line.strip()
-        if stripped.startswith(">") or stripped == ">":
-            in_ocr = True
-            last_ocr_idx = i
+    n = len(lines)
+
+    while i < n:
+        if not lines[i].strip().startswith(">"):
+            leftover.append(lines[i])
             i += 1
-        elif stripped == "---" and in_ocr:
-            i += 1
-            in_ocr = False
-        elif stripped == "":
-            i += 1
-        else:
+            continue
+
+        # Collect a blockquote run. `---` and blank lines inside the run are
+        # included only when they're sandwiched between `>` blocks.
+        run: list[str] = []
+        while i < n:
+            s = lines[i].strip()
+            if s.startswith(">"):
+                run.append(lines[i])
+                i += 1
+                continue
+            if s in ("", "---"):
+                # Peek next non-blank — if `>`, this separator is intra-run
+                j = i + 1
+                while j < n and lines[j].strip() == "":
+                    j += 1
+                if j < n and lines[j].strip().startswith(">"):
+                    run.append(lines[i])
+                    i += 1
+                    continue
             break
 
-    if last_ocr_idx == -1:
-        return [], body.strip()
-
-    ocr_section = "\n".join(lines[: last_ocr_idx + 1])
-    commentary = "\n".join(lines[i:]).strip()
-
-    # Split by '---' separator and parse each blockquote
-    quotes: list[dict] = []
-    for block in re.split(r"\n+---\n+", ocr_section):
-        text_lines = []
-        for ln in block.split("\n"):
-            if ln.startswith("> "):
-                text_lines.append(ln[2:])
-            elif ln.strip() == ">":
-                text_lines.append("")
-        text = "\n".join(text_lines).strip()
+        # Split run by `---` into individual quote blocks
+        block: list[str] = []
+        for ln in run:
+            if ln.strip() == "---":
+                text = _block_to_quote_text(block)
+                if text:
+                    quotes.append({"text": text})
+                block = []
+            else:
+                block.append(ln)
+        text = _block_to_quote_text(block)
         if text:
-            text = reflow_ocr_text(text)
             quotes.append({"text": text})
 
+    commentary = "\n".join(leftover).strip()
     return quotes, commentary
 
 
@@ -221,8 +247,8 @@ def extract_media(text: str) -> tuple[list, str]:
 
 
 def build_seed(fm: dict, body: str) -> dict:
+    media, body = extract_media(body)
     quotes, commentary = split_ocr_and_body(body)
-    media, commentary = extract_media(commentary)
     all_text = " ".join([q["text"] for q in quotes] + [commentary])
     raw_tags = fm.get("tags", [])
     tags = [t for t in raw_tags if t not in EXCLUDE_TAGS]
