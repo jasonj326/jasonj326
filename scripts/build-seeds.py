@@ -135,16 +135,38 @@ def _block_to_quote_text(block_lines: list[str]) -> str:
     return reflow_ocr_text(text) if text else ""
 
 
+# Commentary header pattern: e.g. "12月14日，No.348" / "12月19日，No. 353"
+COMMENTARY_HEADER = re.compile(r"^\s*\d+月\d+日[，,]\s*[Nn][oO]\.?\s*\d+")
+
+
+def _is_quote_terminator(line: str) -> bool:
+    """Lines that DEFINITELY end a blockquote run, even if no blank precedes.
+
+    Used for lazy plain-text continuation: once we're inside a `>` run and
+    encounter plain text, it's quote content unless it matches one of these.
+    """
+    s = line.strip()
+    if not s:
+        return False  # blank handled separately
+    if COMMENTARY_HEADER.match(line):
+        return True
+    if s.startswith("#"):
+        return True  # markdown heading or hashtag — not quote content
+    return False
+
+
 def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
     """Split body into OCR quotes + Jason's commentary.
 
-    Pure markdown semantics: `>`-prefixed lines = quote, everything else = body.
-    Within a contiguous blockquote run, `---` separates multiple quotes (and
-    blank lines stay grouped with the surrounding `>` block).
+    Lazy markdown semantics: a blockquote run starts at the first `>` line
+    and continues through (a) more `>` lines, (b) `---` / blank separators
+    when followed by more quote content, (c) plain text lines that are
+    quote continuations. The run ends on a blank-with-no-more-quote-ahead,
+    or a definite terminator (M月D日 commentary header, `#` heading/hashtag).
 
-    Jason hand-curates OCR sections in source files, so any line that should
-    appear as a quote must have `> ` prefix. No commentary-header heuristics
-    or plain-text fallbacks — what you write is what gets quoted.
+    Pragmatic, not strict CommonMark — Jason's OCR-pasted content often has
+    `>` markers around plain text rather than `> ` on every line. Parser
+    follows the visual intent rather than literal markdown.
     """
     lines = body.split("\n")
     quotes: list[dict] = []
@@ -158,13 +180,11 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
             i += 1
             continue
 
-        # Found a `>` line — pop trailing separators (`---` / blank) from
-        # leftover; they're OCR formatting buffer to this run, not body.
+        # Found a `>` — pop trailing separators from leftover (OCR buffer noise)
         while leftover and (leftover[-1].strip() == "" or leftover[-1].strip() == "---"):
             leftover.pop()
 
-        # Collect a blockquote run. `---` and blank lines are intra-run when
-        # there's another `>` block ahead (skipping past more separators).
+        # Collect run
         run: list[str] = []
         while i < n:
             s = lines[i].strip()
@@ -173,6 +193,7 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
                 i += 1
                 continue
             if s == "" or s == "---":
+                # Separator — peek past more separators for `>`
                 j = i
                 while j < n and (lines[j].strip() == "" or lines[j].strip() == "---"):
                     j += 1
@@ -181,9 +202,14 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
                         run.append(lines[i])
                         i += 1
                     continue
-            break
+                break
+            # Plain text within run — lazy quote continuation, unless terminator
+            if _is_quote_terminator(lines[i]):
+                break
+            run.append(lines[i])
+            i += 1
 
-        # Run ended. Skip past trailing separators so they don't pollute body.
+        # Run ended. Skip trailing separators so they don't pollute body.
         while i < n and (lines[i].strip() == "" or lines[i].strip() == "---"):
             i += 1
 
