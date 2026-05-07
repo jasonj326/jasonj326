@@ -33,6 +33,7 @@ SITEMAP_STATIC_PAGES = [
     ("/main-quest/communication/",         "0.6", "monthly"),
     ("/side-quest/learning-japanese/",     "0.6", "monthly"),
     ("/qualia/",                           "0.5", "monthly"),
+    ("/seeds/",                            "0.8", "weekly"),
     ("/privacy/",                          "0.3", "monthly"),
     ("/contribute/",                       "0.4", "monthly"),
 ]
