@@ -251,6 +251,11 @@
     }
     function statusLabel(st) { return ({dormant:'Dormant', sprouted:'Sprouted', archived:'Petrified'})[st] || st; }
     function formatDate(ts) { return ts.slice(0, 10); }
+    function seedShortLabel(id) {
+      const s = SEEDS.find(x => x.id === id);
+      if (!s) return id;
+      return s.source_no != null ? `No.${s.source_no}` : s.ts.slice(0, 10);
+    }
 
     // ─── Fetch seeds ───────────────────────────────────────────
     fetch('/seeds/seeds.json')
@@ -450,6 +455,13 @@
 
       const sproutLinks = (s.sprouted_into || []).map(x => `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener" class="inline-link">→ ${escapeHtml(x.title)}</a>`).join(' · ');
 
+      const derivedFromLinks = (s.derived_from || []).map(id =>
+        `<a href="#${escapeHtml(id)}" class="inline-link" title="Grew from ${escapeHtml(id)}">↑ ${escapeHtml(seedShortLabel(id))}</a>`
+      ).join(' · ');
+      const descendantLinks = (s.derived_descendants || []).map(id =>
+        `<a href="#${escapeHtml(id)}" class="inline-link" title="Grew into ${escapeHtml(id)}">↓ ${escapeHtml(seedShortLabel(id))}</a>`
+      ).join(' · ');
+
       const mediaHtml = (s.media || []).map(m => `<img src="${escapeHtml(m.url)}" alt="${escapeHtml(m.alt)}" loading="lazy" class="w-full max-h-96 object-contain rounded-lg border border-slate-200 dark:border-slate-700 mt-3">`).join('');
 
       return `
@@ -462,6 +474,8 @@
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
             ${s.source_no != null ? `<span class="text-slate-400">No.${s.source_no}</span>` : ''}
             ${(s.tags || []).slice(0, 4).map(t => `<span class="text-slate-400">${escapeHtml(t)}</span>`).join('')}
+            ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
+            ${descendantLinks ? `<span class="ml-1">Grew into ${descendantLinks}</span>` : ''}
             ${sproutLinks ? `<span class="ml-1">${sproutLinks}</span>` : ''}
           </div>
           <div class="mt-3 flex items-center gap-2 text-xs">

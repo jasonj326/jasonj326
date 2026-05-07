@@ -295,6 +295,28 @@ def main() -> int:
             continue
         seeds.append(build_seed(parsed["frontmatter"], parsed["body"]))
 
+    # Normalize derived_from to list[str], compute derived_descendants reverse map
+    ts_by_id = {s["id"]: s["ts"] for s in seeds}
+    descendants: dict[str, list[str]] = {}
+    for s in seeds:
+        df = s.get("derived_from")
+        if df is None:
+            continue
+        parents = df if isinstance(df, list) else [df]
+        s["derived_from"] = parents
+        for parent_id in parents:
+            if parent_id == s["id"]:
+                print(f"  ⚠️  {s['id']}: derived_from references self, skipping")
+                continue
+            if parent_id not in ts_by_id:
+                print(f"  ⚠️  {s['id']}: derived_from '{parent_id}' not found")
+            descendants.setdefault(parent_id, []).append(s["id"])
+    for s in seeds:
+        kids = descendants.get(s["id"])
+        if kids:
+            kids.sort(key=lambda cid: ts_by_id.get(cid, ""), reverse=True)
+            s["derived_descendants"] = kids
+
     seeds.sort(key=lambda s: s["ts"], reverse=True)
 
     OUTPUT.write_text(json.dumps(seeds, ensure_ascii=False, indent=2), encoding="utf-8")
