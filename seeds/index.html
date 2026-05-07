@@ -441,7 +441,6 @@
       const st = statusOf(s);
       const stColor = ({dormant:'status-dormant', sprouted:'status-sprouted', archived:'status-archived'})[st];
       const flags = [];
-      if (s.multi_image) flags.push(`<span class="flag-indicator font-mono" title="Multiple OCR images, may want to consolidate">📷×${s.ocr_quotes.length}</span>`);
       if (s.category === 'image_speaks') flags.push('<span class="flag-indicator font-mono" title="Tagged 一圖勝千言 (a picture is worth a thousand words)">🖼 image_speaks</span>');
 
       const quotes = (s.ocr_quotes || []).map((q, i) => {
@@ -595,7 +594,7 @@
           const seed = item.seed;
           const quote = (seed.ocr_quotes && seed.ocr_quotes[0]) ? seed.ocr_quotes[0].text : '';
           pop.innerHTML = `
-            <div class="text-xs font-mono text-slate-500 mb-1">${formatDate(seed.ts)} · No.${seed.source_no}</div>
+            <div class="text-xs font-mono text-slate-500 mb-1">${formatDate(seed.ts)}${seed.source_no != null ? ` · No.${seed.source_no}` : ''}</div>
             ${quote ? `<blockquote class="seed-quote text-sm text-slate-700 dark:text-slate-300 border-l-2 border-slate-400 pl-2 italic whitespace-pre-line mb-2">${escapeHtml(quote.slice(0, 200))}${quote.length > 200 ? '…' : ''}</blockquote>` : ''}
             ${seed.body_text ? `<div class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${escapeHtml(seed.excerpt || seed.body_text.slice(0, 120))}…</div>` : ''}
           `;
