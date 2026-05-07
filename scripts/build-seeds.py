@@ -72,6 +72,47 @@ def parse_md(raw: str) -> dict | None:
     return {"frontmatter": fm, "body": body}
 
 
+SENTENCE_FINAL = "。！？.!?…"
+
+
+def reflow_ocr_text(text: str) -> str:
+    """Merge OCR's image-width-imposed line breaks; preserve paragraph breaks.
+
+    Rules:
+      - Blank line = paragraph break, preserve
+      - Within paragraph, if previous line ends with sentence-final punctuation
+        (。！？.!?…) → keep the break
+      - Otherwise → merge: no separator if CJK-CJK boundary, single space if any Latin
+
+    This recovers natural sentence flow from OCR output where each line in the
+    image (limited by image width) becomes its own physical line.
+    """
+    paragraphs = re.split(r"\n\s*\n", text.strip())
+    out_paragraphs = []
+    for para in paragraphs:
+        lines = [ln.strip() for ln in para.split("\n") if ln.strip()]
+        if not lines:
+            continue
+        merged: list[str] = []
+        for line in lines:
+            if not merged:
+                merged.append(line)
+                continue
+            prev = merged[-1]
+            last_char = prev[-1]
+            if last_char in SENTENCE_FINAL:
+                merged.append(line)
+            else:
+                # Include CJK punctuation + fullwidth forms so "，" / "、" → no space
+                cjk_re = r"[　-〿一-鿿぀-ヿ＀-￯]"
+                is_cjk_prev = bool(re.match(cjk_re, last_char))
+                is_cjk_next = bool(re.match(cjk_re, line[0]))
+                sep = "" if (is_cjk_prev and is_cjk_next) else " "
+                merged[-1] = prev + sep + line
+        out_paragraphs.append("\n".join(merged))
+    return "\n\n".join(out_paragraphs)
+
+
 def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
     """Split body into OCR blockquotes (at top) + Jason's commentary.
 
@@ -123,6 +164,7 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
                 text_lines.append("")
         text = "\n".join(text_lines).strip()
         if text:
+            text = reflow_ocr_text(text)
             quotes.append({"text": text})
 
     return quotes, commentary
