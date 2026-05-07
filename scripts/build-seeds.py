@@ -158,8 +158,8 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
             i += 1
             continue
 
-        # Collect a blockquote run. `---` and blank lines inside the run are
-        # included only when they're sandwiched between `>` blocks.
+        # Collect a blockquote run. `---` and blank lines are intra-run when
+        # there's another `>` block ahead (skipping past more separators).
         run: list[str] = []
         while i < n:
             s = lines[i].strip()
@@ -167,14 +167,16 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
                 run.append(lines[i])
                 i += 1
                 continue
-            if s in ("", "---"):
-                # Peek next non-blank — if `>`, this separator is intra-run
-                j = i + 1
-                while j < n and lines[j].strip() == "":
+            if s == "" or s == "---":
+                # Peek past consecutive separators looking for a `>` line
+                j = i
+                while j < n and (lines[j].strip() == "" or lines[j].strip() == "---"):
                     j += 1
                 if j < n and lines[j].strip().startswith(">"):
-                    run.append(lines[i])
-                    i += 1
+                    # All separators between current pos and next `>` are intra-run
+                    while i < j:
+                        run.append(lines[i])
+                        i += 1
                     continue
             break
 
