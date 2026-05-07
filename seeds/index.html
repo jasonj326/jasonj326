@@ -42,6 +42,10 @@
     .seed-quote { font-family: ui-serif, Georgia, serif; }
     .seed-quote em { font-style: italic; }
 
+    /* Body clamp + expand/collapse toggle */
+    .seed-body { max-height: 18rem; overflow: hidden; }
+    .seed-body.expanded { max-height: none; }
+
     /* Status colors */
     .status-dormant { color: rgb(16 185 129); }   /* emerald-500 */
     .status-sprouted { color: rgb(217 119 6); }   /* amber-600 */
@@ -353,6 +357,8 @@
       TIMELINE_FULLY_RENDERED = full || FILTERED.length <= INITIAL_RENDER_CAP;
       lucide.createIcons();
       requestAnimationFrame(refreshExpandButtons);
+      // Belt-and-suspenders: also refresh after fonts/images settle
+      setTimeout(refreshExpandButtons, 200);
       buildMonthNav();
       observeMonthsForActiveHighlight();
     }
@@ -482,7 +488,7 @@
       return `
         <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-7 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
           ${quotes ? `<div class="mb-3">${quotes}</div>` : ''}
-          ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 leading-loose whitespace-pre-line max-h-72 overflow-hidden seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
+          ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 leading-loose whitespace-pre-line seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
           ${mediaHtml}
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${formatDate(s.ts)}</time>
@@ -507,18 +513,28 @@
       document.querySelectorAll('.seed-body').forEach(el => {
         const btn = el.nextElementSibling;
         if (!btn || !btn.classList.contains('expand-btn')) return;
-        // Only show if body actually overflows max-height
-        btn.style.display = (el.scrollHeight > el.clientHeight + 2) ? 'inline-block' : 'none';
+        // Only show if body actually overflows max-height (and isn't expanded)
+        if (el.classList.contains('expanded')) {
+          btn.style.display = 'inline-block';
+          btn.textContent = 'Collapse';
+        } else {
+          btn.style.display = (el.scrollHeight > el.clientHeight + 2) ? 'inline-block' : 'none';
+          btn.textContent = 'Expand';
+        }
       });
     }
 
-    // Expand full text
+    // Toggle expand/collapse
     document.addEventListener('click', e => {
       if (e.target.classList.contains('expand-btn')) {
         const card = e.target.closest('article');
         const body = card.querySelector('.seed-body');
-        body.classList.remove('max-h-48');
-        e.target.style.display = 'none';
+        body.classList.toggle('expanded');
+        if (body.classList.contains('expanded')) {
+          e.target.textContent = 'Collapse';
+        } else {
+          e.target.textContent = 'Expand';
+        }
       }
       if (e.target.classList.contains('screenshot-btn')) {
         const id = e.target.dataset.id;
