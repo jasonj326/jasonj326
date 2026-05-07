@@ -299,6 +299,7 @@
       const html = FILTERED.slice(0, 200).map(seedCardHtml).join('');
       $('timeline-view').innerHTML = html;
       lucide.createIcons();
+      requestAnimationFrame(refreshExpandButtons);
     }
 
     function seedCardHtml(s) {
@@ -319,8 +320,7 @@
       return `
         <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
           ${quotes ? `<div class="mb-3">${quotes}</div>` : ''}
-          ${s.body_text ? `<div class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line max-h-48 overflow-hidden seed-body" data-full="${escapeHtml(s.body_text)}">${escapeHtml(s.body_text.slice(0, 500))}${s.body_text.length > 500 ? '…' : ''}</div>` : ''}
-          ${s.body_text && s.body_text.length > 500 ? `<button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline">Expand</button>` : ''}
+          ${s.body_text ? `<div class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line max-h-48 overflow-hidden seed-body">${escapeHtml(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
           <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${formatDate(s.ts)}</time>
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
@@ -338,14 +338,23 @@
       `;
     }
 
+    // Detect actual overflow per body (post-render) and reveal Expand button only when needed
+    function refreshExpandButtons() {
+      document.querySelectorAll('.seed-body').forEach(el => {
+        const btn = el.nextElementSibling;
+        if (!btn || !btn.classList.contains('expand-btn')) return;
+        // Only show if body actually overflows max-height
+        btn.style.display = (el.scrollHeight > el.clientHeight + 2) ? 'inline-block' : 'none';
+      });
+    }
+
     // Expand full text
     document.addEventListener('click', e => {
       if (e.target.classList.contains('expand-btn')) {
         const card = e.target.closest('article');
         const body = card.querySelector('.seed-body');
         body.classList.remove('max-h-48');
-        body.textContent = body.dataset.full;
-        e.target.remove();
+        e.target.style.display = 'none';
       }
       if (e.target.classList.contains('screenshot-btn')) {
         const id = e.target.dataset.id;
@@ -496,6 +505,7 @@
       $('resurface-content').innerHTML = picks.map(seedCardHtml).join('');
       $('resurface-modal').classList.remove('hidden');
       lucide.createIcons();
+      requestAnimationFrame(refreshExpandButtons);
     });
     function closeResurface() { $('resurface-modal').classList.add('hidden'); }
     window.closeResurface = closeResurface;
