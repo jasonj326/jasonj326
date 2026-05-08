@@ -1,5 +1,25 @@
 [
   {
+    "id": "2026-05-08-builder-log",
+    "ts": "2026-05-08T10:23:30+08:00",
+    "tags": [
+      "y2026",
+      "builder"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "1. 不能既要又要：原本期待十秒內回答，每月不超過 $15 費用，又給了一堆矛盾指令，還期待很低的容錯率，根本慣老闆\n2. 網站更新——總算把 2021 年的舊文搬過來，原本想放 3pwriting 但是覺得有些不成熟、有些零碎，稱不上 writing，取名種子牆覺得很棒\n3. 下一階段：更新Now page 及PIF12, 2021/1 貼文校正",
+    "word_count": 101,
+    "excerpt": "1. 不能既要又要：原本期待十秒內回答，每月不超過 $15 費用，又給了一堆矛盾指令，還期待很低的容錯率，根本慣老闆 2.",
+    "search_text": "1 不能既要又要 原本期待十秒內回答 每月不超過 15 費用 又給了一堆矛盾指令 還期待很低的容錯率 根本慣老闆 2 網站更新 總算把 2021 年的舊文搬過來 原本想放 3pwriting 但是覺得有些不成熟 有些零碎 稱不上 writing 取名種子牆覺得很棒 3 下一階段 更新now page 及pif12 2021 1 貼文校正 y2026 builder",
+    "media_count": 0
+  },
+  {
     "id": "2026-05-07-git-post",
     "ts": "2026-05-07T00:00:00+08:00",
     "tags": [
@@ -37,26 +57,6 @@
     "word_count": 24,
     "excerpt": "Jason: Finally transplanted Mr. ProblemSolving (Mr. PS)'s 2021 posts into this n…",
     "search_text": "jason finally transplanted mr problemsolving mr ps s 2021 posts into this new garden seed wall excited to see how these seeds grow without algorithm y2026 converge",
-    "media_count": 0
-  },
-  {
-    "id": "2026-05-08-Builder-Log",
-    "ts": "2026-05-07T00:00:00+08:00",
-    "tags": [
-      "y2026",
-      "builder"
-    ],
-    "source": null,
-    "source_no": null,
-    "source_title": null,
-    "multi_image": false,
-    "ocr_pending": false,
-    "category": null,
-    "ocr_quotes": [],
-    "body_text": "1. 不能既要又要：原本期待十秒內回答，每月不超過 $15 費用，又給了一堆矛盾指令，還期待很低的容錯率，根本慣老闆\n2. 網站更新——總算把 2021 年的舊文搬過來，原本想放 3pwriting 但是覺得有些不成熟、有些零碎，稱不上 writing，取名種子牆覺得很棒\n3. 下一階段：更新Now page 及PIF12, 2021/1 貼文校正",
-    "word_count": 101,
-    "excerpt": "1. 不能既要又要：原本期待十秒內回答，每月不超過 $15 費用，又給了一堆矛盾指令，還期待很低的容錯率，根本慣老闆 2.",
-    "search_text": "1 不能既要又要 原本期待十秒內回答 每月不超過 15 費用 又給了一堆矛盾指令 還期待很低的容錯率 根本慣老闆 2 網站更新 總算把 2021 年的舊文搬過來 原本想放 3pwriting 但是覺得有些不成熟 有些零碎 稱不上 writing 取名種子牆覺得很棒 3 下一階段 更新now page 及pif12 2021 1 貼文校正 y2026 builder",
     "media_count": 0
   },
   {
