@@ -333,27 +333,35 @@
       return html;
     }
     function renderInlineMd(text) {
-      // Inline code first (single backticks), then links, then plain escape
+      // Inline code first (single backticks), then links + bold, then plain escape
       let out = '';
       const inlineRe = /`([^`\n]+)`/g;
       let last = 0;
       let m;
       while ((m = inlineRe.exec(text)) !== null) {
-        out += renderLinksOnly(text.slice(last, m.index));
+        out += renderLinksAndBold(text.slice(last, m.index));
         out += `<code class="seed-inline-code">${escapeHtml(m[1])}</code>`;
         last = m.index + m[0].length;
       }
-      out += renderLinksOnly(text.slice(last));
+      out += renderLinksAndBold(text.slice(last));
       return out;
     }
-    function renderLinksOnly(text) {
-      const linkRe = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+    // Process [text](url) links AND **bold**, leaving everything else escaped.
+    function renderLinksAndBold(text) {
+      // Tokens: [text](url) | **bold** | plain
+      const tokenRe = /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*\n]+)\*\*/g;
       let out = '';
       let last = 0;
       let m;
-      while ((m = linkRe.exec(text)) !== null) {
+      while ((m = tokenRe.exec(text)) !== null) {
         out += escapeHtml(text.slice(last, m.index));
-        out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
+        if (m[1] !== undefined) {
+          // markdown link
+          out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
+        } else {
+          // bold
+          out += `<strong>${escapeHtml(m[3])}</strong>`;
+        }
         last = m.index + m[0].length;
       }
       out += escapeHtml(text.slice(last));
