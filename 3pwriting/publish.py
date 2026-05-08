@@ -99,6 +99,7 @@ HTML_TMPL = """<!DOCTYPE html>
     .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
     .footnote { padding-top: 4rem; margin-top: -4rem; } /* 修 UI 缺點：跳轉時不擋 navbar */
 </style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
   
@@ -195,46 +196,6 @@ HTML_TMPL = """<!DOCTYPE html>
 
         <!-- 💡 訂閱表單 Subscribe / Newsletter (使用 not-prose 隔離排版污染) -->
         <div class="not-prose">
-            <section class="mt-8 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-                <div class="space-y-4">
-                    <h2 class="text-lg font-bold font-mono flex items-center gap-2">
-                        <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
-                        Stay Connected
-                        <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
-                    </h2>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
-                        訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
-                    </p>
-                    <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Name (optional)"
-                            aria-label="Name"
-                            class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                        >
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="your@email.com"
-                            required
-                            aria-label="Email Address"
-                            class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                        >
-                        <input type="hidden" name="_gotcha" style="display:none !important">
-                        <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
-                            Join
-                        </button>
-                    </form>
-                    <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                        You can also get updates the old-school way / 或是選擇老派的更新方式 
-                        <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
-                            <i data-lucide="rss" class="w-4 h-4"></i> RSS
-                        </a>
-                    </div>
-                </div>
-            </section>
         </div>
 
         <!-- 💡 免責聲明 Disclaimer (不受 Prose 排版影響，獨立區塊) -->
@@ -297,6 +258,7 @@ HTML_TMPL = """<!DOCTYPE html>
         }
     }
   </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
 </body>
 </html>
 """
@@ -379,6 +341,7 @@ INDEX_TMPL = """<!DOCTYPE html>
     .tag-btn.active { background-color: rgb(124 58 237); color: white; border-color: rgb(91 33 182); }
     .dark .tag-btn.active { border-color: rgb(167 139 250); }
   </style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
   
@@ -470,46 +433,6 @@ INDEX_TMPL = """<!DOCTYPE html>
     {pagination}
 
     <!-- 💡 訂閱表單 Subscribe / Newsletter (放置於文章列表底部) -->
-    <section class="mt-16 mb-12 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-        <div class="space-y-4">
-            <h2 class="text-lg font-bold font-mono flex items-center gap-2">
-                <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
-                Stay Connected
-                <span class="text-sm font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
-            </h2>
-            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
-                訂閱搶先看中英雙語個人動態與活動。保證無垃圾信，隨時取消！
-            </p>
-            <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name (optional)"
-                    aria-label="Name"
-                    class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                >
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                    aria-label="Email Address"
-                    class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                >
-                <input type="hidden" name="_gotcha" style="display:none !important">
-                <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
-                    Join
-                </button>
-            </form>
-            <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                You can also get updates the old-school way / 或是選擇老派的更新方式 
-                <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
-                    <i data-lucide="rss" class="w-4 h-4"></i> RSS
-                </a>
-            </div>
-        </div>
-    </section>
 
   </main>
 
@@ -553,6 +476,7 @@ INDEX_TMPL = """<!DOCTYPE html>
     initTheme();
     function navigateTo(path) { window.location.href = path; }
   </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
 </body>
 </html>
 """
