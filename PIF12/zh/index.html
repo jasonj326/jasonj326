@@ -669,6 +669,51 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Right-side scroll jump nav (md+) */
+  .jump-nav {
+    position: fixed;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  @media (min-width: 768px) { .jump-nav { display: flex; } }
+  .jump-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--warm-gray);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    transition: opacity 0.25s, color 0.25s;
+  }
+  .jump-nav a .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--warm-gray);
+    flex-shrink: 0;
+    transition: background 0.25s, transform 0.25s;
+  }
+  .jump-nav a .label {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .jump-nav:hover a .label,
+  .jump-nav a.active .label { opacity: 1; transform: translateX(0); }
+  .jump-nav a:hover { opacity: 1; color: var(--star-gold); }
+  .jump-nav a:hover .dot { background: var(--star-gold); }
+  .jump-nav a.active { opacity: 1; color: var(--star-gold); }
+  .jump-nav a.active .dot { background: var(--star-gold); transform: scale(1.3); }
 </style>
 
 <!-- Bilingual SEO + social sharing -->
@@ -711,8 +756,19 @@
   </div>
 </nav>
 
+<!-- Right-side scroll jump nav (md+ only) -->
+<aside class="jump-nav" aria-label="跳轉導覽">
+  <a href="#top" data-section="top"><span class="dot"></span><span class="label">頂端</span></a>
+  <a href="#what" data-section="what"><span class="dot"></span><span class="label">SBT</span></a>
+  <a href="#why" data-section="why"><span class="dot"></span><span class="label">12 年</span></a>
+  <a href="#who" data-section="who"><span class="dot"></span><span class="label">發起人</span></a>
+  <a href="#how" data-section="how"><span class="dot"></span><span class="label">怎麼運作</span></a>
+  <a href="#join" data-section="join"><span class="dot"></span><span class="label">參與</span></a>
+  <a href="#faq" data-section="faq"><span class="dot"></span><span class="label">FAQ</span></a>
+</aside>
+
 <!-- Hero -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-omamori">
     <svg class="omamori-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Omamori body -->
@@ -1017,6 +1073,31 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Right-side jump nav: scroll-driven active highlight
+  (() => {
+    const sections = ['top', 'what', 'why', 'who', 'how', 'join', 'faq']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+    if (!sections.length || !links.length) return;
+    let raf = false;
+    function update() {
+      raf = false;
+      const probe = window.scrollY + window.innerHeight * 0.35;
+      let active = sections[0].id;
+      for (const s of sections) {
+        if (s.offsetTop <= probe) active = s.id;
+      }
+      links.forEach(a => a.classList.toggle('active', a.dataset.section === active));
+    }
+    window.addEventListener('scroll', () => {
+      if (raf) return;
+      raf = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  })();
 </script>
 
 </body>
