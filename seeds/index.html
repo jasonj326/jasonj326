@@ -46,6 +46,20 @@
     .seed-body { max-height: 18rem; overflow: hidden; }
     .seed-body.expanded { max-height: none; }
 
+    /* Numbered list item — hanging indent (wrapped lines align with text after the number) */
+    .seed-body .seed-list-item {
+      display: block;
+      padding-left: 2em;
+      text-indent: -2em;
+    }
+    /* Markdown horizontal rule */
+    .seed-body .seed-hr {
+      border: none;
+      border-top: 1px solid rgb(203 213 225);
+      margin: 0.6rem 0;
+    }
+    .dark .seed-body .seed-hr { border-top-color: rgb(51 65 85); }
+
     /* Code blocks within body */
     .seed-body pre.seed-code {
       background: rgb(241 245 249);
@@ -324,13 +338,42 @@
       let lastEnd = 0;
       let m;
       while ((m = fencedRe.exec(text)) !== null) {
-        html += renderInlineMd(text.slice(lastEnd, m.index));
+        html += postProcessLines(renderInlineMd(text.slice(lastEnd, m.index)));
         const code = m[1].replace(/^\n/, '').replace(/\n$/, '');
         html += `<pre class="seed-code"><code>${escapeHtml(code)}</code></pre>`;
         lastEnd = m.index + m[0].length;
       }
-      html += renderInlineMd(text.slice(lastEnd));
+      html += postProcessLines(renderInlineMd(text.slice(lastEnd)));
       return html;
+    }
+    // Line-based post-process: wrap ordered-list items for hanging indent
+    // and convert `---` lines to <hr>. Runs only on non-code segments.
+    function postProcessLines(html) {
+      const lines = html.split('\n');
+      const out = [];
+      let i = 0;
+      while (i < lines.length) {
+        const line = lines[i];
+        const trimmed = line.trim();
+        if (trimmed === '---') {
+          out.push('<hr class="seed-hr">');
+          i++;
+          continue;
+        }
+        if (/^\d+\.\s/.test(line)) {
+          const items = [line];
+          i++;
+          while (i < lines.length && lines[i].trim() !== '' && !/^\d+\.\s/.test(lines[i]) && lines[i].trim() !== '---') {
+            items.push(lines[i].replace(/^[\t ]+/, ''));
+            i++;
+          }
+          out.push(`<span class="seed-list-item">${items.join('\n')}</span>`);
+          continue;
+        }
+        out.push(line);
+        i++;
+      }
+      return out.join('\n');
     }
     function renderInlineMd(text) {
       // Inline code first (single backticks), then links + bold, then plain escape
