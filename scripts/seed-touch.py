@@ -69,12 +69,13 @@ def main() -> int:
         return 0  # no frontmatter — skip
     fm, body = parsed
 
-    if args.new:
-        ts = get_field(fm, "ts")
-        # Only fill if ts is missing or not a full timestamp
-        if ts is None or not is_full_iso(ts):
-            fm = set_field(fm, "ts", args.now)
-    else:  # --modified
+    # Always fill ts if missing/incomplete (safety net for both modes)
+    ts = get_field(fm, "ts")
+    if ts is None or not is_full_iso(ts):
+        fm = set_field(fm, "ts", args.now)
+
+    # --modified: also stamp updated_at
+    if args.modified:
         fm = set_field(fm, "updated_at", args.now)
 
     new_text = f"---\n{fm}\n---\n{body}"

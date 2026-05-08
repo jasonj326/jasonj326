@@ -7,21 +7,22 @@ if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ] || [ -f .git/MERGE_HEAD 
   exit 0
 fi
 
-NEW=$(git diff --cached --name-only --diff-filter=A 2>/dev/null | grep '^seeds/posts/.*\.md$' || true)
-MOD=$(git diff --cached --name-only --diff-filter=M 2>/dev/null | grep '^seeds/posts/.*\.md$' || true)
-
-[ -z "$NEW" ] && [ -z "$MOD" ] && exit 0
-
 NOW=$(TZ='Asia/Taipei' date +'%Y-%m-%dT%H:%M:%S+08:00')
 
-for f in $NEW; do
-  python3 scripts/seed-touch.py --new --file "$f" --now "$NOW" || true
-  git add "$f"
-done
+# Use newline-only IFS so filenames with spaces survive the loop
+process() {
+  local mode="$1"
+  local filter="$2"
+  git diff --cached --name-only --diff-filter="$filter" 2>/dev/null \
+    | grep '^seeds/posts/.*\.md$' \
+    | while IFS= read -r f; do
+        [ -z "$f" ] && continue
+        python3 scripts/seed-touch.py "$mode" --file "$f" --now "$NOW" || true
+        git add "$f"
+      done
+}
 
-for f in $MOD; do
-  python3 scripts/seed-touch.py --modified --file "$f" --now "$NOW" || true
-  git add "$f"
-done
+process --new A
+process --modified M
 
 exit 0
