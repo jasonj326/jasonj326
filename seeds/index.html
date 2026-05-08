@@ -285,6 +285,13 @@
     }
     function statusLabel(st) { return ({dormant:'Dormant', sprouted:'Sprouted', archived:'Petrified'})[st] || st; }
     function formatDate(ts) { return ts.slice(0, 10); }
+    function formatDateTime(ts) {
+      const m = (ts || '').match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})/);
+      return m ? `${m[1]} ${m[2]}:${m[3]}` : (ts || '').slice(0, 10);
+    }
+    function isMidnightTs(ts) { return /T00:00:00/.test(ts || ''); }
+    // Date label: just date for midnight ts (cackle imports), date+time otherwise
+    function dateLabel(ts) { return isMidnightTs(ts) ? formatDate(ts) : formatDateTime(ts); }
     // Day count from epoch 2020-12-31 = grounding truth for cackle seed numbering
     // (skip 2021-12-17 which has no seed; later days don't shift back)
     const SEED_EPOCH_MS = Date.parse('2020-12-31T00:00:00+08:00');
@@ -557,9 +564,10 @@
           ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 leading-loose whitespace-pre-line seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
           ${mediaHtml}
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
-            <time>${formatDate(s.ts)}</time>
+            <time>${dateLabel(s.ts)}</time>
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
             ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
+            ${s.updated_at ? `<span class="text-slate-400 italic">(updated ${formatDateTime(s.updated_at)})</span>` : ''}
             ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
             ${descendantLinks ? `<span class="ml-1">Grew into ${descendantLinks}</span>` : ''}
             ${sproutLinks ? `<span class="ml-1">${sproutLinks}</span>` : ''}

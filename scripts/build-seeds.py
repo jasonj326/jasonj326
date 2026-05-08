@@ -307,7 +307,7 @@ def build_seed(fm: dict, body: str) -> dict:
     if media:
         seed["media"] = media
     # Optional fields, only emit if present
-    for opt in ("sprouted_into", "archived_at", "derived_from"):
+    for opt in ("sprouted_into", "archived_at", "derived_from", "updated_at"):
         if opt in fm and fm[opt] not in (None, []):
             seed[opt] = fm[opt]
     return seed
