@@ -715,7 +715,49 @@
   .jump-nav a:hover .dot { background: var(--star-gold); }
   .jump-nav a.active { opacity: 1; color: var(--star-gold); }
   .jump-nav a.active .dot { background: var(--star-gold); transform: scale(1.3); }
+
+  /* FAB Subscribe — PIF12 gold theme override */
+  #fab-subscribe {
+    background: var(--star-gold);
+    color: var(--deep-navy);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  #fab-popover {
+    background: var(--deep-navy);
+    border-color: var(--star-gold);
+    box-shadow: 4px 4px 0 0 rgba(201, 169, 110, 0.4);
+    color: var(--soft-white);
+  }
+  #fab-popover h3 { color: var(--star-gold); }
+  #fab-popover h3 .fab-zh { color: var(--star-gold-light); opacity: 0.7; }
+  #fab-popover p { color: var(--soft-white); opacity: 0.85; }
+  #fab-popover input[type="text"],
+  #fab-popover input[type="email"] {
+    background: var(--muted-blue);
+    border-color: var(--star-gold);
+    color: var(--soft-white);
+  }
+  #fab-popover input::placeholder { color: rgba(240, 237, 230, 0.4); }
+  #fab-popover button[type="submit"] {
+    background: var(--star-gold);
+    color: var(--deep-navy);
+    border-color: var(--star-gold);
+  }
+  #fab-popover .fab-close { color: var(--warm-gray); }
+  #fab-popover .fab-close:hover { color: var(--star-gold); }
 </style>
+<link rel="stylesheet" href="/assets/fab-subscribe.css">
+<script>
+  window.fabSubscribe = {
+    title: "Save the Date",
+    titleZh: "邀請名單",
+    desc: "Official launch: June 21, 2026. Drop your email for the invite list and key updates.",
+    descZh: "正式啟動日：2026/6/21。留下 email 加入邀請名單與重要進度。",
+    source: "pif12-en",
+    cta: "Save the date →",
+    hideRss: true,
+  };
+</script>
 
 <!-- Bilingual SEO + social sharing -->
 <link rel="alternate" hreflang="en" href="https://jasonjlai.net/PIF12">
@@ -1101,5 +1143,6 @@
   })();
 </script>
 
+<script src="/assets/fab-subscribe.js" defer></script>
 </body>
 </html>

@@ -346,9 +346,8 @@
       out += renderLinksAndBold(text.slice(last));
       return out;
     }
-    // Process [text](url) links AND **bold**, leaving everything else escaped.
+    // Process [text](url) links AND **bold** (links nest inside bold).
     function renderLinksAndBold(text) {
-      // Tokens: [text](url) | **bold** | plain
       const tokenRe = /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*\n]+)\*\*/g;
       let out = '';
       let last = 0;
@@ -356,12 +355,22 @@
       while ((m = tokenRe.exec(text)) !== null) {
         out += escapeHtml(text.slice(last, m.index));
         if (m[1] !== undefined) {
-          // markdown link
           out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
         } else {
-          // bold
-          out += `<strong>${escapeHtml(m[3])}</strong>`;
+          // bold — recursively process links inside
+          out += `<strong>${renderLinksOnly(m[3])}</strong>`;
         }
+        last = m.index + m[0].length;
+      }
+      out += escapeHtml(text.slice(last));
+      return out;
+    }
+    function renderLinksOnly(text) {
+      const linkRe = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+      let out = '', last = 0, m;
+      while ((m = linkRe.exec(text)) !== null) {
+        out += escapeHtml(text.slice(last, m.index));
+        out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
         last = m.index + m[0].length;
       }
       out += escapeHtml(text.slice(last));
@@ -582,7 +591,7 @@
       return `
         <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-7 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
           ${quotes ? `<div class="mb-3">${quotes}</div>` : ''}
-          ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 leading-loose whitespace-pre-line seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
+          ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 leading-loose whitespace-pre-wrap seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
           ${mediaHtml}
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${dateLabel(s.ts)}</time>

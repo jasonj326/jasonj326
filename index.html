@@ -148,106 +148,8 @@
             background: conic-gradient(from 0deg, #34d399, #6ee7b7, #a7f3d0, #34d399);
         }
 
-        /* Floating Subscribe button + popover */
-        #fab-subscribe {
-            position: fixed;
-            right: 1.5rem;
-            bottom: 1.5rem;
-            z-index: 50;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.1rem;
-            background: rgb(99 102 241);
-            color: white;
-            border: none;
-            border-radius: 9999px;
-            font-family: ui-monospace, monospace;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-        }
-        .dark #fab-subscribe { background: rgb(20 184 166); color: rgb(15 23 42); }
-        #fab-subscribe:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); }
-        #fab-subscribe svg { width: 16px; height: 16px; }
-        #fab-popover {
-            position: fixed;
-            right: 1.5rem;
-            bottom: 4.5rem;
-            z-index: 50;
-            width: 320px;
-            max-width: calc(100vw - 3rem);
-            background: white;
-            border: 2px solid rgb(15 23 42);
-            border-radius: 1rem;
-            padding: 1.25rem;
-            box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1);
-            opacity: 0;
-            transform: translateY(8px) scale(0.96);
-            pointer-events: none;
-            transition: opacity 0.18s, transform 0.18s;
-        }
-        .dark #fab-popover {
-            background: rgb(30 41 59);
-            border-color: rgb(203 213 225);
-            box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1);
-        }
-        #fab-popover.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-        #fab-popover h3 { font-family: ui-monospace, monospace; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
-        #fab-popover h3 .fab-zh { font-size: 0.75rem; font-weight: 400; color: rgb(100 116 139); margin-left: 0.25rem; }
-        .dark #fab-popover h3 .fab-zh { color: rgb(148 163 184); }
-        #fab-popover p { font-size: 0.8rem; color: rgb(100 116 139); line-height: 1.5; margin-bottom: 0.4rem; }
-        #fab-popover p:last-of-type { margin-bottom: 0.85rem; }
-        .dark #fab-popover p { color: rgb(148 163 184); }
-        #fab-popover input[type="text"],
-        #fab-popover input[type="email"] {
-            width: 100%; padding: 0.55rem 0.75rem;
-            border: 2px solid rgb(15 23 42); border-radius: 0.5rem;
-            background: rgb(248 250 252); color: rgb(15 23 42);
-            font-family: ui-monospace, monospace; font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-        .dark #fab-popover input[type="text"],
-        .dark #fab-popover input[type="email"] {
-            border-color: rgb(203 213 225); background: rgb(15 23 42); color: white;
-        }
-        #fab-popover input:focus { outline: 2px solid rgb(99 102 241); outline-offset: 0; }
-        #fab-popover .fab-rss {
-            margin-top: 0.85rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid rgb(226 232 240);
-            font-size: 0.75rem;
-            color: rgb(100 116 139);
-        }
-        .dark #fab-popover .fab-rss { border-top-color: rgb(51 65 85); color: rgb(148 163 184); }
-        #fab-popover .fab-rss a {
-            display: inline-flex; align-items: center; gap: 0.3rem;
-            color: rgb(249 115 22);
-            font-family: ui-monospace, monospace; font-weight: 700;
-            text-decoration: underline; text-decoration-color: rgba(249, 115, 22, 0.3);
-            text-underline-offset: 2px;
-            margin-left: 0.25rem;
-        }
-        #fab-popover .fab-rss a:hover { color: rgb(234 88 12); }
-        .dark #fab-popover .fab-rss a:hover { color: rgb(251 146 60); }
-        #fab-popover button[type="submit"] {
-            width: 100%; padding: 0.55rem;
-            background: rgb(15 23 42); color: white; border: 2px solid rgb(15 23 42);
-            border-radius: 0.5rem; font-family: ui-monospace, monospace; font-size: 0.85rem;
-            font-weight: 700; cursor: pointer; transition: transform 0.15s;
-        }
-        .dark #fab-popover button[type="submit"] { background: rgb(203 213 225); color: rgb(15 23 42); border-color: rgb(203 213 225); }
-        #fab-popover button[type="submit"]:hover { transform: translateY(-1px); }
-        #fab-popover .fab-close {
-            position: absolute; top: 0.5rem; right: 0.5rem;
-            background: transparent; border: none; cursor: pointer;
-            color: rgb(148 163 184); font-size: 1.2rem; line-height: 1; padding: 0.25rem;
-        }
-        #fab-popover .fab-close:hover { color: rgb(15 23 42); }
-        .dark #fab-popover .fab-close:hover { color: white; }
     </style>
+    <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
 
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
@@ -401,55 +303,6 @@
             <span id="latest-3p" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-bold font-mono text-sm group-hover:underline break-words">
                 Latest: loading… <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>
             </span>
-        </section>
-
-        <!-- Subscribe / Newsletter -->
-        <section class="mb-12 p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
-            <div class="space-y-4">
-                <!-- 標題 -->
-                <h2 class="text-lg font-bold font-mono flex items-center gap-2">
-                    <i data-lucide="inbox" class="w-5 h-5 text-slate-500"></i>
-                    Stay Connected
-                    <span class="text-sm font-sans font-normal text-slate-500 dark:text-slate-400">中英雙語</span>
-                </h2>
-        
-                <!-- 描述 -->
-                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.<br>
-                    訂閱搶先看中英雙語個人動態或活動邀請。保證無垃圾信，隨時取消！
-                </p>
-        
-                <!-- 表單 -->
-                <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank" class="flex flex-col sm:flex-row gap-3">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Name (optional)"
-                        aria-label="Name"
-                        class="w-full sm:w-40 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                    >
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="your@email.com"
-                        required
-                        aria-label="Email Address"
-                        class="flex-1 px-4 py-2.5 rounded-lg border-2 border-slate-900 dark:border-slate-300 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm transition-shadow"
-                    >
-                    <input type="hidden" name="_gotcha" style="display:none !important">
-                    <button type="submit" class="px-6 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold font-mono text-sm rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,0.5)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,0.5)] transition-all shrink-0">
-                        Join
-                    </button>
-                </form>
-
-                <!-- RSS 訂閱連結 -->
-                <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                    You can also get updates the old-school way / 或是選擇老派的更新方式：
-                    <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-bold font-mono underline decoration-orange-500/30 underline-offset-2 hover:decoration-orange-500">
-                        <i data-lucide="rss" class="w-4 h-4"></i> RSS
-                    </a>
-                </div>
-            </div>
         </section>
 
         <!-- 6. Side Quests -->
@@ -759,53 +612,6 @@
 
         loadLatest3P();
     </script>
-<!-- Floating Subscribe button + popover -->
-<button id="fab-subscribe" type="button" aria-label="Subscribe" aria-expanded="false">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-  Subscribe
-</button>
-<div id="fab-popover" role="dialog" aria-labelledby="fab-popover-title">
-  <button type="button" class="fab-close" aria-label="Close">×</button>
-  <h3 id="fab-popover-title">Stay Connected <span class="fab-zh">中英雙語</span></h3>
-  <p>Drop your email for bilingual (EN/中) personal thoughts & collab invites first. No Spam and cancel anytime.</p>
-  <p>訂閱搶先看中英雙語個人動態或活動邀請。保證無垃圾信，隨時取消！</p>
-  <form action="https://formspree.io/f/xgonbqgr" method="POST" target="_blank">
-    <input type="text" name="name" placeholder="Name (optional)" aria-label="Name">
-    <input type="email" name="email" placeholder="your@email.com" required aria-label="Email">
-    <input type="hidden" name="_source" value="floating-button">
-    <input type="hidden" name="_gotcha" style="display:none !important">
-    <button type="submit">Subscribe →</button>
-  </form>
-  <div class="fab-rss">
-    Old-school updates / 或老派更新：
-    <a href="/3pwriting/feed.xml" target="_blank" rel="noopener noreferrer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
-      RSS
-    </a>
-  </div>
-</div>
-<script>
-  (() => {
-    const btn = document.getElementById('fab-subscribe');
-    const pop = document.getElementById('fab-popover');
-    const close = pop.querySelector('.fab-close');
-    function setOpen(open) {
-      pop.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (open) pop.querySelector('input[type="email"]').focus();
-    }
-    btn.addEventListener('click', e => { e.stopPropagation(); setOpen(!pop.classList.contains('open')); });
-    close.addEventListener('click', () => setOpen(false));
-    document.addEventListener('click', e => {
-      if (!pop.classList.contains('open')) return;
-      if (pop.contains(e.target) || btn.contains(e.target)) return;
-      setOpen(false);
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && pop.classList.contains('open')) setOpen(false);
-    });
-  })();
-</script>
-
+<script src="/assets/fab-subscribe.js" defer></script>
 </body>
 </html>
