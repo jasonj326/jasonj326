@@ -46,6 +46,36 @@
     .seed-body { max-height: 18rem; overflow: hidden; }
     .seed-body.expanded { max-height: none; }
 
+    /* Code blocks within body */
+    .seed-body pre.seed-code {
+      background: rgb(241 245 249);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      font-size: 13px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre;
+      line-height: 1.5;
+      border: 1px solid rgb(226 232 240);
+    }
+    .dark .seed-body pre.seed-code {
+      background: rgb(15 23 42);
+      border-color: rgb(51 65 85);
+    }
+    .seed-body code.seed-inline-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      font-size: 0.9em;
+      background: rgb(241 245 249);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: rgb(190 24 93);
+    }
+    .dark .seed-body code.seed-inline-code {
+      background: rgb(30 41 59);
+      color: rgb(244 114 182);
+    }
+
     /* Status colors */
     .status-dormant { color: rgb(16 185 129); }   /* emerald-500 */
     .status-sprouted { color: rgb(217 119 6); }   /* amber-600 */
@@ -267,9 +297,38 @@
       if (!s) return id;
       return s.source_no != null ? `No.${dayCountNo(s.ts)}` : s.ts.slice(0, 10);
     }
-    // Render body text: escape HTML, then convert markdown [text](url) links to <a> tags.
-    // Preserves newlines (parent uses whitespace-pre-line).
+    // Render body text: escape HTML + handle markdown for fenced code blocks,
+    // inline code, and [text](url) links. Newlines preserved by parent's
+    // whitespace-pre-line; <pre> overrides for code block (literal whitespace).
     function renderBodyMarkdown(text) {
+      let html = '';
+      const fencedRe = /```([\s\S]*?)```/g;
+      let lastEnd = 0;
+      let m;
+      while ((m = fencedRe.exec(text)) !== null) {
+        html += renderInlineMd(text.slice(lastEnd, m.index));
+        const code = m[1].replace(/^\n/, '').replace(/\n$/, '');
+        html += `<pre class="seed-code"><code>${escapeHtml(code)}</code></pre>`;
+        lastEnd = m.index + m[0].length;
+      }
+      html += renderInlineMd(text.slice(lastEnd));
+      return html;
+    }
+    function renderInlineMd(text) {
+      // Inline code first (single backticks), then links, then plain escape
+      let out = '';
+      const inlineRe = /`([^`\n]+)`/g;
+      let last = 0;
+      let m;
+      while ((m = inlineRe.exec(text)) !== null) {
+        out += renderLinksOnly(text.slice(last, m.index));
+        out += `<code class="seed-inline-code">${escapeHtml(m[1])}</code>`;
+        last = m.index + m[0].length;
+      }
+      out += renderLinksOnly(text.slice(last));
+      return out;
+    }
+    function renderLinksOnly(text) {
       const linkRe = /\[([^\]]+)\]\(([^)\s]+)\)/g;
       let out = '';
       let last = 0;
