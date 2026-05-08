@@ -103,6 +103,17 @@
     .dark .tag-legal    { color: rgb(253 164 175); }
     .dark .tag-invites  { color: rgb(196 181 253); }
 
+    /* Card tag chips — clickable, look like the metadata text but interactive */
+    .card-tag-chip {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      transition: text-decoration 0.15s, opacity 0.15s;
+    }
+    .card-tag-chip:hover { text-decoration: underline; text-underline-offset: 2px; }
+
     /* Garden SVG */
     #garden-canvas { cursor: grab; }
     #garden-canvas circle { transition: r 0.2s, opacity 0.2s; cursor: pointer; }
@@ -642,7 +653,7 @@
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
             ${(s.tags || []).filter(t => !/^y\d{4}$/.test(t)).slice(0, 4).map(t => {
               const cls = ({builder:'tag-builder',legal:'tag-legal',invites:'tag-invites'})[t] || 'text-slate-400';
-              return `<span class="${cls}">${escapeHtml(t)}</span>`;
+              return `<button type="button" class="card-tag-chip ${cls}" data-tag="${escapeHtml(t)}">${escapeHtml(t)}</button>`;
             }).join('')}
             ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
             ${s.updated_at ? `<span class="text-slate-400 italic">(updated ${formatDateTime(s.updated_at)})</span>` : ''}
@@ -697,6 +708,19 @@
       if (e.target.classList.contains('copylink-btn')) {
         const id = e.target.dataset.id;
         copyPermalink(id);
+      }
+      // Card tag chip click → filter by that tag (mirrors top filter chip click)
+      if (e.target.classList.contains('card-tag-chip')) {
+        const tag = e.target.dataset.tag;
+        if (!tag) return;
+        state.tag = tag;
+        // Sync top filter chip active state
+        document.querySelectorAll('.tag-chip').forEach(b => b.classList.remove('active', 'bg-indigo-100', 'dark:bg-emerald-900/40'));
+        const topChip = document.querySelector(`.tag-chip[data-tag="${CSS.escape(tag)}"]`);
+        if (topChip) topChip.classList.add('active', 'bg-indigo-100', 'dark:bg-emerald-900/40');
+        applyFilters();
+        // Scroll to top so user sees filtered list
+        window.scrollTo({ top: 0, behavior: 'instant' });
       }
     });
 
