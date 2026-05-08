@@ -566,6 +566,7 @@
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${dateLabel(s.ts)}</time>
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
+            ${(s.tags || []).filter(t => !/^y\d{4}$/.test(t)).slice(0, 4).map(t => `<span class="text-slate-400">${escapeHtml(t)}</span>`).join('')}
             ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
             ${s.updated_at ? `<span class="text-slate-400 italic">(updated ${formatDateTime(s.updated_at)})</span>` : ''}
             ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
