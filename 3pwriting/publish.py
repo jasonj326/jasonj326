@@ -21,7 +21,7 @@ LANG_LABELS = {'en': 'English', 'zh-Hant': '中文', 'zh': '中文', 'zh-TW': '�
 LANG_DISPLAY_ORDER = ['zh-Hant', 'en', 'ja']  # how the switcher arranges alternates
 
 # Sitemap: static landing pages with priority + changefreq.
-# Excludes redirect pages (main-quest/PIF12) and dev tools (tools/thumbnail).
+# Excludes redirect pages (main-quest/PIF12, main-quest/communication) and dev tools (tools/thumbnail).
 SITEMAP_STATIC_PAGES = [
     ("/",                                  "1.0", "weekly"),
     ("/now/",                              "0.9", "weekly"),
@@ -30,7 +30,8 @@ SITEMAP_STATIC_PAGES = [
     ("/PIF12/zh/",                         "0.9", "weekly"),
     ("/main-quest/",                       "0.7", "monthly"),
     ("/main-quest/2026-in-action/",        "0.6", "monthly"),
-    ("/main-quest/communication/",         "0.6", "monthly"),
+    ("/communication/",                    "0.6", "monthly"),
+    ("/communication-zh/",                 "0.6", "monthly"),
     ("/side-quest/learning-japanese/",     "0.6", "monthly"),
     ("/qualia/",                           "0.5", "monthly"),
     ("/seeds/",                            "0.8", "weekly"),
