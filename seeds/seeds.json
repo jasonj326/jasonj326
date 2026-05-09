@@ -13,10 +13,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "Building **LLM-Wiki**——第二大腦的 mastermind。\n\n願景：Chief of Staff Qualia 知道我幾乎所有知道的事——甚至**更多**（我會忘，她不會）。L1-L4 知識框架是骨幹（Reality Constraints / Universal Structures / Cognitive OS / Domain Knowledge）。Republic Labs 內部專案。\n\n跟 trainee Qualia 的差別：\n\n- **trainee** = public chat agent，RAG over 我的公開寫作\n- **LLM-Wiki** = private knowledge graph，含 internal 思考、SOPs、決策日誌、客戶筆記—— 🔴 sensitive 全留 local",
-    "word_count": 97,
-    "excerpt": "Building **LLM-Wiki**——第二大腦的 mastermind。 願景：Chief of Staff Qualia 知道我幾乎所有知道的事——甚…",
-    "search_text": "building llm wiki 第二大腦的 mastermind 願景 chief of staff qualia 知道我幾乎所有知道的事 甚至 更多 我會忘 她不會 l1 l4 知識框架是骨幹 reality constraints universal structures cognitive os domain knowledge republic labs 內部專案 跟 trainee qualia 的差別 trainee public chat agent rag over 我的公開寫作 llm wiki private knowledge graph 含 internal 思考 sops 決策日誌 客戶筆記 sensitive 全留 local y2026 builder",
+    "body_text": "Building **LLM-Wiki**——建構未來第二大腦的 mastermind。\n\n想像：Chief of Staff Qualia 知道我幾乎所有知道的事——甚至**更多**（我會忘，她不會）。\n\nL1-L4 知識框架是骨幹（Reality Constraints / Universal Structures / Cognitive OS / Domain Knowledge）\n\nRepublic Labs 是希望 PIF12 年以後的有機社群，或許這四層知識架構可以有點價值——we'll see.",
+    "word_count": 86,
+    "excerpt": "Building **LLM-Wiki**——建構未來第二大腦的 mastermind。 想像：Chief of Staff Qualia 知道我幾乎所有知道的…",
+    "search_text": "building llm wiki 建構未來第二大腦的 mastermind 想像 chief of staff qualia 知道我幾乎所有知道的事 甚至 更多 我會忘 她不會 l1 l4 知識框架是骨幹 reality constraints universal structures cognitive os domain knowledge republic labs 是希望 pif12 年以後的有機社群 或許這四層知識架構可以有點價值 we ll see y2026 builder",
     "media_count": 0
   },
   {
@@ -33,10 +33,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "我的 Telegram 行為教練 bot (Cloudflare Worker + D1 + Anthropic API) 也叫 Qualia——命名衝突。暫時叫她 **CQ** (Coach Qualia)。\n\n願景：trainee Qualia (公開、RAG over 公開寫作) + Coach Qualia (私人、知道我習慣 / 行程 / 健康 / 目標) **合一成同一個 persona**。同 voice、不同 surface、不同 data sandbox：對外只是嚮導；對我有完整 context。\n\n實作 = 兩個 Worker 共享一套 system prompt，分流 vector store + D1 access。Q3 prototype 大概。",
-    "word_count": 100,
-    "excerpt": "我的 Telegram 行為教練 bot (Cloudflare Worker + D1 + Anthropic API) 也叫 Qualia——命名衝突。",
-    "search_text": "我的 telegram 行為教練 bot cloudflare worker d1 anthropic api 也叫 qualia 命名衝突 暫時叫她 cq coach qualia 願景 trainee qualia 公開 rag over 公開寫作 coach qualia 私人 知道我習慣 行程 健康 目標 合一成同一個 persona 同 voice 不同 surface 不同 data sandbox 對外只是嚮導 對我有完整 context 實作 兩個 worker 共享一套 system prompt 分流 vector store d1 access q3 prototype 大概 y2026 builder",
+    "body_text": "我的 Telegram 行為教練 bot (Cloudflare Worker + D1 + Anthropic API + Google Sheet) 也叫 Coach Qualia——原本是想兩個結合，沒想到目前先分開。暫時叫她 **CQ** (Coach Qualia)，目前試用期，能力不太行——常常鬼扯\n\n願景：trainee Qualia (公開、RAG over 公開寫作) + Coach Qualia (私人、知道我習慣 / 行程 / 健康 / 目標) **合一成同一個 persona**\n\n到時候可以外部的chatbot可以換個 AI agent，trainee Qualia 變成 Chief of Staff 有升級的感覺。",
+    "word_count": 116,
+    "excerpt": "我的 Telegram 行為教練 bot (Cloudflare Worker + D1 + Anthropic API + Google Sheet) 也叫 …",
+    "search_text": "我的 telegram 行為教練 bot cloudflare worker d1 anthropic api google sheet 也叫 coach qualia 原本是想兩個結合 沒想到目前先分開 暫時叫她 cq coach qualia 目前試用期 能力不太行 常常鬼扯 願景 trainee qualia 公開 rag over 公開寫作 coach qualia 私人 知道我習慣 行程 健康 目標 合一成同一個 persona 到時候可以外部的chatbot可以換個 ai agent trainee qualia 變成 chief of staff 有升級的感覺 y2026 builder",
     "media_count": 0
   },
   {
@@ -52,15 +52,11 @@
     "multi_image": false,
     "ocr_pending": false,
     "category": null,
-    "ocr_quotes": [
-      {
-        "text": "提示：qualia = 主觀經驗的感質。紅色對你「看起來」是什麼？那種無法傳遞、只屬於你的私有質地。"
-      }
-    ],
-    "body_text": "[Qualia](/qualia/)——我的 AI 嚮導 / 數位 trainee。\n\nCloudflare Worker + Workers AI embeddings + Vectorize RAG。Source：我寫的 3p 文章 + 網站靜態頁。Spotlighting delimiter 包外部內容做 prompt injection 防禦。\n\n關於她名字的由來，[去問她](/qualia/)。",
-    "word_count": 87,
-    "excerpt": "[Qualia](/qualia/)——我的 AI 嚮導 / 數位 trainee。 Cloudflare Worker + Workers AI embedd…",
-    "search_text": "提示 qualia 主觀經驗的感質 紅色對你 看起來 是什麼 那種無法傳遞 只屬於你的私有質地 qualia qualia 我的 ai 嚮導 數位 trainee cloudflare worker workers ai embeddings vectorize rag source 我寫的 3p 文章 網站靜態頁 spotlighting delimiter 包外部內容做 prompt injection 防禦 關於她名字的由來 去問她 qualia y2026 builder",
+    "ocr_quotes": [],
+    "body_text": "Qualia——我的 AI 數位實習生，各位的伴讀書僮。\n\n架構：Cloudflare Worker + Workers AI embeddings + Vectorize RAG + Anthropic API。\n\nSource：我寫的 3p 文章 + 網站靜態頁，目前種子牆先不納入RAG\n\n關於她名字的由來，[去問她](/qualia/)。",
+    "word_count": 59,
+    "excerpt": "Qualia——我的 AI 數位實習生，各位的伴讀書僮。 架構：Cloudflare Worker + Workers AI embeddings + Vect…",
+    "search_text": "qualia 我的 ai 數位實習生 各位的伴讀書僮 架構 cloudflare worker workers ai embeddings vectorize rag anthropic api source 我寫的 3p 文章 網站靜態頁 目前種子牆先不納入rag 關於她名字的由來 去問她 qualia y2026 builder",
     "media_count": 0
   },
   {
@@ -77,10 +73,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "原本中英混排的 `/long-game/communication/` 拆成兩個乾淨單語頁：[/communication/](/communication/) (EN) + [/communication-zh/](/communication-zh/) (繁中)。\n\nQuarterly-review 風格 `English | 中文` toggle。CTA 雙按鈕：mailto 寄信 + Google Form 填表——給不想冷信的人結構化選項。\n\n學到的：bilingual 混排作者寫得快、讀者體驗爛。拆乾淨後兩語各自獨立 SEO + AEO，Lia (Qualia) RAG 也能個別吃。",
-    "word_count": 95,
-    "excerpt": "原本中英混排的 `/long-game/communication/` 拆成兩個乾淨單語頁：[/communication/](/communication/)…",
-    "search_text": "原本中英混排的 long game communication 拆成兩個乾淨單語頁 communication communication en communication zh communication zh 繁中 quarterly review 風格 english 中文 toggle cta 雙按鈕 mailto 寄信 google form 填表 給不想冷信的人結構化選項 學到的 bilingual 混排作者寫得快 讀者體驗爛 拆乾淨後兩語各自獨立 seo aeo lia qualia rag 也能個別吃 y2026 builder",
+    "body_text": "原本中英混排的 演講合作邀約 拆成兩個乾淨單語頁：[/communication/](/communication/) (EN) + [/communication-zh/](/communication-zh/) (繁中)。\n\nQuarterly-review 風格 `English | 中文` toggle。CTA 雙按鈕：mailto 寄信 + Google Form 填表——給不想冷信的人結構化選項。\n\n心得：沒必要 bilingual 混排。 拆乾淨後兩語各自獨立 SEO + AEO，Lia (Qualia) RAG 也能個別吃。",
+    "word_count": 90,
+    "excerpt": "原本中英混排的 演講合作邀約 拆成兩個乾淨單語頁：[/communication/](/communication/) (EN) + [/communicati…",
+    "search_text": "原本中英混排的 演講合作邀約 拆成兩個乾淨單語頁 communication communication en communication zh communication zh 繁中 quarterly review 風格 english 中文 toggle cta 雙按鈕 mailto 寄信 google form 填表 給不想冷信的人結構化選項 心得 沒必要 bilingual 混排 拆乾淨後兩語各自獨立 seo aeo lia qualia rag 也能個別吃 y2026 builder",
     "media_count": 0
   },
   {
@@ -97,10 +93,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "Re-built [/long-game/](/long-game/) → **Long Game** 頁。\n\n3 個 role (Builder · Storyteller · Walker)，每個 role 有自己的 ladder system：bio-evolution / craftsman / athlete。PIF12 用 milestone bar——刻意用 chapter 不是 level，避開 hierarchy 感（推進是「我自己的修行進度」，跟 PIF12 共建組織無關）。\n\n設計挑戰：gamification 維持，但維護成本要降到底。解法：metric 從 SoT auto-pull（seeds.json + feed.xml），Body 4 軸是唯一手動部分（月更）。\n\nRPG framing 把長期承諾從 task list 變成 quest log——壓力小、累積感強。",
-    "word_count": 118,
-    "excerpt": "Re-built [/long-game/](/long-game/) → **Long Game** 頁。",
-    "search_text": "re built long game long game long game 頁 3 個 role builder storyteller walker 每個 role 有自己的 ladder system bio evolution craftsman athlete pif12 用 milestone bar 刻意用 chapter 不是 level 避開 hierarchy 感 推進是 我自己的修行進度 跟 pif12 共建組織無關 設計挑戰 gamification 維持 但維護成本要降到底 解法 metric 從 sot auto pull seeds json feed xml body 4 軸是唯一手動部分 月更 rpg framing 把長期承諾從 task list 變成 quest log 壓力小 累積感強 y2026 builder",
+    "body_text": "Re-built [/long-game/](/long-game/) \n\n十二年計劃是遊戲重心，扮演3 個 role (Builder · Storyteller · Walker)\n\nRPG framing 把長期承諾從 task list 變成 quest log——簡單有趣，還要有用。\n\n設計挑戰：gamification 維持，但維護成本要降到底。\n\n解法：metric 從 SoT auto-pull（seeds.json + feed.xml），盡可能自動化，只有個人資訊（睡眠、冥想、運動，每月手動更新）\n\n希望未來可以交給參謀長 Lia",
+    "word_count": 108,
+    "excerpt": "Re-built [/long-game/](/long-game/) 十二年計劃是遊戲重心，扮演3 個 role (Builder · Storyteller…",
+    "search_text": "re built long game long game 十二年計劃是遊戲重心 扮演3 個 role builder storyteller walker rpg framing 把長期承諾從 task list 變成 quest log 簡單有趣 還要有用 設計挑戰 gamification 維持 但維護成本要降到底 解法 metric 從 sot auto pull seeds json feed xml 盡可能自動化 只有個人資訊 睡眠 冥想 運動 每月手動更新 希望未來可以交給參謀長 lia y2026 builder",
     "media_count": 0
   },
   {
@@ -117,10 +113,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "Shipped：[PIF12 landing](/PIF12/) (EN) + [佩福 12 年](/PIF12/zh/) (繁中)。Starfield canvas、12 section narrative、FAQ、milestone tracker、FAB Subscribe gold theme override。\n\nSolidity 合約 (Soul-bound Token) 寫完，目前 testnet。Mainnet 6/21。\n\n第一次跑完整 web3 ship pipeline：合約 → testnet → frontend integration → 上鏈。AI pair programming 對話密度 ~80% 來自 Claude，但 final review 跟 sign 都自己。",
-    "word_count": 66,
+    "body_text": "Shipped：[PIF12 landing](/PIF12/) (EN) + [佩福 12 年](/PIF12/zh/) (繁中)。\n\nStarfield canvas、12 section narrative、FAQ、milestone tracker、FAB Subscribe gold theme override。\n\nSolidity 合約 (Soul-bound Token) 寫完，初稿是Gemini Canvas，後期多次修改，目前 testnet，預計 Mainnet 2026/6/21。\n\n第一次跑完整 web3 ship pipeline：合約 → testnet → frontend integration → 上鏈。",
+    "word_count": 60,
     "excerpt": "Shipped：[PIF12 landing](/PIF12/) (EN) + [佩福 12 年](/PIF12/zh/) (繁中)。",
-    "search_text": "shipped pif12 landing pif12 en 佩福 12 年 pif12 zh 繁中 starfield canvas 12 section narrative faq milestone tracker fab subscribe gold theme override solidity 合約 soul bound token 寫完 目前 testnet mainnet 6 21 第一次跑完整 web3 ship pipeline 合約 testnet frontend integration 上鏈 ai pair programming 對話密度 80 來自 claude 但 final review 跟 sign 都自己 y2026 builder",
+    "search_text": "shipped pif12 landing pif12 en 佩福 12 年 pif12 zh 繁中 starfield canvas 12 section narrative faq milestone tracker fab subscribe gold theme override solidity 合約 soul bound token 寫完 初稿是gemini canvas 後期多次修改 目前 testnet 預計 mainnet 2026 6 21 第一次跑完整 web3 ship pipeline 合約 testnet frontend integration 上鏈 y2026 builder",
     "media_count": 0
   },
   {
@@ -137,10 +133,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "**Builder = do something and ship it to solve a real problem.**\n\n我的 [Long Game](/long-game/) 頁 Builder role 等級就抓這裡的 `builder` tag 計數。Tagging 不是「我想做」，是「我做了」。\n\n工具、頁面、bot、合約、自動化——ship 出來能用、能 push back 一個具體痛點，算。\n\n純概念 / 想法 / 嘴砲 → 那是 Storyteller 的活，不是 builder。",
-    "word_count": 81,
+    "body_text": "**Builder = do something and ship it to solve a real problem.**\n\n建造者不是自己爽，寫文章嚴格來說也是建造，但這裡從嚴定義，要做出個東西對自己或別人有幫助才算\n\n我的 [Long Game](/long-game/) 頁 Builder role 等級就抓這裡的 `builder` tag 計數。Tagging 不是「我想做」、「我有一個想法/觀點」，是「我做了」。\n\n工具、頁面、bot、合約、自動化——ship 出來能用、能 push back 一個具體痛點，算。\n\n純概念 / 想法 / 嘴砲 → 那是 Storyteller 的活，不是 builder。",
+    "word_count": 132,
     "excerpt": "**Builder = do something and ship it to solve a real problem.",
-    "search_text": "builder do something and ship it to solve a real problem 我的 long game long game 頁 builder role 等級就抓這裡的 builder tag 計數 tagging 不是 我想做 是 我做了 工具 頁面 bot 合約 自動化 ship 出來能用 能 push back 一個具體痛點 算 純概念 想法 嘴砲 那是 storyteller 的活 不是 builder y2026 builder",
+    "search_text": "builder do something and ship it to solve a real problem 建造者不是自己爽 寫文章嚴格來說也是建造 但這裡從嚴定義 要做出個東西對自己或別人有幫助才算 我的 long game long game 頁 builder role 等級就抓這裡的 builder tag 計數 tagging 不是 我想做 我有一個想法 觀點 是 我做了 工具 頁面 bot 合約 自動化 ship 出來能用 能 push back 一個具體痛點 算 純概念 想法 嘴砲 那是 storyteller 的活 不是 builder y2026 builder",
     "media_count": 0
   },
   {
