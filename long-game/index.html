@@ -40,10 +40,10 @@
       gap: 0.5rem;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 0.45rem 0.9rem;
+      padding: 0.5rem 1rem;
       border-radius: 9999px;
       border: 1px solid;
     }
@@ -98,7 +98,7 @@
     .milestone-dot .label {
       margin-top: 0.65rem;
       font-family: ui-monospace, monospace;
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       font-weight: 700;
       white-space: nowrap;
       color: rgb(71 85 105);
@@ -111,7 +111,7 @@
     .milestone-dot .sub {
       margin-top: 0.2rem;
       font-family: ui-monospace, monospace;
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       color: rgb(148 163 184);
       white-space: nowrap;
     }
@@ -160,8 +160,8 @@
     .tool-chip {
       display: inline-block;
       font-family: ui-monospace, monospace;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 0.35rem;
       background: rgb(238 242 255);
       color: rgb(67 56 202);
@@ -315,7 +315,7 @@
         <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">— How I show up and build in public</span>
       </h2>
 
-      <div class="grid sm:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 gap-5">
 
         <!-- ───────────────────────────────────────── -->
         <!-- 🛠️ Builder — bio-evolution ladder         -->
@@ -325,18 +325,18 @@
           <h3 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 self-start mb-3">
             🛠️ Builder
           </h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
+          <p class="text-sm text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
             Tools that solve real problems.
           </p>
 
           <!-- Current level (JS-updated; defaults are SSR fallback) -->
           <div class="flex items-baseline gap-2 mb-2">
             <span class="text-xl" id="builder-emoji">🦠</span>
-            <span class="font-bold font-mono text-sm text-slate-900 dark:text-slate-100" id="builder-lv-name">Lv.1 Prokaryote</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="builder-lv-name">Lv.1 Prokaryote</span>
           </div>
 
           <div class="lv-bar mb-1.5"><div class="bg-indigo-600 dark:bg-indigo-400" id="builder-progress" style="width: 0%"></div></div>
-          <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+          <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
             <span><a href="/seeds/" class="hover:text-indigo-600 dark:hover:text-emerald-400 underline decoration-dotted decoration-slate-400 underline-offset-2"><span id="builder-total">…</span> builder seeds</a></span>
             <span>→ <span id="builder-next">11</span></span>
           </div>
@@ -347,15 +347,15 @@
               <i data-lucide="info" class="w-3 h-3"></i> Full ladder
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
-            <ul class="text-xs font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400" id="builder-ladder">
+            <ul class="text-sm font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400" id="builder-ladder">
               <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 🦠 Prokaryote</span><span class="opacity-60">0–10</span></li>
               <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🌿 Multicellular</span><span class="opacity-60">11–25</span></li>
-              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🦍 Apes</span><span class="opacity-60">26–100</span></li>
-              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 🧠 Sapient</span><span class="opacity-60">101–200</span></li>
-              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🌍 Planetary</span><span class="opacity-60">201–300</span></li>
-              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🚀 Interstellar</span><span class="opacity-60">301+</span></li>
+              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🦍 Apes</span><span class="opacity-60">26–50</span></li>
+              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 🧠 Sapient</span><span class="opacity-60">51–100</span></li>
+              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🌍 Planetary</span><span class="opacity-60">101–200</span></li>
+              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🚀 Interstellar</span><span class="opacity-60">201+</span></li>
             </ul>
-            <p class="text-xs text-slate-400 dark:text-slate-500 italic mt-2">
+            <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
               Driver: <a href="/seeds/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">builder-tagged seeds</a>
             </p>
           </details>
@@ -368,29 +368,27 @@
           <h3 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800 self-start mb-3">
             🎙️ Storyteller
           </h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
+          <p class="text-sm text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
             Speaking, writing, broadcasting — putting work where people see it.
           </p>
 
-          <!-- Current level -->
-          <!-- Composite = essays(36) + speakings(6) + livestream(68)/5 ≈ 56 → Lv.4 Orator (41-80) -->
+          <!-- Current level (JS-updated; SSR fallback shown) -->
           <div class="flex items-baseline gap-2 mb-2">
-            <span class="text-xl">👂</span>
-            <span class="font-bold font-mono text-sm text-slate-900 dark:text-slate-100">Lv.4 Orator</span>
+            <span class="text-xl" id="storyteller-emoji">🖼️</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="storyteller-lv-name">Lv.3 Craftsman</span>
           </div>
 
-          <!-- Progress: (56-41)/(81-41) = 37.5% -->
-          <div class="lv-bar mb-1.5"><div class="bg-amber-500 dark:bg-amber-400" style="width: 37%"></div></div>
-          <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
-            <span>56 score</span>
-            <span>→ 81</span>
+          <div class="lv-bar mb-1.5"><div class="bg-amber-500 dark:bg-amber-400" id="storyteller-progress" style="width: 0%"></div></div>
+          <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
+            <span><span id="storyteller-total">…</span> score</span>
+            <span>→ <span id="storyteller-next">41</span></span>
           </div>
 
           <!-- Sub-axes -->
-          <div class="text-xs font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📝 Essays</span><span>36</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎤 Speaking</span><span>6</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📺 Livestream</span><span>68</span></div>
+          <div class="text-sm font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📝 Essays <span class="opacity-60">(3p)</span></span><span id="storyteller-essays">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎤 Speaking</span><span id="storyteller-speakings">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📺 Livestream <span class="opacity-60">(D + 10S)</span></span><span id="storyteller-livestream">…</span></div>
           </div>
 
           <!-- Ladder (toggle; current Lv highlighted) -->
@@ -399,15 +397,15 @@
               <i data-lucide="info" class="w-3 h-3"></i> Full ladder
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
-            <ul class="text-xs font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400">
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 ✏️ Apprentice</span><span class="opacity-60">0–10</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🎨 Creator</span><span class="opacity-60">11–20</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🖼️ Craftsman</span><span class="opacity-60">21–40</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30"><span>Lv.4 👂 Orator</span><span class="opacity-80">41–80</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🪄 Master</span><span class="opacity-60">81–160</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🎶 Realm-maker</span><span class="opacity-60">161+</span></li>
+            <ul class="text-sm font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400" id="storyteller-ladder">
+              <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 ✏️ Apprentice</span><span class="opacity-60">0–10</span></li>
+              <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🎨 Creator</span><span class="opacity-60">11–20</span></li>
+              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🖼️ Craftsman</span><span class="opacity-60">21–40</span></li>
+              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 👂 Orator</span><span class="opacity-60">41–80</span></li>
+              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🪄 Master</span><span class="opacity-60">81–160</span></li>
+              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🎶 Realm-maker</span><span class="opacity-60">161+</span></li>
             </ul>
-            <p class="text-xs text-slate-400 dark:text-slate-500 italic mt-2">
+            <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
               Score = essays + speakings + livestream/5
             </p>
           </details>
@@ -420,29 +418,41 @@
           <h3 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800 self-start mb-3">
             🌳 Walker
           </h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
+          <p class="text-sm text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
             Mind & body in balance. Min-axis basis.
           </p>
 
           <!-- Current level: min(Move=2, Mind=1, Force=2, Rest=5) = Lv.1 Starter -->
           <div class="flex items-baseline gap-2 mb-2">
             <span class="text-xl">👟</span>
-            <span class="font-bold font-mono text-sm text-slate-900 dark:text-slate-100">Lv.1 Starter</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100">Lv.1 Starter</span>
           </div>
 
           <!-- Progress within Lv.1 (Mind 10/10 = max of Lv.1, near Lv.2) -->
           <div class="lv-bar mb-1.5"><div class="bg-emerald-600 dark:bg-emerald-400" style="width: 90%"></div></div>
-          <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+          <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
             <span>weakest-link</span>
             <span>→ Challenger</span>
           </div>
 
-          <!-- 4 sub-axes (recomputed against new 6-level thresholds) -->
-          <div class="text-xs font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🏃 Move</span><span>68 km · Lv.2</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🧘 Mind</span><span>10 d · Lv.1</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">💪 Force</span><span>15 · Lv.2</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">😴 Rest</span><span>22.5 · Lv.5</span></div>
+          <!-- 4 sub-axes with descriptions -->
+          <div class="text-sm font-mono space-y-2 mb-4 text-slate-600 dark:text-slate-300">
+            <div class="flex justify-between gap-2">
+              <span><span class="text-slate-500 dark:text-slate-400">🫀 Cardio</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">running + swim×10 km/年</span></span>
+              <span class="whitespace-nowrap">68 km · Lv.2</span>
+            </div>
+            <div class="flex justify-between gap-2">
+              <span><span class="text-slate-500 dark:text-slate-400">🧘 Mind</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">meditation days/年</span></span>
+              <span class="whitespace-nowrap">10 d · Lv.1</span>
+            </div>
+            <div class="flex justify-between gap-2">
+              <span><span class="text-slate-500 dark:text-slate-400">💪 Force</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">strength sessions/年</span></span>
+              <span class="whitespace-nowrap">15 · Lv.2</span>
+            </div>
+            <div class="flex justify-between gap-2">
+              <span><span class="text-slate-500 dark:text-slate-400">😴 Rest</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">good nights past 30d + max streak÷2</span></span>
+              <span class="whitespace-nowrap">22.5 · Lv.5</span>
+            </div>
           </div>
 
           <!-- Ladder (toggle; current Lv highlighted) -->
@@ -451,7 +461,7 @@
               <i data-lucide="info" class="w-3 h-3"></i> Full ladder
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
-            <ul class="text-xs font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400">
+            <ul class="text-sm font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400">
               <li class="flex justify-between px-1.5 py-0.5 rounded font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/30"><span>Lv.1 👟 Starter</span></li>
               <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 ⏱️ Challenger</span></li>
               <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🏆 Pro</span></li>
@@ -459,7 +469,7 @@
               <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🦁 Legend</span></li>
               <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 👦 Old Mischief</span></li>
             </ul>
-            <p class="text-xs text-slate-400 dark:text-slate-500 italic mt-2">
+            <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
               Lv = min(Move, Mind, Force, Rest). Weakest-link basis.
             </p>
           </details>
@@ -496,7 +506,7 @@
             <i data-lucide="mic" class="w-7 h-7 text-indigo-600 dark:text-indigo-400"></i>
           </div>
           <h3 class="font-bold text-base font-mono mb-1">Podcast</h3>
-          <p class="text-xs font-mono text-indigo-600 dark:text-indigo-400 mb-1">Listen to pilot series →</p>
+          <p class="text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-1">Listen to pilot series →</p>
           <p class="text-xs text-slate-400 dark:text-slate-500">Resume in H2 2026</p>
         </a>
 
@@ -506,7 +516,7 @@
             <i data-lucide="languages" class="w-7 h-7 text-pink-600 dark:text-pink-400"></i>
           </div>
           <h3 class="font-bold text-base font-mono mb-1">日本語</h3>
-          <p class="text-xs font-mono text-pink-600 dark:text-pink-400 mb-1">Looking for language buddies →</p>
+          <p class="text-sm font-mono text-pink-600 dark:text-pink-400 mb-1">Looking for language buddies →</p>
         </a>
       </div>
     </section>
@@ -566,9 +576,9 @@
         { lv: 1, name: 'Prokaryote',    emoji: '🦠', threshold: 0   },
         { lv: 2, name: 'Multicellular', emoji: '🌿', threshold: 11  },
         { lv: 3, name: 'Apes',          emoji: '🦍', threshold: 26  },
-        { lv: 4, name: 'Sapient',       emoji: '🧠', threshold: 101 },
-        { lv: 5, name: 'Planetary',     emoji: '🌍', threshold: 201 },
-        { lv: 6, name: 'Interstellar',  emoji: '🚀', threshold: 301 },
+        { lv: 4, name: 'Sapient',       emoji: '🧠', threshold: 51  },
+        { lv: 5, name: 'Planetary',     emoji: '🌍', threshold: 101 },
+        { lv: 6, name: 'Interstellar',  emoji: '🚀', threshold: 201 },
       ];
 
       fetch('/seeds/seeds.json')
@@ -609,6 +619,64 @@
           }
         })
         .catch(e => console.warn('Builder card auto-fetch failed:', e));
+    })();
+
+    // ───────────────────────────────────────────────
+    // Storyteller card auto-fetch: essays from feed.xml
+    // SoT: 3pwriting/feed.xml (essays); inline const (speakings, livestream)
+    // ───────────────────────────────────────────────
+    (function() {
+      const LADDER = [
+        { lv: 1, name: 'Apprentice',  emoji: '✏️', threshold: 0   },
+        { lv: 2, name: 'Creator',     emoji: '🎨', threshold: 11  },
+        { lv: 3, name: 'Craftsman',   emoji: '🖼️', threshold: 21  },
+        { lv: 4, name: 'Orator',      emoji: '👂', threshold: 41  },
+        { lv: 5, name: 'Master',      emoji: '🪄', threshold: 81  },
+        { lv: 6, name: 'Realm-maker', emoji: '🎶', threshold: 161 },
+      ];
+      const SPEAKINGS = 6;   // [手動] until /data/engagements.json wired
+      const LIVESTREAM = 68; // 58D + 10S × 1; [手動] until SoT wired
+
+      fetch('/3pwriting/feed.xml')
+        .then(r => r.text())
+        .then(text => {
+          const xml = new DOMParser().parseFromString(text, 'application/xml');
+          const essays = xml.querySelectorAll('channel > item').length;
+          const composite = essays + SPEAKINGS + Math.round(LIVESTREAM / 5);
+
+          let cur = LADDER[0], next = LADDER[1];
+          for (let i = LADDER.length - 1; i >= 0; i--) {
+            if (composite >= LADDER[i].threshold) {
+              cur = LADDER[i];
+              next = LADDER[i + 1] || LADDER[i];
+              break;
+            }
+          }
+          const progress = next === cur ? 100 :
+            ((composite - cur.threshold) / (next.threshold - cur.threshold)) * 100;
+
+          const $ = id => document.getElementById(id);
+          if ($('storyteller-emoji'))      $('storyteller-emoji').textContent = cur.emoji;
+          if ($('storyteller-lv-name'))    $('storyteller-lv-name').textContent = `Lv.${cur.lv} ${cur.name}`;
+          if ($('storyteller-progress'))   $('storyteller-progress').style.width = `${Math.min(progress, 100)}%`;
+          if ($('storyteller-total'))      $('storyteller-total').textContent = composite;
+          if ($('storyteller-next'))       $('storyteller-next').textContent = next.threshold;
+          if ($('storyteller-essays'))     $('storyteller-essays').textContent = essays;
+          if ($('storyteller-speakings'))  $('storyteller-speakings').textContent = SPEAKINGS;
+          if ($('storyteller-livestream')) $('storyteller-livestream').textContent = LIVESTREAM;
+
+          const ladder = $('storyteller-ladder');
+          if (ladder) {
+            ladder.querySelectorAll('li[data-lv]').forEach(li => {
+              if (parseInt(li.dataset.lv) === cur.lv) {
+                li.classList.add('font-bold', 'text-amber-700', 'dark:text-amber-300', 'bg-amber-50', 'dark:bg-amber-900/30');
+                const last = li.querySelector('span:last-child');
+                if (last) last.classList.replace('opacity-60', 'opacity-80');
+              }
+            });
+          }
+        })
+        .catch(e => console.warn('Storyteller card auto-fetch failed:', e));
     })();
   </script>
 <script src="/assets/fab-subscribe.js" defer></script>
