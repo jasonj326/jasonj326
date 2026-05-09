@@ -26,7 +26,7 @@ summary: 從一份紐約職缺，意外開出一個 12 年的 Pay-it-Forward 計
 	- Paul Graham 的 [The Brand Age](https://www.paulgraham.com/brandage.html)，覺得很有趣所以和 AI 協力翻譯成中文版「[品牌時代](https://jasonjlai.net/3pwriting/playgrounds/20260306/brand-age-translation.html)」
 	- 關於法律與 AI 的實務發展，第一季肯定不能錯過 [Claude-Native Law firm](https://x.com/zackbshapiro/status/2027389987444957625?s=20)，曼尼提供[導讀並翻譯成中文](https://www.threads.com/@manny_li/post/DVSh9cgkmcg?xmt=AQF0lYkwYa4y_G5feKb7VtoubdlGMSVGtglfvPp8GI2Juw)。
 	- **改變的第一步是面對**：與其痛恨手機成癮的自己，我想讓逝去的時間產生價值，所以透過 AI 分析第一季超過 2,000 個 YouTube & Instagram 影片紀錄，從中間我想推薦：[游庭皓的財經皓角](https://www.youtube.com/@yutinghaofinance)，很認真的節目，雖然我印象最深的只有這個[羅素變位的段子](https://www.threads.com/@haoooo_0524/post/DUZqyQ7EXky?xmt=AQF0-bG2st-sRtZT83LyDdFFA9hzoiwt1AA65VFqcdHQ7g)，也佩服他可以想出這麼多段子；[Tony](https://www.threads.com/@tonyenjoyslife)，特別是他「[我兒子說我是白痴系列](https://www.threads.com/@jasonj.lai/post/DW3SCYTEWoE?xmt=AQF0lYkwYa4y_G5feKb7VtoubdlGMSVGtglfvPp8GI2Juw)」；[比特幣內戰](https://youtu.be/p5F0vg-BgVg?si=hs_mwAITrmrsAAS2)，很精彩介紹比特幣的故事，同時結合西方悲劇典故，談沒有對錯的理念戰爭；律師兼溝通專家 Jefferson Fisher 談到關於成年人交友的方法：[The 3 Rules for Strong Adult Friendships](https://www.youtube.com/watch?v=9jQR5UyLfc4)；[奧斯卡獎得主 Kevin Spacey 到牛津辯論社 (Oxford Union) 演講](https://youtu.be/tJZMQ6Mg6RM?si=YV9mx-bpuFy9_vm-)，希望提醒自己法律與司法有其極限，社會獵巫沒有下限，讓子彈飛一會。最後，想要多一點好運嗎？YC 創業家 Garry Tan [Youtube - 創造自己的好運](https://youtu.be/IoOMs7U93eY?si=JWlnybRJSu_pNftx)，教我們主動出擊。
-	- 我想要接續貳樓餐廳的活動，邀請跑友吃飯；[中英/日文語言交換](https://jasonjlai.net/side-quest/learning-japanese/)，或是簡單和我的數位助理實習生 [Lia 聊天](https://jasonjlai.net/qualia/)、[留 email 給我](https://forms.gle/f7A1BBotfTbv6nJo8)，或看[為什麼我要做日記直播](https://www.youtube.com/live/LNVD6_VMyXo?si=DZ0TMPd0i5yPvCWA)
+	- 我想要接續貳樓餐廳的活動，邀請跑友吃飯；[中英/日文語言交換](https://jasonjlai.net/japanese/)，或是簡單和我的數位助理實習生 [Lia 聊天](https://jasonjlai.net/qualia/)、[留 email 給我](https://forms.gle/f7A1BBotfTbv6nJo8)，或看[為什麼我要做日記直播](https://www.youtube.com/live/LNVD6_VMyXo?si=DZ0TMPd0i5yPvCWA)
 
 
 ---
@@ -214,7 +214,7 @@ AI 帶來的改變，是量變而質變，從點線拉到面，奇點鄰近，�
 
 ![Jason 在 ETHTaipei Meetup 分享 Web3 法律思維 3-2-1](/assets/images/2026-q1-review/ethtaipei-meetup.jpeg)
 
-當然，如果想要我再講一次的朋友，[也歡迎這邊右轉](https://jasonjlai.net/main-quest/communication/)。
+當然，如果想要我再講一次的朋友，[也歡迎這邊右轉](https://jasonjlai.net/long-game/communication/)。
 
 同時，也想趁這次季報，謝謝這幾年一起海內外的工作夥伴——特別是 XREX 讓我可以一離開法學院，就有機會在亞太地區參與區塊鏈法律實戰。
 
@@ -294,7 +294,7 @@ TCE 是一群自發性組成的社群，已經自主營運接近十年，度過�
 
 在第一季我看的 2,000+ 網路影片，與其戒斷說不要看病毒垃圾影片，更想吸收高品質內容、產出與打造自己的作品。
 
-首先面對現實，最多的是日語學習(20%)，但全部集中在兩月底之前，三月開始就變心了，五十音又忘了。還是希望能找回[日語學習的習慣](https://jasonjlai.net/side-quest/learning-japanese/)。第二名就是病毒影片居多，也是趨近 20%，真是誠惶誠恐。
+首先面對現實，最多的是日語學習(20%)，但全部集中在兩月底之前，三月開始就變心了，五十音又忘了。還是希望能找回[日語學習的習慣](https://jasonjlai.net/japanese/)。第二名就是病毒影片居多，也是趨近 20%，真是誠惶誠恐。
 
 關於分享創作，先預告五月份預計上線關於系統思維三部曲的首部曲——貝葉斯思考。同時，第二季季報應該會更有結構化、數據化，敬請期待。
 

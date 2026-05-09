@@ -66,7 +66,7 @@ Right now, I use Claude for my highest-priority tasks. I’m currently drafting 
 I also rely heavily on Gemini and NotebookLM to build and maintain this website, and to learn across every area of my life—from main quests to side quests. My current top priorities are getting the smart contract tested, developing offline software that can redact legal contracts, and exploring even more exciting projects.
 
 ## 4. Communication
-I love sharing my stories and ideas. [Invitations to speak—whether as keynote, panelist, moderator, or even improv—are always welcome](https://jasonjlai.net/main-quest/communication/).
+I love sharing my stories and ideas. [Invitations to speak—whether as keynote, panelist, moderator, or even improv—are always welcome](https://jasonjlai.net/long-game/communication/).
 
 My biggest takeaway in communication is audience-focused, emotion-first. The hardest communication challenge is when you don’t truly know your audience. A great example is Shohei Ohtani: He initially wanted to jump straight to the U.S. minor leagues at the age of 18. It was Hokkaido Nippon-Ham Fighters (北海道日本火腿鬥士) that presented a detailed, persuasive argument that changed his mind. The 30-page document titled ["The Path to Realizing Your Dream" (夢への道しるべ)](https://gigazine.net/gsc_news/en/20121213-nippon-ham-fighters-ohtani/#:~:text=However%2C%20Hokkaido%20Nippon%20Ham%20Fighters,disclosure%20such%20as%20personal%20information%22.) . It started from what Ohtani wanted, not just what the team could offer, and successfully changed his mind to stay in Japan. 
 

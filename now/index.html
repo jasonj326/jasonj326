@@ -37,25 +37,24 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     /* Inline-link (body flow links): soft color at rest, stronger on hover */
     main a.inline-link {
-      color: rgb(99 102 241);              /* indigo-500 — subtle but visible */
+      color: rgb(99 102 241);
       text-decoration: underline;
       text-decoration-color: rgb(99 102 241 / 0.45);
       text-underline-offset: 3px;
       transition: color 0.15s, text-decoration-color 0.15s;
     }
     .dark main a.inline-link {
-      color: rgb(94 234 212);              /* teal-300 — softer in dark */
+      color: rgb(94 234 212);
       text-decoration-color: rgb(94 234 212 / 0.45);
     }
     main a.inline-link:hover {
-      color: rgb(79 70 229);               /* indigo-600 */
+      color: rgb(79 70 229);
       text-decoration-color: rgb(79 70 229);
     }
     .dark main a.inline-link:hover {
-      color: rgb(52 211 153);              /* emerald-400 */
+      color: rgb(52 211 153);
       text-decoration-color: rgb(52 211 153);
     }
-    /* Plain variant: for title links (books, TV shows) — keep body text color */
     main a.inline-link-plain {
       color: inherit;
       text-decoration-color: rgb(148 163 184 / 0.5);
@@ -68,6 +67,55 @@
       color: rgb(52 211 153);
       text-decoration-color: rgb(52 211 153);
     }
+
+    /* Role chip = section title */
+    .role-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid;
+      margin-bottom: 0.75rem;
+    }
+    /* Bullet list inside sections */
+    .now-list { list-style: none; padding: 0; margin: 0; }
+    .now-list > li {
+      border-left: 2px solid rgb(203 213 225);
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .dark .now-list > li { border-left-color: rgb(51 65 85); }
+    .now-list > li > strong {
+      display: block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: rgb(15 23 42);
+      margin-bottom: 0.25rem;
+    }
+    .dark .now-list > li > strong { color: rgb(241 245 249); }
+    .completed-tag {
+      display: inline-block;
+      font-family: ui-monospace, monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgb(5 150 105);
+      background: rgb(209 250 229);
+      padding: 0.05rem 0.45rem;
+      border-radius: 9999px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .dark .completed-tag {
+      color: rgb(110 231 183);
+      background: rgb(6 78 59 / 0.5);
+    }
   </style>
     <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -76,14 +124,12 @@
   <!-- 導覽列 Navigation -->
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
-
-      <!-- 左側：站內連結 -->
       <div class="flex flex-wrap items-center gap-3 sm:gap-5">
         <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
           <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
         </a>
-        <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+        <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
         </a>
         <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
           <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
@@ -91,31 +137,20 @@
         <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
           <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
         </a>
-                <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
-                </a>
+        <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
+        </a>
       </div>
-
-      <!-- 右側：社群圖示 & 主題切換 -->
       <div class="flex items-center gap-3 sm:gap-4 ml-auto">
         <div class="flex items-center gap-3 sm:gap-4">
           <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
-            </svg>
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path></svg>
           </a>
           <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </a>
           <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
           </a>
         </div>
         <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
@@ -133,113 +168,103 @@
     <!-- 頁首 Header -->
     <header class="mb-14">
       <h1 class="text-4xl md:text-5xl font-bold font-mono tracking-tight mb-3">Now</h1>
-      <!-- Period label: this page is refreshed half-yearly. Bump when entering 2026 H2. -->
+      <!-- Last update auto-pulled from HTTP Last-Modified header (set on deploy). -->
       <p class="text-base font-mono text-slate-500 dark:text-slate-400 mb-2">
-        Period: 2026 H1 (Jan–Jun) · Taipei · <span class="opacity-70">updated half-yearly</span>
+        Last update: <span id="last-update">…</span> · Taipei · <span class="opacity-70">updated half-yearly</span>
       </p>
       <a href="/qualia/" class="inline-flex items-center gap-2 mb-6 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
         <i data-lucide="cpu" class="w-5 h-5"></i> Explore this site with Lia <span class="text-slate-300 dark:text-slate-600">|</span> 認識 Lia 認識我
       </a>
       <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mt-4">
-        What has my attention this half-year — doing, reading, watching. Inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener" class="inline-link">Derek Sivers' /now movement</a>; for the 12-year picture, head to <a href="/main-quest/" class="inline-link">Main Quest</a>.
+        What has my attention this half-year — doing, reading, watching, and beyond. For the big picture, head to <a href="/long-game/" class="inline-link">Long Game</a>.
       </p>
     </header>
 
     <!-- ============================================== -->
-    <!-- Section: Mind & Body Balance                    -->
+    <!-- 🛠️ Builder · Bread & Fun                       -->
     <!-- ============================================== -->
     <section class="mb-16">
-      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Mind &amp; Body Balance</h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">I don't really care about work–life balance—what I care about is <strong class="text-slate-900 dark:text-slate-100 not-italic">Mind &amp; Body balance</strong>.</p>
+      <h2 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800">
+        🛠️ Builder
+      </h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-6 italic">Work that pays. Work that plays. Ideally both.</p>
 
-      <div class="space-y-6">
-
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono text-slate-900 dark:text-white mb-1.5">Quarterly half-marathon</h3>
+      <ul class="now-list">
+        <li>
+          <strong>AI-Enhanced Legal Builder</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            Quarterly 21K with 10Ks in between — full marathons take too many weeks to recover from. If the body still carries me through every quarter, the rest of the year compounds on solid ground.
+            Building tools with legal mindset and engineer's hands. <a href="https://github.com/jasonj326/jasonj326" target="_blank" rel="noopener" class="inline-link">This site</a>, <a href="/qualia/" class="inline-link">Qualia</a>, and Long Game all built with AI as constant pair. Also: fractional legal counsel for tech startups. <a href="mailto:hello@jasonjlai.net" class="inline-link">Drop a line</a> if you're building.
           </p>
-        </article>
-
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono text-slate-900 dark:text-white mb-1.5">Sleep &amp; Meditation</h3>
+        </li>
+        <li>
+          <strong>PIF12 — Soul-bound Tokens for The Circle</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            Becoming a semi-professional sleeper — <a href="https://www.youtube.com/shorts/156WPF1OpDk" target="_blank" rel="noopener" class="inline-link">what that means</a> and <a href="https://www.threads.com/@jasonj.lai/post/DWGrJ3ljwuO?xmt=AQF0CavHahsQ8Yy7rYHfGsftxRSjgkh4JJrMiSUcEScWAw" target="_blank" rel="noopener" class="inline-link">how I do it</a>. The single most valuable productivity tip I've found. Plus five minutes of daily meditation — I'll share when it compounds.
+            12-year commitment, starting 2026. Smart contract on testnet → mainnet 6/21. Soul-bound because the hype-and-dump cycle is exhausting; small proof on-chain coordination can quietly serve a real group, not a market. <a href="/PIF12/" class="inline-link">Landing</a>.
           </p>
-        </article>
-
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono text-slate-900 dark:text-white mb-1.5">Strength Training</h3>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            Pull-ups and chin-ups, easing back from a wrist injury. The simple animal proof that I can still carry my own weight.
-          </p>
-        </article>
-
-      </div>
+        </li>
+      </ul>
     </section>
 
     <!-- ============================================== -->
-    <!-- Section: Bread & Fun                            -->
+    <!-- 🎙️ Storyteller · Communications                -->
     <!-- ============================================== -->
     <section class="mb-16">
-      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Bread &amp; Fun</h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">Work that pays. Work that plays. Ideally both.</p>
+      <h2 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800">
+        🎙️ Storyteller
+      </h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-6 italic">Putting the work where people can actually see it.</p>
 
-      <div class="space-y-8">
-
-        <!-- AI-Enhanced Legal Builder (merged: Legal Builder + AI Enhancement) -->
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">AI-Enhanced Legal Builder</h3>
+      <ul class="now-list">
+        <li>
+          <strong>Speaking Engagements</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            A builder on two threads. On AI: <a href="https://github.com/jasonj326/jasonj326" target="_blank" rel="noopener" class="inline-link">this site itself</a> is built with AI as a constant pair, including the <a href="/qualia/" class="inline-link">Qualia</a> guide; AI tools sit underneath everything else here and across <a href="/main-quest/" class="inline-link">Main Quest</a>. On legal: a fractional legal counsel for tech startups. I build tools with both a legal mindset and an engineer's hands — a privilege to live in the age of AI, and a quiet tragedy to live inside its inescapable algorithms. Either way, I don't want to waste my shot. If you're building, <a href="mailto:hello@jasonjlai.net" class="inline-link">drop me a line</a>.
+            Workshops, panels, classroom guest spots. Practicing influence without authority — the leverage that travels across rooms, jurisdictions, and decades. <a href="/communication/" class="inline-link">Records and inbound invites live here</a>.
           </p>
-        </article>
-
-        <!-- PIF12 -->
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">PIF12 — Soul-bound Tokens for The Circle</h3>
+        </li>
+        <li>
+          <strong>Daily Livestream &amp; Long-form</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            My 12-year commitment, starting 2026. Smart contract in final test; mainnet next. The idea took shape during a <a href="https://substack.com/@jasonl/note/c-215983043" target="_blank" rel="noopener" class="inline-link">Lunar New Year reflection</a> — as the Horse Year began, the twelve Asian Zodiacs 十二生肖 came to mind as a fixed anchor. Soul-bound because I'm tired of the hype-and-dump cycle: small proof that on-chain coordination can quietly serve a real group of people, not a market. Full landing page <a href="/PIF12/" class="inline-link">here</a>.
+            A five-minute fraction of daily life on camera at <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">@MindLegalTalk</a>. A trilogy on systems thinking due May 20, 2026.
           </p>
-        </article>
-
-      </div>
+        </li>
+        <li>
+          <strong>Essays on 3P</strong>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Three P's I keep returning to: Partnership for deeper relationships, Playbooks for skills, Playgrounds for laughter. <a href="/3pwriting/partnership/20260503/2026-q1-review-builder-en.html" class="inline-link">Q1 retrospective shipped</a>; all essays live <a href="/3pwriting/" class="inline-link">here</a>.
+          </p>
+        </li>
+      </ul>
     </section>
 
     <!-- ============================================== -->
-    <!-- Section: Communications                         -->
+    <!-- 🌳 Walker · Mind & Body Balance                -->
     <!-- ============================================== -->
     <section class="mb-16">
-      <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Communications</h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">Putting the work where people can actually see it.</p>
+      <h2 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800">
+        🌳 Walker
+      </h2>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-6 italic">I don't really care about work–life balance — what I care about is <strong class="text-slate-900 dark:text-slate-100 not-italic">Mind &amp; Body balance</strong>.</p>
 
-      <div class="space-y-8">
-
-        <!-- Speaking -->
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Speaking Engagements</h3>
+      <ul class="now-list">
+        <li>
+          <strong>Quarterly half-marathon</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            Workshops, panels, classroom guest spots — practicing influence without authority, the only leverage that travels across rooms, jurisdictions, and decades. <a href="/communication/" class="inline-link">Past records and inbound invites live here.</a>
+            21K every quarter with 10Ks between — full marathons take too many weeks to recover from. If the body carries me through every quarter, the rest compounds on solid ground.
           </p>
-        </article>
-
-        <!-- Daily Livestream & Long-form -->
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Daily Livestream &amp; Long-form Content Creation</h3>
+        </li>
+        <li>
+          <strong>Sleep &amp; Meditation</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            A five-minute fraction of daily life on camera at <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">@MindLegalTalk</a> — fleeting, random, no guarantee it lasts. On the long-form side: a trilogy on systems thinking, due by May 20, 2026.
+            Becoming a semi-professional sleeper — <a href="https://www.youtube.com/shorts/156WPF1OpDk" target="_blank" rel="noopener" class="inline-link">what that means</a> and <a href="https://www.threads.com/@jasonj.lai/post/DWGrJ3ljwuO?xmt=AQF0CavHahsQ8Yy7rYHfGsftxRSjgkh4JJrMiSUcEScWAw" target="_blank" rel="noopener" class="inline-link">how I do it</a>. Plus five minutes of daily meditation — sharing when it compounds.
           </p>
-        </article>
-
-        <!-- Essays on 3P -->
-        <article class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
-          <h3 class="text-lg font-bold font-mono mb-1.5 text-slate-900 dark:text-slate-100">Essays on 3P</h3>
+        </li>
+        <li>
+          <strong>Strength Training</strong>
           <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            Three P's I keep returning to: Partnership for deeper relationships, Playbooks for consolidated skill-sets, Playgrounds for fun and laughter. I write to learn and speak to connect — the essays live <a href="/3pwriting/" class="inline-link">here</a>; a Q1 retrospective is in the queue.
+            Pull-ups and chin-ups, easing back from a wrist injury. The simple animal proof I can still carry my own weight.
           </p>
-        </article>
-
-      </div>
+        </li>
+      </ul>
     </section>
 
     <!-- ============================================== -->
@@ -253,6 +278,18 @@
       <div class="mb-10">
         <h3 class="text-sm font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Books</h3>
         <ul class="space-y-4">
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100">張忠謀自傳</span>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">張忠謀 (Morris Chang)</p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100">David Copperfield</span>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Charles Dickens</p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <a href="https://www.amazon.com/Joy-x-Guided-Tour-Math-Infinity/dp/0544105850" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">The Joy of x</a>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Steven Strogatz</p>
+          </li>
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
             <a href="https://www.amazon.com/How-Be-Interesting-Simple-Steps/dp/0761174702" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">How to Be Interesting (In 10 Simple Steps)</a>
             <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Jessica Hagy</p>
@@ -270,11 +307,17 @@
 
       <!-- TV Shows -->
       <div>
-        <h3 class="text-sm font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">TV Shows</h3>
+        <h3 class="text-sm font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">TV Shows &amp; Movies</h3>
         <ul class="space-y-5">
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
             <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Kim%27s_Convenience" target="_blank" rel="noopener" class="inline-link inline-link-plain">Kim's Convenience</a>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
               <a href="https://en.wikipedia.org/wiki/Empresses_in_the_Palace" target="_blank" rel="noopener" class="inline-link inline-link-plain">Empresses in the Palace 甄嬛傳</a>
+              <span class="completed-tag">✓ done</span>
             </div>
             <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
               A classic I started only two weeks ago. Late to the party, but the power struggles and shifting balance make it pure epic — think Game of Thrones, but the throne wars are fought through pillow talk with the emperor, poison cups, and everything in between.
@@ -282,7 +325,8 @@
           </li>
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
             <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
-              <a href="https://en.wikipedia.org/wiki/Frieren" target="_blank" rel="noopener" class="inline-link inline-link-plain">Frieren《葬送的芙莉蓮》/ 葬送のフリーレン</a>
+              <a href="https://en.wikipedia.org/wiki/Frieren" target="_blank" rel="noopener" class="inline-link inline-link-plain">Frieren《葬送的芙莉蓮》/ 葬送のフリーレン (2nd season)</a>
+              <span class="completed-tag">✓ done</span>
             </div>
             <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
               A perfect anime that balances slow and fast — in a time of recklessly searching for quick dopamine.
@@ -296,11 +340,24 @@
               I picked this up because of <a href="https://www.threads.com/@jasonj.lai/post/DMxJcN_Pv_Q?xmt=AQF0HmAZLlzJ22zB7-r3eFMoXHoI0j3n7Nkuxgow0Bds2Q" target="_blank" rel="noopener" class="inline-link">my own Threads post</a> on Adam and Eve and Lilith — and the show keeps poking at exactly that human's fear and desire.
             </p>
           </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/The_Grand_Budapest_Hotel" target="_blank" rel="noopener" class="inline-link inline-link-plain">歡迎光臨布達佩斯大飯店 / The Grand Budapest Hotel</a>
+              <span class="completed-tag">✓ done</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/The_Butterfly_Effect" target="_blank" rel="noopener" class="inline-link inline-link-plain">蝴蝶效應 / The Butterfly Effect</a>
+              <span class="completed-tag">✓ done</span>
+            </div>
+            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              Re-watched after I noticed there were four different endings.
+            </p>
+          </li>
         </ul>
       </div>
     </section>
-
-    <!-- Subscribe / Newsletter (與 main-quest / 其他頁面共用模板) -->
 
   </main>
 
@@ -308,7 +365,7 @@
   <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
     <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
       <p class="text-xs text-slate-400 dark:text-slate-500">
-        This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">/now page</a>.
+        This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">/now page</a>, inspired by Derek Sivers' /now movement.
       </p>
       <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> Jason J. Lai</p>
     </div>
@@ -351,6 +408,18 @@
     }
 
     initTheme();
+
+    // Auto-fill Last-Update from HTTP Last-Modified header (set on deploy)
+    fetch(window.location.pathname, { method: 'HEAD' })
+      .then(r => {
+        const lm = r.headers.get('last-modified');
+        const el = document.getElementById('last-update');
+        if (lm && el) {
+          const d = new Date(lm);
+          el.textContent = d.toLocaleDateString('en-CA'); // YYYY-MM-DD
+        }
+      })
+      .catch(() => { /* fallback: leave the … */ });
   </script>
 <script src="/assets/fab-subscribe.js" defer></script>
 </body>

@@ -21,18 +21,18 @@ LANG_LABELS = {'en': 'English', 'zh-Hant': '中文', 'zh': '中文', 'zh-TW': '�
 LANG_DISPLAY_ORDER = ['zh-Hant', 'en', 'ja']  # how the switcher arranges alternates
 
 # Sitemap: static landing pages with priority + changefreq.
-# Excludes redirect pages (main-quest/PIF12, main-quest/communication) and dev tools (tools/thumbnail).
+# Excludes redirect pages and dev tools (tools/thumbnail).
+# Historical: main-quest/{PIF12,communication} were redirects; deleted 2026-05-09 with main-quest→long-game rename.
 SITEMAP_STATIC_PAGES = [
     ("/",                                  "1.0", "weekly"),
     ("/now/",                              "0.9", "weekly"),
     ("/3pwriting/",                        "0.9", "weekly"),
     ("/PIF12/",                            "0.9", "weekly"),
     ("/PIF12/zh/",                         "0.9", "weekly"),
-    ("/main-quest/",                       "0.7", "monthly"),
-    ("/main-quest/2026-in-action/",        "0.6", "monthly"),
+    ("/long-game/",                       "0.7", "monthly"),
     ("/communication/",                    "0.6", "monthly"),
     ("/communication-zh/",                 "0.6", "monthly"),
-    ("/side-quest/learning-japanese/",     "0.6", "monthly"),
+    ("/japanese/",     "0.6", "monthly"),
     ("/qualia/",                           "0.5", "monthly"),
     ("/seeds/",                            "0.8", "weekly"),
     ("/privacy/",                          "0.3", "monthly"),
@@ -113,8 +113,8 @@ HTML_TMPL = """<!DOCTYPE html>
               <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
                   <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
               </a>
-              <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+              <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
               </a>
               <!-- Writing on 3P (Active) -->
               <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
@@ -355,8 +355,8 @@ INDEX_TMPL = """<!DOCTYPE html>
               <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
                   <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
               </a>
-              <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
+              <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
               </a>
               <!-- Writing on 3P (Active) -->
               <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">

@@ -3,445 +3,517 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Quest - Jason J. Lai</title>
-  <!-- 社群軟體分享預覽縮圖 (Open Graph) -->
-  <meta name="description" content="My overarching goals, roadmap, and actions driving the 12-year vision.">
-  <meta property="og:title" content="Main Quest - Jason J. Lai">
-  <meta property="og:description" content="My overarching goals, roadmap, and actions driving the 12-year vision.">
+  <title>Long Game - Jason J. Lai</title>
+  <meta name="description" content="My Long Game: a 12-year quest to find and build a tribe. Path, roles, and side quests in motion.">
+  <meta property="og:title" content="Long Game - Jason J. Lai">
+  <meta property="og:description" content="My Long Game: a 12-year quest to find and build a tribe.">
   <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
-  <meta property="og:url" content="https://jasonjlai.net/main-quest/">
+  <meta property="og:url" content="https://jasonjlai.net/long-game/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- 瀏覽器分頁與手機桌面圖示 -->
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <!-- Tailwind & Icons -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: { extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-          }
-      } }
+      theme: { extend: { fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+      }}}
     }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <style>
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .game-shadow { box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1); }
     .dark .game-shadow { box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1); }
     .game-shadow-hover:hover { box-shadow: 6px 6px 0 0 rgba(15, 23, 42, 1); transform: translateY(-2px); }
     .dark .game-shadow-hover:hover { box-shadow: 6px 6px 0 0 rgba(203, 213, 225, 1); }
+
+    /* Role chip */
+    .role-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9999px;
+      border: 1px solid;
+    }
+
+    /* Milestone bar (PIF12) */
+    .milestone-track {
+      position: relative;
+      height: 4px;
+      background: rgb(226 232 240);
+      border-radius: 9999px;
+      margin: 1.75rem 0 0.5rem;
+    }
+    .dark .milestone-track { background: rgb(51 65 85); }
+    .milestone-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: rgb(99 102 241);
+      border-radius: 9999px;
+      transition: width 0.4s;
+    }
+    .dark .milestone-fill { background: rgb(52 211 153); }
+    .milestone-dots {
+      position: relative;
+      margin-top: -10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .milestone-dot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 auto;
+      width: 0;
+      position: relative;
+    }
+    .milestone-dot .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgb(226 232 240);
+      border: 2px solid rgb(15 23 42);
+      z-index: 2;
+      position: relative;
+    }
+    .dark .milestone-dot .dot { background: rgb(15 23 42); border-color: rgb(203 213 225); }
+    .milestone-dot.done .dot { background: rgb(99 102 241); border-color: rgb(99 102 241); }
+    .dark .milestone-dot.done .dot { background: rgb(52 211 153); border-color: rgb(52 211 153); }
+    .milestone-dot.doing .dot { background: rgb(251 191 36); border-color: rgb(251 191 36); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .milestone-dot .label {
+      margin-top: 0.65rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      white-space: nowrap;
+      color: rgb(71 85 105);
+    }
+    .dark .milestone-dot .label { color: rgb(203 213 225); }
+    .milestone-dot.done .label { color: rgb(99 102 241); }
+    .dark .milestone-dot.done .label { color: rgb(52 211 153); }
+    .milestone-dot.doing .label { color: rgb(217 119 6); }
+    .dark .milestone-dot.doing .label { color: rgb(251 191 36); }
+    .milestone-dot .sub {
+      margin-top: 0.2rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.6rem;
+      color: rgb(148 163 184);
+      white-space: nowrap;
+    }
+    /* Hover tooltip on milestone dots */
+    .milestone-dot[data-tooltip] { position: relative; cursor: help; }
+    .milestone-dot[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgb(15 23 42);
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.4rem;
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+      margin-bottom: 0.75rem;
+      z-index: 30;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+    }
+    .dark .milestone-dot[data-tooltip]:hover::after {
+      background: rgb(241 245 249);
+      color: rgb(15 23 42);
+    }
+    .milestone-dot[data-tooltip]:hover::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid rgb(15 23 42);
+      margin-bottom: 0.5rem;
+      z-index: 30;
+      pointer-events: none;
+    }
+    .dark .milestone-dot[data-tooltip]:hover::before {
+      border-top-color: rgb(241 245 249);
+    }
+    /* Tool chip (Builder card) */
+    .tool-chip {
+      display: inline-block;
+      font-family: ui-monospace, monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.35rem;
+      background: rgb(238 242 255);
+      color: rgb(67 56 202);
+      border: 1px solid rgb(199 210 254);
+      white-space: nowrap;
+    }
+    .dark .tool-chip {
+      background: rgb(49 46 129 / 0.4);
+      color: rgb(199 210 254);
+      border-color: rgb(67 56 202 / 0.4);
+    }
+
+    /* Role-card progress bar */
+    .lv-bar {
+      width: 100%;
+      height: 8px;
+      background: rgb(226 232 240);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .dark .lv-bar { background: rgb(51 65 85); }
+    .lv-bar > div {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s;
+    }
+
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .chev { transform: rotate(180deg); }
+    .chev { transition: transform 0.2s; display: inline-block; }
   </style>
-    <link rel="stylesheet" href="/assets/fab-subscribe.css">
+  <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
-  
-    <!-- 導覽列 Navigation (已同步首頁的社群圖示排版) -->
-    <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
-            
-            <!-- 左側：站內連結 (Internal Navigation) -->
-            <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-                <!-- Jason_Lai (Inactive) -->
-                <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
-                </a>
-                <!-- Main Quest (Active) -->
-                <a href="/main-quest/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-                    <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Main Quest</span><span class="sm:hidden text-sm">Quest</span>
-                </a>
-                <!-- Writing on 3P (Inactive) -->
-                <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
-                </a>
-                <!-- Qualia (Inactive) -->
-                <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
-                </a>
-                <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
-                </a>
-            </div>
 
-            <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
-            <div class="flex items-center gap-3 sm:gap-4 ml-auto">
-                <!-- 釘選的社群圖示 -->
-                <div class="flex items-center gap-3 sm:gap-4">
-                    <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
-                        </svg>
-                    </a>
-                    <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                    <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- 視覺分隔線 (僅在螢幕夠寬時顯示) -->
-                <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
-
-                <!-- 主題切換按鈕 -->
-                <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-                    <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
-                    <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
-                </button>
-            </div>
+  <!-- 導覽列 Navigation -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+      <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+        <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+        </a>
+        <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Quest</span>
+        </a>
+        <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+        </a>
+        <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+        </a>
+        <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path></svg>
+          </a>
+          <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </a>
         </div>
-    </nav>
+        <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+        <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+          <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-  <!-- 內容區塊 Main Content -->
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
-    
-    <!-- 頁首標題與任務引言 -->
-    <div class="mb-16">
+
+    <!-- ============================================== -->
+    <!-- 1. Header — Quest Card                          -->
+    <!-- ============================================== -->
+    <div class="mb-14">
       <div class="inline-block px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 dark:text-emerald-900 dark:bg-emerald-400 border-2 border-indigo-900 dark:border-emerald-400 rounded-full mb-4">
         Active Mission Log
       </div>
       <h1 class="text-4xl md:text-5xl font-extrabold font-mono tracking-tight mb-8 flex items-center gap-3">
         <i data-lucide="target" class="w-10 h-10 text-indigo-600 dark:text-emerald-400"></i>
-        Main Quest
+        Long Game
       </h1>
-      <!-- 簡約版 RPG 任務卡片 (Minimalist Quest Card) -->
       <div class="p-6 sm:p-8 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow">
-          <div class="flex flex-col gap-5">
-              <!-- Objective & Challenge Accepted -->
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div>
-                      <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                          <i data-lucide="flag" class="w-3.5 h-3.5"></i> Quest Objective
-                      </span>
-                      <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100">Find and build my tribe.</p>
-                  </div>
-                  <div class="inline-flex items-center text-sm font-mono font-bold text-indigo-600 dark:text-emerald-400 shrink-0">
-                      <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> Challenge Accepted
-                  </div>
-              </div>
-              
-              <!-- 分隔線 -->
-              <div class="h-px w-full bg-slate-200 dark:bg-slate-700 my-1"></div>
-              
-              <!-- Status (Debuff) -->
-              <div>
-                  <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Current Status</span>
-                  <p class="text-sm font-mono font-bold text-purple-600 dark:text-purple-400 mt-1 flex items-center gap-1.5">
-                      <i data-lucide="skull" class="w-4 h-4"></i> Afflicted: Poisoned by tech isolation.
-                  </p>
-              </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+          <div>
+            <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="flag" class="w-3.5 h-3.5"></i> Quest Objective
+            </span>
+            <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100">Find and build my tribe.</p>
           </div>
+          <div class="inline-flex items-center text-sm font-mono font-bold text-indigo-600 dark:text-emerald-400 shrink-0">
+            <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> Challenge Accepted
+          </div>
+        </div>
+        <div class="h-px w-full bg-slate-200 dark:bg-slate-700 my-1"></div>
+        <div class="mt-5">
+          <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Current Status</span>
+          <p class="text-sm font-mono font-bold text-purple-600 dark:text-purple-400 mt-1 flex items-center gap-1.5">
+            <i data-lucide="skull" class="w-4 h-4"></i> Afflicted: Poisoned by tech isolation.
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- Section 1: 2026 In Action (Gamified Dashboards) -->
+    <!-- ============================================== -->
+    <!-- 2. Path: PIF12 — flagship section               -->
+    <!-- ============================================== -->
     <section class="mb-16">
-      <h2 class="text-2xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-baseline gap-2">
-        <i data-lucide="zap" class="w-6 h-6 text-amber-500 self-center"></i>
-        2026 In Action for Antidote
-        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2 relative -top-0.5">(Late Mar.)</span>
+      <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
+        <a href="/PIF12/" class="text-2xl font-bold font-mono text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">PIF12</a>
+        <span class="text-slate-300 dark:text-slate-600">|</span>
+        <a href="/PIF12/zh/" class="text-2xl font-bold font-mono text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">佩福 12 年</a>
+      </div>
+
+      <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+        A 12-year commitment to build a tribe of curious polymaths — testnet now, mainnet 6/21, invite open.
+      </p>
+
+      <!-- Milestone bar: Sketch ✓ · Onchain 🔄 · Find Twelve · Year-End Gather · Y2 SBT -->
+      <!-- [手動更新] state: 'done' | 'doing' | 'todo'   |   sub: small caption under label -->
+      <div class="px-2">
+        <div class="milestone-track">
+          <!-- progress fill: % through chapters (Sketch done = 25%, Onchain mid = ~37.5%) -->
+          <div class="milestone-fill" style="width: 30%"></div>
+        </div>
+        <div class="milestone-dots">
+          <span class="milestone-dot done" data-tooltip="High-level design + landing page (EN/zh) shipped"><span class="dot"></span><span class="label">Sketch</span></span>
+          <span class="milestone-dot doing" data-tooltip="Smart contract on testnet → mainnet on 6/21"><span class="dot"></span><span class="label">Onchain</span><span class="sub">testnet → 6/21</span></span>
+          <span class="milestone-dot" data-tooltip="Find the first 12 core members willing to hold SBTs"><span class="dot"></span><span class="label">Find Twelve</span><span class="sub">0 of 12</span></span>
+          <span class="milestone-dot" data-tooltip="Year-end IRL gathering of the first twelve, late 2026"><span class="dot"></span><span class="label">Year-End Gather</span><span class="sub">late 2026</span></span>
+          <span class="milestone-dot" data-tooltip="Design and ship the Year-2 SBT (2027 cycle)"><span class="dot"></span><span class="label">Y2 SBT</span><span class="sub">2027</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3. Three Roles                                  -->
+    <!-- ============================================== -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-baseline gap-2 flex-wrap">
+        <i data-lucide="users" class="w-5 h-5 text-slate-500 self-center"></i>
+        Three Roles
+        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">— How I show up and build in public</span>
       </h2>
-      
-      <div class="grid sm:grid-cols-2 gap-6">
-        
-        <!-- ========================================== -->
-        <!-- Task 1: SBT: PIF12 -->
-        <!-- ========================================== -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
-          <!-- 卡片標題區 -->
-          <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg shrink-0">
-              <i data-lucide="hexagon" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
-            </div>
-            <a href="https://jasonjlai.net/PIF12/" class="font-bold text-lg font-mono text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors underline decoration-2 underline-offset-4">
-              SBT-PIF12: The Circle
-            </a>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
-            Mint and distribute Soul-bound Tokens to map genuine connections and contributions.
+
+      <div class="grid sm:grid-cols-3 gap-5">
+
+        <!-- ───────────────────────────────────────── -->
+        <!-- 🛠️ Builder — bio-evolution ladder         -->
+        <!-- Driver: shipped tools (HTML below) + builder-tagged seeds (auto from seeds.json) -->
+        <!-- ───────────────────────────────────────── -->
+        <div class="p-5 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow flex flex-col">
+          <h3 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 self-start mb-3">
+            🛠️ Builder
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
+            Tools that solve real problems.
           </p>
-          
-          <!-- 🎮 進度儀表板 (手動更新區) -->
-          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-            <!-- [手動更新] 等級與狀態標題 -->
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-lg">🚀</span>
-              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.3 Passionate Starter</span>
-            </div>
-            
-            <!-- [手動更新] 進度條：修改 style="width: 100%" 內的數值 -->
-            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
-              <div class="bg-indigo-600 dark:bg-indigo-400 h-full rounded-full transition-all duration-500" style="width: 25%"></div>
-            </div>
-            
-            <!-- [手動更新] 數據：修改目前進度與目標 -->
-            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
-              <span>Progress: 2/5</span>
-              <span>Goals: 5</span>
-            </div>
-            
-            <!-- [手動更新] 任務清單：
-                 已完成使用：<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                 未完成使用：<i data-lucide="circle-dashed" class="text-slate-400"></i> 
-                 進行中使用：<i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i> -->
-            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span>(1) High-level design completed</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span>(2) Landing page & contract drafted</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>(3) Smart contract under test</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>(4) Image onchain</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>(5) Mainnet deployment</span>
-              </li>
-            </ul>
+
+          <!-- Current level (JS-updated; defaults are SSR fallback) -->
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-xl" id="builder-emoji">🧠</span>
+            <span class="font-bold font-mono text-sm text-slate-900 dark:text-slate-100" id="builder-lv-name">Lv.3 Sapient</span>
           </div>
+
+          <div class="lv-bar mb-1.5"><div class="bg-indigo-600 dark:bg-indigo-400" id="builder-progress" style="width: 0%"></div></div>
+          <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+            <span><a href="/seeds/" class="hover:text-indigo-600 dark:hover:text-emerald-400 underline decoration-dotted decoration-slate-400 underline-offset-2"><span id="builder-total">…</span> builder seeds</a></span>
+            <span>→ <span id="builder-next">15</span></span>
+          </div>
+
+          <!-- Ladder (toggle; current Lv highlighted via JS) -->
+          <details class="mt-auto pt-2 border-t border-slate-200 dark:border-slate-700">
+            <summary class="text-xs font-mono text-slate-500 dark:text-slate-400 select-none flex items-center gap-1">
+              <i data-lucide="info" class="w-3 h-3"></i> Full ladder
+              <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
+            </summary>
+            <ul class="text-xs font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400" id="builder-ladder">
+              <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 🦠 Prokaryote</span><span class="opacity-60">1+</span></li>
+              <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🌿 Multicellular</span><span class="opacity-60">3+</span></li>
+              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🧠 Sapient</span><span class="opacity-60">8+</span></li>
+              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 🌍 Planetary</span><span class="opacity-60">15+</span></li>
+              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🧬 Architect</span><span class="opacity-60">30+</span></li>
+              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🔋 Synthetic</span><span class="opacity-60">60+</span></li>
+              <li data-lv="7" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.7 💎 Cyborg</span><span class="opacity-60">120+</span></li>
+            </ul>
+            <p class="text-xs text-slate-400 dark:text-slate-500 italic mt-2">
+              Driver: <a href="/seeds/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">builder-tagged seeds</a>
+            </p>
+          </details>
         </div>
 
-        <!-- ========================================== -->
-        <!-- Task 2: Mind-Body -->
-        <!-- ========================================== -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
-          <!-- 卡片標題區 -->
-          <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-rose-100 dark:bg-rose-900/50 rounded-lg shrink-0">
-              <i data-lucide="activity" class="w-5 h-5 text-rose-600 dark:text-rose-400"></i>
-            </div>
-            <h3 class="font-bold text-lg font-mono">Mind-Body</h3>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
-            Maintain extreme physical and mental readiness through balanced HIIT, Cardio, & Rest.
+        <!-- ───────────────────────────────────────── -->
+        <!-- 🎙️ Storyteller — craftsman ladder         -->
+        <!-- ───────────────────────────────────────── -->
+        <div class="p-5 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow flex flex-col">
+          <h3 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800 self-start mb-3">
+            🎙️ Storyteller
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
+            Speaking, writing, broadcasting — putting work where people see it.
           </p>
 
-          <!-- 🎮 進度儀表板 (手動更新區) -->
-          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-            <!-- [手動更新] 等級與狀態標題 -->
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-lg">🩹</span>
-              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.3 Smile Balancer </span>
-            </div>
-            
-            <!-- [手動更新] 進度條：修改 style="width: 25%" 內的數值 -->
-            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
-              <div class="bg-rose-600 dark:bg-rose-400 h-full rounded-full transition-all duration-500" style="width: 45%"></div>
-            </div>
-            
-            <!-- [手動更新] 數據：修改目前進度與目標 -->
-            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
-              <span>Progress: 1/4 </span>
-              <span>Goals: 4 </span>
-            </div>
-            
-            <!-- [手動更新] 任務清單 -->
-            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span>Three HIIT workouts and three 10k runs</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span class="font-bold text-amber-600 dark:text-amber-400">Recovering from injury</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span class="font-bold text-amber-600 dark:text-amber-400">Good Sleep: 10 days in a row</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="circle-dashed" class="w-4 h-4 text-slate-400 mt-0.5 shrink-0"></i>
-                <span>Completed one half-marathon in Q1</span>
-              </li>
-            </ul>
+          <!-- Current level -->
+          <!-- Composite = essays + speakings + livestream/5 = 36 + 6 + 14 = 56 → Lv.3 (40+) -->
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-xl">🖼️</span>
+            <span class="font-bold font-mono text-sm text-slate-900 dark:text-slate-100">Lv.3 Creator</span>
           </div>
+
+          <!-- Progress: (56-40)/(80-40) = 40% -->
+          <div class="lv-bar mb-1.5"><div class="bg-amber-500 dark:bg-amber-400" style="width: 40%"></div></div>
+          <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+            <span>56 score</span>
+            <span>→ 80</span>
+          </div>
+
+          <!-- Sub-axes -->
+          <div class="text-xs font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📝 Essays</span><span>36</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎤 Speaking</span><span>6</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📺 Livestream</span><span>68</span></div>
+          </div>
+
+          <!-- Ladder (toggle; current Lv highlighted) -->
+          <details class="mt-auto pt-2 border-t border-slate-200 dark:border-slate-700">
+            <summary class="text-xs font-mono text-slate-500 dark:text-slate-400 select-none flex items-center gap-1">
+              <i data-lucide="info" class="w-3 h-3"></i> Full ladder
+              <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
+            </summary>
+            <ul class="text-xs font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400">
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 ✏️ Apprentice</span><span class="opacity-60">5+</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🎨 Craftsman</span><span class="opacity-60">20+</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30"><span>Lv.3 🖼️ Creator</span><span class="opacity-80">40+</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 🗣️ Orator</span><span class="opacity-60">80+</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🏛️ Master</span><span class="opacity-60">150+</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🔮 Visionary</span><span class="opacity-60">300+</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.7 🌌 Realm-maker</span><span class="opacity-60">600+</span></li>
+            </ul>
+            <p class="text-xs text-slate-400 dark:text-slate-500 italic mt-2">
+              Score = essays + speakings + livestream/5
+            </p>
+          </details>
         </div>
 
-        <!-- ========================================== -->
-        <!-- Task 3: AI-Enhancement -->
-        <!-- ========================================== -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
-          <!-- 卡片標題區 -->
-          <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg shrink-0">
-              <i data-lucide="cpu" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
-            </div>
-            <h3 class="font-bold text-lg font-mono">AI-Enhancement</h3>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
-            Integrate Github & Vibe-coding, explore AI-Crypto Synergy, and build Gamification layers.
+        <!-- ───────────────────────────────────────── -->
+        <!-- 🌳 Walker — athlete ladder + 木桶板        -->
+        <!-- ───────────────────────────────────────── -->
+        <div class="p-5 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow flex flex-col">
+          <h3 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800 self-start mb-3">
+            🌳 Walker
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
+            Mind & body in balance. Min-axis basis.
           </p>
 
-          <!-- 🎮 進度儀表板 (手動更新區) -->
-          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-            <!-- [手動更新] 等級與狀態標題 -->
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-lg">🛠️</span>
-              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.2 AI-Armed Builder</span>
-            </div>
-            
-            <!-- [手動更新] 進度條：修改 style="width: 50%" 內的數值 -->
-            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
-              <div class="bg-emerald-600 dark:bg-emerald-400 h-full rounded-full transition-all duration-500" style="width: 50%"></div>
-            </div>
-            
-            <!-- [手動更新] 數據：修改目前進度與目標 -->
-            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
-              <span>Progress: 2/5</span>
-              <span>Goals: 5</span>
-            </div>
-            
-            <!-- [手動更新] 任務清單 -->
-            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span>Have fun building this site with AI</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span>Designing SBT mechanics</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span> <a href="https://jasonjlai.net/qualia" class="underline decoration-slate-400 dark:decoration-slate-500 underline-offset-4 hover:text-indigo-600 dark:hover:text-emerald-400 hover:decoration-indigo-600 dark:hover:decoration-emerald-400 transition-colors">
-                  Improve Qualia's capacity </a>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>Integrate Claude Cowork & Skills</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="circle-dashed" class="w-4 h-4 text-slate-400 mt-0.5 shrink-0"></i>
-                <span>Integrate deeper Github workflows</span>
-              </li>
+          <!-- Current level: min(Move=1, Mind=1, Force=2, Rest=4) = Lv.1 -->
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-xl">👟</span>
+            <span class="font-bold font-mono text-sm text-slate-900 dark:text-slate-100">Lv.1 Initiate</span>
+          </div>
+
+          <!-- Progress within Lv.1 — display "next: Challenger" -->
+          <div class="lv-bar mb-1.5"><div class="bg-emerald-600 dark:bg-emerald-400" style="width: 33%"></div></div>
+          <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+            <span>weakest-link</span>
+            <span>→ Challenger</span>
+          </div>
+
+          <!-- 4 sub-axes -->
+          <div class="text-xs font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🏃 Move</span><span>68 km · Lv.1</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🧘 Mind</span><span>10 d · Lv.1</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">💪 Force</span><span>15 · Lv.2</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">😴 Rest</span><span>22.5 · Lv.4</span></div>
+          </div>
+
+          <!-- Ladder (toggle; current Lv highlighted) -->
+          <details class="mt-auto pt-2 border-t border-slate-200 dark:border-slate-700">
+            <summary class="text-xs font-mono text-slate-500 dark:text-slate-400 select-none flex items-center gap-1">
+              <i data-lucide="info" class="w-3 h-3"></i> Full ladder
+              <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
+            </summary>
+            <ul class="text-xs font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400">
+              <li class="flex justify-between px-1.5 py-0.5 rounded font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/30"><span>Lv.1 👟 Initiate</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 ⏱️ Challenger</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🏆 Pro</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 ⭐ All-Star</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🥇 Champion</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🏛️ Legend</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.7 👦 Old Mischief</span></li>
             </ul>
-          </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- Task 4: Communication -->
-        <!-- ========================================== -->
-        <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col h-full">
-          <!-- 卡片標題區 -->
-          <div class="flex items-center gap-3 mb-3">
-            <div class="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg shrink-0">
-              <i data-lucide="mic" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
-            </div>
-            <h3 class="font-bold text-lg font-mono"> Communication </h3>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 grow">
-              Elevate written and verbal communication via thought sharing.
-            <a href="/communication/" class="text-blue-600 dark:text-blue-400 underline underline-offset-4 font-bold ml-1 hover:text-blue-800">
-              Welcome talk invites!
-            </a>
-          </p>
-
-
-          <!-- 🎮 進度儀表板 (手動更新區) -->
-          <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-            <!-- [手動更新] 等級與狀態標題 -->
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-lg">🎙️</span>
-              <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Lv.2 Proactive Communicator</span>
-            </div>
-            
-            <!-- [手動更新] 進度條：修改 style="width: 66%" 內的數值 -->
-            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-2 overflow-hidden">
-              <div class="bg-blue-600 dark:bg-blue-400 h-full rounded-full transition-all duration-500" style="width: 66%"></div>
-            </div>
-            
-            <!-- [手動更新] 數據：修改目前進度與目標 -->
-            <div class="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
-              <span>Progress: 3/5</span>
-              <span>Goals: 5</span>
-            </div>
-            
-            <!-- [手動更新] 任務清單 -->
-            <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 font-mono">
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span>2+ Speaking engagements completed</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-                <span> 30-Day AI x N Sprint</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>Daily Live recording practice </span>
-              </li>
-               <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>2/24+ speaking engagements this year</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="loader" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0 animate-spin-slow"></i>
-                <span>4/24 articles on 3pwriting this year</span>
-              </li>
-            </ul>
-          </div>
+            <p class="text-xs text-slate-400 dark:text-slate-500 italic mt-2">
+              Lv = min(Move, Mind, Force, Rest). Weakest-link basis.
+            </p>
+          </details>
         </div>
 
       </div>
     </section>
 
-    <!-- Section 2 & 3: Roadmaps (WIP) -->
-    <div class="grid sm:grid-cols-2 gap-8">
-      <!-- Three-Year Roadmap -->
-      <section>
-        <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
-          <i data-lucide="map" class="w-5 h-5 text-slate-500"></i> Three-Year Roadmap
-        </h2>
-        <div class="p-8 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-center relative overflow-hidden group">
-          <div class="absolute inset-0 bg-slate-200/50 dark:bg-slate-900/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10">
-            <span class="font-mono font-bold text-sm tracking-widest text-slate-600 dark:text-slate-300">FORGING IN PROGRESS...</span>
+    <!-- ============================================== -->
+    <!-- 4. Side Quests                                  -->
+    <!-- ============================================== -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
+        <i data-lucide="compass" class="w-5 h-5 text-slate-500"></i>
+        Side Quests
+        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">— exploratory, no level pressure</span>
+      </h2>
+
+      <div class="grid sm:grid-cols-3 gap-5">
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener noreferrer" class="p-5 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col items-center text-center group cursor-pointer">
+          <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-full mb-3 group-hover:scale-110 transition-transform">
+            <i data-lucide="youtube" class="w-7 h-7 text-red-600 dark:text-red-400"></i>
           </div>
-          <i data-lucide="hammer" class="w-10 h-10 text-slate-400 mx-auto mb-3 opacity-50"></i>
-          <h3 class="font-bold text-slate-500 dark:text-slate-400 mb-1">Status: WIP</h3>
-          <p class="text-sm text-slate-400 dark:text-slate-500">
-            Plotting the next major milestones. Check back later.
-          </p>
-        </div>
-      </section>
-      
-      <!-- 12-Year Vision -->
-      <section>
-        <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
-          <i data-lucide="telescope" class="w-5 h-5 text-slate-500"></i> 12-Year Vision
-        </h2>
-        <div class="p-8 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-center relative overflow-hidden group">
-          <div class="absolute inset-0 bg-slate-200/50 dark:bg-slate-900/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10">
-            <span class="font-mono font-bold text-sm tracking-widest text-slate-600 dark:text-slate-300">CALIBRATING LONG TERM...</span>
+          <h3 class="font-bold text-base font-mono mb-1">YouTube</h3>
+          <p class="text-xl font-bold font-mono text-slate-900 dark:text-slate-100 mb-1">68</p>
+          <p class="text-xs font-mono text-slate-500 dark:text-slate-400">58D + 10S × 1</p>
+          <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">@MindLegalTalk</p>
+        </a>
+
+        <!-- Podcast -->
+        <a href="https://open.spotify.com/show/2W7ujlF7jaoocrA6A1gwQV?si=ca0b4294325d4158" target="_blank" rel="noopener noreferrer" class="p-5 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col items-center text-center group cursor-pointer">
+          <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-full mb-3 group-hover:scale-110 transition-transform">
+            <i data-lucide="mic" class="w-7 h-7 text-indigo-600 dark:text-indigo-400"></i>
           </div>
-          <i data-lucide="eye" class="w-10 h-10 text-slate-400 mx-auto mb-3 opacity-50"></i>
-          <h3 class="font-bold text-slate-500 dark:text-slate-400 mb-1">Status: WIP</h3>
-          <p class="text-sm text-slate-400 dark:text-slate-500">
-            Defining the ultimate endgame and legacy architecture.
-          </p>
-        </div>
-      </section>
-    </div>
-            <!-- Subscribe / Newsletter (素雅版 - 移至 Writing on 3P 下方) -->
+          <h3 class="font-bold text-base font-mono mb-1">Podcast</h3>
+          <p class="text-xs font-mono text-indigo-600 dark:text-indigo-400 mb-1">Listen to pilot series →</p>
+          <p class="text-xs text-slate-400 dark:text-slate-500">Resume in H2 2026</p>
+        </a>
+
+        <!-- Japanese -->
+        <a href="/japanese/" target="_blank" rel="noopener noreferrer" class="p-5 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow game-shadow-hover transition-all flex flex-col items-center text-center group cursor-pointer">
+          <div class="p-3 bg-pink-100 dark:bg-pink-900/30 rounded-full mb-3 group-hover:scale-110 transition-transform">
+            <i data-lucide="languages" class="w-7 h-7 text-pink-600 dark:text-pink-400"></i>
+          </div>
+          <h3 class="font-bold text-base font-mono mb-1">日本語</h3>
+          <p class="text-xs font-mono text-pink-600 dark:text-pink-400 mb-1">Looking for language buddies →</p>
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <!-- 頁尾 Footer -->
@@ -451,19 +523,14 @@
     </div>
   </footer>
 
-  <!-- 互動腳本 -->
   <script>
-    // 設定當前年份
     document.getElementById('current-year').textContent = new Date().getFullYear();
-    
-    // 初始化 Lucide 圖示
     lucide.createIcons();
-    
-    // 深色模式邏輯
+
     const htmlElement = document.documentElement;
     const iconSun = document.getElementById('icon-sun');
     const iconMoon = document.getElementById('icon-moon');
-    
+
     function initTheme() {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
@@ -476,7 +543,7 @@
         iconMoon.classList.add('hidden');
       }
     }
-    
+
     function toggleTheme() {
       if (htmlElement.classList.contains('dark')) {
         htmlElement.classList.remove('dark');
@@ -490,8 +557,63 @@
         iconMoon.classList.add('hidden');
       }
     }
-    
+
     initTheme();
+
+    // ───────────────────────────────────────────────
+    // Builder card auto-fetch: count builder-tagged seeds on Seed wall
+    // SoT = seeds tagged `builder`. Tag more on Seed wall → auto-bumps level.
+    // ───────────────────────────────────────────────
+    (function() {
+      const LADDER = [
+        { lv: 1, name: 'Prokaryote',         emoji: '🦠', threshold: 1   },
+        { lv: 2, name: 'Multicellular',      emoji: '🌿', threshold: 3   },
+        { lv: 3, name: 'Sapient',            emoji: '🧠', threshold: 8   },
+        { lv: 4, name: 'Planetary',          emoji: '🌍', threshold: 15  },
+        { lv: 5, name: 'Architect',          emoji: '🧬', threshold: 30  },
+        { lv: 6, name: 'Synthetic',          emoji: '🔋', threshold: 60  },
+        { lv: 7, name: 'Cyborg',             emoji: '💎', threshold: 120 },
+      ];
+
+      fetch('/seeds/seeds.json')
+        .then(r => r.json())
+        .then(data => {
+          const seeds = Array.isArray(data) ? data : (data.seeds || []);
+          const builderSeeds = seeds.filter(s => (s.tags || []).includes('builder')).length;
+          const total = builderSeeds;
+
+          let currentLv = LADDER[0];
+          let nextLv = LADDER[1];
+          for (let i = LADDER.length - 1; i >= 0; i--) {
+            if (total >= LADDER[i].threshold) {
+              currentLv = LADDER[i];
+              nextLv = LADDER[i + 1] || LADDER[i];
+              break;
+            }
+          }
+          const progress = nextLv === currentLv ? 100 :
+            ((total - currentLv.threshold) / (nextLv.threshold - currentLv.threshold)) * 100;
+
+          const $ = id => document.getElementById(id);
+          if ($('builder-emoji'))    $('builder-emoji').textContent = currentLv.emoji;
+          if ($('builder-lv-name'))  $('builder-lv-name').textContent = `Lv.${currentLv.lv} ${currentLv.name}`;
+          if ($('builder-progress')) $('builder-progress').style.width = `${Math.min(progress, 100)}%`;
+          if ($('builder-total'))    $('builder-total').textContent = total;
+          if ($('builder-next'))     $('builder-next').textContent = nextLv.threshold;
+
+          const ladder = $('builder-ladder');
+          if (ladder) {
+            ladder.querySelectorAll('li[data-lv]').forEach(li => {
+              if (parseInt(li.dataset.lv) === currentLv.lv) {
+                li.classList.add('font-bold', 'text-indigo-700', 'dark:text-indigo-300', 'bg-indigo-50', 'dark:bg-indigo-900/30');
+                const last = li.querySelector('span:last-child');
+                if (last) last.classList.replace('opacity-60', 'opacity-80');
+              }
+            });
+          }
+        })
+        .catch(e => console.warn('Builder card auto-fetch failed:', e));
+    })();
   </script>
 <script src="/assets/fab-subscribe.js" defer></script>
 </body>
