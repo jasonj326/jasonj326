@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>技能樹發展 v1.2 - Jason J. Lai</title>
+<meta name="description" content="為什麼選擇遊戲化設計，以及我能為你做什麼">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="技能樹發展 v1.2 - Jason J. Lai">
+<meta property="og:description" content="為什麼選擇遊戲化設計，以及我能為你做什麼">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/zh/3pwriting/skill-tree/Skill-Tree-Development.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "技能樹發展 v1.2",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-05-10",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "為什麼選擇遊戲化設計，以及我能為你做什麼"
+}
+</script>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" hreflang="zh-Hant" href="https://jasonjlai.net/zh/3pwriting/skill-tree/Skill-Tree-Development.html" />
+<link rel="alternate" hreflang="en" href="https://jasonjlai.net/3pwriting/skill-tree/Skill-Tree-Development.html" />
+<link rel="alternate" hreflang="x-default" href="https://jasonjlai.net/zh/3pwriting/skill-tree/Skill-Tree-Development.html" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; }
+</style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/zh/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span></a>
+              <a href="/zh/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">長期遊戲</span><span class="sm:hidden text-sm">遊戲</span></a>
+              <a href="/zh/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400"><i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">3P 寫作</span><span class="sm:hidden text-sm">3P</span></a>
+              <a href="/zh/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">Lia</span></a>
+              <a href="/zh/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">種子</span><span class="sm:hidden text-sm">種子</span></a>
+          </div>
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="/3pwriting/skill-tree/Skill-Tree-Development.html" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to English" title="English"><i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="text-xs sm:text-sm font-mono font-bold">EN</span></a>
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">技能樹發展 v1.2</h1>
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-05-10" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-05-10</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/zh/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/skill-tree/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>skill-tree</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a>
+            </div>
+          </div>
+          <div class="not-prose flex gap-2 items-center text-sm font-mono text-slate-500 dark:text-slate-400 mb-8 -mt-4"><span class="font-bold text-slate-900 dark:text-slate-100">中文</span> <span class="text-slate-300 dark:text-slate-700">|</span> <a href="https://jasonjlai.net/3pwriting/skill-tree/Skill-Tree-Development.html" class="hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">English</a></div>
+        </header>
+
+        <p>整個網站刻意用用遊戲風格設計的，主要是想強調對於遊戲化的想法。</p>
+<p>第一，這反映了我目前的座右銘：人生是一場遊戲，而我們可以選擇自己的主線任務、支線任務，甚至規則。這個心態讓人解放，也幫我聚焦在真正重要的事情上。除了比喻之外，遊戲化在心理學上有實證研究支持，也在創業設計中得到驗證——可以參考 Yu-kai Chou 的 <em>Actionable Gamification: Beyond Points, Badges, and Leaderboards</em>、Kevin Werbach 與 Dan Hunter 的 <em>For the Win</em>、Jane McGonigal 的 <em>Reality Is Broken</em>。最近(2026.5) 發現 <a href="https://alexhsu.com/game-mindset" target="_blank" rel="noopener noreferrer">Alex Hsu 也在寫遊戲心法的書</a>，覺得很開心也有很多啟發。</p>
+<p>當然，遊戲風格的美學可能會讓某些客戶或傳統的法律專業人士覺得不專業。即使如此，我選擇忠於自己的座右銘，走自己的路。我相信本質終究勝過表象——但也認知到形式在法律與人性中仍有它的位置。</p>
+<p>有了上述背景，這份技能樹會幫你在自己的人生遊戲中更有效地運用我（搭配<a href="jasonjlai.net">長期遊戲</a> 、<a href="/3pwriting/partnership/readme.html">README</a> 與我的 digital trainee <a href="/qualia">Lia</a>）。我們可以組隊一起打支線任務——或更有趣的東西。</p>
+<p>雖然這個技能樹只是個主觀的美勞作品（之後思考怎麼整併我在長期遊戲設計的角色等級圖），也很難完整介紹我這個人的本質，但這六個技能我認為對你最有實用價值 （或說市場價值）：</p>
+<p><img src="https://quickchart.io/chart?w=500&h=400&c={type:'radar',data:{labels:['Communication','Execution',['AI','Enhancement'],'Crypto','Legal',['Systems','Thinking']],datasets:[{label:'Skill%20Level',data:[6.5,6.5,7,7.5,8,8],backgroundColor:'rgba(79,70,229,0.4)',borderColor:'%234f46e5',borderWidth:2,pointBackgroundColor:'%234f46e5'}]},options:{scale:{ticks:{min:0,max:10,display:false}},plugins:{legend:{display:false}}}}" alt="Skill Tree Radar Chart" /></p>
+<h2>1. 系統性思考 (Systems Thinking)</h2>
+<p>我幾乎是天生為此而生的，但直到最近才完全意識到這點。從 Charlie Munger 的 mental models latticework 與 <a href="http://fs.blog/mental-models/" target="_blank" rel="noopener noreferrer">Farnam Street</a>，到 Donella Meadows 的經典 <em>Thinking in Systems: A Primer</em>，我一直興奮地吸收這些想法——也已經開始在他們的洞見之上建構自己的框架。</p>
+<p>先從系統思考的反面說起：「工具的法則 (law of instrument)」。「當你手中有錘子，看什麼都像釘子。」精通一兩門手藝確實能讓人活得充實。但現代世界的複雜度讓這條路顯得太窄。如果我試圖只用法律專業——法律推理、訴訟（與訴訟威脅）、靠 BATNA (best alternative to a negotiated agreement) 談判——來解決日常問題，絕對是有理走遍天下⋯⋯的相反，成為人人喊打的過街老鼠，陷入傳統律師大家敬而遠之。同樣地，只用經濟學與效率原則生活，也走不遠。</p>
+<p>接著進入光譜的另一端——系統性思考是協助我們處理複雜與不確定的心態。我肯定沒辦法在一篇文章中涵蓋所有系統思考的內容，但我來試著用這一段話講解釋系統思考的三元素：(1) 專業賭徒思維 (thinking in bets)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>、(2) 整體大於部分的總和、(3) 反饋迴圈 (feedback loops)。</p>
+<p>職業撲克玩家不會用單一遊戲結果來判斷自己的表現。他們問的是：在那個情境下，這一手是不是最有可能贏的選擇？這要求他們持續根據新資訊調整想法與判斷。同樣地，我們應該定期重新檢視自己的投資組合與決策：某項投資的基本面是否變了？假設是否被推翻？或反之？這種 thinking in bets，學術上叫貝氏心態 (Bayesian mindset)，大幅改善了我在生活與工作中的決策過程。</p>
+<p>「整體大於部分的總和」常被誤歸給亞里斯多德——其實是翻譯錯誤。Gestalt 心理學家 Kurt Koffka 提出的版本是：「整體不同於部分的總和」（"The whole is <em>other</em> than the sum of the parts"），這也展現了 <a href="https://en.wikipedia.org/wiki/Gestalt_psychology" target="_blank" rel="noopener noreferrer">我們大腦如何處理資訊</a>。另一個相關概念是 emergence（湧現）：水——兩個氫加一個氧——展現出與氫（高度易燃）和氧（助燃）完全不同的特性。</p>
+<p>我最喜歡的湧現的例子來自 Morgan Housel<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>：北方來的冷鋒不算什麼大事；南方來的暖風很舒服。但當兩者在密蘇里以正確的時間混合，就成了摧毀一切的龍捲風。我們沒有水晶球能預測未來——emergence 何時何地出現——但我很慶幸有些先驅敢於嘗試新事物，推動文明往前。作為個體，我們也絕對可以連結自己看似無關、微不足道的點，看看會浮現什麼小型的湧現花樣。</p>
+<p>最後，反饋迴圈。人類傾向相信成長與成功有線性關係，甚至直接的因果鏈。我們的大腦就是這樣設計：我們愛因果結構「為什麼／因為」<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。當然，有了系統思考，我們現在知道「因為」不是唯一決定因素。更重要的是，反饋迴圈給我們一個鳥瞰視角，看清如何抵達目的地。有時可以走捷徑，有時要繞路，有時甚至必須放棄最賺錢的業務線才能存活<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>，死守一畝三分地，可能只是會加速滅亡。</p>
+<p>系統思考只有在實際應用時才會強大。這正是我在做的——如果你覺得這個世界複雜、有趣，對人性理性與知識抱有謙卑卻又無法滿足抽象的宗教解釋，歡迎來到系統思考。</p>
+<h2>2. 執行力 (Execution)：把事情做完並 ship 出去</h2>
+<p>身為一個系統思考者，我清楚「光說不練」的危險。我明白當一個只會出一張嘴的人有多惹人嫌。</p>
+<p>這大概也是為什麼「能動性（high-agency）」在 2025 年成了熱門關鍵字：它形容那些超有野心、主動積極、不求他人許可的方式，追求自己真正想要的人生。</p>
+<p>我對執行力分級的理解：思考 → 講出來 → 寫下來 → 反駁與再思考 → 創造東西獲得現實世界的資訊 → 對世界的認識增加 → 建立飛輪加速循環 → 撞牆並看見物理、文化、社經、法律的限制 → 克服限制升級，或果斷自我修正。</p>
+<p>我一直試圖建立自己的系統來加速指數成長——這個網站，是其中一項努力，目標是建立我的部落。</p>
+<p>當然，能動性也有陷阱——不定期的感到絕望與永不滿足是我的兩個最大問題。最近被提醒我需要休息——我聽進去了，但距離做到還有段路。</p>
+<p>在遊戲心態下，解法很簡單：擁抱你是誰，盡情扮演自己的角色，最大化獨特的潛能與才華。如果不定期的感到絕望與永不滿足是我高生產力與能動性的副作用，那就欣然接受吧。</p>
+<p>我可能會找其他解藥加快復原、更好的面對下一次絕望的來臨，或持續修行，讓腦中同時有絕望與希望共存的自己。</p>
+<h2>3. AI 強化 (AI-Enhancement)</h2>
+<p>這是我能做看似不可能的事的方式。我還在實驗各種 AI 工具——老實說， AI 進化得太快，我不真正在「學 AI 工具」，而是用來建造與創造。AI + 執行力 = 新興。</p>
+<p>目前我用 Claude 處理最高優先級的任務。我正在草稿一篇文章叫 「我如何用 Claude 寫合約與智能合約」，但要等我自己的智能合約上鏈後才會定稿，今年2026能寫完已是萬幸。</p>
+<p>我也大量用 Gemini 跟 NotebookLM 來建造和維護這個網站，以及學習生活各個領域——從主線任務到支線任務。當前的優先事項是把佩福12年計劃的智能合約測試完、開發能將法律合約去機敏資訊的離線軟體，以及探索更多有趣的開源計劃。</p>
+<h2>4. 溝通 (Communication)</h2>
+<p>我喜歡分享自己的故事與想法。<a href="/communication/">歡迎邀請我擔任 keynote、panelist、moderator，甚至 improv</a>。</p>
+<p>我在溝通上最大的收穫是以「聽眾為本、情緒優先」。最難的溝通挑戰是當你不真正了解你的聽眾。前陣子看到一個經典例子是大谷翔平：他原本想 18 歲時直接跳到美國小聯盟。是北海道日本火腿鬥士提出了一份精細而有說服力的論證，讓他改變心意。那份 30 頁的文件叫做 <a href="https://gigazine.net/gsc_news/en/20121213-nippon-ham-fighters-ohtani/#:~:text=However%2C%20Hokkaido%20Nippon%20Ham%20Fighters,disclosure%20such%20as%20personal%20information%22." target="_blank" rel="noopener noreferrer">《夢への道しるべ》（夢想的路標）</a>。它從大谷想要的東西出發：成為世界一流的棒球選手——而不只是細說從球團能提供什麼，這個策略成功讓他留在日本，也培養大谷翔平真的成為世界一流的選手。</p>
+<p>另一個我刻意練習的技能是節奏——特別是策略性的停頓與沈默，我覺得好難，特別是講到興奮處。沈默真的是溝通中被低估的元素，給聽眾時間思考、消化、讓想法沉澱，或許你直接看 <a href="https://youtube.com/shorts/GfafD6pycoE?si=Bse9l8hve1fnnjI_" target="_blank" rel="noopener noreferrer">Vinh Giang 的影片</a> 就知道了。</p>
+<h2>5. 法律 (Legal)</h2>
+<p>人性的悲劇是我們無法渴望、甚至欣賞自己已經擁有的東西。這是讓很多人不快樂的人性根源——我也不例外。諷刺的是，在我花了幾十年攢學費、念完法學院、有幸執業多年之後，我好想把這個律師標籤拿掉。當律師不丟臉，但我不喜歡被這樣標籤——因為這似乎限制了我與世界共舞的潛能。可探索與體驗的事物太多了；法律世界有趣且有價值，但絕對不是全部。</p>
+<p>話雖如此，我視法律技能與資格為加分項，而非框框。所以我的系統思考能幫助客戶把宏觀願景與微觀精度對齊。每當我們航向未知海域，從監管機構獲得綠燈、完成出我們的義務、或拍板成交超乎客戶預期——那種感覺很爽。</p>
+<p>結合 AI，法律工作變得更有趣也更可規模化。這在 2022 年前是無法想像的，但現在是現實——五個人的小事務所可能與傳統 500 名律師的大事務所競爭，期待法律就像電腦工具一樣，人人都可以使用，而不用訴諸權威。</p>
+<h2>6. 加密貨幣 (Crypto)</h2>
+<p>2017 年那篇 HBR 文章 <a href="https://hbr.org/2017/03/the-blockchain-will-do-to-banks-and-law-firms-what-the-internet-did-to-media" target="_blank" rel="noopener noreferrer">《區塊鏈將對金融系統做的，正如網際網路對媒體做過的事》</a> 把我推進了 crypto 世界。當然，前同事們幫我整合了金融視角，並讓我在法律與合規上得到實作經驗，加上我目前在全世界協助去中心化生態系的創辦人與 builders 的努力。</p>
+<p>我想潛得更深，真的用區塊鏈做有趣又有用的事（邏輯上講，享樂本身就超有用又有價值，無論如何）。這就是我啟動 PIF12 project 的原因。</p>
+<p>如果你是這個世界的新手，可以看看這些好資源：
+1. <a href="https://variant.fund/writing/" target="_blank" rel="noopener noreferrer">Variant Fund</a> 與 <a href="https://a16zcrypto.com/" target="_blank" rel="noopener noreferrer">a16z crypto</a>
+2. <a href="https://www.cryptocompendium.org/" target="_blank" rel="noopener noreferrer">Guang-Yi 的 Crypto Compendium</a>
+3. <a href="https://thecryptolegalhandbook.com/" target="_blank" rel="noopener noreferrer">The Crypto Legal Handbook</a></p>
+<p>這就是我對 skill tree v1.2 的整理。期待很快與你組隊！</p>
+<p>更新紀錄：
+- v1.2.1: 2026 年 5 月 10 日（中文版上線）</p>
+<ul>
+<li>
+<p>v1.2: 2026 年 3 月 25 日（English 最後更新）</p>
+</li>
+<li>
+<p>v1.1: 2026 年 3 月 24 日</p>
+</li>
+<li>
+<p>v1: 2026 年 2 月 25 日</p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>「Thinking in bets」這個概念來自 Annie Duke 的書 <em>Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts</em>。意思是根據機率與期望值來評估決策，而不是看結果好壞。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Morgan Housel 的書 <em>Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life</em>。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.harvardmagazine.com/2010/08/the-mindfulness-chronicles?page=all" target="_blank" rel="noopener noreferrer">Harvard Magazine, Mindfulness—the unconventional research of psychologist Ellen Langer</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>1975 年柯達工程師 Steve Sasson 發明了第一台數位相機，但管理層為了保護底片業務把它擱置。幾十年後柯達收購了 Ofoto (2001)——Instagram 的前身——卻拿來推實體照片沖印而非社群分享。柯達為了保住一個垂死的業務線而忽視這些數位 feedback loops，最終在 2012 年破產時把該平台以遠低於潛在價值的價格賣給 Shutterfly。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    <a href="/zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="在這個馬年，無處可躲的 AI 浪潮迎面而來，一馬當先"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">在這個馬年，無處可躲的 AI 浪潮迎面而來，一馬當先</span></a>
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> 隨機
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    <a href="/3pwriting/playgrounds/perfect-day-without-magic.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="A Perfect Day Without Magic"><span class="truncate max-w-[120px] sm:max-w-[200px]">A Perfect Day Without Magic</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">免責聲明：</strong>
+          此網站僅代表本人觀點，不代表任何相關機構。所有內容僅供參考，未提供具體法律、醫療、稅務或投資建議。請尋求自身專業諮詢。文章內容「按現況」提供，不保證無誤或為最新；請自行研究並承擔依賴本站任何資訊所致之後果。
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
+        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> Jason J. Lai</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    initTheme();
+
+    const allPosts = ["/zh/3pwriting/partnership/readme.html", "/3pwriting/playgrounds/perfect-day-without-magic.html", "/zh/3pwriting/skill-tree/Skill-Tree-Development.html", "/zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/2026-q1-review-builder.html", "/zh/3pwriting/partnership/2026-q1-review-builder.html", "/zh/3pwriting/playgrounds/perfect-day-without-magic.html", "/3pwriting/skill-tree/Skill-Tree-Development.html", "/zh/3pwriting/playgrounds/brand-age-translation.html", "/3pwriting/partnership/workhorse-in-the-year-of-horse.html", "/3pwriting/partnership/readme.html"];
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
+  </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
+</body>
+</html>

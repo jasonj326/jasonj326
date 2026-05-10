@@ -1,10 +1,13 @@
 ---
-title: Readme-A Guide to Working with Me
+title: README · A Guide to Working with Me
 date: 2026-02-23
-updated:
+updated: 2026-05-10
 year: 2026
+lang: en
 slug: readme
-url: "https://jasonjlai.net/3pwriting/partnership/20260223/readme.html"
+url: "https://jasonjlai.net/3pwriting/partnership/readme.html"
+redirect_from:
+  - /3pwriting/partnership/20260223/readme.html
 major_tag: partnership
 tags:
   - playbooks
@@ -12,49 +15,52 @@ tags:
   - partnership
   - y2026
 pinned: false
-summary: This is a living doc helping strengthen our partnership
+summary: A living doc to strengthen our partnership
 ---
-This is a living document inspired by the transparent culture of open-source communities. My goal here is to accelerate our working relationship by being upfront about my communication style, my professional philosophy, my quirks, and my values.
+This is a living document inspired by the transparent culture of open-source communities. My goal is to be upfront about my communication style, professional philosophy, quirks, and values — so we can accelerate our working relationship.
 
 ## 🎯 My Role
 
-As a Legal Builder, my core function is to transform regulatory fog into deployment velocity. In the fast-paced worlds of Web3 and AI, "legal" must move at the speed of product.
+As a Legal Builder, my core function is to turn regulatory uncertainty into concrete, deployable plans. In the fast-paced worlds of Web3 and AI, legal isn't just a cost — it's a strategic necessity.
 
-I view regulatory constraints as a strategic growth lever. I am here to help founders and investment teams navigate gray zones so they can outmaneuver incumbents safely.
+I'm here to help founders and investment teams move forward in the dark: each extra layer of legal reasoning makes the next step more solid.
 
 ## 🧠 Professional Philosophy
 
-Builder-First: I care about your product roadmap just as much as the compliance matrix. I'm here to find the sweet-spot of commercial feasibility, technical efforts, and regulatory compliance.
+**Builder-First**: I'm here to find the sweet spot between commercial feasibility, technical effort, and regulatory compliance — and to call out the red lines clearly.
 
-Clarity and Brevity: I strongly believe in "Smart Brevity." If I am handing an investment committee or a founder a 20-page memo, I have failed. I distill complex risk into actionable decision logs, trackers, and go/no-go inputs.
+**Clarity and Brevity**: I strongly believe in "Smart Brevity." If I hand an investment committee or a founder a 20-page legal opinion, I've failed at my job. I distill complex risk into actionable decision logs and trackers the team can grasp at a glance.
 
-Embrace the Gray: Perfect regulatory clarity does not exist in crypto or any emerging tech. My job is to underwrite the risk based on reason and human behavior predictions, provide Best/Base/Worst case scenarios, and give founders the confidence to ship.
+**Embrace the Gray**: Perfect regulatory clarity does not exist in crypto or any emerging tech. My job is to underwrite the risk based on reason and human behavior predictions, provide Best/Base/Worst case scenarios, and give founders the confidence to execute.
 
 ## 💬 Communication Preferences
 
-Async vs. Sync: The Right Tool for the Job
+Once we formally start working together, the following patterns will maximize what we get done.
 
-Async (Deep Work): For legal and regulatory analysis, please share your thoughts and questions, along with facts and scenarios. This removes timezone limits and allows for "second thoughts" and creative reflection.
+**Async vs. Sync: Use the Right Channel**
 
-Sync (Firefighter Mode): For quick gut-checks, DM me on Telegram/Signal. This is for sprinting through urgent issues in real-time.
+**Async (Deep Work)**: For high-stakes, high-value regulatory analysis, please share your thoughts, questions, facts, and full scenario context up front. This removes timezone friction, accelerates the work, and lets me give more complete advice.
 
-Response Times: I usually reply within 24 hours; during work hours, ~90 minutes. For true emergencies, call me—24/7. When we’re onsite, tap me on the shoulder; if I'm out of sight, ring me.
+**Sync (Firefighter Mode)**: For initial discussions or anything time-sensitive, DM me on Telegram/Signal/Slack — that's the fastest path.
+
+**Response Times**: I usually reply within 24 hours; during work hours, ~90 minutes. For true emergencies, call me—24/7.
 
 ## 🤝 How I Handle Conflict and Pushback
 
-I don’t mistake the law for the status quo. That said, there’s a hard line at actual wrongdoing. If you’re looking for How to Get Away with Murder, Netflix is the better use of time. I’ll push into gray zones and pressure-test edges, but I’m here to help build the future, not a rap sheet.
+I don't mistake the law for the status quo. That said, there's a hard line at actual wrongdoing. If you're looking for *How to Get Away with Murder*, Netflix is the better use of your time. I'll push into gray zones and pressure-test edges, but I'm here to help build the future, not a rap sheet.
 
-With a scout’s curiosity, Bayesian probability lens, and relentless fact-driven legal scrutiny, I welcome pushback—it’s the fastest way to calibrate new facts and whether we’re building something sustainable and unbreakable.
+I review each case with a scientist's curiosity and a fact-driven legal lens, so I welcome your dissenting views — it's the fastest way to calibrate new facts and confirm whether our commercial plan is actually viable.
 
-## 💡 Fun Facts About Me:
+(Feel free to challenge me using the internet or AI — caveat: your conversations with AI usually aren't protected by legal privilege, so use at your own risk.)
 
-1. I'm really bad at memorizing names—I even have to finish non-fiction books in a single week, or I have to start them over from the beginning.
-    
-2. I love connecting the dots—I find similarities between Frieren (芙莉蓮) and Sheldon Cooper—both are geniuses who initially lack emotional awareness, but grow through their journeys with peers. Those little discoveries genuinely entertain me.
-    
-3. I’m a quote nerd—I thought I could shortcut to wisdom this way. I was half right: many famous lines aren’t actually by the people we credit, yet the idea matters more than the name, and misattribution is usually impossible to disprove (thanks, burden of proof).
-    
+## 💡 Fun Facts About Me
+
+1. I'm really bad at memorizing names—I even have to finish non-fiction books in a single week, or I have to start over from the beginning. Current challenge: spending two months slowly working through *David Copperfield*.
+
+2. I love connecting the dots—I find similarities between Frieren (芙莉蓮) and Sheldon Cooper—both are geniuses who initially lack emotional awareness but grow through their journeys with peers. I often entertain myself (and others) with these little discoveries.
+
+3. I'm a quote nerd—I thought I could shortcut to wisdom this way. I was half right: many famous lines aren't actually by the people we credit, yet the idea matters more than the name, and misattribution is usually impossible to disprove (thanks, burden of proof).
 
 Note: This README is a living document. As I learn, grow, and adapt, this guide will evolve alongside me.
 
-  [Last update: February 23, 2026]
+[Last update: May 10, 2026]

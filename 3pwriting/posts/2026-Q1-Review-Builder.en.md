@@ -3,8 +3,11 @@ title: Q1 2026 Review · Becoming a Builder
 date: 2026-05-03
 updated: 2026-05-03
 year: 2026
-slug: 2026-q1-review-builder-en
-url: https://jasonjlai.net/3pwriting/partnership/20260503/2026-q1-review-builder-en.html
+lang: en
+slug: 2026-q1-review-builder
+url: https://jasonjlai.net/3pwriting/partnership/2026-q1-review-builder.html
+redirect_from:
+  - /3pwriting/partnership/20260503/2026-q1-review-builder-en.html
 major_tag: partnership
 tags:
   - playbooks

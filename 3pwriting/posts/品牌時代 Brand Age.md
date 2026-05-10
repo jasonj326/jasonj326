@@ -3,15 +3,19 @@ title: 品牌時代  (trans. from Paul Graham's Brand Age)
 date: 2026-03-06
 updated:
 year: 2026
+lang: zh-Hant
 slug: brand-age-translation
-url: "https://jasonjlai.net/3pwriting/playgrounds/20260306/brand-age-translation.html"
+url: "https://jasonjlai.net/zh/3pwriting/playgrounds/brand-age-translation.html"
+redirect_from:
+  - /3pwriting/playgrounds/20260306/brand-age-translation.html
+feed_canonical: true
 major_tag: playgrounds
 tags:
   - playgrounds
   - y2026
   - translated
 pinned: false
-summary: Chinese Translation of Paul Graham's "Brand Age"
+summary: 翻譯自 Paul Graham 的 The Brand Age，講述精品鐘錶業商業品牌故事
 hero_image:
 ---
 This is Paul Graham's [Brand Age](https://paulgraham.com/brandage.html), originally translated on March 6, 2026. 

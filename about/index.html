@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Jason J. Lai</title>
+  <meta name="description" content="AI + Web3 legal builder. Opening a 12-year community experiment.">
+  <meta property="og:title" content="About · Jason J. Lai">
+  <meta property="og:description" content="AI + Web3 legal builder. Opening a 12-year community experiment.">
+  <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+  <meta property="og:url" content="https://jasonjlai.net/about/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Bilingual hreflang -->
+  <link rel="alternate" hreflang="en" href="https://jasonjlai.net/about/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://jasonjlai.net/zh/about/">
+  <link rel="alternate" hreflang="x-default" href="https://jasonjlai.net/about/">
+
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+    }}}}
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    main a.inline-link {
+      color: rgb(99 102 241);
+      text-decoration: underline;
+      text-decoration-color: rgb(99 102 241 / 0.45);
+      text-underline-offset: 3px;
+    }
+    .dark main a.inline-link {
+      color: rgb(94 234 212);
+      text-decoration-color: rgb(94 234 212 / 0.45);
+    }
+    main a.inline-link:hover { color: rgb(79 70 229); text-decoration-color: rgb(79 70 229); }
+    .dark main a.inline-link:hover { color: rgb(52 211 153); text-decoration-color: rgb(52 211 153); }
+    .creed { counter-reset: c; list-style: none; padding: 0; }
+    .creed > li {
+      counter-increment: c;
+      position: relative;
+      padding-left: 2.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .creed > li::before {
+      content: counter(c, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0.25rem;
+      font-family: ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 1rem;
+      color: rgb(99 102 241);
+    }
+    .dark .creed > li::before { color: rgb(94 234 212); }
+    .cred-list { list-style: none; padding: 0; }
+    .cred-list > li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .cred-list > li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: rgb(148 163 184);
+      font-weight: 700;
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/fab-subscribe.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
+
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+      <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+        <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+        </a>
+        <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
+        </a>
+        <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+        </a>
+        <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+        </a>
+        <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+          <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="/zh/about/" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="切換到中文" title="中文">
+            <i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <span class="text-xs sm:text-sm font-mono font-bold">中</span>
+          </a>
+          <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path></svg>
+          </a>
+          <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </a>
+        </div>
+        <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+        <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+          <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-2xl mx-auto px-6 py-16 animate-[fadeIn_0.5s_ease-out]">
+
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold font-mono tracking-tight mb-6">About</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Hi, I'm <strong class="text-slate-900 dark:text-slate-100">Jason J. Lai</strong> 👋
+      </p>
+      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mt-3">
+        <a href="/qualia/" class="inline-link">AI</a> + <a href="/PIF12/" class="inline-link">Web3</a> legal builder, opening a 12-year community experiment game.
+      </p>
+    </header>
+
+    <!-- Manifesto -->
+    <section class="mb-14">
+      <h2 class="text-2xl font-bold font-mono mb-1">What I believe</h2>
+      <p class="text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-7">— Manifesto —</p>
+
+      <ol class="creed text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Play the long game.</strong> Broad longtermism plus infinite-game thinking — paths cross again, and new doors open when you least expect them. Great projects need patience. But not too much: I might die tomorrow.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Build = ship something useful.</strong> Ideas don't count. Concrete solutions and shipped output do. That said, the process — <em>how</em> you deliver — is itself part of a builder's craft. Storytelling is one example: opinions and ideas are cheap; how you frame them so others actually buy in is where the value sits.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Pursue "mind-body balance," not "work-life balance."</strong> Probably because I like one-fish-many-meals — doing a single thing that delivers many benefits at once. Right now: a daily outdoor journal livestream that also lets me play Pikmin and forces a ritual to actually go outside. Downside: maybe none of the three reaches a perfect score. Still searching for the balance.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">As someone who isn't easily happy</strong> — and an amateur but obsessive student of cognitive and brain science for 15+ years — through self-awareness and self-inquiry, I've converged on this formula: Happiness = peace and ease = maximize(agency<sup id="fnref-1"><a href="#fn-1" class="text-indigo-600 dark:text-emerald-400 no-underline">[1]</a></sup>) + minimize(expectations) + self-acceptance + meaningful connection. Through sharing, creating, being kind, and working with you, I hope to help more people feel at peace — and explore more possibilities.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">I don't confuse law with the status quo.</strong> People are imperfect; so are the institutions we live inside. Law has two jobs: stay flexible and evolve with a changing world, <em>and</em> maintain a predictable social order. I lean toward the first — joining the legal engineering that shifts the boundary of human civilization.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Currently building -->
+    <section class="mb-14">
+      <h2 class="text-2xl font-bold font-mono mb-5">Currently building</h2>
+      <ul class="space-y-3 text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+        <li>🪙 <a href="/PIF12/" class="inline-link">PIF12</a> — 12-year Soul-bound Token circle. Mainnet 6/21.</li>
+        <li>🎯 <a href="/long-game/" class="inline-link">Long Game</a> — gamified life challenges (Builder · Storyteller · Walker).</li>
+        <li>🤖 <a href="/qualia/" class="inline-link">Qualia</a> — this site's AI guide, RAG over my public writing.</li>
+        <li>🌱 <a href="/seeds/" class="inline-link">Seed wall</a> — 370+ thinking fragments. Including this site itself: I'm migrating my old social-media content over to expand my own autonomy.</li>
+        <li>🧭 <a href="/now/" class="inline-link">Now</a> — what I've been up to recently.</li>
+      </ul>
+    </section>
+
+    <!-- Reach me -->
+    <section class="mb-14">
+      <h2 class="text-2xl font-bold font-mono mb-5">Reach me</h2>
+      <ul class="space-y-3 text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+        <li>✉️ <a href="mailto:hello@jasonjlai.net" class="inline-link">hello@jasonjlai.net</a> — within 10 days as a rule, usually faster.</li>
+        <li>🎙️ <a href="/communication/" class="inline-link">Speaking invites</a></li>
+        <li>🤖 <a href="/qualia/" class="inline-link">Or chat with Qualia first</a> — I pay her, so she has more patience than I do.</li>
+      </ul>
+    </section>
+
+    <!-- Credentials -->
+    <section class="mb-14">
+      <h2 class="text-2xl font-bold font-mono mb-5">Credentials</h2>
+      <ul class="cred-list text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+        <li>New York Registered Attorney</li>
+        <li>Juris Doctor, William &amp; Mary Law School</li>
+        <li>Bachelor of Arts, National Taiwan University (Political Science, International Relations)</li>
+        <li>MOE Government Scholarship (International Negotiation)</li>
+        <li>AIGP — IAPP AI Governance Professional</li>
+        <li>Former government Director-General's secretary; former General Counsel at a fintech startup</li>
+      </ul>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="mb-14 pt-6 border-t border-slate-200 dark:border-slate-800">
+      <h3 class="text-sm font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4">Footnotes</h3>
+      <ol class="text-sm text-slate-600 dark:text-slate-400 space-y-3 leading-relaxed list-decimal list-inside">
+        <li id="fn-1">
+          <strong class="text-slate-700 dark:text-slate-300">Agency</strong> — acting boldly without needing permission to shape the world the way you want it (see my <a href="/3pwriting/partnership/2026-q1-review-builder.html" class="inline-link">2026 Q1 review</a>). I prefer it to <em>autonomy</em>: autonomy is freedom <em>from</em> external control; agency is freedom <em>to</em> act and ask — write the email, make the call, build the thing. <a href="#fnref-1" class="text-indigo-600 dark:text-emerald-400 no-underline" aria-label="Back to text">↩</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Sign-off -->
+    <section class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800">
+      <p class="text-base font-mono text-slate-700 dark:text-slate-300"><strong>Jason J. Lai · 賴建順</strong></p>
+      <p class="text-sm font-mono text-slate-500 dark:text-slate-400">Trust Builder wielding a legal wand</p>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
+      <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> Jason J. Lai</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') { htmlElement.classList.remove('dark'); iconSun.classList.add('hidden'); iconMoon.classList.remove('hidden'); }
+      else { htmlElement.classList.add('dark'); iconSun.classList.remove('hidden'); iconMoon.classList.add('hidden'); }
+    }
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) { htmlElement.classList.remove('dark'); localStorage.setItem('theme', 'light'); iconSun.classList.add('hidden'); iconMoon.classList.remove('hidden'); }
+      else { htmlElement.classList.add('dark'); localStorage.setItem('theme', 'dark'); iconSun.classList.remove('hidden'); iconMoon.classList.add('hidden'); }
+    }
+    initTheme();
+  </script>
+<script src="/assets/fab-subscribe.js" defer></script>
+</body>
+</html>

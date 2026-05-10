@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3P Writing - Jason J. Lai</title>
-  
-  <!-- 列表頁預設 SEO 與社群縮圖 -->
   <meta name="description" content="New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy.">
   <meta property="og:title" content="3P Writing - Jason J. Lai">
   <meta property="og:description" content="New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy.">
@@ -13,8 +11,6 @@
   <meta property="og:url" content="https://jasonjlai.net/3pwriting/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-
-  <!-- 💡 AI 優化：首頁專用 JSON-LD，讓搜尋引擎收錄網站整體背景 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,11 +26,8 @@
     }
   }
   </script>
-
-  <!-- 瀏覽器分頁與手機桌面圖示 (PNG) -->
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -54,7 +47,6 @@
     .dark .game-shadow { box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1); }
     .game-shadow-hover:hover { box-shadow: 6px 6px 0 0 rgba(15, 23, 42, 1); transform: translateY(-2px); }
     .dark .game-shadow-hover:hover { box-shadow: 6px 6px 0 0 rgba(203, 213, 225, 1); }
-    
     .tag-btn { border-width: 2px; border-style: solid; border-radius: 0.5rem; padding: 0.5rem 1rem; font-family: ui-monospace, monospace; font-size: 0.875rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 150ms ease; cursor: pointer; user-select: none; text-decoration: none; }
     .tag-btn:not(.active) { background-color: rgb(226 232 240); color: rgb(71 85 105); border-color: rgb(203 213 225); }
     .dark .tag-btn:not(.active) { background-color: rgb(30 41 59); color: rgb(148 163 184); border-color: rgb(51 65 85); }
@@ -62,8 +54,6 @@
     .dark .tag-btn:not(.active):hover { box-shadow: 2px 2px 0 0 rgba(203, 213, 225, 0.5); }
     .tag-btn.active { box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1); }
     .dark .tag-btn.active { box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1); }
-    
-    /* Active colors */
     .tag-btn.active.tag-all { background-color: rgb(15 23 42); color: white; border-color: rgb(15 23 42); }
     .dark .tag-btn.active.tag-all { background-color: rgb(241 245 249); color: rgb(15 23 42); border-color: rgb(241 245 249); }
     .tag-btn.active.tag-playbooks { background-color: rgb(37 99 235); color: white; border-color: rgb(30 64 175); }
@@ -78,34 +68,19 @@
               <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-200 dark:selection:bg-emerald-900">
-  
-  <!-- 導覽列 Navigation (已同步首頁的社群圖示排版) -->
+
   <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
-          
-          <!-- 左側：站內連結 (Internal Navigation) -->
           <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                  <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
-              </a>
-              <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                  <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
-              </a>
-              <!-- Writing on 3P (Active) -->
-              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-                  <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
-              </a>
-              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                  <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
-              </a>
-              <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                  <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
-              </a>
+              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span></a>
+              <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span></a>
+              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400"><i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span></a>
+              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span></a>
+              <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span></a>
           </div>
-
-          <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
           <div class="flex items-center gap-3 sm:gap-4 ml-auto">
               <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="/zh/3pwriting/quarterly-review/" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to 中文" title="中文"><i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="text-xs sm:text-sm font-mono font-bold">中</span></a>
                   <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
                       <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
@@ -125,9 +100,7 @@
                       </svg>
                   </a>
               </div>
-
               <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
-
               <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
                   <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
                   <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
@@ -145,31 +118,27 @@
         </a>
       </h1>
       <p class="text-lg text-slate-600 dark:text-slate-400 font-mono">
-        > <span class="text-emerald-500 font-bold">Partnership</span>.
-        <span class="text-amber-500 font-bold">Playground</span>.
-        <span class="text-blue-500 font-bold">Playbooks</span>.
+        > <span class="text-emerald-500 font-bold">Partnership</span>. <span class="text-blue-500 font-bold">Playbooks</span>. <span class="text-amber-500 font-bold">Playground</span>.
       </p>
     </div>
 
-    <!-- 動態生成的實體連結標籤 -->
     <div class="flex flex-wrap gap-3 mb-8">
       <a href="/3pwriting/" class="tag-btn  tag-all"><i data-lucide="layers" class="w-4 h-4"></i> All Logs</a>
 <a href="/3pwriting/playbooks/" class="tag-btn  tag-playbooks"><i data-lucide="book-open" class="w-4 h-4"></i> Playbooks</a>
 <a href="/3pwriting/partnership/" class="tag-btn  tag-partnership"><i data-lucide="handshake" class="w-4 h-4"></i> Partnership</a>
 <a href="/3pwriting/playgrounds/" class="tag-btn  tag-playgrounds"><i data-lucide="gamepad-2" class="w-4 h-4"></i> Playgrounds</a>
-<a href="/3pwriting/quarterly-review/" class="tag-btn active tag-quarterly-review"><i data-lucide="tag" class="w-4 h-4"></i> Quarterly-review</a>
-<a href="/3pwriting/skill-tree/" class="tag-btn  tag-skill-tree"><i data-lucide="tag" class="w-4 h-4"></i> Skill-tree</a>
+<a href="/3pwriting/quarterly-review/" class="tag-btn active tag-quarterly-review"><i data-lucide="tag" class="w-4 h-4"></i> Quarterly Review</a>
+<a href="/3pwriting/skill-tree/" class="tag-btn  tag-skill-tree"><i data-lucide="tag" class="w-4 h-4"></i> Skill Tree</a>
 <a href="/3pwriting/translated/" class="tag-btn  tag-translated"><i data-lucide="tag" class="w-4 h-4"></i> Translated</a>
 <a href="/3pwriting/y2026/" class="tag-btn  tag-y2026"><i data-lucide="tag" class="w-4 h-4"></i> Y2026</a>
     </div>
 
     <hr class="border-2 border-slate-900 dark:border-slate-700 mb-8 rounded-full" />
 
-    <!-- 文章列表 -->
     <div class="space-y-6">
       
       <article class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow game-shadow-hover transition-all cursor-pointer group"
-               onclick="navigateTo('/3pwriting/partnership/20260503/2026-q1-review-builder-en.html')">
+               onclick="navigateTo('/3pwriting/partnership/2026-q1-review-builder.html')">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-3">
           <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
             <span class="text-sm font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">
@@ -189,34 +158,9 @@
         </p>
       </article>
 
-
-      <article class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow game-shadow-hover transition-all cursor-pointer group"
-               onclick="navigateTo('/3pwriting/partnership/20260501/2026-q1-review-builder.html')">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-3">
-          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-            <span class="text-sm font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">
-              2026-05-01
-            </span>
-            <div class="flex flex-wrap items-center">
-              <a href="/3pwriting/playbooks/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-blue-500"></span>playbooks</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/partnership/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/playgrounds/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/quarterly-review/" class="inline-flex items-center gap-1 text-xs font-mono uppercase text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>quarterly-review</a>
-            </div>
-          </div>
-          <span class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase px-2 py-1 rounded border-2 border-slate-900 dark:border-slate-300 bg-white/80 dark:bg-slate-900/60"><i data-lucide="pin" class="w-4 h-4"></i> Pinned</span>
-        </div>
-        <h2 class="text-2xl font-bold font-mono mb-3 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">
-          2026 Q1 季報：成為建造者
-        </h2>
-        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-          從一份紐約職缺，意外開出一個 12 年的 Pay-it-Forward 計畫——關於 Builder 認同、區塊鏈靈魂拷問、與 AI 時代人類為何還需要合作。
-        </p>
-      </article>
-
     </div>
 
-    <!-- 分頁按鈕 -->
     
-
-    <!-- 💡 訂閱表單 Subscribe / Newsletter (放置於文章列表底部) -->
 
   </main>
 

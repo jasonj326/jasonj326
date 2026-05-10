@@ -3,8 +3,12 @@ title: 2026 Q1 季報：成為建造者
 date: 2026-05-01
 updated: 2026-05-03
 year: 2026
+lang: zh-Hant
 slug: 2026-q1-review-builder
-url: https://jasonjlai.net/3pwriting/partnership/20260501/2026-q1-review-builder.html
+url: https://jasonjlai.net/zh/3pwriting/partnership/2026-q1-review-builder.html
+redirect_from:
+  - /3pwriting/partnership/20260501/2026-q1-review-builder.html
+feed_canonical: true
 major_tag: partnership
 tags:
   - playbooks

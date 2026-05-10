@@ -3,8 +3,11 @@ title: Skill Tree Development v1.2
 date: 2026-03-25
 updated:
 year: 2026
+lang: en
 slug: Skill-Tree-Development
-url: "https://jasonjlai.net/3pwriting/skill-tree/20260325/Skill-Tree-Development.html"
+url: "https://jasonjlai.net/3pwriting/skill-tree/Skill-Tree-Development.html"
+redirect_from:
+  - /3pwriting/skill-tree/20260325/Skill-Tree-Development.html
 major_tag: skill-tree
 tags:
   - y2026
