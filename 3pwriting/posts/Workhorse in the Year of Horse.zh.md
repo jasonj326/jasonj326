@@ -1,11 +1,11 @@
 ---
-title: 在這個馬年，無處可躲的 AI 浪潮迎面而來，一馬當先
+title: 馬年：無處可躲的 AI 浪潮迎面而來，一馬當先
 date: 2026-05-10
 updated:
 year: 2026
 lang: zh-Hant
 slug: workhorse-in-the-year-of-horse
-url: "https://jasonjlai.net/zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html"
+url: https://jasonjlai.net/zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html
 major_tag: partnership
 tags:
   - playbooks
