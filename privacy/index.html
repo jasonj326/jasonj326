@@ -145,7 +145,7 @@
 
       <div class="space-y-5 text-base text-slate-600 dark:text-slate-300 leading-relaxed">
         <p>
-          <strong class="text-slate-900 dark:text-white">If you subscribe by email</strong>, I receive your email address along with the optional source field (which page you subscribed from). The form is hosted by Formspree; submissions are forwarded to my inbox and stored in the Formspree dashboard.
+          <strong class="text-slate-900 dark:text-white">If you subscribe by email</strong>, I receive your email address along with the optional source field (which page you subscribed from). The form is hosted by either Formspree or Google Forms; submissions are forwarded to my inbox and stored in the Formspree dashboard or in Google Drive.
         </p>
         <p>
           <strong class="text-slate-900 dark:text-white">If you chat with Lia</strong> (the AI assistant on this site), your messages are sent to Anthropic's Claude API for processing. I store an aggregate count of conversations and messages per day in a Cloudflare KV namespace — numbers only, no content. I do not log the conversations themselves.
@@ -174,7 +174,7 @@
     <section class="mb-12">
       <h2 class="text-2xl font-bold font-mono mb-4 text-slate-900 dark:text-slate-100">What I do with what I collect</h2>
       <ul class="space-y-2 text-base text-slate-600 dark:text-slate-300 leading-relaxed list-disc pl-6">
-        <li><strong class="text-slate-900 dark:text-white">Email addresses</strong>: kept on the Formspree subscriber list and used to send my Substack newsletter about 3P writing.</li>
+        <li><strong class="text-slate-900 dark:text-white">Email addresses</strong>: kept on the Formspree subscriber list or in Google Forms (depending on which you choose); used to send personal updates like quarterly reviews, activities, and engagements. If you subscribe via Substack, my writing is sent to your inbox through Substack.</li>
         <li><strong class="text-slate-900 dark:text-white">Lia chat counts</strong>: visible to me as aggregate KV values for capacity planning (am I close to the daily Anthropic API limit). No per-user data.</li>
       </ul>
     </section>
