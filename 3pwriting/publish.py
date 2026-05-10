@@ -37,20 +37,25 @@ SITE_AUTHOR_DESC = "New York-qualified attorney and legal engineer designing and
 # ZH paths added incrementally as Phases 1/2/3/5 ship.
 SITEMAP_STATIC_PAGES = [
     ("/",                                  "1.0", "weekly"),
-    ("/zh/",                               "1.0", "weekly"),  # ZH home (Phase 2 first cut)
-    ("/about/",                            "0.8", "monthly"),  # Phase 1
-    ("/zh/about/",                         "0.8", "monthly"),  # Phase 1
+    ("/zh/",                               "1.0", "weekly"),
+    ("/about/",                            "0.8", "monthly"),
+    ("/zh/about/",                         "0.8", "monthly"),
     ("/now/",                              "0.9", "weekly"),
+    ("/zh/now/",                           "0.9", "weekly"),
     ("/3pwriting/",                        "0.9", "weekly"),
-    ("/zh/3pwriting/",                     "0.9", "weekly"),  # Phase 4a
+    ("/zh/3pwriting/",                     "0.9", "weekly"),
     ("/PIF12/",                            "0.9", "weekly"),
-    ("/PIF12/zh/",                         "0.9", "weekly"),  # legacy until Phase 3
+    ("/zh/PIF12/",                         "0.9", "weekly"),
     ("/long-game/",                        "0.7", "monthly"),
+    ("/zh/long-game/",                     "0.7", "monthly"),
     ("/communication/",                    "0.6", "monthly"),
-    ("/communication-zh/",                 "0.6", "monthly"),  # legacy until Phase 3
+    ("/zh/communication/",                 "0.6", "monthly"),
     ("/japanese/",                         "0.6", "monthly"),
+    ("/zh/japanese/",                      "0.6", "monthly"),
     ("/qualia/",                           "0.5", "monthly"),
+    ("/zh/qualia/",                        "0.5", "monthly"),
     ("/seeds/",                            "0.8", "weekly"),
+    ("/zh/seeds/",                         "0.8", "weekly"),
     ("/privacy/",                          "0.3", "monthly"),
     ("/contribute/",                       "0.4", "monthly"),
 ]
@@ -115,7 +120,7 @@ NAV_LABELS = {
         "jason_full": "Jason_Lai", "jason_mobile": "Jason",
         "long_full": "長期遊戲",   "long_mobile": "遊戲",
         "p3_full":   "3P 寫作",     "p3_mobile":   "3P",
-        "qualia_full": "Qualia",   "qualia_mobile": "Lia",
+        "qualia_full": "Qualia",   "qualia_mobile": "AI",
         "seeds_full":  "種子",     "seeds_mobile":  "種子",
     }
 }

@@ -1,5 +1,5 @@
 ---
-title: README · 與我合作的指南
+title: README ・合作指南
 date: 2026-05-10
 updated:
 year: 2026

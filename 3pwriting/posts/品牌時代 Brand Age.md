@@ -1,5 +1,5 @@
 ---
-title: 品牌時代  (trans. from Paul Graham's Brand Age)
+title: 品牌時代
 date: 2026-03-06
 updated:
 year: 2026
