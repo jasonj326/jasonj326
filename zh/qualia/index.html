@@ -138,13 +138,13 @@
         <!-- Header -->
         <div class="text-center mb-8 w-full">
             <div class="inline-flex items-center gap-2 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 dark:text-emerald-300 dark:bg-emerald-900/30 border border-indigo-200 dark:border-emerald-800 rounded-full mb-4">
-                <i data-lucide="sparkles" class="w-3 h-3"></i> Experimental Build
+                <i data-lucide="sparkles" class="w-3 h-3"></i> 實驗版本
             </div>
             <h1 class="text-3xl sm:text-5xl font-extrabold font-mono tracking-tight text-slate-900 dark:text-white mb-3">
-                Meet <span class="text-indigo-600 dark:text-emerald-400">Qualia</span>
+                來認識 <span class="text-indigo-600 dark:text-emerald-400">Qualia</span>
             </h1>
             <p class="text-slate-600 dark:text-slate-400 font-medium">
-                I'm Lia — I know Jason's work, his writing, and how this site is built. Just between us: Jason doesn't read these chats. Ask away in English or 中文。
+                我是 Lia——我熟悉 Jason 的作品、文章，也清楚這個網站怎麼建的。我們之間的小秘密：Jason 不會看這些對話。盡管問吧。
             </p>
         </div>
 
@@ -155,17 +155,16 @@
                     <div class="w-16 h-16 bg-slate-100 dark:bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-slate-300 dark:border-slate-700">
                         <i data-lucide="mail" class="w-8 h-8 text-indigo-500 dark:text-emerald-400"></i>
                     </div>
-                    <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-white">Chat with Lia</h2>
+                    <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-white">跟 Lia 聊聊</h2>
                 </div>
                 <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed text-left">
-                    Drop your email to chat with Lia and stay connected with bilingual (EN/中) personal thoughts, collab invites and <a href="/PIF12/" class="underline decoration-slate-400 dark:decoration-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">PIF12</a> updates. No spam, cancel anytime.<br>
-                    <span class="text-slate-500 dark:text-slate-500">填入 email 即可與 Lia 聊天，同時訂閱中英雙語個人動態與活動邀請、<a href="/PIF12/zh/" class="underline decoration-slate-400 dark:decoration-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">佩福12年</a>。保證無垃圾信，隨時取消。</span>
+                    填入 email 即可與 Lia 聊天，同時訂閱中英雙語個人動態與活動邀請、<a href="/zh/PIF12/" class="underline decoration-slate-400 dark:decoration-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">佩福 12 年</a>。保證無垃圾信，隨時取消。
                 </p>
                 <form id="auth-form" class="space-y-4">
                     <input
                         type="text"
                         id="auth-name-input"
-                        placeholder="Name (optional)"
+                        placeholder="姓名（可不填）"
                         class="w-full bg-slate-50 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-indigo-500 dark:focus:border-emerald-400 transition-colors"
                     />
                     <input
@@ -187,9 +186,9 @@
                         onclick="skipChat()"
                         class="w-full text-center text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors py-1 underline decoration-slate-400/30 underline-offset-4 hover:decoration-current"
                     >
-                        or just chat without sharing → <span class="text-slate-400 dark:text-slate-500">不留 email 直接開槓</span>
+                        不留 email 直接開槓
                     </button>
-                    <p id="auth-error" class="text-red-500 text-sm font-mono hidden">Something went wrong. Please try again.</p>
+                    <p id="auth-error" class="text-red-500 text-sm font-mono hidden">有點問題，請再試一次。</p>
                 </form>
             </div>
         </div>
@@ -219,7 +218,7 @@
                         <i data-lucide="bot" class="w-5 h-5 text-indigo-600 dark:text-emerald-400"></i>
                     </div>
                     <div class="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 p-4 rounded-2xl rounded-tl-sm text-slate-700 dark:text-slate-200 shadow-sm max-w-[85%]">
-                        <p>Hey — I'm Lia. I can walk you through Jason's site, chat about his writing, or share things that don't fit on a resume. Just between us — Jason doesn't read these. So ask me anything in English or 中文，甚至偷偷跟我說你暗戀 Jason —— 他不會知道。</p>
+                        <p>嗨——我是 Lia。我可以帶你逛 Jason 的網站、聊聊他的文章，或分享一些 resume 上看不到的事情。我們之間的小秘密：Jason 不會看這些對話。盡管問吧，甚至偷偷跟我說你暗戀 Jason——他真的不會知道。</p>
                     </div>
                 </div>
             </div>
@@ -227,7 +226,7 @@
             <!-- Loading Indicator (Hidden) -->
             <div id="loading-indicator" class="px-6 py-2 hidden">
                 <div class="flex items-center gap-2 text-slate-400 font-mono text-sm">
-                    <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Lia is thinking...
+                    <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Lia 思考中…
                 </div>
             </div>
 
@@ -237,7 +236,7 @@
                     <input 
                         type="text" 
                         id="chat-input" 
-                        placeholder="Type your message..." 
+                        placeholder="輸入訊息…" 
                         class="flex-grow bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 dark:focus:border-emerald-400 transition-colors"
                         autocomplete="off"
                     />
@@ -369,7 +368,7 @@
                 checkAuth();
             } finally {
                 authSubmitBtn.disabled = false;
-                authSubmitBtn.textContent = 'Start Chatting';
+                authSubmitBtn.textContent = '開始聊天';
             }
         });
 

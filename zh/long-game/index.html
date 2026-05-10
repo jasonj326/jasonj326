@@ -163,7 +163,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: auto;
-        gap: 1.5rem 0.75rem;
+        gap: 1.75rem 0.75rem;
         margin-top: 0;
       }
       .milestone-dot { width: auto; }
@@ -172,6 +172,31 @@
       .milestone-dot:nth-child(3) { grid-row: 1; grid-column: 3; }
       .milestone-dot:nth-child(4) { grid-row: 2; grid-column: 3; }
       .milestone-dot:nth-child(5) { grid-row: 2; grid-column: 2; }
+      /* Snake-flow arrows (mobile only) */
+      .milestone-dot::before {
+        position: absolute;
+        color: rgb(148 163 184);
+        font-size: 1rem;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .dark .milestone-dot::before { color: rgb(100 116 139); }
+      .milestone-dot:nth-child(1)::before,
+      .milestone-dot:nth-child(2)::before {
+        content: "→";
+        right: -0.6rem;
+        top: 4px;
+      }
+      .milestone-dot:nth-child(3)::before {
+        content: "↓";
+        right: 4px;
+        bottom: -1.2rem;
+      }
+      .milestone-dot:nth-child(4)::before {
+        content: "←";
+        left: -0.6rem;
+        top: 4px;
+      }
     }
     /* Tool chip (Builder card) */
     .tool-chip {
@@ -264,7 +289,7 @@
     <!-- ============================================== -->
     <div class="mb-14">
       <div class="inline-block px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 dark:text-emerald-900 dark:bg-emerald-400 border-2 border-indigo-900 dark:border-emerald-400 rounded-full mb-4">
-        Active Mission Log
+        進行中的任務日誌
       </div>
       <h1 class="text-4xl md:text-5xl font-extrabold font-mono tracking-tight mb-8 flex items-center gap-3">
         <i data-lucide="target" class="w-10 h-10 text-indigo-600 dark:text-emerald-400"></i>
@@ -274,19 +299,19 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
           <div>
             <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <i data-lucide="flag" class="w-3.5 h-3.5"></i> Quest Objective
+              <i data-lucide="flag" class="w-3.5 h-3.5"></i> 任務目標
             </span>
-            <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100">Find and build my tribe.</p>
+            <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100">找到夥伴建立部落。</p>
           </div>
           <div class="inline-flex items-center text-sm font-mono font-bold text-indigo-600 dark:text-emerald-400 shrink-0">
-            <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> Challenge Accepted
+            <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> 接受挑戰
           </div>
         </div>
         <div class="h-px w-full bg-slate-200 dark:bg-slate-700 my-1"></div>
         <div class="mt-5">
-          <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Current Status</span>
+          <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">目前狀態</span>
           <p class="text-sm font-mono font-bold text-purple-600 dark:text-purple-400 mt-1 flex items-center gap-1.5">
-            <i data-lucide="skull" class="w-4 h-4"></i> Afflicted: Poisoned by tech isolation.
+            <i data-lucide="skull" class="w-4 h-4"></i> 狀態異常：被科技孤立所毒。
           </p>
         </div>
       </div>
@@ -303,7 +328,7 @@
       </div>
 
       <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-        A 12-year commitment to build a tribe of curious polymaths — testnet now, mainnet 6/21, invite open.
+        12 年的承諾，建立一個好奇博學者的部落——testnet 進行中、6/21 上 mainnet、邀請開放中。
       </p>
 
       <!-- Milestone bar: Sketch ✓ · Onchain 🔄 · Find Twelve · Year-End Gather · Y2 SBT -->
@@ -314,11 +339,11 @@
           <div class="milestone-fill" style="width: 30%"></div>
         </div>
         <div class="milestone-dots">
-          <span class="milestone-dot done" data-tooltip="High-level design + landing page (EN/zh) shipped"><span class="dot"></span><span class="label">Sketch</span></span>
-          <span class="milestone-dot doing" data-tooltip="Smart contract on testnet → mainnet on 6/21"><span class="dot"></span><span class="label">Onchain</span><span class="sub">testnet → 6/21</span></span>
-          <span class="milestone-dot" data-tooltip="Find the first 12 core members willing to hold SBTs"><span class="dot"></span><span class="label">Find Twelve</span><span class="sub">0 of 12</span></span>
-          <span class="milestone-dot" data-tooltip="Year-end IRL gathering of the first twelve, late 2026"><span class="dot"></span><span class="label">Year-End Gather</span><span class="sub">late 2026</span></span>
-          <span class="milestone-dot" data-tooltip="Design and ship the Year-2 SBT (2027 cycle)"><span class="dot"></span><span class="label">Y2 SBT</span><span class="sub">2027</span></span>
+          <span class="milestone-dot done" data-tooltip="設計概念與雙語 landing page 已上線"><span class="dot"></span><span class="label">Sketch</span></span>
+          <span class="milestone-dot doing" data-tooltip="智能合約 testnet → 6/21 上 mainnet"><span class="dot"></span><span class="label">Onchain</span><span class="sub">testnet → 6/21</span></span>
+          <span class="milestone-dot" data-tooltip="找到願意持有 SBT 的前 12 位核心成員"><span class="dot"></span><span class="label">Find Twelve</span><span class="sub">0 of 12</span></span>
+          <span class="milestone-dot" data-tooltip="2026 年底十二人實體聚會"><span class="dot"></span><span class="label">Year-End Gather</span><span class="sub">late 2026</span></span>
+          <span class="milestone-dot" data-tooltip="設計並推出 Y2 SBT（2027 週期）"><span class="dot"></span><span class="label">Y2 SBT</span><span class="sub">2027</span></span>
         </div>
       </div>
     </section>
@@ -329,8 +354,8 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-baseline gap-2 flex-wrap">
         <i data-lucide="users" class="w-5 h-5 text-slate-500 self-center"></i>
-        Three Roles
-        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">— How I show up and build in public</span>
+        三個角色
+        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">——我的公開建造角色</span>
       </h2>
 
       <div class="grid grid-cols-1 gap-5">
@@ -344,37 +369,37 @@
             🛠️ Builder
           </h3>
           <p class="text-sm text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
-            Tools that solve real problems.
+            真正解決問題的工具。
           </p>
 
           <!-- Current level (JS-updated; defaults are SSR fallback) -->
           <div class="flex items-baseline gap-2 mb-2">
             <span class="text-xl" id="builder-emoji">🦠</span>
-            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="builder-lv-name">Lv.1 Prokaryote</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="builder-lv-name">Lv.1 原核生物</span>
           </div>
 
           <div class="lv-bar mb-1.5"><div class="bg-indigo-600 dark:bg-indigo-400" id="builder-progress" style="width: 0%"></div></div>
           <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
-            <span><a href="/seeds/" class="hover:text-indigo-600 dark:hover:text-emerald-400 underline decoration-dotted decoration-slate-400 underline-offset-2"><span id="builder-total">…</span> builder seeds</a></span>
+            <span><a href="/seeds/" class="hover:text-indigo-600 dark:hover:text-emerald-400 underline decoration-dotted decoration-slate-400 underline-offset-2"><span id="builder-total">…</span> 個建造種子</a></span>
             <span>→ <span id="builder-next">11</span></span>
           </div>
 
           <!-- Ladder (toggle; current Lv highlighted via JS) -->
           <details class="mt-auto pt-2 border-t border-slate-200 dark:border-slate-700">
             <summary class="text-xs font-mono text-slate-500 dark:text-slate-400 select-none flex items-center gap-1">
-              <i data-lucide="info" class="w-3 h-3"></i> Full ladder
+              <i data-lucide="info" class="w-3 h-3"></i> 完整等級
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
             <ul class="text-sm font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400" id="builder-ladder">
-              <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 🦠 Prokaryote</span><span class="opacity-60">0–10</span></li>
-              <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🌿 Multicellular</span><span class="opacity-60">11–25</span></li>
-              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🦍 Apes</span><span class="opacity-60">26–50</span></li>
-              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 🧠 Sapient</span><span class="opacity-60">51–100</span></li>
-              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🌍 Planetary</span><span class="opacity-60">101–200</span></li>
-              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🚀 Interstellar</span><span class="opacity-60">201+</span></li>
+              <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 🦠 原核生物</span><span class="opacity-60">0–10</span></li>
+              <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🌿 多細胞生物</span><span class="opacity-60">11–25</span></li>
+              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🦍 猿猴</span><span class="opacity-60">26–50</span></li>
+              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 🧠 智人</span><span class="opacity-60">51–100</span></li>
+              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🌍 行星生物</span><span class="opacity-60">101–200</span></li>
+              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🚀 星際生物</span><span class="opacity-60">201+</span></li>
             </ul>
             <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
-              Driver: <a href="/seeds/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">builder-tagged seeds</a>
+              來源：<a href="/zh/seeds/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">標記 builder 的種子</a>
             </p>
           </details>
         </div>
@@ -387,44 +412,44 @@
             🎙️ Storyteller
           </h3>
           <p class="text-sm text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
-            Speaking, writing, broadcasting — putting work where people see it.
+            演講、寫作、直播——把作品放到別人看得到的地方。
           </p>
 
           <!-- Current level (JS-updated; SSR fallback shown) -->
           <div class="flex items-baseline gap-2 mb-2">
             <span class="text-xl" id="storyteller-emoji">🖼️</span>
-            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="storyteller-lv-name">Lv.3 Craftsman</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="storyteller-lv-name">Lv.3 匠人</span>
           </div>
 
           <div class="lv-bar mb-1.5"><div class="bg-amber-500 dark:bg-amber-400" id="storyteller-progress" style="width: 0%"></div></div>
           <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
-            <span><span id="storyteller-total">…</span> score</span>
+            <span><span id="storyteller-total">…</span> 分</span>
             <span>→ <span id="storyteller-next">41</span></span>
           </div>
 
           <!-- Sub-axes -->
           <div class="text-sm font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📝 Essays <span class="opacity-60">(3p)</span></span><span id="storyteller-essays">…</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎤 Speaking</span><span id="storyteller-speakings">…</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📺 Livestream <span class="opacity-60">(D + 10S)</span></span><span id="storyteller-livestream">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📝 文章 <span class="opacity-60">(3P)</span></span><span id="storyteller-essays">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎤 演講</span><span id="storyteller-speakings">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📺 直播 <span class="opacity-60">(D + 10S)</span></span><span id="storyteller-livestream">…</span></div>
           </div>
 
           <!-- Ladder (toggle; current Lv highlighted) -->
           <details class="mt-auto pt-2 border-t border-slate-200 dark:border-slate-700">
             <summary class="text-xs font-mono text-slate-500 dark:text-slate-400 select-none flex items-center gap-1">
-              <i data-lucide="info" class="w-3 h-3"></i> Full ladder
+              <i data-lucide="info" class="w-3 h-3"></i> 完整等級
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
             <ul class="text-sm font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400" id="storyteller-ladder">
-              <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 ✏️ Apprentice</span><span class="opacity-60">0–10</span></li>
-              <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🎨 Creator</span><span class="opacity-60">11–20</span></li>
-              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🖼️ Craftsman</span><span class="opacity-60">21–40</span></li>
-              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 👂 Orator</span><span class="opacity-60">41–80</span></li>
-              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🪄 Master</span><span class="opacity-60">81–160</span></li>
-              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🎶 Realm-maker</span><span class="opacity-60">161+</span></li>
+              <li data-lv="1" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.1 ✏️ 學徒</span><span class="opacity-60">0–10</span></li>
+              <li data-lv="2" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 🎨 創作者</span><span class="opacity-60">11–20</span></li>
+              <li data-lv="3" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🖼️ 匠人</span><span class="opacity-60">21–40</span></li>
+              <li data-lv="4" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 👂 演說家</span><span class="opacity-60">41–80</span></li>
+              <li data-lv="5" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🪄 出師</span><span class="opacity-60">81–160</span></li>
+              <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🎶 造浪者</span><span class="opacity-60">161+</span></li>
             </ul>
             <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
-              Score = essays + speakings + livestream/5
+              分數 = 文章 + 演講 + 直播/5
             </p>
           </details>
         </div>
@@ -437,38 +462,38 @@
             🌳 Walker
           </h3>
           <p class="text-sm text-slate-500 dark:text-slate-400 italic mb-4 leading-relaxed">
-            Mind & body in balance. Min-axis basis.
+            身心平衡。木桶板基準（最弱軸）。
           </p>
 
-          <!-- Current level: min(Move=2, Mind=1, Force=2, Rest=5) = Lv.1 Starter -->
+          <!-- Current level: min(Move=2, Mind=1, Force=2, Rest=5) = Lv.1 新手 -->
           <div class="flex items-baseline gap-2 mb-2">
             <span class="text-xl">👟</span>
-            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100">Lv.1 Starter</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100">Lv.1 新手</span>
           </div>
 
           <!-- Progress within Lv.1 (Mind 10/10 = max of Lv.1, near Lv.2) -->
           <div class="lv-bar mb-1.5"><div class="bg-emerald-600 dark:bg-emerald-400" style="width: 90%"></div></div>
           <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
-            <span>weakest-link</span>
-            <span>→ Challenger</span>
+            <span>最弱軸</span>
+            <span>→ 挑戰者</span>
           </div>
 
           <!-- 4 sub-axes with descriptions -->
           <div class="text-sm font-mono space-y-2 mb-4 text-slate-600 dark:text-slate-300">
             <div class="flex justify-between gap-2">
-              <span><span class="text-slate-500 dark:text-slate-400">🫀 Cardio</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">running + swim×10 km/年</span></span>
+              <span><span class="text-slate-500 dark:text-slate-400">🫀 Cardio</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">跑步 + 游泳×10 km/年</span></span>
               <span class="whitespace-nowrap">68 km · Lv.2</span>
             </div>
             <div class="flex justify-between gap-2">
-              <span><span class="text-slate-500 dark:text-slate-400">🧘 Mind</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">meditation days/年</span></span>
+              <span><span class="text-slate-500 dark:text-slate-400">🧘 Mind</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">冥想日數/年</span></span>
               <span class="whitespace-nowrap">10 d · Lv.1</span>
             </div>
             <div class="flex justify-between gap-2">
-              <span><span class="text-slate-500 dark:text-slate-400">💪 Force</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">strength sessions/年</span></span>
+              <span><span class="text-slate-500 dark:text-slate-400">💪 Force</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">力量訓練次數/年</span></span>
               <span class="whitespace-nowrap">15 · Lv.2</span>
             </div>
             <div class="flex justify-between gap-2">
-              <span><span class="text-slate-500 dark:text-slate-400">😴 Rest</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">good nights past 30d + max streak÷2</span></span>
+              <span><span class="text-slate-500 dark:text-slate-400">😴 Rest</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">近 30 天好眠次數 + 最長連勝÷2</span></span>
               <span class="whitespace-nowrap">22.5 · Lv.5</span>
             </div>
           </div>
@@ -476,19 +501,19 @@
           <!-- Ladder (toggle; current Lv highlighted) -->
           <details class="mt-auto pt-2 border-t border-slate-200 dark:border-slate-700">
             <summary class="text-xs font-mono text-slate-500 dark:text-slate-400 select-none flex items-center gap-1">
-              <i data-lucide="info" class="w-3 h-3"></i> Full ladder
+              <i data-lucide="info" class="w-3 h-3"></i> 完整等級
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
             <ul class="text-sm font-mono space-y-0.5 mt-3 text-slate-500 dark:text-slate-400">
-              <li class="flex justify-between px-1.5 py-0.5 rounded font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/30"><span>Lv.1 👟 Starter</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 ⏱️ Challenger</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🏆 Pro</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 ⭐ All-Star</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🦁 Legend</span></li>
-              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 👦 Old Mischief</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/30"><span>Lv.1 👟 新手</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.2 ⏱️ 挑戰者</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.3 🏆 職人</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.4 ⭐ 明日之星</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.5 🦁 傳奇</span></li>
+              <li class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 👦 老頑童</span></li>
             </ul>
             <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
-              Lv = min(Move, Mind, Force, Rest). Weakest-link basis.
+              Lv = min(Cardio、Mind、Force、Rest)。最弱軸為基準。
             </p>
           </details>
         </div>
@@ -502,8 +527,8 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
         <i data-lucide="compass" class="w-5 h-5 text-slate-500"></i>
-        Side Quests
-        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">— exploratory, no level pressure</span>
+        支線任務
+        <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">——探索性，不打分</span>
       </h2>
 
       <div class="grid sm:grid-cols-3 gap-5">
@@ -524,8 +549,8 @@
             <i data-lucide="mic" class="w-7 h-7 text-indigo-600 dark:text-indigo-400"></i>
           </div>
           <h3 class="font-bold text-base font-mono mb-1">Podcast</h3>
-          <p class="text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-1">Listen to pilot series →</p>
-          <p class="text-xs text-slate-400 dark:text-slate-500">Resume in H2 2026</p>
+          <p class="text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-1">收聽試播集 →</p>
+          <p class="text-xs text-slate-400 dark:text-slate-500">2026 下半年復出</p>
         </a>
 
         <!-- Japanese -->
@@ -534,7 +559,7 @@
             <i data-lucide="languages" class="w-7 h-7 text-pink-600 dark:text-pink-400"></i>
           </div>
           <h3 class="font-bold text-base font-mono mb-1">日本語</h3>
-          <p class="text-sm font-mono text-pink-600 dark:text-pink-400 mb-1">Looking for language buddies →</p>
+          <p class="text-sm font-mono text-pink-600 dark:text-pink-400 mb-1">徵語言夥伴 →</p>
         </a>
       </div>
     </section>
@@ -591,12 +616,12 @@
     // ───────────────────────────────────────────────
     (function() {
       const LADDER = [
-        { lv: 1, name: 'Prokaryote',    emoji: '🦠', threshold: 0   },
-        { lv: 2, name: 'Multicellular', emoji: '🌿', threshold: 11  },
-        { lv: 3, name: 'Apes',          emoji: '🦍', threshold: 26  },
-        { lv: 4, name: 'Sapient',       emoji: '🧠', threshold: 51  },
-        { lv: 5, name: 'Planetary',     emoji: '🌍', threshold: 101 },
-        { lv: 6, name: 'Interstellar',  emoji: '🚀', threshold: 201 },
+        { lv: 1, name: '原核生物',    emoji: '🦠', threshold: 0   },
+        { lv: 2, name: '多細胞生物', emoji: '🌿', threshold: 11  },
+        { lv: 3, name: '猿猴',          emoji: '🦍', threshold: 26  },
+        { lv: 4, name: '智人',       emoji: '🧠', threshold: 51  },
+        { lv: 5, name: '行星生物',     emoji: '🌍', threshold: 101 },
+        { lv: 6, name: '星際生物',  emoji: '🚀', threshold: 201 },
       ];
 
       fetch('/seeds/seeds.json')
@@ -645,12 +670,12 @@
     // ───────────────────────────────────────────────
     (function() {
       const LADDER = [
-        { lv: 1, name: 'Apprentice',  emoji: '✏️', threshold: 0   },
-        { lv: 2, name: 'Creator',     emoji: '🎨', threshold: 11  },
-        { lv: 3, name: 'Craftsman',   emoji: '🖼️', threshold: 21  },
-        { lv: 4, name: 'Orator',      emoji: '👂', threshold: 41  },
-        { lv: 5, name: 'Master',      emoji: '🪄', threshold: 81  },
-        { lv: 6, name: 'Realm-maker', emoji: '🎶', threshold: 161 },
+        { lv: 1, name: '學徒',  emoji: '✏️', threshold: 0   },
+        { lv: 2, name: '創作者',     emoji: '🎨', threshold: 11  },
+        { lv: 3, name: '匠人',   emoji: '🖼️', threshold: 21  },
+        { lv: 4, name: '演說家',      emoji: '👂', threshold: 41  },
+        { lv: 5, name: '出師',      emoji: '🪄', threshold: 81  },
+        { lv: 6, name: '造浪者', emoji: '🎶', threshold: 161 },
       ];
       const SPEAKINGS = 6;   // [手動] until /data/engagements.json wired
       const LIVESTREAM = 68; // 58D + 10S × 1; [手動] until SoT wired
