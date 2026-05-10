@@ -1,70 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="zh-Hant" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason Lai - Designing Trust for Tribes Surfing on AI & Crypto</title>
+    <title>賴建順 · AI + Web3 的「法師」</title>
 
-    <!-- 💡 SEO 與社群軟體分享預覽縮圖 (Open Graph) -->
-    <meta name="description" content="Jason Lai - Builder wielding a legal wand. Life's meaningless—let's dare to build our own">
-    
-    <!-- 💡 AEO/SEO 隱藏關鍵字 -->
-    <meta name="description" content="New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy.">
-    
-    <meta property="og:title" content="Jason Lai - Designing Trust for Playful Tribes">
-    <meta property="og:description" content="Builder wielding a legal wand. Life's meaningless—let's dare to build our own">
+    <!-- SEO 與社群軟體分享預覽縮圖 (Open Graph) -->
+    <meta name="description" content="紐約執業律師、AI + Web3 的「法師」，正在開啟一場 12 年的社群實驗遊戲。">
+
+    <meta property="og:title" content="賴建順 · AI + Web3 的「法師」">
+    <meta property="og:description" content="紐約執業律師、AI + Web3 的「法師」，正在開啟一場 12 年的社群實驗遊戲。">
     <meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
-    <meta property="og:url" content="https://jasonjlai.net/">
+    <meta property="og:url" content="https://jasonjlai.net/zh/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- 💡 效能優化：預先建立 CDN 連線 -->
+    <!-- Bilingual hreflang -->
+    <link rel="alternate" hreflang="zh-Hant" href="https://jasonjlai.net/zh/">
+    <link rel="alternate" hreflang="en" href="https://jasonjlai.net/">
+    <link rel="alternate" hreflang="x-default" href="https://jasonjlai.net/">
+
+    <!-- 效能優化：預先建立 CDN 連線 -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-    <!-- 💡 AEO 優化：JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "name": "Jason J. Lai",
-          "url": "https://jasonjlai.net/",
-          "jobTitle": "Web3 & AI Legal Builder",
-          "description": "Builder wielding a legal wand.",
-          "knowsAbout": [
-            "New York Attorney",
-            "Crypto Attorney",
-            "Web3 Lawyer",
-            "AI Lawyer",
-            "AI Attorney",
-            "Risk Management",
-            "Technology Law",
-            "Digital Asset Compliance",
-            "AI Governance"
-          ],
-          "sameAs": [
-            "https://github.com/jasonj326",
-            "https://linkedin.com/in/psjasonlai"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "url": "https://jasonjlai.net/",
-          "name": "Jason Lai - Legal Builder",
-          "description": "Designing Trust for Tribes Surfing on AI & Crypto"
-        }
-      ]
-    }
-    </script>
-
-    <!-- 瀏覽器分頁與手機桌面圖示 -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    
-    <!-- Tailwind CSS (CDN) -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -87,7 +49,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* === Flip Card avatar (parity with /long-game/communication/) === */
+        /* === Flip Card avatar === */
         .flip-card {
             perspective: 800px;
             width: 140px;
@@ -147,7 +109,6 @@
         .dark .flip-card-ring {
             background: conic-gradient(from 0deg, #34d399, #6ee7b7, #a7f3d0, #34d399);
         }
-
     </style>
     <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -156,35 +117,31 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
-        <!-- 改用 min-h 與 flex-wrap，確保手機螢幕變窄時圖示能安全換行 -->
         <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
-            
-            <!-- 左側：站內連結 (Internal Navigation) -->
+
             <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-                <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
-                    <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
+                <a href="/zh/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400">
+                    <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-base">Jason</span>
                 </a>
-                <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
+                <a href="/zh/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">長期遊戲</span><span class="sm:hidden text-base">遊戲</span>
                 </a>
-                <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
+                <a href="/zh/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">3P 寫作</span><span class="sm:hidden text-base">3P</span>
                 </a>
-                <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span>
+                <a href="/zh/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-base">Lia</span>
                 </a>
-                <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span>
+                <a href="/zh/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
+                    <i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">種子</span><span class="sm:hidden text-base">種子</span>
                 </a>
             </div>
 
-            <!-- 右側：社群圖示 & 主題切換按鈕 (External Links & Settings) -->
             <div class="flex items-center gap-3 sm:gap-4 ml-auto">
-                <!-- 釘選的社群圖示 -->
                 <div class="flex items-center gap-3 sm:gap-4">
-                    <a href="/zh/" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="切換到中文" title="中文">
+                    <a href="/" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to English" title="English">
                         <i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                        <span class="text-xs sm:text-sm font-mono font-bold">中</span>
+                        <span class="text-sm sm:text-base font-mono font-bold">EN</span>
                     </a>
                     <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -206,11 +163,9 @@
                     </a>
                 </div>
 
-                <!-- 視覺分隔線 (僅在螢幕夠寬時顯示) -->
                 <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
 
-                <!-- 主題切換按鈕 -->
-                <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="切換深色模式">
                     <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
                     <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
                 </button>
@@ -226,121 +181,118 @@
         <header class="mb-16">
             <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
 
-                <!-- 🎴 Flip-card avatar (hover desktop / tap mobile) -->
+                <!-- Flip-card avatar -->
                 <div class="flip-card shrink-0">
                     <div class="flip-card-ring w-full h-full">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="/headshot-1.jpg" alt="Jason J. Lai headshot"
+                                <img src="/headshot-1.jpg" alt="賴建順照片"
                                      onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-emerald-500 dark:to-teal-600 flex items-center justify-center\'><span class=\'text-white text-5xl font-bold font-mono select-none\'>JL</span></div>'"
                                 />
                             </div>
                             <div class="flip-card-back p-0">
-                                <img src="/headshot-2.jpg" alt="Jason J. Lai speaking"
+                                <img src="/headshot-2.jpg" alt="賴建順演講照"
                                      class="w-full h-full object-cover"
-                                     onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-emerald-600 dark:to-teal-700 flex items-center justify-center text-white\'><span class=\'text-sm font-bold font-mono leading-snug text-center px-4\'>Law × Tech<br>× Human Nature</span></div>'"
+                                     onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-emerald-600 dark:to-teal-700 flex items-center justify-center text-white\'><span class=\'text-base font-bold font-mono leading-snug text-center px-4\'>法律 × 科技<br>× 人性</span></div>'"
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Title + tagline + Lia link -->
+                <!-- Title + tagline -->
                 <div class="text-center sm:text-left">
-                    <h1 class="text-4xl font-bold font-mono tracking-tight mb-3">Jason J. Lai</h1>
-                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-4 font-semibold">Builder wielding a legal wand</p>
+                    <h1 class="text-4xl font-bold font-mono tracking-tight mb-3">Jason J. Lai · 賴建順</h1>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-4 font-semibold">致力建立信任與協作的「法師」</p>
                     <div class="mt-3 flex flex-col items-center sm:items-start gap-2">
-                        <a href="/qualia/" class="inline-flex items-center gap-2 text-lg text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
-                            <i data-lucide="cpu" class="w-5 h-5"></i> Explore with Lia
+                        <a href="/zh/qualia/" class="inline-flex items-center gap-2 text-lg text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
+                            <i data-lucide="cpu" class="w-5 h-5"></i> 跟 Lia 一起逛
                         </a>
-                        <a href="/about/" class="inline-flex items-center gap-2 text-base text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
-                            <i data-lucide="user" class="w-4 h-4"></i> About
+                        <a href="/zh/about/" class="inline-flex items-center gap-2 text-base text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
+                            <i data-lucide="user" class="w-4 h-4"></i> 關於我
                         </a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- A 12-Year Commitment & Experiment / PIF12 (primary CTA, left-border parallel to Now) -->
+        <!-- 12 年承諾 / PIF12 (primary CTA) -->
         <section class="mb-16 pl-6 border-l-4 border-indigo-600 dark:border-emerald-400">
-            <h2 class="text-3xl font-bold font-mono mb-3">Build with me</h2>
+            <h2 class="text-3xl font-bold font-mono mb-3">一起 build</h2>
             <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                <a href="/PIF12/" class="font-mono font-bold text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Pay-It-Forward 12 (PIF12)</a>
+                <a href="/PIF12/zh/" class="font-mono font-bold text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap">佩福 12 年 (PIF12)</a>
             </p>
         </section>
 
-        <!-- Now (left-border style, eye-catching) -->
+        <!-- Now -->
         <section class="mb-16 pl-6 border-l-4 border-indigo-600 dark:border-emerald-400">
-            <a href="/now/" class="group block">
+            <a href="/zh/now/" class="group block">
                 <div class="flex items-baseline gap-3 mb-3 flex-wrap">
                     <h2 class="text-3xl font-bold font-mono group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Now</h2>
                     <span class="text-base font-mono text-slate-500 dark:text-slate-400 inline-flex items-center gap-1 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">
-                        what I've been up to recently <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        最近我在幹嘛 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </span>
                 </div>
             </a>
         </section>
 
-        <!-- 3. Main Quest (簡約入口卡片) -->
+        <!-- Long Game -->
         <section class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-16">
             <div class="flex items-center gap-3 mb-4">
                 <i data-lucide="target" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
-                <h2 class="text-2xl font-bold font-mono">Long Game</h2>
+                <h2 class="text-2xl font-bold font-mono">長期遊戲</h2>
             </div>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 italic">
-                Build a connected tribe surfing on the incoming wave of AI & Crypto
+                在 AI 與 Crypto 的浪頭上，結合長期主義與無限遊戲，建立有連結的部落。
             </p>
-            <a href="/long-game/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-sm">
-                Enter <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+            <a href="/zh/long-game/" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 hover:underline font-bold font-mono text-base">
+                進入 <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
             </a>
         </section>
 
-        <!-- 4. Writing on 3P -->
-        <section onclick="navigateTo('/3pwriting/')" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[10px_10px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer group">
+        <!-- 3P 寫作 -->
+        <section onclick="navigateTo('/zh/3pwriting/')" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] mb-12 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[10px_10px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer group">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-3">
                     <i data-lucide="book-open" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
-                    <h2 class="text-2xl font-bold font-mono group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Writing on 3P</h2>
+                    <h2 class="text-2xl font-bold font-mono group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">3P 寫作</h2>
                 </div>
             </div>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                Partnership. Playground. Playbooks. <br class="hidden sm:block"/>
-                My public thinking space and experiment logs.
+                做人・做事・逍遙遊。<br class="hidden sm:block"/>
+                我的公開思考空間與實驗紀錄。
             </p>
-            <span id="latest-3p" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-bold font-mono text-sm group-hover:underline break-words">
-                Latest: loading… <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>
+            <span id="latest-3p" class="inline-flex items-center text-indigo-600 dark:text-emerald-400 font-bold font-mono text-base group-hover:underline break-words">
+                最新：載入中⋯ <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>
             </span>
         </section>
 
-        <!-- Side Quests moved to /long-game/ -->
-        <!-- Initiate Co-op Mode moved to /about/ -->
-
-        <!-- 8. Bonus Content (Life is meaningless toggle) -->
+        <!-- Bonus Content (人生本來沒意義 toggle) -->
         <section class="mt-12">
             <details class="group p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)] transition-all cursor-pointer">
                 <summary class="flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                     <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 pr-4">
                         <div class="flex items-center gap-3">
                             <i data-lucide="tv" class="w-6 h-6 text-indigo-600 dark:text-emerald-400 shrink-0 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="font-bold font-mono text-base sm:text-lg text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">Got a minute?</span>
+                            <span class="font-bold font-mono text-base sm:text-lg text-slate-900 dark:text-slate-100 whitespace-nowrap group-hover:text-indigo-600 dark:group-hover:text-emerald-400 transition-colors">有空嗎？</span>
                         </div>
-                        <span class="text-sm sm:text-base font-sans font-medium text-slate-600 dark:text-slate-400 ml-9 sm:ml-0 group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors">
-                            Taking life too seriously? Still don't buy that life is by-default meaningless? Take a look. Sleep on it with humor—or a hammer.
+                        <span class="text-base sm:text-lg font-sans font-medium text-slate-600 dark:text-slate-400 ml-9 sm:ml-0 group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors">
+                            人生看得太沉重？還不接受人生本來沒意義？輕鬆看看這幾個影片。
                         </span>
                     </div>
                     <span class="text-slate-900 dark:text-slate-100 transition-transform duration-300 group-open:-rotate-180 shrink-0 group-hover:text-indigo-600 dark:group-hover:text-emerald-400">
                         <i data-lucide="chevron-down" class="w-6 h-6"></i>
                     </span>
                 </summary>
-                
+
                 <div class="mt-8 space-y-10 cursor-auto">
                     <!-- Video 1: Titanic - Make everyday count -->
                     <div>
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
                             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/4J4MBgsp_io" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <p class="mt-3 italic text-sm text-slate-500 dark:text-slate-400 text-center px-2">
-                            "Life is a game of luck... Make each day count."
+                        <p class="mt-3 italic text-base text-slate-500 dark:text-slate-400 text-center px-2">
+                            「人生是運氣的遊戲⋯⋯讓每一天都有意義。」
                         </p>
                     </div>
                     <!-- Video 2 -->
@@ -348,8 +300,8 @@
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
                             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/sctMPouTWiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <p class="mt-3 italic text-sm text-slate-500 dark:text-slate-400 text-center px-2">
-                            An individual living a "single-player game," yet inextricably connected to the entire history of the universe — <span class="not-italic font-semibold text-slate-700 dark:text-slate-200">"I am nothing and I am everything."</span>
+                        <p class="mt-3 italic text-base text-slate-500 dark:text-slate-400 text-center px-2">
+                            一個人活在「單人遊戲」中，卻又無法切割地與整個宇宙的歷史相連——<span class="not-italic font-semibold text-slate-700 dark:text-slate-200">「我什麼都不是，我什麼都是。」</span>
                         </p>
                     </div>
                     <!-- Video 3 -->
@@ -357,8 +309,8 @@
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
                             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/kYfNvmF0Bqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <p class="mt-3 italic text-sm text-slate-500 dark:text-slate-400 text-center px-2">
-                            "Once you learn that, you'll never be the same again."
+                        <p class="mt-3 italic text-base text-slate-500 dark:text-slate-400 text-center px-2">
+                            「一旦你領會這點，就再也回不去了。」
                         </p>
                     </div>
                     <!-- Video 4 -->
@@ -366,8 +318,8 @@
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-slate-900 dark:border-slate-300 shadow-[4px_4px_0_0_rgba(15,23,42,1)] dark:shadow-[4px_4px_0_0_rgba(203,213,225,1)]">
                             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/OyDpS-GftCk?start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <p class="mt-3 italic text-sm text-slate-500 dark:text-slate-400 text-center px-2">
-                            "You're on a space rock, floating in nothingness, infinite nothingness, and the infinite nothingness is expanding."
+                        <p class="mt-3 italic text-base text-slate-500 dark:text-slate-400 text-center px-2">
+                            「你身處太空岩石之上，漂浮在虛無之中，無限的虛無，而這無限的虛無，還在不斷擴張。」
                         </p>
                     </div>
                 </div>
@@ -376,74 +328,20 @@
 
     </main>
 
-    <!-- Podcast Modal -->
-    <div id="podcast-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-        <div class="absolute inset-0 bg-black/50" onclick="closePodcastModal()"></div>
-        <div class="relative max-w-lg mx-auto mt-24 px-6 animate-[fadeIn_0.2s_ease-out]">
-            <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 shadow-[8px_8px_0_0_rgba(15,23,42,1)] dark:shadow-[8px_8px_0_0_rgba(203,213,225,1)]">
-                <div class="flex items-start justify-between gap-4 mb-4">
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="mic" class="w-6 h-6 text-indigo-600 dark:text-emerald-400"></i>
-                        <h3 class="text-xl font-bold font-mono">Listen on…</h3>
-                    </div>
-                    <button type="button" onclick="closePodcastModal()" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Close">
-                        <i data-lucide="x" class="w-5 h-5"></i>
-                    </button>
-                </div>
-
-                <p class="text-slate-600 dark:text-slate-400 mb-6">Choose your platform:</p>
-
-                <div class="space-y-4">
-                    <a href="https://open.spotify.com/show/2W7ujlF7jaoocrA6A1gwQV?si=ca0b4294325d4158" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-green-500 dark:hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all group">
-                        <div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg mr-4 group-hover:bg-green-200 dark:group-hover:bg-green-800/50 transition-colors">
-                            <i data-lucide="headphones" class="w-5 h-5 text-green-600 dark:text-green-400"></i>
-                        </div>
-                        <span class="font-bold font-mono">Spotify</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 ml-auto group-hover:text-green-500"></i>
-                    </a>
-                    
-                    <a href="https://podcasts.apple.com/us/podcast/%E4%BA%BA%E6%B3%95%E4%BA%BA%E6%B3%95%E5%BE%8B%E4%BA%BA-mind-legal-talk/id1681563401" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all group">
-                        <div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg mr-4 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/50 transition-colors">
-                            <i data-lucide="podcast" class="w-5 h-5 text-purple-600 dark:text-purple-400"></i>
-                        </div>
-                        <span class="font-bold font-mono">Apple Podcasts</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 ml-auto group-hover:text-purple-500"></i>
-                    </a>
-                    
-                    <a href="https://youtube.com/playlist?list=PLD5TDfCm9KRQv8SMSt6psNq3wL_LPJXSQ&si=nOAw9RY_nGr6Z5DV" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-red-500 dark:hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all group">
-                        <div class="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg mr-4 group-hover:bg-red-200 dark:group-hover:bg-red-800/50 transition-colors">
-                            <i data-lucide="youtube" class="w-5 h-5 text-red-600 dark:text-red-400"></i>
-                        </div>
-                        <span class="font-bold font-mono">YouTube</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 ml-auto group-hover:text-red-500"></i>
-                    </a>
-                </div>
-
-                <div class="mt-6 flex justify-end">
-                    <button type="button" onclick="closePodcastModal()" class="px-4 py-2 rounded-lg border-2 border-slate-900 dark:border-slate-300 font-mono font-bold hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(15,23,42,1)] dark:hover:shadow-[2px_2px_0_0_rgba(203,213,225,1)] transition-all">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
-        <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
-            <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> <a href="/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Jason J. Lai</a></p>
+        <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-base font-mono text-slate-500">
+            <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a></p>
         </div>
     </footer>
 
-    <!-- 💡 效能優化：將非緊急的外部腳本移到網頁最底部 -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Script -->
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
         lucide.createIcons();
 
-        // Flip-card: tap toggle for touch devices (desktop uses :hover via CSS)
+        // Flip-card: tap toggle for touch devices
         document.querySelectorAll('.flip-card').forEach(function(card) {
             card.addEventListener('click', function() {
                 if (!window.matchMedia('(hover: hover)').matches) {
@@ -485,11 +383,9 @@
 
         initTheme();
 
-        // 安全跳轉
         function navigateTo(path) {
             try {
                 if (window.location.protocol === 'blob:' || window.location.origin === 'null' || !window.location.host) {
-                    console.log('預覽環境攔截跳轉至: ' + path);
                     return;
                 }
                 window.location.href = path;
@@ -498,29 +394,7 @@
             }
         }
 
-        // Modal controls
-        function openPodcastModal() {
-            const modal = document.getElementById('podcast-modal');
-            if (!modal) return;
-            modal.classList.remove('hidden');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            lucide.createIcons();
-        }
-
-        function closePodcastModal() {
-            const modal = document.getElementById('podcast-modal');
-            if (!modal) return;
-            modal.classList.add('hidden');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closePodcastModal();
-        });
-
-        // RSS Fetch: 抓取最新文章 (不論是否有置頂)
+        // RSS Fetch: 抓取最新文章 (ZH 版優先)
         async function loadLatest3P() {
             const el = document.getElementById('latest-3p');
             if (!el) return;
@@ -529,27 +403,24 @@
                 const res = await fetch('/3pwriting/feed.xml', { cache: 'no-store' });
                 if (!res.ok) throw new Error('feed fetch failed');
                 const text = await res.text();
-
                 const xml = new DOMParser().parseFromString(text, 'application/xml');
                 const items = Array.from(xml.querySelectorAll('channel > item'));
                 if (items.length === 0) throw new Error('no items');
 
-                // 將所有文章依照發布日期 (pubDate) 從新到舊排序
                 items.sort((a, b) => {
                     const dateA = new Date(a.querySelector('pubDate')?.textContent || 0);
                     const dateB = new Date(b.querySelector('pubDate')?.textContent || 0);
                     return dateB - dateA;
                 });
 
-                // 取排序後的第一筆 (也就是真正的最新文章)
                 const latestItem = items[0];
                 const title = (latestItem.querySelector('title')?.textContent || '').trim();
                 const link = (latestItem.querySelector('link')?.textContent || '').trim();
 
-                const safeTitle = title || 'Latest post';
-                const safeLink = link || '/3pwriting/';
+                const safeTitle = title || '最新文章';
+                const safeLink = link || '/zh/3pwriting/';
 
-                el.innerHTML = `Latest: ${escapeHtml(safeTitle)} <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>`;
+                el.innerHTML = `最新：${escapeHtml(safeTitle)} <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>`;
                 el.style.cursor = 'pointer';
                 el.onclick = (e) => {
                     e.stopPropagation();
@@ -558,11 +429,11 @@
 
                 lucide.createIcons();
             } catch (e) {
-                el.innerHTML = `Latest: (see all posts) <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>`;
+                el.innerHTML = `最新：（看全部文章） <i data-lucide="arrow-right" class="w-4 h-4 ml-1 flex-shrink-0"></i>`;
                 el.style.cursor = 'pointer';
                 el.onclick = (ev) => {
                     ev.stopPropagation();
-                    navigateTo('/3pwriting/');
+                    navigateTo('/zh/3pwriting/');
                 };
                 lucide.createIcons();
             }

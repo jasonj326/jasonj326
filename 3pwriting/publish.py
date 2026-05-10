@@ -37,6 +37,7 @@ SITE_AUTHOR_DESC = "New York-qualified attorney and legal engineer designing and
 # ZH paths added incrementally as Phases 1/2/3/5 ship.
 SITEMAP_STATIC_PAGES = [
     ("/",                                  "1.0", "weekly"),
+    ("/zh/",                               "1.0", "weekly"),  # ZH home (Phase 2 first cut)
     ("/about/",                            "0.8", "monthly"),  # Phase 1
     ("/zh/about/",                         "0.8", "monthly"),  # Phase 1
     ("/now/",                              "0.9", "weekly"),
