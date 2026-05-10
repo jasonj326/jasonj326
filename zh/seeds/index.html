@@ -203,10 +203,10 @@
     <header class="mb-10">
       <h1 class="text-4xl md:text-5xl font-bold font-mono tracking-tight mb-3">種子</h1>
       <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
-        小小的念頭，有的會發芽、有的不會。有些長成文章、播客、演講；多數仍是種子；有些石化。時間會告訴我們。
+        念頭想法，有的在心裡發芽、有的始終沉睡。有些長成文章、演講、專案；多數仍是種子，偶而石化，總是治癒。
       </p>
       <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-        This is a work in production so there are some mismatches. Stay tuned and roll a dice if you like. See <code class="font-mono text-violet-600 dark:text-violet-300">invites</code> for open collabs.
+        這是進行中的作品，有些地方還沒對齊。歡迎持續關注，想抽張機會命運卡也歡迎。<code class="font-mono text-violet-600 dark:text-violet-300">邀請</code> 標籤裡有公開合作的機會。
       </p>
     </header>
 
@@ -216,27 +216,27 @@
       <div class="flex flex-col sm:flex-row gap-2">
         <div class="flex-1 relative">
           <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
-          <input type="text" id="search" placeholder="Search seeds, quotes, tags…" class="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-emerald-500">
+          <input type="text" id="search" placeholder="搜尋種子、引言、標籤…" class="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-emerald-500">
         </div>
         <div class="flex gap-2">
           <button id="view-timeline" class="view-btn active px-3 py-2 rounded-lg text-sm font-mono border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800" data-view="timeline">
-            <i data-lucide="list" class="w-4 h-4 inline"></i> Timeline
+            <i data-lucide="list" class="w-4 h-4 inline"></i> 時間軸
           </button>
           <button id="view-garden" class="view-btn px-3 py-2 rounded-lg text-sm font-mono border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hidden md:inline-flex items-center gap-1" data-view="garden">
-            <i data-lucide="leaf" class="w-4 h-4"></i> Garden
+            <i data-lucide="leaf" class="w-4 h-4"></i> 花園
           </button>
-          <button id="resurface-btn" class="px-3 py-2 rounded-lg text-sm font-mono border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800" title="Surface 5 random old seeds">
-            🎲 Resurface
+          <button id="resurface-btn" class="px-3 py-2 rounded-lg text-sm font-mono border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800" title="抽 5 個隨機舊種子">
+            🎲 機會命運卡
           </button>
         </div>
       </div>
 
       <!-- Status filter chips -->
       <div class="flex flex-wrap gap-1.5 text-xs">
-        <button class="status-chip active px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="all">All</button>
-        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="dormant"><span class="status-dormant">●</span> Dormant</button>
-        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="sprouted"><span class="status-sprouted">●</span> Sprouted</button>
-        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="archived"><span class="status-archived">●</span> Petrified</button>
+        <button class="status-chip active px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="all">全部</button>
+        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="dormant"><span class="status-dormant">●</span> 沉睡中</button>
+        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="sprouted"><span class="status-sprouted">●</span> 發芽</button>
+        <button class="status-chip px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-status="archived"><span class="status-archived">●</span> 石化</button>
       </div>
 
       <!-- Tag filter chips (populated by JS) -->
@@ -253,11 +253,11 @@
     <section id="garden-view" class="hidden relative">
       <svg id="garden-canvas" viewBox="-500 -500 1000 1000" class="w-full bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700" style="aspect-ratio: 1; max-height: 80vh;"></svg>
       <div id="garden-popover" class="absolute z-10 max-w-md p-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg shadow-2xl opacity-0 transition-opacity"></div>
-      <p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-3 font-mono">Newest at center, oldest outer. Hover to peek, click to jump to timeline.</p>
+      <p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-3 font-mono">中心最新、外圈最舊。游標停留預覽，點擊跳到時間軸。</p>
     </section>
 
     <!-- Loading state -->
-    <div id="loading" class="text-center py-12 text-slate-500 dark:text-slate-400 font-mono text-sm">Loading seeds…</div>
+    <div id="loading" class="text-center py-12 text-slate-500 dark:text-slate-400 font-mono text-sm">載入種子中…</div>
 
   </main>
 
@@ -268,7 +268,7 @@
   <div id="resurface-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeResurface()">
     <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-bold font-mono">🎲 5 random seeds</h2>
+        <h2 class="text-lg font-bold font-mono">🎲 5 顆隨機種子</h2>
         <button onclick="closeResurface()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Close">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
@@ -456,10 +456,11 @@
       SEEDS.forEach(s => (s.tags || []).forEach(t => tagCounts[t] = (tagCounts[t] || 0) + 1));
       const sorted = Object.entries(tagCounts).sort((a,b) => b[1] - a[1]).slice(0, 20);
       const TAG_CLR = {builder:'tag-builder', legal:'tag-legal', invites:'tag-invites'};
-      const html = ['<button class="tag-chip active px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="">All tags</button>'];
+      const TAG_LABEL = {builder:'建造者', legal:'法律', invites:'邀請'};
+      const html = ['<button class="tag-chip active px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="">全部標籤</button>'];
       sorted.forEach(([tag, count]) => {
         const colorCls = TAG_CLR[tag] || '';
-        html.push(`<button class="tag-chip ${colorCls} px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)} <span class="text-slate-400">${count}</span></button>`);
+        html.push(`<button class="tag-chip ${colorCls} px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="${escapeHtml(tag)}">${escapeHtml(TAG_LABEL[tag] || tag)} <span class="text-slate-400">${count}</span></button>`);
       });
       $('tag-chips').innerHTML = html.join('');
       $('tag-chips').addEventListener('click', e => {
@@ -654,7 +655,8 @@
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
             ${(s.tags || []).filter(t => !/^y\d{4}$/.test(t)).slice(0, 4).map(t => {
               const cls = ({builder:'tag-builder',legal:'tag-legal',invites:'tag-invites'})[t] || 'text-slate-400';
-              return `<button type="button" class="card-tag-chip ${cls}" data-tag="${escapeHtml(t)}">${escapeHtml(t)}</button>`;
+              const TAG_LABEL = {builder:'建造者', legal:'法律', invites:'邀請'};
+              return `<button type="button" class="card-tag-chip ${cls}" data-tag="${escapeHtml(t)}">${escapeHtml(TAG_LABEL[t] || t)}</button>`;
             }).join('')}
             ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
             ${s.updated_at ? `<span class="text-slate-400 italic">(updated ${formatDateTime(s.updated_at)})</span>` : ''}
