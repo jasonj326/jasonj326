@@ -8,7 +8,7 @@ Rebuilt 2026-05-10 for Phase 4a:
 - 1 RSS feed, family_stem dedup, dc:language per item, feed_canonical override
 - ZH index uses Chinese display labels (做人/處事/逍遙遊)
 """
-import os, re, yaml, markdown, datetime, json
+import os, re, yaml, markdown, datetime, json, subprocess
 from pathlib import Path
 from xml.sax.saxutils import escape
 import math
@@ -184,6 +184,30 @@ def post_paths(major, slug, final_lang):
         out_dir = SITE_DIR / major
         rel = f"/3pwriting/{major}/{slug}.html"
     return out_dir, rel, SITE_URL + rel
+
+def effective_updated(p):
+    """Last-update date for a post: explicit frontmatter `updated:` >
+    git log of source .md > frontmatter `date:`. Returns YYYY-MM-DD."""
+    return p.get("updated") or git_last_modified(p.get("md_path")) or p["date"]
+
+
+_git_mtime_cache = {}
+def git_last_modified(path):
+    """Last commit date of a file as YYYY-MM-DD (or None if not in git / brand-new)."""
+    path = Path(path).resolve()
+    if path in _git_mtime_cache:
+        return _git_mtime_cache[path]
+    try:
+        result = subprocess.run(
+            ["git", "log", "-1", "--date=short", "--format=%cd", "--", str(path)],
+            capture_output=True, text=True, cwd=path.parent, timeout=2,
+        )
+        out = result.stdout.strip() if result.returncode == 0 else ""
+    except Exception:
+        out = ""
+    _git_mtime_cache[path] = out or None
+    return _git_mtime_cache[path]
+
 
 def build_footer(lang):
     """Bilingual footer matching site-wide pattern (ZH paths + ZH labels + 賴建順 link to /zh/about/)."""
@@ -809,12 +833,12 @@ def generate_feed(raw_posts, lang_families, lang_filter=None, out_filename="feed
     for stem, family in lang_families.items():
         if lang_filter is None:
             picked = pick_feed_canonical(family)
-            latest_date = max((p.get("updated") or p["date"]) for p in family.values())
+            latest_date = max(effective_updated(p) for p in family.values())
         else:
             picked = family.get(lang_filter)
             if picked is None:
                 continue
-            latest_date = picked.get("updated") or picked["date"]
+            latest_date = effective_updated(picked)
         if "readme" in picked["slug"].lower():
             continue
         items.append({
@@ -972,7 +996,7 @@ def main():
 
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         content_html = add_target_blank_to_external(content_html)
-        updated_value = p.get('updated') or p.get('date')
+        updated_value = effective_updated(p)
         if updated_value:
             if is_zh(p["final_lang"]):
                 label, sep = '最後更新', '：'
