@@ -410,17 +410,18 @@
 
     initTheme();
 
-    // Auto-fill Last-Update from HTTP Last-Modified header (set on deploy)
-    fetch(window.location.pathname, { method: 'HEAD' })
-      .then(r => {
-        const lm = r.headers.get('last-modified');
+    // Auto-fill Last-Update from GitHub API (last commit date of this file).
+    // Picks up real edits to this HTML, not site-wide redeploys.
+    const filePath = window.location.pathname.replace(/^\//, '').replace(/\/$/, '/index.html');
+    fetch(`https://api.github.com/repos/jasonj326/jasonj326/commits?path=${encodeURIComponent(filePath)}&per_page=1`)
+      .then(r => r.ok ? r.json() : null)
+      .then(commits => {
         const el = document.getElementById('last-update');
-        if (lm && el) {
-          const d = new Date(lm);
-          el.textContent = d.toLocaleDateString('en-CA'); // YYYY-MM-DD
+        if (commits && commits[0] && el) {
+          el.textContent = commits[0].commit.committer.date.slice(0, 10); // YYYY-MM-DD (UTC)
         }
       })
-      .catch(() => { /* fallback: leave the … */ });
+      .catch(() => { /* leave the … */ });
   </script>
 <script src="/assets/fab-subscribe.js" defer></script>
 </body>
