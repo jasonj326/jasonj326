@@ -7,12 +7,14 @@
 
 ## Wayfarer axes
 
-| axis   | value | unit | lv |
-|--------|-------|------|----|
-| cardio | 68    | km   | 2  |
-| mind   | 10    | d    | 1  |
-| force  | 15    |      | 2  |
-| rest   | 22.5  |      | 5  |
+> `lv` auto-derived from `value` via per-axis ceiling thresholds (see ladder block in `/long-game/`). You only edit `value`.
+
+| axis   | value | unit | formula                             |
+| ------ | ----- | ---- | ----------------------------------- |
+| cardio | 68    | km   | running + swim×10 km / year         |
+| mind   | 10    | d    | meditation days / year              |
+| force  | 15    |      | strength sessions / year            |
+| rest   | 22.5  |      | good nights past 30d + max streak÷2 |
 
 ## Storyteller inputs
 
