@@ -1,3 +1,7 @@
+/* Reserve space for Lucide icon placeholders so the nav doesn't reflow
+   when lucide.createIcons() replaces <i data-lucide> with <svg>. */
+[data-lucide] { display: inline-block; }
+
 /* Floating Subscribe button + popover (main site theme) */
 #fab-subscribe {
   position: fixed;
