@@ -167,105 +167,53 @@
   <main class="max-w-2xl mx-auto px-6 py-16 animate-[fadeIn_0.5s_ease-out]">
 
     <!-- 頁首 Header -->
-    <header class="mb-14">
+    <header class="mb-8">
       <h1 class="text-4xl md:text-5xl font-bold font-mono tracking-tight mb-3">Now</h1>
-      <!-- 最後更新 auto-pulled from HTTP Last-Modified header (set on deploy). -->
+      <!-- 最後更新 auto-pulled via GitHub API (last commit of this file). -->
       <p class="text-base font-mono text-slate-500 dark:text-slate-400 mb-2">
-        最後更新: <span id="last-update">…</span> · 亞太地區 · <span class="opacity-70">不定期更新</span>
+        最後更新: <span id="last-update">…</span> · 亞太地區
       </p>
-      <a href="/qualia/" class="inline-flex items-center gap-2 mb-6 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
+      <a href="/zh/qualia/" class="inline-flex items-center gap-2 text-lg font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">
         <i data-lucide="cpu" class="w-5 h-5"></i> 跟 Lia 一起逛這個網站
       </a>
-      <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mt-4">
-        這半年我的注意力在哪——在做的、在讀的、在看的，以及其他。想看大方向，去 <a href="/zh/long-game/" class="inline-link">長期遊戲</a>。
-      </p>
     </header>
 
     <!-- ============================================== -->
-    <!-- 🛠️ Builder · Bread & Fun                       -->
+    <!-- Long Game roles · compact pointer to /zh/long-game/ -->
     <!-- ============================================== -->
     <section class="mb-16">
-      <h2 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800">
-        🛠️ Builder
+      <h2 class="text-2xl font-bold font-mono mb-6 flex items-center gap-2">
+        <a href="/zh/long-game/" class="inline-link inline-flex items-center gap-1">
+          長期遊戲 <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
       </h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-6 italic">能餬口的工作。能玩的工作。最好兩者皆是。</p>
 
-      <ul class="now-list">
-        <li>
-          <strong>AI 加成的 Legal Builder</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            帶著法律思維、用工程師的手做工具。<a href="https://github.com/jasonj326/jasonj326" target="_blank" rel="noopener" class="inline-link">這個網站</a>、<a href="/zh/qualia/" class="inline-link">Qualia</a>、長期遊戲，都是與 AI 並肩做出來的。也兼任新創的 fractional legal counsel。如果你正在 build，<a href="mailto:hello@jasonjlai.net" class="inline-link">寫信給我</a>。
-          </p>
-        </li>
-        <li>
-          <strong>PIF12 ——給核心圈的 Soul-bound Token</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            12 年承諾，從 2026 起。智能合約 testnet → 6/21 上 mainnet。Soul-bound 是因為 hype-and-dump 循環太累人；用小規模鏈上協調靜靜地服務一個真實的群體，而不是一個市場。<a href="/zh/PIF12/" class="inline-link">了解更多</a>。
-          </p>
-        </li>
-      </ul>
-    </section>
+      <div class="mb-6">
+        <h3 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 mb-3">
+          🛠️ Builder
+        </h3>
+        <p class="text-base font-mono text-slate-700 dark:text-slate-300 mb-1">
+          <a href="/zh/PIF12/" class="inline-link">PIF12</a> + <a href="/zh/qualia/" class="inline-link">Qualia</a> + <a href="/zh/seeds/" class="inline-link">種子</a> 以及更多
+        </p>
+        <p class="text-base text-slate-500 dark:text-slate-400 italic">能餬口的工作。能玩的工作。最好兩者皆是。</p>
+      </div>
 
-    <!-- ============================================== -->
-    <!-- 🎙️ Storyteller · Communications                -->
-    <!-- ============================================== -->
-    <section class="mb-16">
-      <h2 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800">
-        🎙️ Storyteller
-      </h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-6 italic">把作品放到別人看得到的地方。</p>
+      <div class="mb-6">
+        <h3 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800 mb-3">
+          🎙️ Storyteller
+        </h3>
+        <p class="text-base font-mono text-slate-700 dark:text-slate-300 mb-1">
+          <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">YouTube</a> + <a href="/zh/3pwriting/" class="inline-link">3P 寫作</a> + <a href="/zh/communication/" class="inline-link">紀錄與邀約都在這裡</a>
+        </p>
+        <p class="text-base text-slate-500 dark:text-slate-400 italic">把作品放到別人看得到的地方。</p>
+      </div>
 
-      <ul class="now-list">
-        <li>
-          <strong>演講邀約</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            工作坊、座談、客座課堂。練習「沒有權威也能影響別人」——能跨越場域、跨越法域、跨越世代的槓桿。<a href="/zh/communication/" class="inline-link">紀錄與邀約都在這裡</a>。
-          </p>
-        </li>
-        <li>
-          <strong>每日直播 &amp; 長文</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            每天在 <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">@MindLegalTalk</a> 上鏡頭五分鐘日常切片。系統思考三部曲預計 2026 年 5 月 20 日推出。
-          </p>
-        </li>
-        <li>
-          <strong>3P 隨筆</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            反覆回到的三個 P：做人 Partnership 深化關係、做事 Playbooks 累積能力、逍遙遊 Playgrounds 帶來歡樂。<a href="/zh/3pwriting/partnership/2026-q1-review-builder.html" class="inline-link">Q1 季報已發</a>；全部文章在 <a href="/zh/3pwriting/" class="inline-link">這裡</a>。
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- 🌳 Walker · Mind & Body Balance                -->
-    <!-- ============================================== -->
-    <section class="mb-16">
-      <h2 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800">
-        🌳 Walker
-      </h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-6 italic">我其實不太關心 work-life balance ——我關心的是 <strong class="text-slate-900 dark:text-slate-100 not-italic">身心平衡</strong>。</p>
-
-      <ul class="now-list">
-        <li>
-          <strong>每季半馬</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            每季 21K，中間穿插 10K——全馬恢復期太長。如果身體能撐過每一季，其他事情就會在穩固的基礎上複利。
-          </p>
-        </li>
-        <li>
-          <strong>睡眠 &amp; 冥想</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            正在成為一個半專業睡眠者——<a href="https://www.youtube.com/shorts/156WPF1OpDk" target="_blank" rel="noopener" class="inline-link">什麼意思</a>、<a href="https://www.threads.com/@jasonj.lai/post/DWGrJ3ljwuO?xmt=AQF0CavHahsQ8Yy7rYHfGsftxRSjgkh4JJrMiSUcEScWAw" target="_blank" rel="noopener" class="inline-link">怎麼做的</a>。再加上每天 5 分鐘冥想——複利後再分享。
-          </p>
-        </li>
-        <li>
-          <strong>力量訓練</strong>
-          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            引體向上、反握引體，從手腕傷後慢慢恢復。動物等級的證明：我還撐得起自己的體重。
-          </p>
-        </li>
-      </ul>
+      <div>
+        <h3 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800 mb-3">
+          🌳 Walker
+        </h3>
+        <p class="text-base text-slate-500 dark:text-slate-400 italic">我其實不太關心 work-life balance ——我關心的是 <strong class="text-slate-900 dark:text-slate-100 not-italic">身心平衡</strong>。</p>
+      </div>
     </section>
 
     <!-- ============================================== -->
