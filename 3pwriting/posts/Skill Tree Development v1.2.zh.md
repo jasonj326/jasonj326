@@ -22,7 +22,7 @@ hero_image:
 
 當然，遊戲風格的美學可能會讓某些客戶或傳統的法律專業人士覺得不專業。即使如此，我選擇忠於自己的座右銘，走自己的路。我相信本質終究勝過表象——但也認知到形式在法律與人性中仍有它的位置。
 
-有了上述背景，這份技能樹會幫你在自己的人生遊戲中更有效地運用我（搭配[長期遊戲](jasonjlai.net) 、[README](/3pwriting/partnership/readme.html) 與我的 digital trainee [Lia](/qualia)）。我們可以組隊一起打支線任務——或更有趣的東西。
+有了上述背景，這份技能樹會幫你在自己的人生遊戲中更有效地運用我（搭配[長期遊戲](/zh/long-game/)、[README](/zh/3pwriting/partnership/readme.html) 與我的 digital trainee [Lia](/zh/qualia/)）。我們可以組隊一起打支線任務——或更有趣的東西。
 
 雖然這個技能樹只是個主觀的美勞作品（之後思考怎麼整併我在長期遊戲設計的角色等級圖），也很難完整介紹我這個人的本質，但這六個技能我認為對你最有實用價值 （或說市場價值）：
 
@@ -30,7 +30,7 @@ hero_image:
 
 ## 1. 系統性思考 (Systems Thinking)
 
-我幾乎是天生為此而生的，但直到最近才完全意識到這點。從 Charlie Munger 的 mental models latticework 與 [Farnam Street](http://fs.blog/mental-models/)，到 Donella Meadows 的經典 *Thinking in Systems: A Primer*，我一直興奮地吸收這些想法——也已經開始在他們的洞見之上建構自己的框架。
+我直到 2026 年才意識到自己對系統思維暗戀已久——總想找到世界的底層密碼與規律，在不相關的事情找連結，經常拒絕或懷疑過度簡化的理論，修正自己的觀點。從 Charlie Munger 的 mental models latticework 與 [Farnam Street](http://fs.blog/mental-models/)，到 Donella Meadows 的經典 *Thinking in Systems: A Primer*，我一直興奮地吸收這些想法——也已經開始在他們的洞見之上建構自己的框架。
 
 先從系統思考的反面說起：「工具的法則 (law of instrument)」。「當你手中有錘子，看什麼都像釘子。」精通一兩門手藝確實能讓人活得充實。但現代世界的複雜度讓這條路顯得太窄。如果我試圖只用法律專業——法律推理、訴訟（與訴訟威脅）、靠 BATNA (best alternative to a negotiated agreement) 談判——來解決日常問題，絕對是有理走遍天下⋯⋯的相反，成為人人喊打的過街老鼠，陷入傳統律師大家敬而遠之。同樣地，只用經濟學與效率原則生活，也走不遠。
 
@@ -100,13 +100,16 @@ hero_image:
 這就是我對 skill tree v1.2 的整理。期待很快與你組隊！
 
 更新紀錄：
+
+- v1.2.2: 2026 年 5 月 10 日 微調文字修連結
+
 - v1.2.1: 2026 年 5 月 10 日（中文版上線）
-  
-- v1.2: 2026 年 3 月 25 日（English 最後更新）
 
-- v1.1: 2026 年 3 月 24 日
+- v1.2: 2026 年 3 月 25 日 (English)
 
-- v1: 2026 年 2 月 25 日
+- v1.1: 2026 年 3 月 24 日 (English)
+
+- v1: 2026 年 2 月 25 日 (English)
 
 [^1]: 「Thinking in bets」這個概念來自 Annie Duke 的書 *Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts*。意思是根據機率與期望值來評估決策，而不是看結果好壞。
 

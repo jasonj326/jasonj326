@@ -185,6 +185,21 @@ def post_paths(major, slug, final_lang):
         rel = f"/3pwriting/{major}/{slug}.html"
     return out_dir, rel, SITE_URL + rel
 
+def build_footer(lang):
+    """Bilingual footer matching site-wide pattern (ZH paths + ZH labels + 賴建順 link to /zh/about/)."""
+    if is_zh(lang):
+        return ('  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">\n'
+                '    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">\n'
+                '        <p class="text-center"><a href="/zh/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">隱私</a> · <a href="/zh/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">支持</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a></p>\n'
+                '    </div>\n'
+                '  </footer>')
+    return ('  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">\n'
+            '    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">\n'
+            '        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> <a href="/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Jason J. Lai</a></p>\n'
+            '    </div>\n'
+            '  </footer>')
+
+
 def is_zh(lang):
     return lang.startswith("zh")
 
@@ -369,11 +384,7 @@ HTML_TMPL = """<!DOCTYPE html>
     </article>
   </main>
 
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
-        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> Jason J. Lai</p>
-    </div>
-  </footer>
+{footer_html}
 
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -524,11 +535,7 @@ INDEX_TMPL = """<!DOCTYPE html>
 
   </main>
 
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
-        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> Jason J. Lai</p>
-    </div>
-  </footer>
+{footer_html}
 
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -731,7 +738,8 @@ def generate_paginated_list(posts_subset, out_base_dir, url_base, active_tag, al
                 .replace("{ui_h1}", L["h1"])
                 .replace("{ui_intro_html}", L["intro_html"])
                 .replace("{ui_site_root}", L["site_root_3pwriting"])
-                .replace("{nav_html}", nav_html))
+                .replace("{nav_html}", nav_html)
+                .replace("{footer_html}", build_footer(ui_lang)))
         (page_dir / "index.html").write_text(html, encoding="utf-8")
 
 def generate_redirect_stubs(posts):
@@ -955,12 +963,13 @@ def main():
 
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
         content_html = add_target_blank_to_external(content_html)
-        if p.get('updated'):
+        updated_value = p.get('updated') or p.get('date')
+        if updated_value:
             if is_zh(p["final_lang"]):
                 label, sep = '最後更新', '：'
             else:
                 label, sep = 'Last updated', ': '
-            content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">{label}{sep}{p["updated"]}</p>'
+            content_html += f'\n<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">{label}{sep}{updated_value}</p>'
 
         # hreflang tags + language switcher
         family = lang_families.get(p["family_stem"], {})
@@ -1026,7 +1035,8 @@ def main():
                 .replace("{nav_html}", nav_html)
                 .replace("{random_word}", random_word)
                 .replace("{disclaimer_label}", disclaimer_label)
-                .replace("{disclaimer_body}", disclaimer_body))
+                .replace("{disclaimer_body}", disclaimer_body)
+                .replace("{footer_html}", build_footer(p["final_lang"])))
 
         out_path = out_dir / f"{p['slug']}.html"
         out_path.write_text(html, encoding="utf-8")
