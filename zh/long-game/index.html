@@ -325,23 +325,22 @@
         <a href="/zh/PIF12/" class="text-2xl font-bold font-mono text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">佩福 12 年 (PIF12)</a>
       </div>
 
-      <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+      <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6" id="pif12-hero">
         12 年的承諾，建立一個好奇博學者的部落——testnet 進行中、6/21 上 mainnet、邀請開放中。
       </p>
 
-      <!-- Milestone bar: Sketch ✓ · Onchain 🔄 · Find Twelve · Year-End Gather · Y2 SBT -->
-      <!-- [手動更新] state: 'done' | 'doing' | 'todo'   |   sub: small caption under label -->
+      <!-- Milestone bar: SoT in /data/long-game.md → "PIF12 milestones" table -->
+      <!-- HTML below is fallback; JS overrides state/label/sub/tooltip on load -->
       <div class="px-2">
         <div class="milestone-track">
-          <!-- progress fill: % through chapters (Sketch done = 25%, Onchain mid = ~37.5%) -->
-          <div class="milestone-fill" style="width: 30%"></div>
+          <div class="milestone-fill" id="pif12-fill" style="width: 30%"></div>
         </div>
         <div class="milestone-dots">
-          <span class="milestone-dot done" data-tooltip="設計概念與雙語 landing page 已上線"><span class="dot"></span><span class="label">構想</span></span>
-          <span class="milestone-dot doing" data-tooltip="智能合約 testnet → 6/21 上 mainnet"><span class="dot"></span><span class="label">上鏈</span><span class="sub">測試 → 主網 6/21</span></span>
-          <span class="milestone-dot" data-tooltip="找到願意持有 SBT 的前 12+ 位核心成員"><span class="dot"></span><span class="label">找到核心成員</span><span class="sub">0 of 12+</span></span>
-          <span class="milestone-dot" data-tooltip="2026 年底十二人實體聚會"><span class="dot"></span><span class="label">年終聚會</span><span class="sub">2026 年底</span></span>
-          <span class="milestone-dot" data-tooltip="設計並推出 Y2 SBT（2027 週期）"><span class="dot"></span><span class="label">第二年 SBT</span><span class="sub">2027</span></span>
+          <span class="milestone-dot done"  data-key="sketch"      data-tooltip="設計概念與雙語 landing page 已上線"><span class="dot"></span><span class="label">構想</span></span>
+          <span class="milestone-dot doing" data-key="onchain"     data-tooltip="智能合約 testnet → 6/21 上 mainnet"><span class="dot"></span><span class="label">上鏈</span><span class="sub">測試 → 主網 6/21</span></span>
+          <span class="milestone-dot"       data-key="find-twelve" data-tooltip="找到願意持有 SBT 的前 12+ 位核心成員"><span class="dot"></span><span class="label">找到核心成員</span><span class="sub">0 of 12+</span></span>
+          <span class="milestone-dot"       data-key="year-end"    data-tooltip="2026 年底十二人實體聚會"><span class="dot"></span><span class="label">年終聚會</span><span class="sub">2026 年底</span></span>
+          <span class="milestone-dot"       data-key="y2-sbt"      data-tooltip="設計並推出 Y2 SBT（2027 週期）"><span class="dot"></span><span class="label">第二年 SBT</span><span class="sub">2027</span></span>
         </div>
       </div>
     </section>
@@ -429,7 +428,8 @@
           <div class="text-sm font-mono space-y-1 mb-4 text-slate-600 dark:text-slate-300">
             <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📝 文章 <span class="opacity-60">(3P)</span></span><span id="storyteller-essays">…</span></div>
             <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎤 演講</span><span id="storyteller-speakings">…</span></div>
-            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📺 直播 <span class="opacity-60">(D + 10S)</span></span><span id="storyteller-livestream">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">📅 日記直播</span><span id="storyteller-diary">…</span></div>
+            <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">🎙️ 專題直播 <span class="opacity-60">(×10)</span></span><span id="storyteller-special">…</span></div>
           </div>
 
           <!-- Ladder (toggle; current Lv highlighted) -->
@@ -447,7 +447,7 @@
               <li data-lv="6" class="flex justify-between px-1.5 py-0.5 rounded"><span>Lv.6 🎶 造浪者</span><span class="opacity-60">161+</span></li>
             </ul>
             <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
-              分數 = 文章 + 演講 + 直播/5
+              分數 = 文章 + 演講 + (日記 + 10×專題) / 5
             </p>
           </details>
         </div>
@@ -476,23 +476,23 @@
             <span>→ 實踐者</span>
           </div>
 
-          <!-- 4 sub-axes with descriptions -->
+          <!-- 4 sub-axes with descriptions (values from /data/long-game.md → "Wayfarer axes" table) -->
           <div class="text-sm font-mono space-y-2 mb-4 text-slate-600 dark:text-slate-300">
             <div class="flex justify-between gap-2">
               <span><span class="text-slate-500 dark:text-slate-400">🫀 Cardio</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">跑步 + 游泳×10 km/年</span></span>
-              <span class="whitespace-nowrap">68 km · Lv.2</span>
+              <span class="whitespace-nowrap" id="wf-cardio">68 km · Lv.2</span>
             </div>
             <div class="flex justify-between gap-2">
               <span><span class="text-slate-500 dark:text-slate-400">🧘 Mind</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">冥想日數/年</span></span>
-              <span class="whitespace-nowrap">10 d · Lv.1</span>
+              <span class="whitespace-nowrap" id="wf-mind">10 d · Lv.1</span>
             </div>
             <div class="flex justify-between gap-2">
               <span><span class="text-slate-500 dark:text-slate-400">💪 Force</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">力量訓練次數/年</span></span>
-              <span class="whitespace-nowrap">15 · Lv.2</span>
+              <span class="whitespace-nowrap" id="wf-force">15 · Lv.2</span>
             </div>
             <div class="flex justify-between gap-2">
               <span><span class="text-slate-500 dark:text-slate-400">😴 Rest</span> <span class="text-slate-400 dark:text-slate-500 opacity-80">近 30 天好眠次數 + 最長連勝÷2</span></span>
-              <span class="whitespace-nowrap">22.5 · Lv.5</span>
+              <span class="whitespace-nowrap" id="wf-rest">22.5 · Lv.5</span>
             </div>
           </div>
 
@@ -554,8 +554,8 @@
             <i data-lucide="youtube" class="w-7 h-7 text-red-600 dark:text-red-400"></i>
           </div>
           <h3 class="font-bold text-base font-mono mb-1">YouTube</h3>
-          <p class="text-xl font-bold font-mono text-slate-900 dark:text-slate-100 mb-1">68</p>
-          <p class="text-xs font-mono text-slate-500 dark:text-slate-400">58D + 10S × 1</p>
+          <p class="text-xl font-bold font-mono text-slate-900 dark:text-slate-100 mb-1" id="sq-youtube-num">60+</p>
+          <p class="text-xs font-mono text-slate-500 dark:text-slate-400" id="sq-youtube-sub">日記直播 60+</p>
           <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">@MindLegalTalk</p>
         </a>
 
@@ -681,61 +681,144 @@
     })();
 
     // ───────────────────────────────────────────────
-    // Storyteller card auto-fetch: essays from feed.xml
-    // SoT: 3pwriting/feed.xml (essays); inline const (speakings, livestream)
+    // Long Game data loader
+    // SoT: /data/long-game.md (Wayfarer axes, Storyteller inputs, Side Quest, PIF12)
+    // Essays count: feed-en.xml + feed-zh.xml → ceil((a+b)/2) (dedup bilingual pairs)
     // ───────────────────────────────────────────────
-    (function() {
-      const LADDER = [
+    (async function() {
+      const LANG = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
+      const STORYTELLER_LADDER = [
         { lv: 1, name: '學徒',  emoji: '✏️', threshold: 0   },
-        { lv: 2, name: '創作者',     emoji: '🎨', threshold: 11  },
-        { lv: 3, name: '匠人',   emoji: '🖼️', threshold: 21  },
-        { lv: 4, name: '演說家',      emoji: '👂', threshold: 41  },
-        { lv: 5, name: '出師',      emoji: '🪄', threshold: 81  },
+        { lv: 2, name: '創作者', emoji: '🎨', threshold: 11  },
+        { lv: 3, name: '匠人',  emoji: '🖼️', threshold: 21  },
+        { lv: 4, name: '演說家', emoji: '👂', threshold: 41  },
+        { lv: 5, name: '出師',  emoji: '🪄', threshold: 81  },
         { lv: 6, name: '造浪者', emoji: '🎶', threshold: 161 },
       ];
-      const SPEAKINGS = 6;   // [手動] until /data/engagements.json wired
-      const LIVESTREAM = 68; // 58D + 10S × 1; [手動] until SoT wired
 
-      fetch('/3pwriting/feed.xml')
-        .then(r => r.text())
-        .then(text => {
-          const xml = new DOMParser().parseFromString(text, 'application/xml');
-          const essays = xml.querySelectorAll('channel > item').length;
-          const composite = essays + SPEAKINGS + Math.round(LIVESTREAM / 5);
-
-          let cur = LADDER[0], next = LADDER[1];
-          for (let i = LADDER.length - 1; i >= 0; i--) {
-            if (composite >= LADDER[i].threshold) {
-              cur = LADDER[i];
-              next = LADDER[i + 1] || LADDER[i];
-              break;
-            }
+      // Minimal markdown table parser: H2 sections + pipe tables → { [section]: [row, ...] }
+      function parseMd(text) {
+        const out = {};
+        let cur = null, headers = null;
+        for (const raw of text.split('\n')) {
+          const line = raw.trim();
+          if (line.startsWith('## ')) {
+            cur = line.slice(3).trim();
+            out[cur] = [];
+            headers = null;
+            continue;
           }
-          const progress = next === cur ? 100 :
-            ((composite - cur.threshold) / (next.threshold - cur.threshold)) * 100;
-
-          const $ = id => document.getElementById(id);
-          if ($('storyteller-emoji'))      $('storyteller-emoji').textContent = cur.emoji;
-          if ($('storyteller-lv-name'))    $('storyteller-lv-name').textContent = `Lv.${cur.lv} ${cur.name}`;
-          if ($('storyteller-progress'))   $('storyteller-progress').style.width = `${Math.min(progress, 100)}%`;
-          if ($('storyteller-total'))      $('storyteller-total').textContent = composite;
-          if ($('storyteller-next'))       $('storyteller-next').textContent = next.threshold;
-          if ($('storyteller-essays'))     $('storyteller-essays').textContent = essays;
-          if ($('storyteller-speakings'))  $('storyteller-speakings').textContent = SPEAKINGS;
-          if ($('storyteller-livestream')) $('storyteller-livestream').textContent = LIVESTREAM;
-
-          const ladder = $('storyteller-ladder');
-          if (ladder) {
-            ladder.querySelectorAll('li[data-lv]').forEach(li => {
-              if (parseInt(li.dataset.lv) === cur.lv) {
-                li.classList.add('font-bold', 'text-amber-700', 'dark:text-amber-300', 'bg-amber-50', 'dark:bg-amber-900/30');
-                const last = li.querySelector('span:last-child');
-                if (last) last.classList.replace('opacity-60', 'opacity-80');
-              }
-            });
+          if (!cur || !line.startsWith('|')) continue;
+          if (/^\|[\s\-:|]+\|$/.test(line)) continue; // separator
+          const cells = line.split('|').slice(1, -1).map(c => c.trim());
+          if (!headers) { headers = cells; }
+          else {
+            const row = {};
+            headers.forEach((h, i) => row[h] = cells[i] ?? '');
+            out[cur].push(row);
           }
-        })
-        .catch(e => console.warn('Storyteller card auto-fetch failed:', e));
+        }
+        return out;
+      }
+      const kv = rows => Object.fromEntries(rows.map(r => [r.key, r.value]));
+
+      let data, essaysCount;
+      try {
+        const [mdR, enR, zhR] = await Promise.all([
+          fetch('/data/long-game.md'),
+          fetch('/3pwriting/feed-en.xml'),
+          fetch('/3pwriting/feed-zh.xml'),
+        ]);
+        const [mdText, enText, zhText] = await Promise.all([mdR.text(), enR.text(), zhR.text()]);
+        data = parseMd(mdText);
+        const enCount = new DOMParser().parseFromString(enText, 'application/xml').querySelectorAll('channel > item').length;
+        const zhCount = new DOMParser().parseFromString(zhText, 'application/xml').querySelectorAll('channel > item').length;
+        essaysCount = Math.ceil((enCount + zhCount) / 2);
+      } catch (e) {
+        console.warn('Long Game data load failed:', e);
+        return; // HTML fallbacks remain
+      }
+
+      const $ = id => document.getElementById(id);
+
+      // ── Wayfarer axes
+      (data['Wayfarer axes'] || []).forEach(a => {
+        const el = $('wf-' + a.axis);
+        if (!el) return;
+        const unit = a.unit ? ' ' + a.unit : '';
+        el.textContent = `${a.value}${unit} · Lv.${a.lv}`;
+      });
+
+      // ── Side Quest — YouTube
+      const sq = kv(data['Side Quest — YouTube'] || []);
+      if ($('sq-youtube-num')) $('sq-youtube-num').textContent = sq.number || '';
+      if ($('sq-youtube-sub')) $('sq-youtube-sub').textContent = sq['subtitle_' + LANG] || '';
+
+      // ── PIF12 header + milestones
+      const ph = kv(data['PIF12 header'] || []);
+      if ($('pif12-hero') && ph['hero_' + LANG]) $('pif12-hero').textContent = ph['hero_' + LANG];
+      if ($('pif12-fill') && ph.fillPct) $('pif12-fill').style.width = `${ph.fillPct}%`;
+
+      (data['PIF12 milestones'] || []).forEach(m => {
+        const dot = document.querySelector(`.milestone-dot[data-key="${m.key}"]`);
+        if (!dot) return;
+        dot.className = 'milestone-dot' + (m.state ? ' ' + m.state : '');
+        const tip = m['tooltip_' + LANG];
+        if (tip) dot.dataset.tooltip = tip;
+        const labelEl = dot.querySelector('.label');
+        if (labelEl) labelEl.textContent = m['label_' + LANG] || labelEl.textContent;
+        const subText = m['sub_' + LANG] || '';
+        let subEl = dot.querySelector('.sub');
+        if (subText) {
+          if (!subEl) {
+            subEl = document.createElement('span');
+            subEl.className = 'sub';
+            dot.appendChild(subEl);
+          }
+          subEl.textContent = subText;
+        } else if (subEl) {
+          subEl.remove();
+        }
+      });
+
+      // ── Storyteller card
+      const st = kv(data['Storyteller inputs'] || []);
+      const speakings = parseInt(st.speakings, 10) || 0;
+      const diary = parseInt(st.diaryLivestream, 10) || 0;
+      const special = parseInt(st.specialLivestream, 10) || 0;
+      const composite = essaysCount + speakings + Math.round((diary + 10 * special) / 5);
+
+      let cur = STORYTELLER_LADDER[0], next = STORYTELLER_LADDER[1];
+      for (let i = STORYTELLER_LADDER.length - 1; i >= 0; i--) {
+        if (composite >= STORYTELLER_LADDER[i].threshold) {
+          cur = STORYTELLER_LADDER[i];
+          next = STORYTELLER_LADDER[i + 1] || STORYTELLER_LADDER[i];
+          break;
+        }
+      }
+      const progress = next === cur ? 100 :
+        ((composite - cur.threshold) / (next.threshold - cur.threshold)) * 100;
+
+      if ($('storyteller-emoji'))     $('storyteller-emoji').textContent = cur.emoji;
+      if ($('storyteller-lv-name'))   $('storyteller-lv-name').textContent = `Lv.${cur.lv} ${cur.name}`;
+      if ($('storyteller-progress'))  $('storyteller-progress').style.width = `${Math.min(progress, 100)}%`;
+      if ($('storyteller-total'))     $('storyteller-total').textContent = composite;
+      if ($('storyteller-next'))      $('storyteller-next').textContent = next.threshold;
+      if ($('storyteller-essays'))    $('storyteller-essays').textContent = essaysCount;
+      if ($('storyteller-speakings')) $('storyteller-speakings').textContent = speakings;
+      if ($('storyteller-diary'))     $('storyteller-diary').textContent = diary;
+      if ($('storyteller-special'))   $('storyteller-special').textContent = special;
+
+      const ladder = $('storyteller-ladder');
+      if (ladder) {
+        ladder.querySelectorAll('li[data-lv]').forEach(li => {
+          if (parseInt(li.dataset.lv) === cur.lv) {
+            li.classList.add('font-bold', 'text-amber-700', 'dark:text-amber-300', 'bg-amber-50', 'dark:bg-amber-900/30');
+            const last = li.querySelector('span:last-child');
+            if (last) last.classList.replace('opacity-60', 'opacity-80');
+          }
+        });
+      }
     })();
   </script>
 <script src="/assets/fab-subscribe.js" defer></script>
