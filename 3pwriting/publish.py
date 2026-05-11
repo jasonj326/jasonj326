@@ -210,16 +210,17 @@ def git_last_modified(path):
 
 
 def build_footer(lang):
-    """Bilingual footer matching site-wide pattern (ZH paths + ZH labels + 賴建順 link to /zh/about/)."""
+    """Bilingual footer matching site-wide pattern (ZH paths + ZH labels + 賴建順 link to /zh/about/).
+    Order: Privacy · Contribute · [Name] © year · CC BY 4.0 (author before license)."""
     if is_zh(lang):
         return ('  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">\n'
                 '    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">\n'
-                '        <p class="text-center"><a href="/zh/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">隱私</a> · <a href="/zh/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">支持</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a></p>\n'
+                '        <p class="text-center"><a href="/zh/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">隱私</a> · <a href="/zh/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">支持</a> · <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>\n'
                 '    </div>\n'
                 '  </footer>')
     return ('  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">\n'
             '    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">\n'
-            '        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a> © <span id="current-year"></span> <a href="/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Jason J. Lai</a></p>\n'
+            '        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Jason J. Lai</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>\n'
             '    </div>\n'
             '  </footer>')
 
