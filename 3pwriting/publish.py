@@ -798,26 +798,35 @@ def pick_feed_canonical(family):
             return family[lang]
     return next(iter(family.values()))
 
-def generate_feed(raw_posts, lang_families):
-    """1 RSS feed at /3pwriting/feed.xml. family_stem dedup, dc:language per item.
-    pubDate: max(canonical.date, sibling.date) — sibling publish acts as update."""
-    canonicals = []
+def generate_feed(raw_posts, lang_families, lang_filter=None, out_filename="feed.xml"):
+    """RSS feed at /3pwriting/{out_filename}.
+
+    lang_filter=None  → bilingual canonical (family_stem dedup, sibling publish as update)
+    lang_filter="en"  → EN-only: pick the en sibling of each family that has one
+    lang_filter="zh-Hant" → ZH-only: pick the zh-Hant sibling of each family that has one
+    """
+    items = []
     for stem, family in lang_families.items():
-        canonical = pick_feed_canonical(family)
-        if "readme" in canonical["slug"].lower():
+        if lang_filter is None:
+            picked = pick_feed_canonical(family)
+            latest_date = max((p.get("updated") or p["date"]) for p in family.values())
+        else:
+            picked = family.get(lang_filter)
+            if picked is None:
+                continue
+            latest_date = picked.get("updated") or picked["date"]
+        if "readme" in picked["slug"].lower():
             continue
-        # pubDate: pick latest among family (treat sibling publish as update)
-        latest_date = max((p.get("updated") or p["date"]) for p in family.values())
-        canonicals.append({
-            "title": canonical["title"],
-            "link": canonical["full_link"],
-            "guid": f"{SITE_URL}/3pwriting/guid/{canonical['slug']}",  # slug-stable across language switches
+        items.append({
+            "title": picked["title"],
+            "link": picked["full_link"],
+            "guid": f"{SITE_URL}/3pwriting/guid/{picked['slug']}",  # slug-stable across language switches
             "pubdate": rfc2822(latest_date),
-            "lang": canonical["final_lang"],
-            "summary": canonical["summary"],
+            "lang": picked["final_lang"],
+            "summary": picked["summary"],
             "_sort_key": latest_date,
         })
-    canonicals.sort(key=lambda x: x["_sort_key"], reverse=True)
+    items.sort(key=lambda x: x["_sort_key"], reverse=True)
     feed_items = "\n".join([
         ITEM_TMPL.replace("{title}", escape(c["title"]))
                  .replace("{link}", c["link"])
@@ -825,11 +834,11 @@ def generate_feed(raw_posts, lang_families):
                  .replace("{pubdate}", c["pubdate"])
                  .replace("{lang}", c["lang"])
                  .replace("{summary}", escape(c["summary"]))
-        for c in canonicals[:20]
+        for c in items[:20]
     ])
     feed_xml = FEED_TMPL.replace("{site_url}", SITE_URL).replace("{items}", feed_items)
-    (SITE_DIR / "feed.xml").write_text(feed_xml, encoding="utf-8")
-    return len(canonicals)
+    (SITE_DIR / out_filename).write_text(feed_xml, encoding="utf-8")
+    return len(items)
 
 def main():
     posts = []
@@ -1066,8 +1075,10 @@ def main():
         generate_paginated_list(en_tag, SITE_DIR / tag_lower, f"/3pwriting/{tag_lower}/", tag, all_tags, ui_lang="en")
         generate_paginated_list(zh_tag, ZH_BASE / tag_lower, f"/zh/3pwriting/{tag_lower}/", tag, all_tags, ui_lang="zh-Hant")
 
-    # RSS feed (1 feed, family_stem dedup)
+    # RSS feeds: 1 bilingual canonical + 1 EN-only + 1 ZH-only (per-lang for home pages)
     feed_count = generate_feed(raw_posts, lang_families)
+    feed_en_count = generate_feed(raw_posts, lang_families, lang_filter="en", out_filename="feed-en.xml")
+    feed_zh_count = generate_feed(raw_posts, lang_families, lang_filter="zh-Hant", out_filename="feed-zh.xml")
 
     # Redirect stubs
     stub_count = generate_redirect_stubs(posts)
@@ -1076,7 +1087,7 @@ def main():
     sitemap_count = generate_sitemap(posts, all_tags)
 
     print(f"✅ Built {len(posts)} posts ({len(en_posts)} EN + {len(zh_posts)} ZH)")
-    print(f"✅ feed.xml: {feed_count} family-stem canonical items")
+    print(f"✅ feed.xml: {feed_count} canonical / feed-en.xml: {feed_en_count} / feed-zh.xml: {feed_zh_count}")
     print(f"✅ redirect stubs: {stub_count}")
     print(f"✅ sitemap.xml: {sitemap_count} URLs")
 

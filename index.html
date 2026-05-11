@@ -526,7 +526,7 @@
             if (!el) return;
 
             try {
-                const res = await fetch('/3pwriting/feed.xml', { cache: 'no-store' });
+                const res = await fetch('/3pwriting/feed-en.xml', { cache: 'no-store' });
                 if (!res.ok) throw new Error('feed fetch failed');
                 const text = await res.text();
 
