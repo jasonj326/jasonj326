@@ -24,7 +24,7 @@
   const isZh = lang.startsWith('zh');
 
   const DICT = isZh ? {
-    buttonLabel: '訂閱',
+    buttonLabel: '別說我沒揪',
     title: '保持聯繫',
     desc: '訂閱搶先看中英雙語個人動態或活動邀請。保證無垃圾信，隨時取消。',
     cta: '訂閱 →',
@@ -34,7 +34,7 @@
     nameLabel: '姓名（可不填）',
     emailLabel: 'Email',
   } : {
-    buttonLabel: 'Subscribe',
+    buttonLabel: 'Count me in',
     title: 'Stay Connected',
     desc: "Drop your email for bilingual (EN/中) personal thoughts & collab invites. No spam, cancel anytime.",
     cta: 'Subscribe →',
