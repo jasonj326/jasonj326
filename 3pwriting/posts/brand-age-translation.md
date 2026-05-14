@@ -1,7 +1,7 @@
 ---
 title: 品牌時代
 date: 2026-03-06
-updated:
+updated: 2026-03-06
 year: 2026
 lang: zh-Hant
 slug: brand-age-translation

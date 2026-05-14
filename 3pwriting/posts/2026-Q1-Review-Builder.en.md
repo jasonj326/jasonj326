@@ -23,7 +23,7 @@ summary: An opportunity in New York unexpectedly sparked a 12-year Pay-it-Forwar
 
 ### TL;DR: If you're busy, here are the 3 main takeaways
 
-1. **Introduction**: *"It is not that we have a short time to live, but that we waste a lot of it,"* as Seneca observed two thousand years ago. To capture memories before they fade, I'm building a habit of writing quarterly reviews. This is the very first one I'm sharing with you.
+1. **Introduction**: *"It is not that we have a short time to live, but that we waste a lot of it,"* as Seneca observed two thousand years ago. To capture memories before they fade and to show my gratitude in time, I'm building a habit of writing quarterly reviews. This is the very first one I'm sharing with you.
 2. A New York job opening in early 2026 sparked my biggest growth and shift this quarter: embracing a new identity as a **"Builder"**. This new identity also kicked off a [12-year Pay-it-Forward project (PIF12)](https://jasonjlai.net/PIF12/), and you're invited to join.
 3. Things I discovered or built in Q1 that I want to share with you:
     - **Crypto insights**: Blockchain pioneer Ping Chen's [10-year review on Ethereum](https://artistic709.medium.com/ethereum-10y-review-da69592be39f) (asking if crypto still makes sense in 2026); and Stacy Muur's [Web3 GTM playbook](https://x.com/stacy_muur/status/2029828226101698879) based on a16z data.
@@ -53,7 +53,9 @@ I haven't looked at US-based jobs in a while — after moving back to Taiwan, th
 
 This thought experiment broke my self-imposed limits and sparked an (illusory yet powerful) sense of hope.
 
-Initially, I thought about making a slide deck. But knowing my friends in consulting or even Gen Z interns could design a much prettier presentation, I decided to leverage a new skill: vibe coding a website instead.
+Initially, I thought about making a slide deck. But knowing my friends in consulting—or honestly, any Gen Z intern with an eye for design—could put together something a hundred times prettier, I figured I'd skip the embarrassment and lean into a newer skill instead: vibe-coding a website.
+
+A huge shoutout to Jimmy, C.C., and Professor G, for providing valuable insight for my first AI-toy website.
 
 Using "vibe coding" (writing code via natural language prompts), I built a one-page pitch website addressing their requirements point by point. I even consulted a NY immigration lawyer regarding visa feasibility.
 

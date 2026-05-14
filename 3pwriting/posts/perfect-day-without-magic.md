@@ -1,7 +1,7 @@
 ---
 title: 沒有魔法而理想的一天
 date: 2026-03-31
-updated:
+updated: 2026-03-31
 year: 2026
 lang: zh-Hant
 slug: perfect-day-without-magic

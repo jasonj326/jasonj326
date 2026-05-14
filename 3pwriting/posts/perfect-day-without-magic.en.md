@@ -1,7 +1,7 @@
 ---
 title: A Perfect Day Without Magic
 date: 2026-05-10
-updated:
+updated: 2026-05-10
 year: 2026
 lang: en
 slug: perfect-day-without-magic
