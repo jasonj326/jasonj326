@@ -1,7 +1,7 @@
 ---
 title: 2026 Q1 季報：成為建造者
 date: 2026-05-01
-updated: 2026-05-03
+updated: 2026-05-14
 year: 2026
 lang: zh-Hant
 slug: 2026-q1-review-builder

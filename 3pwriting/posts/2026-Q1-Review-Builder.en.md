@@ -1,7 +1,7 @@
 ---
 title: Q1 2026 Review · Becoming a Builder
 date: 2026-05-03
-updated: 2026-05-03
+updated: 2026-05-14
 year: 2026
 lang: en
 slug: 2026-q1-review-builder
