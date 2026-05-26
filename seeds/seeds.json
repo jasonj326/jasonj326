@@ -1,5 +1,33 @@
 [
   {
+    "id": "2026-05-26-orator-performance",
+    "ts": "2026-05-26T18:22:31+08:00",
+    "tags": [
+      "y2026",
+      "reflection",
+      "storytelling"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "花了五個小時，這兩天錄3分鐘英文宣傳片\n1. 不看稿、一鏡到底，非常困難\n2. 看稿但講話自然、眼神不亂飄，困難\n3. 不看稿，後製剪接，麻煩＋心裡抗拒\n\n問題是一直嘗試做 1，然後認命在 2-3 徘徊，兩個都做不好\n或許應該要有四：看稿＋剪接\n總之搭配提詞機，最後選了 2，總算完工，也算一個初體驗。",
+    "word_count": 109,
+    "excerpt": "花了五個小時，這兩天錄3分鐘英文宣傳片 1. 不看稿、一鏡到底，非常困難 2. 看稿但講話自然、眼神不亂飄，困難 3.",
+    "search_text": "花了五個小時 這兩天錄3分鐘英文宣傳片 1 不看稿 一鏡到底 非常困難 2 看稿但講話自然 眼神不亂飄 困難 3 不看稿 後製剪接 麻煩 心裡抗拒 問題是一直嘗試做 1 然後認命在 2 3 徘徊 兩個都做不好 或許應該要有四 看稿 剪接 總之搭配提詞機 最後選了 2 總算完工 也算一個初體驗 y2026 reflection storytelling",
+    "media_count": 1,
+    "media": [
+      {
+        "type": "image",
+        "url": "/seeds/assets/2026-05-26-orator-performance.png",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "id": "2026-05-23-builder-seller-measurer",
     "ts": "2026-05-23T15:35:07+08:00",
     "tags": [
