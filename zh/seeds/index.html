@@ -23,7 +23,6 @@
     } } } }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
 
   <style>
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -120,9 +119,6 @@
     #garden-canvas circle:hover { opacity: 1 !important; }
     #garden-popover { pointer-events: none; }
     #garden-popover.active { pointer-events: auto; }
-
-    /* Screenshot hidden render area */
-    #screenshot-render { position: fixed; left: -10000px; top: 0; }
 
     /* Owner-only flag indicators (subtle, info-only) */
     .flag-indicator { font-size: 10px; opacity: 0.55; letter-spacing: 0.05em; }
@@ -276,9 +272,6 @@
       <div id="resurface-content" class="space-y-4"></div>
     </div>
   </div>
-
-  <!-- Screenshot hidden render -->
-  <div id="screenshot-render"></div>
 
   <!-- Toast -->
   <div id="toast"></div>
@@ -666,8 +659,6 @@
           </div>
           <div class="mt-3 flex items-center gap-2 text-xs">
             <button class="copylink-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Copy permalink">🔗</button>
-            <button class="screenshot-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" data-ratio="1:1">📷 1:1</button>
-            <button class="screenshot-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" data-ratio="9:16">📷 9:16</button>
             <span class="ml-auto flex gap-2">${flags.join('')}</span>
           </div>
         </article>
@@ -701,12 +692,6 @@
         } else {
           e.target.textContent = 'Expand';
         }
-      }
-      if (e.target.classList.contains('screenshot-btn')) {
-        const id = e.target.dataset.id;
-        const ratio = e.target.dataset.ratio;
-        const seed = SEEDS.find(s => s.id === id);
-        if (seed) generateScreenshot(seed, ratio);
       }
       if (e.target.classList.contains('copylink-btn')) {
         const id = e.target.dataset.id;
@@ -866,62 +851,6 @@
     });
     function closeResurface() { $('resurface-modal').classList.add('hidden'); }
     window.closeResurface = closeResurface;
-
-    // ─── Screenshot generation (html-to-image + hidden render DOM) ─
-    async function generateScreenshot(seed, ratio) {
-      const dim = ratio === '1:1' ? { w: 1080, h: 1080 } : { w: 1080, h: 1920 };
-      const renderHost = $('screenshot-render');
-
-      const isDark = html.classList.contains('dark');
-      const bg = isDark ? '#0f172a' : '#fafafa';
-      const fg = isDark ? '#f1f5f9' : '#0f172a';
-      const muted = isDark ? '#94a3b8' : '#64748b';
-      const accent = isDark ? '#34d399' : '#4f46e5';
-
-      const quotes = (seed.ocr_quotes || []).slice(0, 2).map(q => q.text).join('\n\n— — —\n\n');
-      const body = seed.body_text || '';
-
-      const node = document.createElement('div');
-      node.style.cssText = `
-        width: ${dim.w}px; height: ${dim.h}px;
-        background: ${bg}; color: ${fg};
-        font-family: 'Inter', 'PingFang TC', 'Noto Sans TC', sans-serif;
-        padding: 80px;
-        display: flex; flex-direction: column;
-        box-sizing: border-box;
-      `;
-
-      const quoteFontSize = ratio === '1:1' ? 32 : 36;
-      const bodyFontSize = ratio === '1:1' ? 22 : 26;
-      const dateFontSize = 18;
-
-      node.innerHTML = `
-        <div style="font-family: ui-monospace, monospace; font-size: ${dateFontSize}px; color: ${muted}; letter-spacing: 0.05em; margin-bottom: 32px;">
-          ${formatDate(seed.ts)}${seed.source_no != null ? ` · No.${dayCountNo(seed.ts)}` : ''}
-        </div>
-        ${quotes ? `<div style="border-left: 4px solid ${accent}; padding-left: 24px; margin-bottom: 40px; font-family: Georgia, serif; font-style: italic; font-size: ${quoteFontSize}px; line-height: 1.5; white-space: pre-line; color: ${fg};">${escapeHtml(quotes)}</div>` : ''}
-        ${body ? `<div style="font-size: ${bodyFontSize}px; line-height: 1.7; white-space: pre-line; color: ${fg}; flex: 1; overflow: hidden;">${escapeHtml(body.slice(0, ratio === '1:1' ? 400 : 700))}${body.length > (ratio === '1:1' ? 400 : 700) ? '…' : ''}</div>` : ''}
-        <div style="margin-top: auto; padding-top: 40px; border-top: 1px solid ${muted}33; display: flex; justify-content: space-between; align-items: center; font-family: ui-monospace, monospace; font-size: ${dateFontSize}px; color: ${muted};">
-          <span>賴建順</span>
-          <span>JasonJLai.net</span>
-        </div>
-      `;
-
-      renderHost.innerHTML = '';
-      renderHost.appendChild(node);
-
-      try {
-        const dataUrl = await htmlToImage.toPng(node, { width: dim.w, height: dim.h, pixelRatio: 1, cacheBust: true });
-        const link = document.createElement('a');
-        link.download = `seed-${seed.id}-${ratio.replace(':', 'x')}.png`;
-        link.href = dataUrl;
-        link.click();
-      } catch (err) {
-        alert('Screenshot failed: ' + err.message);
-      } finally {
-        renderHost.innerHTML = '';
-      }
-    }
 
     // ─── Init icons ────────────────────────────────────────────
     lucide.createIcons();
