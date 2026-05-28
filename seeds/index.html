@@ -325,6 +325,7 @@
     const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     function statusOf(s) {
       if (s.sprouted_into && s.sprouted_into.length) return 'sprouted';
+      if (s.derived_descendants && s.derived_descendants.length) return 'sprouted'; // has child seeds = germinated
       if (s.archived_at) return 'archived';
       return 'dormant';
     }

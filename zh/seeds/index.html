@@ -277,7 +277,7 @@
   <div id="thread-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeThread()">
     <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-bold font-mono">🌳 <span id="thread-title">Thread</span></h2>
+        <h2 class="text-lg font-bold font-mono">🌳 <span id="thread-title">想法串</span></h2>
         <button onclick="closeThread()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Close">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
@@ -325,10 +325,11 @@
     const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     function statusOf(s) {
       if (s.sprouted_into && s.sprouted_into.length) return 'sprouted';
+      if (s.derived_descendants && s.derived_descendants.length) return 'sprouted'; // 有子種子 = 發芽
       if (s.archived_at) return 'archived';
       return 'dormant';
     }
-    function statusLabel(st) { return ({dormant:'Dormant', sprouted:'Sprouted', archived:'Petrified'})[st] || st; }
+    function statusLabel(st) { return ({dormant:'沉睡中', sprouted:'發芽', archived:'石化'})[st] || st; }
     function formatDate(ts) { return ts.slice(0, 10); }
     function formatDateTime(ts) {
       const m = (ts || '').match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})/);
@@ -672,7 +673,7 @@
       const marker = depth === 0 ? '🌱' : '↳';
       const label = s
         ? `<a href="#${escapeHtml(node.id)}" onclick="closeThread()" class="inline-link font-mono">${escapeHtml(seedShortLabel(node.id))}</a>`
-        : `<span class="text-slate-400 font-mono">${escapeHtml(node.id)} (missing)</span>`;
+        : `<span class="text-slate-400 font-mono">${escapeHtml(node.id)}（找不到）</span>`;
       const raw = s ? (s.body_text || (s.ocr_quotes && s.ocr_quotes[0] && s.ocr_quotes[0].text) || '') : '';
       const preview = escapeHtml(raw.replace(/\s+/g, ' ').slice(0, 48));
       const more = raw.length > 48 ? '…' : '';
@@ -687,7 +688,7 @@
     function openThread(rootId) {
       const tree = buildSubtree(rootId);
       const n = countDescendants(rootId);
-      $('thread-title').textContent = `Thread · ${seedShortLabel(rootId)} (${n})`;
+      $('thread-title').textContent = `想法串 · ${seedShortLabel(rootId)}（${n}）`;
       $('thread-content').innerHTML = renderThreadNode(tree);
       $('thread-modal').classList.remove('hidden');
     }
@@ -708,13 +709,13 @@
       const sproutLinks = (s.sprouted_into || []).map(x => `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener" class="inline-link">→ ${escapeHtml(x.title)}</a>`).join(' · ');
 
       const derivedFromLinks = (s.derived_from || []).map(id =>
-        `<a href="#${escapeHtml(id)}" class="inline-link" title="Grew from ${escapeHtml(id)}">↑ ${escapeHtml(seedShortLabel(id))}</a>`
+        `<a href="#${escapeHtml(id)}" class="inline-link" title="源自 ${escapeHtml(id)}">↑ ${escapeHtml(seedShortLabel(id))}</a>`
       ).join(' · ');
       const descendantLinks = (s.derived_descendants || []).map(id =>
-        `<a href="#${escapeHtml(id)}" class="inline-link" title="Grew into ${escapeHtml(id)}">↓ ${escapeHtml(seedShortLabel(id))}</a>`
+        `<a href="#${escapeHtml(id)}" class="inline-link" title="長出 ${escapeHtml(id)}">↓ ${escapeHtml(seedShortLabel(id))}</a>`
       ).join(' · ');
       const siblingLinks = siblingsOf(s).map(id =>
-        `<a href="#${escapeHtml(id)}" class="inline-link" title="Sibling (shared parent) ${escapeHtml(id)}">⇄ ${escapeHtml(seedShortLabel(id))}</a>`
+        `<a href="#${escapeHtml(id)}" class="inline-link" title="手足（同源）${escapeHtml(id)}">⇄ ${escapeHtml(seedShortLabel(id))}</a>`
       ).join(' · ');
 
       const mediaHtml = (s.media || []).map(m => `<img src="${escapeHtml(m.url)}" alt="${escapeHtml(m.alt)}" loading="lazy" class="w-full max-h-96 object-contain rounded-lg border border-slate-200 dark:border-slate-700 mt-3">`).join('');
@@ -734,15 +735,15 @@
             }).join('')}
             ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
             ${s.updated_at ? `<span class="text-slate-400 italic">(updated ${formatDateTime(s.updated_at)})</span>` : ''}
-            ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
-            ${descendantLinks ? `<span class="ml-1">Grew into ${descendantLinks}</span>` : ''}
-            ${siblingLinks ? `<span class="ml-1">Siblings ${siblingLinks}</span>` : ''}
+            ${derivedFromLinks ? `<span class="ml-1">源自 ${derivedFromLinks}</span>` : ''}
+            ${descendantLinks ? `<span class="ml-1">長出 ${descendantLinks}</span>` : ''}
+            ${siblingLinks ? `<span class="ml-1">手足 ${siblingLinks}</span>` : ''}
             ${sproutLinks ? `<span class="ml-1">${sproutLinks}</span>` : ''}
           </div>
           <div class="mt-3 flex items-center gap-2 text-xs">
             <button class="copylink-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Copy permalink">🔗</button>
-            <button class="growfrom-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Copy this seed's id (for a new seed's derived_from)">🌱</button>
-            ${(s.derived_descendants && s.derived_descendants.length) ? `<button class="thread-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Pull the whole thread">🌳 ${countDescendants(s.id)}</button>` : ''}
+            <button class="growfrom-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="複製種子 id（用於新種子的 derived_from）">🌱</button>
+            ${(s.derived_descendants && s.derived_descendants.length) ? `<button class="thread-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="抓整串想法">🌳 ${countDescendants(s.id)}</button>` : ''}
             <span class="ml-auto flex gap-2">${flags.join('')}</span>
           </div>
         </article>
@@ -784,8 +785,8 @@
       if (e.target.classList.contains('growfrom-btn')) {
         const id = e.target.dataset.id;
         navigator.clipboard.writeText(id).then(
-          () => showToast('Seed id copied: ' + id),
-          () => showToast('Copy failed')
+          () => showToast('種子 id 已複製：' + id),
+          () => showToast('複製失敗')
         );
       }
       if (e.target.classList.contains('thread-btn')) {
