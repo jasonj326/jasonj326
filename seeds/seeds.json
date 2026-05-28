@@ -1,5 +1,29 @@
 [
   {
+    "id": "2026-05-28-happiness-and-money",
+    "ts": "2026-05-28T14:22:46+08:00",
+    "tags": [
+      "y2026",
+      "reflection",
+      "幸福方程式"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "這篇是為了測試新的種子發芽功能\n其實先前就已經更新在 [About](https://jasonjlai.net/zh/about/)\n\"透過自我覺察與探尋，也是個鑽研腦神經科學、認知科學超過 15 年的業餘愛好者，我綜整出這個公式：幸福 ＝ 平安自在 ＝ 最大化 (能動性) + 最小化 (期待) + 自我接受 + 有意義的連結\"\n\n從這個角度來看，有錢還真的能提升 20–40% 的快樂\n因為能夠最大化選擇的自由與能動性，甚至創造有意義的連結",
+    "word_count": 142,
+    "excerpt": "這篇是為了測試新的種子發芽功能 其實先前就已經更新在 [About](https://jasonjlai.",
+    "search_text": "這篇是為了測試新的種子發芽功能 其實先前就已經更新在 about https jasonjlai net zh about 透過自我覺察與探尋 也是個鑽研腦神經科學 認知科學超過 15 年的業餘愛好者 我綜整出這個公式 幸福 平安自在 最大化 能動性 最小化 期待 自我接受 有意義的連結 從這個角度來看 有錢還真的能提升 20 40 的快樂 因為能夠最大化選擇的自由與能動性 甚至創造有意義的連結 y2026 reflection 幸福方程式",
+    "media_count": 0,
+    "derived_from": [
+      "2021-04-22-mrps112"
+    ]
+  },
+  {
     "id": "2026-05-26-orator-performance",
     "ts": "2026-05-26T18:22:31+08:00",
     "tags": [
@@ -8421,7 +8445,10 @@
         "alt": ""
       }
     ],
-    "updated_at": "2026-05-08T10:59:11+08:00"
+    "updated_at": "2026-05-08T10:59:11+08:00",
+    "derived_descendants": [
+      "2026-05-28-happiness-and-money"
+    ]
   },
   {
     "id": "2021-04-21-mrps111",
