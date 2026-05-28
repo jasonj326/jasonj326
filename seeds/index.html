@@ -273,6 +273,19 @@
     </div>
   </div>
 
+  <!-- Thread modal (subtree of one seed) -->
+  <div id="thread-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeThread()">
+    <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-bold font-mono">🌳 <span id="thread-title">Thread</span></h2>
+        <button onclick="closeThread()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Close">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div id="thread-content" class="font-sans"></div>
+    </div>
+  </div>
+
   <!-- Toast -->
   <div id="toast"></div>
 
@@ -303,6 +316,7 @@
 
     // ─── State ─────────────────────────────────────────────────
     let SEEDS = [];
+    let BY_ID = {};
     let FILTERED = [];
     const state = { search: '', tag: null, status: 'all', view: 'timeline' };
 
@@ -431,6 +445,8 @@
       .then(r => r.json())
       .then(data => {
         SEEDS = data;
+        BY_ID = {};
+        SEEDS.forEach(s => { BY_ID[s.id] = s; });
         $('loading').remove();
         renderTagChips();
         applyFilters();
@@ -615,6 +631,68 @@
       requestAnimationFrame(updateActiveMonth);
     }, { passive: true });
 
+    // ─── Lineage: implicit siblings (shared parent) + subtree thread ─
+    function siblingsOf(s) {
+      const out = new Set();
+      (s.derived_from || []).forEach(pid => {
+        const p = BY_ID[pid];
+        if (p) (p.derived_descendants || []).forEach(cid => { if (cid !== s.id) out.add(cid); });
+      });
+      return [...out];
+    }
+    function countDescendants(rootId) {
+      const seen = new Set();
+      (function walk(id) {
+        const s = BY_ID[id];
+        if (!s) return;
+        (s.derived_descendants || []).forEach(cid => {
+          if (seen.has(cid)) return;
+          seen.add(cid);
+          walk(cid);
+        });
+      })(rootId);
+      return seen.size;
+    }
+    function buildSubtree(rootId, pathSet) {
+      pathSet = pathSet || new Set([rootId]);
+      const s = BY_ID[rootId];
+      const node = { id: rootId, seed: s, children: [] };
+      if (!s) return node;
+      (s.derived_descendants || []).forEach(cid => {
+        if (pathSet.has(cid)) return; // cycle guard (DAG should be acyclic, but be safe)
+        node.children.push(buildSubtree(cid, new Set([...pathSet, cid])));
+      });
+      return node;
+    }
+    function renderThreadNode(node, depth) {
+      depth = depth || 0;
+      const s = node.seed;
+      const indent = depth * 18;
+      const marker = depth === 0 ? '🌱' : '↳';
+      const label = s
+        ? `<a href="#${escapeHtml(node.id)}" onclick="closeThread()" class="inline-link font-mono">${escapeHtml(seedShortLabel(node.id))}</a>`
+        : `<span class="text-slate-400 font-mono">${escapeHtml(node.id)} (missing)</span>`;
+      const raw = s ? (s.body_text || (s.ocr_quotes && s.ocr_quotes[0] && s.ocr_quotes[0].text) || '') : '';
+      const preview = escapeHtml(raw.replace(/\s+/g, ' ').slice(0, 48));
+      const more = raw.length > 48 ? '…' : '';
+      let html = `<div class="py-1.5 flex items-baseline gap-2" style="padding-left:${indent}px">
+        <span class="text-slate-400 shrink-0">${marker}</span>
+        <span class="shrink-0">${label}</span>
+        <span class="text-slate-500 dark:text-slate-400 text-xs truncate">${preview}${more}</span>
+      </div>`;
+      html += node.children.map(c => renderThreadNode(c, depth + 1)).join('');
+      return html;
+    }
+    function openThread(rootId) {
+      const tree = buildSubtree(rootId);
+      const n = countDescendants(rootId);
+      $('thread-title').textContent = `Thread · ${seedShortLabel(rootId)} (${n})`;
+      $('thread-content').innerHTML = renderThreadNode(tree);
+      $('thread-modal').classList.remove('hidden');
+    }
+    function closeThread() { $('thread-modal').classList.add('hidden'); }
+    window.closeThread = closeThread;
+
     function seedCardHtml(s) {
       const st = statusOf(s);
       const stColor = ({dormant:'status-dormant', sprouted:'status-sprouted', archived:'status-archived'})[st];
@@ -633,6 +711,9 @@
       ).join(' · ');
       const descendantLinks = (s.derived_descendants || []).map(id =>
         `<a href="#${escapeHtml(id)}" class="inline-link" title="Grew into ${escapeHtml(id)}">↓ ${escapeHtml(seedShortLabel(id))}</a>`
+      ).join(' · ');
+      const siblingLinks = siblingsOf(s).map(id =>
+        `<a href="#${escapeHtml(id)}" class="inline-link" title="Sibling (shared parent) ${escapeHtml(id)}">⇄ ${escapeHtml(seedShortLabel(id))}</a>`
       ).join(' · ');
 
       const mediaHtml = (s.media || []).map(m => `<img src="${escapeHtml(m.url)}" alt="${escapeHtml(m.alt)}" loading="lazy" class="w-full max-h-96 object-contain rounded-lg border border-slate-200 dark:border-slate-700 mt-3">`).join('');
@@ -653,10 +734,13 @@
             ${s.updated_at ? `<span class="text-slate-400 italic">(updated ${formatDateTime(s.updated_at)})</span>` : ''}
             ${derivedFromLinks ? `<span class="ml-1">Grew from ${derivedFromLinks}</span>` : ''}
             ${descendantLinks ? `<span class="ml-1">Grew into ${descendantLinks}</span>` : ''}
+            ${siblingLinks ? `<span class="ml-1">Siblings ${siblingLinks}</span>` : ''}
             ${sproutLinks ? `<span class="ml-1">${sproutLinks}</span>` : ''}
           </div>
           <div class="mt-3 flex items-center gap-2 text-xs">
             <button class="copylink-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Copy permalink">🔗</button>
+            <button class="growfrom-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Copy this seed's id (for a new seed's derived_from)">🌱</button>
+            ${(s.derived_descendants && s.derived_descendants.length) ? `<button class="thread-btn px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-id="${escapeHtml(s.id)}" title="Pull the whole thread">🌳 ${countDescendants(s.id)}</button>` : ''}
             <span class="ml-auto flex gap-2">${flags.join('')}</span>
           </div>
         </article>
@@ -694,6 +778,16 @@
       if (e.target.classList.contains('copylink-btn')) {
         const id = e.target.dataset.id;
         copyPermalink(id);
+      }
+      if (e.target.classList.contains('growfrom-btn')) {
+        const id = e.target.dataset.id;
+        navigator.clipboard.writeText(id).then(
+          () => showToast('Seed id copied: ' + id),
+          () => showToast('Copy failed')
+        );
+      }
+      if (e.target.classList.contains('thread-btn')) {
+        openThread(e.target.dataset.id);
       }
       // Card tag chip click → filter by that tag (mirrors top filter chip click)
       if (e.target.classList.contains('card-tag-chip')) {
