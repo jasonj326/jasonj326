@@ -348,7 +348,9 @@
     function seedShortLabel(id) {
       const s = SEEDS.find(x => x.id === id);
       if (!s) return id;
-      return s.source_no != null ? `No.${dayCountNo(s.ts)}` : s.ts.slice(0, 10);
+      if (s.source_no != null) return `No.${dayCountNo(s.ts)}`;   // cackle → No.X
+      const tail = id.replace(/^\d{4}-\d{2}-\d{2}-?/, '');        // strip date prefix
+      return /[a-zA-Z]/.test(tail) ? tail : s.ts.slice(0, 10);    // slug seed → slug; worker time-id → date
     }
     // Render body text: escape HTML + handle markdown for fenced code blocks,
     // inline code, and [text](url) links. Newlines preserved by parent's
