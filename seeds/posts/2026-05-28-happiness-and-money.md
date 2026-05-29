@@ -4,11 +4,11 @@ ts: 2026-05-28T14:22:46+08:00
 tags:
   - y2026
   - reflection
-  - 幸福方程式
+  - happiness
   - builder
 derived_from:
   - 2021-04-22-mrps112
-updated_at: "2026-05-28T14:43:29+08:00"
+updated_at: "2026-05-29T11:42:15+08:00"
 ---
 這篇是為了測試新的種子發芽功能
 其實先前就已經更新在 [About](https://jasonjlai.net/zh/about/)
