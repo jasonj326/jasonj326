@@ -1,10 +1,12 @@
 ---
-id: 2026-05-29-110704
+id: 2026-05-29-first-iOS-seed
 ts: 2026-05-29T11:07:04+08:00
 tags:
   - y2026
   - builder
 derived_from: 2026-05-28-happiness-and-money
+updated_at: "2026-05-31T15:04:17+08:00"
+
 ---
 
 first iOS seed
