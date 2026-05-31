@@ -38,6 +38,9 @@
     .seed-card { transition: border-color 0.15s; }
     .seed-card:hover { border-color: rgb(99 102 241 / 0.5); }
     .dark .seed-card:hover { border-color: rgb(94 234 212 / 0.5); }
+    /* Reserve aspect-ratio so deferred image loads don't shift layout (anchor jump fix) */
+    .seed-card img { aspect-ratio: 4 / 3; background: rgb(241 245 249); }
+    .dark .seed-card img { background: rgb(30 41 59); }
     .seed-quote { font-family: ui-serif, Georgia, serif; }
     .seed-quote em { font-style: italic; }
 
