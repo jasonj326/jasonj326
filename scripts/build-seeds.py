@@ -281,14 +281,20 @@ def extract_media(text: str) -> tuple[list, str]:
     return media, cleaned
 
 
-def build_seed(fm: dict, body: str) -> dict:
+def build_seed(fm: dict, body: str, file_id: str) -> dict:
     media, body = extract_media(body)
     quotes, commentary = split_ocr_and_body(body)
     all_text = " ".join([q["text"] for q in quotes] + [commentary])
     raw_tags = fm.get("tags", [])
     tags = [t for t in raw_tags if t not in EXCLUDE_TAGS]
+    # Filename is the source of truth for id. If frontmatter `id:` disagrees
+    # (e.g. a seed was renamed but its frontmatter not updated), the filename
+    # wins and we warn — so renames never silently break lineage/permalinks.
+    fm_id = fm.get("id", "")
+    if fm_id and fm_id != file_id:
+        print(f"  ⚠️  {file_id}: frontmatter id '{fm_id}' ≠ filename — using filename")
     seed = {
-        "id": fm.get("id", ""),
+        "id": file_id,
         "ts": fm.get("ts", ""),
         "tags": tags,
         "source": fm.get("source"),
@@ -328,7 +334,7 @@ def main() -> int:
         if parsed is None:
             print(f"  ⚠️  Skip (parse fail): {path.name}")
             continue
-        seeds.append(build_seed(parsed["frontmatter"], parsed["body"]))
+        seeds.append(build_seed(parsed["frontmatter"], parsed["body"], path.stem))
 
     # Normalize derived_from to list[str], compute derived_descendants reverse map
     ts_by_id = {s["id"]: s["ts"] for s in seeds}
