@@ -1,5 +1,26 @@
 [
   {
+    "id": "2026-06-04-061234",
+    "ts": "2026-06-04T06:12:34+08:00",
+    "tags": [
+      "y2026",
+      "language",
+      "Eng"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "“We can know more than we can tell.” 出自《The Tacit Dimension》（1966）—by Michael Polanyi",
+    "word_count": 16,
+    "excerpt": "“We can know more than we can tell.” 出自《The Tacit Dimension》（1966）—by Michael Po…",
+    "search_text": "we can know more than we can tell 出自 the tacit dimension 1966 by michael polanyi y2026 language eng",
+    "media_count": 0
+  },
+  {
     "id": "2026-06-03-knowledge-system",
     "ts": "2026-06-03T11:34:42+08:00",
     "tags": [
