@@ -471,7 +471,7 @@
       SEEDS.forEach(s => (s.tags || []).forEach(t => tagCounts[t] = (tagCounts[t] || 0) + 1));
       const sorted = Object.entries(tagCounts).sort((a,b) => b[1] - a[1]).slice(0, 20);
       const TAG_CLR = {builder:'tag-builder', legal:'tag-legal', invites:'tag-invites'};
-      const TAG_LABEL = {builder:'建造者', legal:'法律', invites:'邀請', storytelling:'表達'};
+      const TAG_LABEL = {builder:'建造者', legal:'法律', invites:'邀請', storytelling:'表達', 'Mr.PS':'猜招先生'};
       const html = ['<button class="tag-chip active px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="">全部標籤</button>'];
       sorted.forEach(([tag, count]) => {
         const colorCls = TAG_CLR[tag] || '';
@@ -735,7 +735,7 @@
             <span class="${stColor}">●</span><span>${statusLabel(st)}</span>
             ${(s.tags || []).filter(t => !/^y\d{4}$/.test(t)).slice(0, 4).map(t => {
               const cls = ({builder:'tag-builder',legal:'tag-legal',invites:'tag-invites'})[t] || 'text-slate-400';
-              const TAG_LABEL = {builder:'建造者', legal:'法律', invites:'邀請', storytelling:'表達'};
+              const TAG_LABEL = {builder:'建造者', legal:'法律', invites:'邀請', storytelling:'表達', 'Mr.PS':'猜招先生'};
               return `<button type="button" class="card-tag-chip ${cls}" data-tag="${escapeHtml(t)}">${escapeHtml(TAG_LABEL[t] || t)}</button>`;
             }).join('')}
             ${s.source_no != null ? `<span class="text-slate-400">No.${dayCountNo(s.ts)}</span>` : ''}
