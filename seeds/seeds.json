@@ -1,6 +1,30 @@
 [
   {
-    "id": "2026-06-04-084800",
+    "id": "2026-06-05-seeds-in-superlinear-academy",
+    "ts": "2026-06-05T13:39:10+08:00",
+    "tags": [
+      "y2026",
+      "reflection"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [
+      {
+        "text": "APAC Regulatory / Jason Lai / Builder at PIF12\n\n職業標籤：跨境法律顧問，主要做 Web3、AI 治理與離岸架構（BVI / Cayman / Singapore ）以及投資人關係。紐約州註冊律師、IAPP AIGP（AI 治理）認證。\n\n社交標籤：三分鐘沸騰，是優點也是缺點。皮克敏 (Pikmin) & Growth Mindset。2025.12 初馬完成，少走尋常路又不太喜歡孤獨，總之是個矛盾的人\n\n喜歡討論什麼：我對灰階思考與系統思考上癮——比起非黑即白，更喜歡在對立兩端之間找張力（各種 trade-off），或是在兩個看似不相關的事物中找連結。目前在孵育建造自己的社群 PIF12|佩福十二年\n\n能幫到大家的地方：Non-judgemental chitchat，新創跨境法律與合規、offshore 架構、把複雜法規翻譯成人話。如果你在做新創，想搞清楚某個司法管轄區的監管地圖、投資人關係，或單純想找人對撞一個還沒成形的想法。\n\n技術那邊我也在土炮——用 Cloudflare Workers + D1 + Anthropic API 自己刻一隻 Telegram 助理兼教練 bot， 律師出張嘴寫的 code 大概很醜，但能跑，可以交流踩坑，都可以找我聊聊。\n\nInnate ability：把一團亂的東西結構化、講明白，協助利害關係人取得平衡。目前的期許自己是 Think in Gray. Build in Public. Live in between.\n\n很高興加入這裡，今年導入遊戲化思維，想找隊友一起升級，期待在這裡建立深度、有意義的連結。\n\n有興趣歡迎逛逛個人網站或聯繫站內聯繫"
+      }
+    ],
+    "body_text": "SA 社群的自介，也轉貼過來當做種子，期待他的開花結果",
+    "word_count": 428,
+    "excerpt": "SA 社群的自介，也轉貼過來當做種子，期待他的開花結果",
+    "search_text": "apac regulatory jason lai builder at pif12 職業標籤 跨境法律顧問 主要做 web3 ai 治理與離岸架構 bvi cayman singapore 以及投資人關係 紐約州註冊律師 iapp aigp ai 治理 認證 社交標籤 三分鐘沸騰 是優點也是缺點 皮克敏 pikmin growth mindset 2025 12 初馬完成 少走尋常路又不太喜歡孤獨 總之是個矛盾的人 喜歡討論什麼 我對灰階思考與系統思考上癮 比起非黑即白 更喜歡在對立兩端之間找張力 各種 trade off 或是在兩個看似不相關的事物中找連結 目前在孵育建造自己的社群 pif12 佩福十二年 能幫到大家的地方 non judgemental chitchat 新創跨境法律與合規 offshore 架構 把複雜法規翻譯成人話 如果你在做新創 想搞清楚某個司法管轄區的監管地圖 投資人關係 或單純想找人對撞一個還沒成形的想法 技術那邊我也在土炮 用 cloudflare workers d1 anthropic api 自己刻一隻 telegram 助理兼教練 bot 律師出張嘴寫的 code 大概很醜 但能跑 可以交流踩坑 都可以找我聊聊 innate ability 把一團亂的東西結構化 講明白 協助利害關係人取得平衡 目前的期許自己是 think in gray build in public live in between 很高興加入這裡 今年導入遊戲化思維 想找隊友一起升級 期待在這裡建立深度 有意義的連結 有興趣歡迎逛逛個人網站或聯繫站內聯繫 sa 社群的自介 也轉貼過來當做種子 期待他的開花結果 y2026 reflection",
+    "media_count": 0
+  },
+  {
+    "id": "2026-06-04-inference-in-between",
     "ts": "2026-06-04T08:48:00+08:00",
     "tags": [
       "y2026",
@@ -14,10 +38,10 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "事實：早上四點就睡不著。推論：這樣我今天生產力低落、長期身體不好。評價：這樣的生活很糟糕。後兩者不必然為真，我就去做了日記直播講了快三十分鐘。Today’s gonna be a good day!",
-    "word_count": 69,
-    "excerpt": "事實：早上四點就睡不著。推論：這樣我今天生產力低落、長期身體不好。評價：這樣的生活很糟糕。後兩者不必然為真，我就去做了日記直播講了快三十分鐘。",
-    "search_text": "事實 早上四點就睡不著 推論 這樣我今天生產力低落 長期身體不好 評價 這樣的生活很糟糕 後兩者不必然為真 我就去做了日記直播講了快三十分鐘 today s gonna be a good day y2026 reflection language",
+    "body_text": "事實 (fact)：早上四點就睡不著。\n\n推論 (inference)：這樣我今天生產力低落、長期身體不好。\n\n評價 (judgement/evaluation)：這樣的生活很糟糕。後兩者不必然為真\n\n睡不著，我就去做了日記直播講了快三十分鐘。\n\nToday’s gonna be a good day!",
+    "word_count": 76,
+    "excerpt": "事實 (fact)：早上四點就睡不著。 推論 (inference)：這樣我今天生產力低落、長期身體不好。",
+    "search_text": "事實 fact 早上四點就睡不著 推論 inference 這樣我今天生產力低落 長期身體不好 評價 judgement evaluation 這樣的生活很糟糕 後兩者不必然為真 睡不著 我就去做了日記直播講了快三十分鐘 today s gonna be a good day y2026 reflection language",
     "media_count": 0,
     "derived_from": [
       "2026-06-03-facts-vs-evaluation"
@@ -28,7 +52,7 @@
     "ts": "2026-06-04T08:44:39+08:00",
     "tags": [
       "y2026",
-      "reflections"
+      "reflection"
     ],
     "source": null,
     "source_no": null,
@@ -40,8 +64,9 @@
     "body_text": "你不用很厲害才開始，你要開始才能接近厲害。You’re good enough. 允許一切發生如其所是。",
     "word_count": 33,
     "excerpt": "你不用很厲害才開始，你要開始才能接近厲害。You’re good enough. 允許一切發生如其所是。",
-    "search_text": "你不用很厲害才開始 你要開始才能接近厲害 you re good enough 允許一切發生如其所是 y2026 reflections",
-    "media_count": 0
+    "search_text": "你不用很厲害才開始 你要開始才能接近厲害 you re good enough 允許一切發生如其所是 y2026 reflection",
+    "media_count": 0,
+    "updated_at": "2026-06-05T13:39:10+08:00"
   },
   {
     "id": "2026-06-04-061234",
@@ -72,7 +97,8 @@
       "reflection",
       "system",
       "knowledge",
-      "readout"
+      "readout",
+      "Eng"
     ],
     "source": null,
     "source_no": null,
@@ -84,8 +110,9 @@
     "body_text": "去年底一直在優化我的知識系統，也藉讀友發問公開，也算是好事一件，順手貼回自己的種子牆，也翻譯成英文\n\n回覆讀友手札：\n\n我覺得是每個人的大腦有不同的偏好，我自己就喜歡有系統的結構，但身邊大多數的人覺得很無趣。\n\n目前我自創的分類是四個層次：\n\nLayer 1: 剛性限制、第一性原理。所有逆天的東西都必然失敗，目前我們知道的是物理學、熱力學、生物限制等。但第一性原理也有時代的局限，三百年前沒有細菌的概念，想必我們現在也有些概念是不清楚或錯誤的，但沒辦法，就是時代的局限。\n\nLayer 2: 權力結構 (e.g., 貧富差距、九大核武國、產油國、半導體產業)、文化限制、認知限制、大腦侷限與錯覺。這邊的定義是，人類很難跨越，但有機會透過學習、訓練，去克服我們的偏見與權力結構。\n\nLayer 3: 方法論：邏輯思辨、科學方法與非科學方法、貝葉斯思維、語言與現實。這一層是方法論，連結 Layer 2 & 4，任何可以幫助我們更好學一門技藝、一門專業的方法論，都會被我歸納在這裡。\n\nLayer 4: 應用：世界上所有的應用，從做一道菜、炒飯，到審閱合約的 SOP ，到經營律師事務所，從讀書考試拿高分，到直播賣貨、到怎麼跟陌生人對話、用 AI 寫程式。這邊都是一般人在學習的東西，最快變現，但也最快被時代取代。\n\n我喜歡自己弄這些架構，會讓我對世界多一點認識與控制（的錯覺），甚至有我掌握 L1-L3 世界底層邏輯的成就感（的幻覺），所以我也在 L4 邁進，多做一點應用，多賺一點錢，早日 FIRE 上岸，我就可以專心去耽溺於 L1-L3 了 (笑）\n\nSince late last year, I've been optimizing my knowledge system. Sharing it publicly through readers' questions turned out to be a positive outcome, so I've reposted it here and translated it into English.\n\nReplying to a reader's comment:\n\nMy observation is that everyone's brain is wired differently and thus has different preferences. I personally enjoy structured systems, but most people around me find them boring or unnecessarily demanding.\n\nMy current knowledge system consists of four layers:\n\nLayer 1: Rigid Constraints & First Principles. Anything that defies these will inevitably fail. Currently, we know this includes physics, thermodynamics, and biological limitations. However, first principles also have era-specific limitations. Three hundred years ago, the concept of bacteria/Pathogen didn't exist; undoubtedly, there are concepts we hold today that are unclear or incorrect. Nevertheless, we are bound by the limitations of our times.\n\nLayer 2: Power Structures (e.g., wealth disparity, the nine nuclear-armed states, oil-producing nations, the semiconductor industry), Cultural Constraints, Cognitive Limitations, and Brain Biases/Illusions. The definition here is that these are boundaries humans find difficult to cross, though there is potential to overcome our biases and power structures through learning and training.\n\nLayer 3: Methodology. This includes logical reasoning, the scientific method and non-scientific methods, Bayesian thinking, and the relationship between language and reality. This layer serves as the methodology connecting Layer 2 and Layer 4. Any approach that helps us better master a craft or profession is categorized here.\n\nLayer 4: Application. This encompasses all applications in the world: from cooking a dish or fried rice, to the SOP for reviewing contracts, to running a law firm, from studying to ace exams, to live-streaming sales, to talking to strangers, and using AI to write code. These are the things  people learn on a daily basis; they offer the quickest path to monetization but are also the quickest to be replaced by the times.\n\nI enjoy creating these frameworks because it gives me a sense of understanding and control (an illusion) over the world. There is even a sense of achievement (a delusion) in feeling that I grasp the underlying logic of the world from L1 to L3. Therefore, I am also advancing in L4, focusing on more applications to earn more money. My goal is to achieve FIRE (Financial Independence, Retire Early) as soon as possible, so I can then dedicate myself fully to indulging in L1–L3 (LOL).",
     "word_count": 910,
     "excerpt": "去年底一直在優化我的知識系統，也藉讀友發問公開，也算是好事一件，順手貼回自己的種子牆，也翻譯成英文 回覆讀友手札： 我覺得是每個人的大腦有不同的偏好，我自己就喜…",
-    "search_text": "去年底一直在優化我的知識系統 也藉讀友發問公開 也算是好事一件 順手貼回自己的種子牆 也翻譯成英文 回覆讀友手札 我覺得是每個人的大腦有不同的偏好 我自己就喜歡有系統的結構 但身邊大多數的人覺得很無趣 目前我自創的分類是四個層次 layer 1 剛性限制 第一性原理 所有逆天的東西都必然失敗 目前我們知道的是物理學 熱力學 生物限制等 但第一性原理也有時代的局限 三百年前沒有細菌的概念 想必我們現在也有些概念是不清楚或錯誤的 但沒辦法 就是時代的局限 layer 2 權力結構 e g 貧富差距 九大核武國 產油國 半導體產業 文化限制 認知限制 大腦侷限與錯覺 這邊的定義是 人類很難跨越 但有機會透過學習 訓練 去克服我們的偏見與權力結構 layer 3 方法論 邏輯思辨 科學方法與非科學方法 貝葉斯思維 語言與現實 這一層是方法論 連結 layer 2 4 任何可以幫助我們更好學一門技藝 一門專業的方法論 都會被我歸納在這裡 layer 4 應用 世界上所有的應用 從做一道菜 炒飯 到審閱合約的 sop 到經營律師事務所 從讀書考試拿高分 到直播賣貨 到怎麼跟陌生人對話 用 ai 寫程式 這邊都是一般人在學習的東西 最快變現 但也最快被時代取代 我喜歡自己弄這些架構 會讓我對世界多一點認識與控制 的錯覺 甚至有我掌握 l1 l3 世界底層邏輯的成就感 的幻覺 所以我也在 l4 邁進 多做一點應用 多賺一點錢 早日 fire 上岸 我就可以專心去耽溺於 l1 l3 了 笑 since late last year i ve been optimizing my knowledge system sharing it publicly through readers questions turned out to be a positive outcome so i ve reposted it here and translated it into english replying to a reader s comment my observation is that everyone s brain is wired differently and thus has different preferences i personally enjoy structured systems but most people around me find them boring or unnecessarily demanding my current knowledge system consists of four layers layer 1 rigid constraints first principles anything that defies these will inevitably fail currently we know this includes physics thermodynamics and biological limitations however first principles also have era specific limitations three hundred years ago the concept of bacteria pathogen didn t exist undoubtedly there are concepts we hold today that are unclear or incorrect nevertheless we are bound by the limitations of our times layer 2 power structures e g wealth disparity the nine nuclear armed states oil producing nations the semiconductor industry cultural constraints cognitive limitations and brain biases illusions the definition here is that these are boundaries humans find difficult to cross though there is potential to overcome our biases and power structures through learning and training layer 3 methodology this includes logical reasoning the scientific method and non scientific methods bayesian thinking and the relationship between language and reality this layer serves as the methodology connecting layer 2 and layer 4 any approach that helps us better master a craft or profession is categorized here layer 4 application this encompasses all applications in the world from cooking a dish or fried rice to the sop for reviewing contracts to running a law firm from studying to ace exams to live streaming sales to talking to strangers and using ai to write code these are the things people learn on a daily basis they offer the quickest path to monetization but are also the quickest to be replaced by the times i enjoy creating these frameworks because it gives me a sense of understanding and control an illusion over the world there is even a sense of achievement a delusion in feeling that i grasp the underlying logic of the world from l1 to l3 therefore i am also advancing in l4 focusing on more applications to earn more money my goal is to achieve fire financial independence retire early as soon as possible so i can then dedicate myself fully to indulging in l1 l3 lol y2026 reflection system knowledge readout",
-    "media_count": 0
+    "search_text": "去年底一直在優化我的知識系統 也藉讀友發問公開 也算是好事一件 順手貼回自己的種子牆 也翻譯成英文 回覆讀友手札 我覺得是每個人的大腦有不同的偏好 我自己就喜歡有系統的結構 但身邊大多數的人覺得很無趣 目前我自創的分類是四個層次 layer 1 剛性限制 第一性原理 所有逆天的東西都必然失敗 目前我們知道的是物理學 熱力學 生物限制等 但第一性原理也有時代的局限 三百年前沒有細菌的概念 想必我們現在也有些概念是不清楚或錯誤的 但沒辦法 就是時代的局限 layer 2 權力結構 e g 貧富差距 九大核武國 產油國 半導體產業 文化限制 認知限制 大腦侷限與錯覺 這邊的定義是 人類很難跨越 但有機會透過學習 訓練 去克服我們的偏見與權力結構 layer 3 方法論 邏輯思辨 科學方法與非科學方法 貝葉斯思維 語言與現實 這一層是方法論 連結 layer 2 4 任何可以幫助我們更好學一門技藝 一門專業的方法論 都會被我歸納在這裡 layer 4 應用 世界上所有的應用 從做一道菜 炒飯 到審閱合約的 sop 到經營律師事務所 從讀書考試拿高分 到直播賣貨 到怎麼跟陌生人對話 用 ai 寫程式 這邊都是一般人在學習的東西 最快變現 但也最快被時代取代 我喜歡自己弄這些架構 會讓我對世界多一點認識與控制 的錯覺 甚至有我掌握 l1 l3 世界底層邏輯的成就感 的幻覺 所以我也在 l4 邁進 多做一點應用 多賺一點錢 早日 fire 上岸 我就可以專心去耽溺於 l1 l3 了 笑 since late last year i ve been optimizing my knowledge system sharing it publicly through readers questions turned out to be a positive outcome so i ve reposted it here and translated it into english replying to a reader s comment my observation is that everyone s brain is wired differently and thus has different preferences i personally enjoy structured systems but most people around me find them boring or unnecessarily demanding my current knowledge system consists of four layers layer 1 rigid constraints first principles anything that defies these will inevitably fail currently we know this includes physics thermodynamics and biological limitations however first principles also have era specific limitations three hundred years ago the concept of bacteria pathogen didn t exist undoubtedly there are concepts we hold today that are unclear or incorrect nevertheless we are bound by the limitations of our times layer 2 power structures e g wealth disparity the nine nuclear armed states oil producing nations the semiconductor industry cultural constraints cognitive limitations and brain biases illusions the definition here is that these are boundaries humans find difficult to cross though there is potential to overcome our biases and power structures through learning and training layer 3 methodology this includes logical reasoning the scientific method and non scientific methods bayesian thinking and the relationship between language and reality this layer serves as the methodology connecting layer 2 and layer 4 any approach that helps us better master a craft or profession is categorized here layer 4 application this encompasses all applications in the world from cooking a dish or fried rice to the sop for reviewing contracts to running a law firm from studying to ace exams to live streaming sales to talking to strangers and using ai to write code these are the things people learn on a daily basis they offer the quickest path to monetization but are also the quickest to be replaced by the times i enjoy creating these frameworks because it gives me a sense of understanding and control an illusion over the world there is even a sense of achievement a delusion in feeling that i grasp the underlying logic of the world from l1 to l3 therefore i am also advancing in l4 focusing on more applications to earn more money my goal is to achieve fire financial independence retire early as soon as possible so i can then dedicate myself fully to indulging in l1 l3 lol y2026 reflection system knowledge readout eng",
+    "media_count": 0,
+    "updated_at": "2026-06-05T13:39:10+08:00"
   },
   {
     "id": "2026-06-03-facts-vs-evaluation",
@@ -108,7 +135,7 @@
     "search_text": "事實 我聽到日文歌曲 酒よ 誤認為是 雙人枕頭 自我評價 我的音感也太差了吧 ai 其實代表你聽到兩首共同點 不是音感差 都是同時代演歌的曲風 都有 sax solo間奏 華爾滋 同時也都被江蕙唱過 有興趣探討吉幾三 美空り 一路到江蕙 葉啟田的台日演歌系譜嗎 結論 不要盡信 ai 也不要無止盡自我批判 永遠要區分事實和評價 y2026 ai reflection",
     "media_count": 0,
     "derived_descendants": [
-      "2026-06-04-084800"
+      "2026-06-04-inference-in-between"
     ]
   },
   {
