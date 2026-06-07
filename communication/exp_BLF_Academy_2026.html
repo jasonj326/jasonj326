@@ -1,139 +1,475 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLF Academy · Stablecoin (2026) — Jason J. Lai</title>
-
-    <meta name="description" content="References and legal authorities for Jason J. Lai's BLF Academy stablecoin presentation (2026).">
-    <meta property="og:title" content="BLF Academy · Stablecoin (2026) — Jason J. Lai">
-    <meta property="og:description" content="References and legal authorities for the BLF Academy stablecoin presentation (2026).">
-    <meta property="og:url" content="https://jasonjlai.net/communication/exp_BLF_Academy_2026">
-    <meta property="og:type" content="article">
-    <meta name="robots" content="noindex">
-
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: { extend: { fontFamily: {
-                sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-                mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-            }}}
-        }
-    </script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        .game-shadow { box-shadow: 4px 4px 0 0 rgba(15, 23, 42, 1); }
-        .dark .game-shadow { box-shadow: 4px 4px 0 0 rgba(203, 213, 225, 1); }
-        .cite-list cite { font-style: italic; color: rgb(67 56 202); }
-        .dark .cite-list cite { color: rgb(165 180 252); }
-    </style>
-    <link rel="stylesheet" href="/assets/fab-subscribe.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>MASTERCLASS — US Stablecoin & Crypto Regulation (GENIUS · CLARITY · PARITY) — Teachable Edition</title>
+<style>
+  :root{--navy:#0f172a;--blue:#1e3a8a;--blue2:#1e40af;--gold:#b45309;--teal:#0d9488;
+        --line:#e2e8f0;--bg:#f6f8fb;--green:#15803d;--amber:#b45309;--red:#b91c1c;--violet:#6d28d9;--slate:#475569}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#1e293b;background:var(--bg);line-height:1.55;font-size:15px}
+  .serif{font-family:"Playfair Display",Georgia,serif}
+  header{background:linear-gradient(135deg,var(--navy),#1e293b);color:#fff;padding:44px 24px;border-bottom:4px solid var(--gold)}
+  header .k{letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:#fbbf24;margin-bottom:10px}
+  header h1{margin:0 0 8px;font-size:2rem;font-weight:800;line-height:1.2}
+  header p{margin:3px 0;color:#cbd5e1;font-size:.95rem}
+  nav{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:4px;flex-wrap:wrap;justify-content:center;font-size:.74rem;box-shadow:0 1px 4px rgba(15,23,42,.06)}
+  nav a{color:var(--blue);text-decoration:none;padding:3px 8px;border-radius:6px;white-space:nowrap}
+  nav a:hover{background:var(--bg)}
+  nav a.prep{background:#fff7ed;color:var(--gold);font-weight:700}
+  main{max-width:940px;margin:0 auto;padding:14px 20px 90px}
+  section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;margin:24px 0;box-shadow:0 1px 3px rgba(15,23,42,.05)}
+  .sectop{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px;gap:12px}
+  .sn{font-size:.72rem;font-weight:700;color:var(--slate);text-transform:uppercase}
+  h2{font-size:1.5rem;color:var(--blue);margin:.1em 0;line-height:1.25}
+  h3{font-size:1.1rem;color:var(--navy);margin:1.3em 0 .3em}
+  h4{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:1.1em 0 .25em}
+  p{margin:.55em 0}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.3em}
+  li{margin:.3em 0}
+  .lead{color:var(--slate);font-size:1.02rem}
+  .src-chip{font-size:.66rem;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap}
+  .c-dd{background:#e0e7ff;color:#3730a3} .c-ng{background:#dcfce7;color:#166534} .c-cea{background:#fef9c3;color:#854d0e} .c-bp{background:#ede9fe;color:#5b21b6}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.88rem}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr:nth-child(even) td{background:#fafbfd}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
+  .col{border-radius:10px;padding:14px 16px;font-size:.85rem}
+  .col h5{margin:0 0 8px;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:6px}
+  .col .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .settled{background:#f1f5f9;border-top:3px solid var(--slate)} .settled .dot{background:var(--slate)}
+  .disputed{background:#fffbeb;border-top:3px solid var(--amber)} .disputed .dot{background:var(--amber)}
+  .critical{background:#f0fdf4;border-top:3px solid var(--green)} .critical .dot{background:var(--green)}
+  .pill{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 7px;border-radius:20px;color:#fff;vertical-align:middle}
+  .t1{background:var(--green)} .t2{background:var(--amber)} .t3{background:var(--blue)} .t4{background:var(--violet)} .fix{background:var(--red)}
+  .why{background:#eef4fb;border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:12px 16px;margin:13px 0}
+  .warn{background:#fef2f2;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:12px 16px;margin:13px 0}
+  .corr{background:#fff7ed;border:1px dashed var(--gold);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.86rem}
+  .corr b{color:var(--gold)}
+  details{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px 15px;margin:11px 0;font-size:.9rem}
+  details summary{cursor:pointer;font-weight:700;color:var(--blue)}
+  details[open] summary{margin-bottom:8px}
+  .ros td:first-child,.qa td:first-child{font-variant-numeric:tabular-nums;font-weight:700;color:var(--blue);white-space:nowrap}
+  .open{color:var(--teal);font-weight:700}.concrete{color:var(--blue);font-weight:700}
+  .hook{background:var(--navy);color:#e2e8f0;border-radius:10px;padding:16px 20px;font-size:1.02rem;line-height:1.6}
+  .hook b{color:#fbbf24}
+  cite{color:var(--blue2);font-style:italic}
+  code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:.85em}
+  .prov{font-size:.82rem;color:var(--slate);background:#fbf7ef;border:1px solid #ecdcc0;border-radius:8px;padding:11px 15px;margin:14px 0}
+  footer{background:var(--navy);color:#94a3b8;padding:26px;text-align:center;font-size:.82rem}
+  @media(max-width:720px){.grid3{grid-template-columns:1fr}header h1{font-size:1.5rem}}
+</style>
 </head>
+<body>
+<header>
+  <div class="k">Teachable Edition · consolidated &amp; fact-checked (June 2026)</div>
+  <h1 class="serif">US Stablecoin &amp; Crypto Regulation:<br/>GENIUS · CLARITY · PARITY</h1>
+  <p>90-minute live masterclass for legal practitioners · Jason J. Lai · BLF Stablecoin Academy</p>
+  <p>Single file = delivery layer (run-of-show, opener, Q&amp;A) + corrected deep-dive + agency architecture + CEA yield economics + Blueprint visuals.</p>
+</header>
 
-<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-500 selection:bg-indigo-200 dark:selection:bg-emerald-900">
+<nav>
+  <a class="prep" href="#prep">★ Prep &amp; Run-of-Show</a>
+  <a class="prep" href="#syllabus">Syllabus</a>
+  <a href="#s1">1 Foundations</a>
+  <a href="#s2">2 GENIUS Arch</a>
+  <a href="#s3">3 Definition</a>
+  <a href="#s4">4 Reserves</a>
+  <a href="#s5">5 Agencies</a>
+  <a href="#s6">6 $10B/$50B</a>
+  <a href="#s7">7 Fed/State</a>
+  <a href="#s8">8 Cross-border</a>
+  <a href="#s9">9 CLARITY</a>
+  <a href="#s10">10 Yield Economics</a>
+  <a href="#s11">11 PARITY</a>
+  <a href="#s12">12 AI Monitoring</a>
+  <a href="#s13">13 Agentic</a>
+  <a href="#s14">14 Illicit Finance</a>
+  <a href="#s15">15 Rulemaking Hub</a>
+  <a href="#refs">Refs</a>
+</nav>
 
-    <!-- Site Nav -->
-    <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
-            <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-                <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span>
-                </a>
-                <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span>
-                </a>
-                <a href="/communication/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="mic" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Speaking</span><span class="sm:hidden text-sm">Speak</span>
-                </a>
-                <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400">
-                    <i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span>
-                </a>
-            </div>
-            <div class="flex items-center gap-3 sm:gap-4 ml-auto">
-                <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile"><svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path></svg></a>
-                <a href="mailto:speak@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email"><svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a>
-                <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
-                <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-                    <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
-                    <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+<main>
 
-    <main class="max-w-3xl mx-auto px-6 py-12 animate-fade-in">
+<!-- ============ PREP LAYER ============ -->
+<section id="prep" style="border:2px solid var(--gold)">
+  <div class="sectop"><div><span class="sn">Instructor Delivery Layer</span><h2 class="serif">Prep, Run-of-Show &amp; Q&amp;A</h2></div></div>
 
-        <a href="/communication/" class="inline-flex items-center text-sm font-mono font-bold text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 mb-8 transition-colors">
-            <i data-lucide="arrow-left" class="w-4 h-4 mr-1.5"></i> Back to Speaking & Engagements
-        </a>
+  <h3>Confidence legend — say this when asked "is that the law?"</h3>
+  <table>
+    <tr><th>Tier</th><th>Means</th><th>Examples here</th></tr>
+    <tr><td><span class="pill t1">ENACTED</span></td><td>Signed law, in force / phasing in</td><td>GENIUS Act (signed 2025-07-18)</td></tr>
+    <tr><td><span class="pill t2">DRAFT BILL</span></td><td>Not law; text changes between versions</td><td>CLARITY, PARITY</td></tr>
+    <tr><td><span class="pill t3">PROPOSED RULE</span></td><td>Agency NPRM; comment open, not final</td><td>OCC $5M de novo floor; the 7 GENIUS NPRMs; FDIC no-pass-through proposal; Treasury ANPRM</td></tr>
+    <tr><td><span class="pill t4">MY READ</span></td><td>Inference — no authority squarely on point</td><td>Agentic-payment outcomes; "will §404 survive Senate"</td></tr>
+  </table>
 
-        <!-- Header -->
-        <div class="mb-10">
-            <div class="inline-block px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 dark:text-blue-300 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-full mb-4">
-                <i data-lucide="presentation" class="w-3 h-3 inline-block mr-1"></i> Experience
-            </div>
-            <h1 class="text-3xl md:text-4xl font-extrabold font-mono tracking-tight text-slate-900 dark:text-white mb-3">BLF Academy · Stablecoin (2026)</h1>
-            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">References &amp; legal authorities cited in the presentation.</p>
-        </div>
+  <h3>90-minute run-of-show</h3>
+  <div class="warn"><b>Biggest hidden time risk:</b> 10 people × 3-min self-intro = <b>30 min = ⅓ of class</b>. Cap intros at <b>~40s each (~7 min)</b>, or cut content.</div>
+  <table class="ros">
+    <tr><th>Clock</th><th>Block</th><th>Q&amp;A</th></tr>
+    <tr><td>0:00–0:07</td><td>Cold-open hook · bio · blockchain poll (read the room)</td><td>—</td></tr>
+    <tr><td>0:07–0:14</td><td>Self-intros (capped 40s × 10)</td><td>—</td></tr>
+    <tr><td>0:14–0:22</td><td>§1 Foundations (5 concepts)</td><td><b>Q1</b> @0:22</td></tr>
+    <tr><td>0:22–0:30</td><td>§2 GENIUS architecture + 7-NPRM build-out</td><td><b>Q2</b> @0:30</td></tr>
+    <tr><td>0:30–0:38</td><td>§3 Definition / carve-out / algo ban + §4 Reserves (touch lightly — deep reference)</td><td><b>Q3</b> @0:38</td></tr>
+    <tr><td>0:38–0:46</td><td>§5 Agencies (Treasury · SCRC · supervisors)</td><td><b>Q4</b> @0:46</td></tr>
+    <tr><td>0:46–0:54</td><td>§6 $10B/$50B + §7 Fed/State + §8 Cross-border</td><td><b>Q5</b> @0:54</td></tr>
+    <tr><td>0:54–0:64</td><td>§9 CLARITY + §10 Yield economics (the CEA counterpoint)</td><td><b>Q6</b> @0:63</td></tr>
+    <tr><td>0:64–0:72</td><td>§11 PARITY (tax)</td><td><b>Q7</b> @0:72</td></tr>
+    <tr><td>0:72–0:82</td><td>§12 AI monitoring (live demo) + §13 Agentic + §14 Illicit finance</td><td><b>Q8</b> @0:78 · <b>Q9</b> @0:82</td></tr>
+    <tr><td>0:82–0:90</td><td>§15 Rulemaking hub + recap + open floor</td><td>—</td></tr>
+  </table>
 
-        <!-- References -->
-        <section class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-slate-300 game-shadow">
-            <h2 class="text-xl font-bold font-mono border-b-2 border-slate-900 dark:border-slate-300 pb-2 mb-6 flex items-center gap-2">
-                <i data-lucide="scale" class="w-5 h-5 text-indigo-600 dark:text-emerald-400"></i> References &amp; Authorities
-            </h2>
-            <ul class="cite-list space-y-4 font-mono text-sm sm:text-base leading-relaxed text-slate-700 dark:text-slate-300 list-disc pl-5 marker:text-slate-400">
-                <li>CFTC Rule 180.1 = 17 C.F.R. §180.1; CEA §6(c)(1) = 7 U.S.C. §9(1) · <cite>Rev. Rul. 2023-14</cite>, 2023-33 I.R.B. · UCC Art. 4A · ICA 1940 · FinCEN CDD Rule (2016) · PWG Stablecoin Report (Nov 2021)</li>
-                <li><b>Constitutional federalism (§1):</b> <cite>Gamble v. United States</cite>, 587 U.S. 678 / 139 S. Ct. 1960 (2019) (dual-sovereignty upheld 7-2) · <cite>Heath v. Alabama</cite>, 474 U.S. 82 (1985) · <cite>McCulloch v. Maryland</cite>, 17 U.S. (4 Wheat.) 316 (1819) · U.S. Const. art. VI cl. 2 (Supremacy) · art. I §8 (Commerce) · amend. V (Double Jeopardy) · amend. X (reserved powers)</li>
-            </ul>
-        </section>
-    </main>
+  <h3>Opener — first 90 seconds (cold-open hook)</h3>
+  <div class="hook">"Your client emails: <b>'we're issuing a digital dollar.'</b> That one sentence is <b>five different regulatory regimes</b> — money, currency, a payment rail, a stablecoin, a tokenized deposit. Get the classification wrong and you've put them under the wrong regulator, the wrong insolvency rules, the wrong insurance. So before GENIUS or CLARITY, let's make sure we never confuse those five again."</div>
+  <p><b>Poll:</b> "React 1-4: (1) never touched crypto · (2) used a wallet/exchange · (3) advised on a crypto matter · (4) work in this daily." → mostly 1-2: lean on §1 analogies; mostly 3-4: compress §1, go deep on §9-§10 + §13.</p>
 
-    <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
-        <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
-            <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Jason J. Lai</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>
-        </div>
-    </footer>
+  <h3>The 9 Q&amp;A (~1:1 open : concrete; model answers fold open below)</h3>
+  <table class="qa">
+    <tr><th>@</th><th>Type</th><th>Question</th></tr>
+    <tr><td>0:22</td><td><span class="open">OPEN</span></td><td>Client says "digital dollar" — first classifying question, and why does issuer-vs-bank liability change everything?</td></tr>
+    <tr><td>0:30</td><td><span class="concrete">CONCRETE</span></td><td>GENIUS effective-date rule? <em>(earlier of 18mo / Jan 18 2027, or 120 days after final rules)</em></td></tr>
+    <tr><td>0:38</td><td><span class="concrete">CONCRETE</span></td><td>Triple carve-out — a payment stablecoin is NOT a __? <em>(all: security/commodity/'40-Act co.)</em></td></tr>
+    <tr><td>0:46</td><td><span class="open">OPEN</span></td><td>Should a non-financial public company (e.g., a retailer) be allowed to issue? What does the SCRC weigh?</td></tr>
+    <tr><td>0:54</td><td><span class="concrete">CONCRETE</span></td><td>State issuer hits $10B — the two options? <em>(transition to federal in 360 days, or waiver)</em></td></tr>
+    <tr><td>0:63</td><td><span class="open">OPEN</span></td><td>The yield ban is sold as "protecting bank lending." Given the CEA's numbers, is that rationale strong?</td></tr>
+    <tr><td>0:72</td><td><span class="concrete">CONCRETE</span></td><td>Under PARITY, is crypto currently subject to the wash-sale rule, and what changes? <em>(no today; §1091 extended)</em></td></tr>
+    <tr><td>0:78</td><td><span class="open">OPEN</span></td><td>In your reg-monitoring workflow, where does AI stop and a human start?</td></tr>
+    <tr><td>0:82</td><td><span class="open">OPEN</span></td><td>An AI agent holds the wallet — who is the "customer" for KYC?</td></tr>
+  </table>
+  <details><summary>Model answers (open to self-test)</summary>
+  <p><b>Q1:</b> "Whose liability is it — yours (issuer) or a bank's (deposit)? Issuer liability → GENIUS/PPSI perimeter, outside deposit insurance; bank liability → inside banking + FDIC. Then: issued to US persons? triggers the PPSI gate."</p>
+  <p><b>Q4:</b> "Default is prohibition. The SCRC must <em>unanimously</em> find the firm poses no material risk to the banking system / financial stability — Treasury + Fed + FDIC all agreeing. So the question isn't 'can Walmart issue' but 'can three agency heads unanimously clear it.'"</p>
+  <p><b>Q6:</b> "Weak on the lending math: the CEA's own baseline says eliminating yield raises lending only ~$2.1B (0.02%) with an $800M net welfare cost — a 6.6 cost-benefit ratio. The honest case for §404 is deposit-franchise/level-playing-field politics, not measurable lending protection."</p>
+  <p><b>Q8:</b> "AI does triage + synthesis with traceable cites; humans own advice, filings, and borderline materiality. The model's confidence is not evidence."</p>
+  <p><b>Q9:</b> "Not 'the agent' — agents aren't legal persons. The customer is the human/entity principal; the operator is very likely an MSB with its own CIP/Travel-Rule duties."</p>
+  </details>
+</section>
 
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        lucide.createIcons();
-        function initTheme() {
-            const htmlElement = document.documentElement;
-            const iconSun = document.getElementById('icon-sun');
-            const iconMoon = document.getElementById('icon-moon');
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                htmlElement.classList.remove('dark');
-                if(iconSun) iconSun.classList.add('hidden');
-                if(iconMoon) iconMoon.classList.remove('hidden');
-            } else {
-                htmlElement.classList.add('dark');
-                if(iconSun) iconSun.classList.remove('hidden');
-                if(iconMoon) iconMoon.classList.add('hidden');
-            }
-        }
-        function toggleTheme() {
-            const htmlElement = document.documentElement;
-            const iconSun = document.getElementById('icon-sun');
-            const iconMoon = document.getElementById('icon-moon');
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark'); localStorage.setItem('theme', 'light');
-                if(iconSun) iconSun.classList.add('hidden'); if(iconMoon) iconMoon.classList.remove('hidden');
-            } else {
-                htmlElement.classList.add('dark'); localStorage.setItem('theme', 'dark');
-                if(iconSun) iconSun.classList.remove('hidden'); if(iconMoon) iconMoon.classList.add('hidden');
-            }
-        }
-        initTheme();
-    </script>
-    <script src="/assets/fab-subscribe.js" defer></script>
+<!-- ============ SYLLABUS ============ -->
+<section id="syllabus">
+  <div class="sectop"><div><span class="sn">教綱 · Syllabus</span><h2 class="serif">Sources Behind Each Section</h2></div></div>
+  <p class="lead">This edition consolidates four inputs. Source chips appear on each section so you (and the audience) know the provenance.</p>
+  <table>
+    <tr><th>Chip</th><th>Source</th><th>Drives</th></tr>
+    <tr><td><span class="src-chip c-dd">DEEP-DIVE</span></td><td>The prior reference guide (base structure, Settled/Disputed/Critical frame)</td><td>§1-§3, §6-§9, §11-§13</td></tr>
+    <tr><td><span class="src-chip c-ng">NAV-GENIUS</span></td><td>"Navigating the GENIUS Act" structured guide</td><td>§5 Agencies, SCRC, $50B audit, 120-day rule</td></tr>
+    <tr><td><span class="src-chip c-cea">CEA APR-2026</span></td><td>Council of Economic Advisers, <cite>Effects of Stablecoin Yield Prohibition on Bank Lending</cite> (Apr 2026)</td><td>§10 Yield economics (the empirical counterpoint)</td></tr>
+    <tr><td><span class="src-chip c-bp">BLUEPRINT</span></td><td><cite>The Blueprint of Digital Fiat</cite> deck (S.1582 + Treasury ANPRM TREAS-DO-2025-0637)</td><td>§3 PPSI gate, §4 reserve spectrum, §14 illicit finance, §15 rulemaking hub</td></tr>
+  </table>
+  <div class="prov"><b>Confidence &amp; verification:</b> GENIUS facts web-verified June 2026 (congress.gov S.1582; CEA paper; FDIC/OCC NPRMs; firm analyses). CLARITY/PARITY are <span class="pill t2">DRAFT</span>. The CEA paper is an Executive-Office economic analysis (advocacy-tinged — present its numbers as "the Administration's own model," not neutral ground truth). Case cites are model-knowledge — pin-cite before quoting (list in §Refs). Not legal advice.</div>
+</section>
+
+<!-- ============ 1 FOUNDATIONS ============ -->
+<section id="s1">
+  <div class="sectop"><div><span class="sn">Section 1 · Foundations</span><h2 class="serif">Money · Currency · Payment · Stablecoin · Tokenized Deposit</h2></div><span class="src-chip c-dd">DEEP-DIVE</span></div>
+  <p class="lead">You can't classify a "digital dollar" until you separate the <em>function</em> from the <em>form</em> from the <em>rails</em>.</p>
+  <table>
+    <tr><th>Term</th><th>What it is</th><th>Lawyer's hook</th></tr>
+    <tr><td><b>Money</b></td><td>A function: medium of exchange, unit of account, store of value</td><td>A role, not a thing</td></tr>
+    <tr><td><b>Currency</b></td><td>Sovereign-issued legal-tender form; central-bank liability, nominally risk-free</td><td>The instrument</td></tr>
+    <tr><td><b>Payment</b></td><td>The process of transfer/settlement over a rail (ACH/FedNow/wire/stablecoin)</td><td>Regulate the rail, not the value</td></tr>
+    <tr><td><b>Stablecoin</b></td><td>Token pegged 1:1; <b>issuer liability</b>, reserve-backed, par-redeemable; <em>outside</em> deposit insurance</td><td>GENIUS = "payment stablecoin"</td></tr>
+    <tr><td><b>Tokenized deposit</b></td><td>A bank deposit on a ledger; <b>bank liability</b>, inside the banking perimeter &amp; insurance</td><td>≠ stablecoin</td></tr>
+  </table>
+  <div class="why"><b>The fault line:</b> a stablecoin is the <em>issuer's</em> liability outside the safety net; a tokenized deposit is the <em>bank's</em> liability inside it. That single fact is why GENIUS pulls stablecoins into a bank-like perimeter.</div>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>Settled</h5>Currency = central-bank liability (risk-free). Tokenized deposit = IDI liability, FDIC-insured + discount-window access. Payment rails regulate separately from the asset.</div>
+    <div class="col disputed"><h5><span class="dot"></span>Disputed</h5>Whether off-shore yield-distributing affiliates bypass the perimeter (regulators say unregistered fund/security). Liability when a decentralized protocol mints dynamically — no central entity to enforce against.</div>
+    <div class="col critical"><h5><span class="dot"></span>Critical for issuers</h5>Counterparty reserve risk (the <cite>USDC/SVB depeg, Mar 2023</cite>). Holders are unsecured creditors of the issuer unless a statutory trust segregates reserves from the estate.</div>
+  </div>
+  <div class="why"><span class="src-chip c-cea">CEA APR-2026</span> A fully-reserved stablecoin is a modern instance of <b>"narrow banking"</b> — the 1930s Chicago Plan idea (Simons, Fisher): 100% reserves, no credit multiplier. Hold this; it's the engine of the §10 lending debate.</div>
+
+  <h3>Constitutional scaffolding — why there are two regulators at all</h3>
+  <p class="lead">Before the dual-banking mechanics in §5–§7 make sense, anchor three constitutional ideas. US financial regulation is shaped by <b>federalism</b>: two sovereigns; a <em>limited</em> federal one; but federal <em>supremacy</em> where it acts.</p>
+  <div class="why"><b>The double-jeopardy hook (dual sovereignty):</b> the Fifth Amendment bars trying a person twice "for the same offence" — yet a single act that breaks both federal <em>and</em> state law can be prosecuted by <b>both</b> governments without violating double jeopardy. Why? Under the <b>dual-sovereignty doctrine</b>, an offense against the United States and an offense against a State are <em>two different offenses</em> — two separate sovereigns (<cite>Gamble v. United States</cite> (2019), reaffirming <cite>Heath v. Alabama</cite> (1985)). The lesson for a regulatory lawyer: <b>federal and state are independent sovereigns, each enforcing its own law</b> — so being regulated or sanctioned by both isn't "double," it's two sovereigns each acting in its own sphere.</div>
+  <table>
+    <tr><th>Principle</th><th>Source</th><th>What it means here</th></tr>
+    <tr><td><b>Dual sovereignty</b> (independence)</td><td>Structure of the Constitution; <cite>Gamble</cite> / <cite>Heath</cite></td><td>State and federal regulators each draw authority from their own sovereign — a state-qualified PPSI and a federal one run on parallel, independent tracks</td></tr>
+    <tr><td><b>Limited federal government</b> (enumerated powers)</td><td>Art. I §8 (Commerce Clause); 10th Amendment</td><td>The federal government may act only where the Constitution grants power; the rest is reserved to the States — which is <em>why</em> a state-regulated path exists at all</td></tr>
+    <tr><td><b>Federal supremacy</b> (preemption)</td><td>Supremacy Clause, Art. VI cl. 2; <cite>McCulloch v. Maryland</cite> (1819)</td><td>Where valid federal law conflicts with state law, federal wins (express / field / conflict preemption) — the constitutional basis for the OCC-preemption fights in §7</td></tr>
+  </table>
+  <div class="why"><b>The tension to teach — it <em>is</em> the GENIUS design:</b> the federal government is <em>limited</em> (so states keep a real role — the dual-banking model, state-qualified issuers, NYDFS / Wyoming), <em>yet</em> federal law is <em>supreme</em> where Congress acts (so the $10B federal cliff, the "substantially similar" recognition gate, and the OCC-vs-state-money-transmitter preemption battle all flow from Article VI). GENIUS doesn't escape federalism — it <b>operationalizes</b> it: independent sovereigns + a federal supremacy backstop that switches on at systemic scale.</div>
+</section>
+
+<!-- ============ 2 GENIUS ARCH ============ -->
+<section id="s2">
+  <div class="sectop"><div><span class="sn">Section 2 · The GENIUS Act</span><h2 class="serif">Architecture &amp; Timeline</h2></div><span class="src-chip c-dd">DEEP-DIVE</span> <span class="pill t1">ENACTED</span></div>
+  <p class="lead">Understand the gap GENIUS closes, then the rulemaking it triggered.</p>
+  <div class="why"><b>The 4-year gap:</b> from the 2017 ICO era the SEC applied <cite>Howey</cite> token-by-token (Ripple, Coinbase, Terraform) — "regulation by enforcement." The <cite>PWG report (Nov 2021)</cite> recommended regulating stablecoin issuers like insured depository institutions. GENIUS adopts that <b>bank model</b>. Building blocks: GENIUS (stablecoins) enacted first; CLARITY (market structure) + PARITY (tax) still draft.</div>
+  <ul>
+    <li>Signed <b>July 18, 2025</b> (Pub. L. 119-27); bipartisan (Hagerty/Lummis/Scott/Gillibrand).</li>
+    <li>Effective: <b>earlier of (i) 18 months after enactment (= Jan 18, 2027), or (ii) 120 days after the primary federal regulators issue final implementing rules.</b> (Distinct from the §6 "120-day deemed-approved" application clock.)</li>
+  </ul>
+  <h4>The live 7-NPRM build-out (2026) — comment windows open now</h4>
+  <table>
+    <tr><th>Agency</th><th>Rulemaking</th><th>Comment deadline</th></tr>
+    <tr><td>Treasury</td><td>State-regime "substantially similar" principles</td><td>2026-06-02</td></tr>
+    <tr><td>FDIC</td><td>PPSI requirements &amp; standards</td><td>2026-06-09</td></tr>
+    <tr><td>OFAC / FinCEN</td><td>Stablecoin issuer AML/CFT + sanctions</td><td>2026-06-09</td></tr>
+    <tr><td>FinCEN / OCC</td><td>AML/CFT programs (parallel)</td><td>2026-06-09</td></tr>
+    <tr><td>NCUA</td><td>Credit-union issuance</td><td>2026-07-17</td></tr>
+    <tr><td>Federal Reserve</td><td>Payment-system-risk / master-account access</td><td>2026-07-27</td></tr>
+    <tr><td>FDIC</td><td>BSA &amp; sanctions compliance standards</td><td>2026-08-04</td></tr>
+  </table>
+  <details><summary>Disputed / grey areas</summary>Fed-vs-OCC boundary on master-account access (Fed keeps payment-system-risk veto → bottlenecks OCC nonbank issuers). Whether the "120-days-after-final-rules" effective trigger runs per-agency or only when all finalize.</details>
+</section>
+
+<!-- ============ 3 DEFINITION ============ -->
+<section id="s3">
+  <div class="sectop"><div><span class="sn">Section 3 · Definition &amp; Scope</span><h2 class="serif">Payment Stablecoin · Triple Carve-Out · Algo Ban</h2></div><span class="src-chip c-dd">DEEP-DIVE</span> <span class="src-chip c-bp">BLUEPRINT</span></div>
+  <p><b>Statutory definition:</b> a digital asset designed for payment/settlement, with an issuer obligation to redeem at a predetermined fixed amount ($1), backed <b>1:1</b> by high-quality liquid reserves, redeemable at par.</p>
+  <div class="why"><span class="src-chip c-bp">BLUEPRINT</span> <b>§3(a) PPSI gate:</b> it is strictly unlawful for any person <em>other than a Permitted Payment Stablecoin Issuer (PPSI)</em> to issue a payment stablecoin in the US. Everything downstream is about who qualifies as a PPSI.</div>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>Settled</h5><b>Triple carve-out:</b> a payment stablecoin is NOT (1) a security ('33/'34 Acts), (2) a commodity (CEA), (3) an investment company (ICA 1940). <b>Algorithmic ban:</b> endogenously-collateralized stablecoins (Terra/UST) prohibited.</div>
+    <div class="col disputed"><h5><span class="dot"></span>Disputed</h5>Tokenized treasuries — when does a wrapper flip from "payment stablecoin" to unregistered security/fund? "Par redemption" has no defined max delay — is T+2/T+3 "immediate"?</div>
+    <div class="col critical"><h5><span class="dot"></span>Critical for issuers</h5><b>Segregation:</b> reserves can't be commingled with operating cash. <span class="corr" style="margin:6px 0 0"><b>Corrected:</b> the transparency obligation is a <b>monthly EXAMINATION by a registered public accounting firm</b> + CEO/CFO certification — not a Big-4 "audit." <span class="pill t1">ENACTED §4(a)(3)</span></span></div>
+  </div>
+  <h4>Why the carve-outs (doctrine)</h4>
+  <p>Not-a-security forecloses <cite>Howey</cite> (no profit expectation) <em>and</em> <cite>Reves</cite> note analysis; not-a-commodity keeps it out of CEA; not-a-'40-Act-company avoids fund registration of the reserve portfolio. The three carve-outs <em>channel</em> stablecoins into bank-style supervision — classification is channel selection, not avoidance.</p>
+</section>
+
+<!-- ============ 4 RESERVES ============ -->
+<section id="s4">
+  <div class="sectop"><div><span class="sn">Section 4 · Permissible Reserves</span><h2 class="serif">The Reserve Asset Spectrum (corrected &amp; expanded)</h2></div><span class="src-chip c-bp">BLUEPRINT</span> <span class="src-chip c-dd">DEEP-DIVE</span> <span class="src-chip c-cea">CEA</span></div>
+  <p class="lead"><span class="src-chip c-bp">BLUEPRINT</span> frames it as a "Permitted Vault" vs a "Restricted Zone." Reserves must be high-quality liquid assets, segregated, 1:1.</p>
+  <h4>Permitted reserve assets <span class="pill t1">ENACTED</span></h4>
+  <ul>
+    <li><b>US currency / Federal Reserve notes</b> (cash)</li>
+    <li><b>Demand deposits</b> at insured depository institutions (banks/credit unions)</li>
+    <li><b>Treasury bills</b> with remaining maturity <b>≤ 93 days</b></li>
+    <li><b>Overnight repos / reverse repos</b> backed by Treasuries (tri-party / centrally-cleared <em>optional</em>)</li>
+    <li><b>Government money market funds</b> (Rule 2a-7; ≥99.5% government assets)</li>
+    <li><span class="src-chip c-ng">NAV-GENIUS</span> <b>Central bank reserves</b> — funds held directly at the Federal Reserve</li>
+  </ul>
+  <div class="corr"><b>Corrections baked in</b> (the deep-dive's reserves accordion had several errors — verified June 2026):
+    <ul style="margin:.4em 0">
+      <li><span class="pill fix">FIX</span> FDIC pass-through is <b>12 CFR §330.7</b> (not §330.5). <b>But for stablecoin reserves it's moot:</b> the FDIC's Apr-2026 GENIUS NPRM treats reserve deposits as the issuer's <b>corporate deposits — NO pass-through to holders</b>, capped at $250k at the issuer level. <span class="pill t3">PROPOSED RULE</span></li>
+      <li><span class="pill fix">FIX</span> IntraFi/ICS maximizes the <em>issuer's</em> coverage, not holders'; the real driver is GENIUS's <b>40% single-institution concentration cap</b> (diversification, not insurance-maximization).</li>
+      <li><span class="pill fix">FIX</span> Rule 2a-7 <b>redemption gates were removed in the 2023 MMF reforms.</b> Surviving tool = a discretionary liquidity fee up to 2% (board determination; government MMFs exempt from mandatory fees). "Side-letters to waive gates" is incoherent post-2023.</li>
+      <li><span class="pill fix">FIX</span> No "Three-Party Custody Account" mandate — "tri-party" is only an <em>optional</em> structure for reverse repos (§4(a)(1)(A)(v)). Keep the general segregated-custody requirement.</li>
+      <li><span class="pill fix">FIX</span> Rehypothecation ban (§4(a)(2)) has <b>three narrow exceptions</b> (e.g., satisfying margin obligations for permitted MMF/repo investments) — not "no exceptions."</li>
+    </ul>
+  </div>
+  <div class="why"><span class="src-chip c-bp">BLUEPRINT</span> <b>Restricted Zone + Monthly Reporting Mandate:</b> reserves may not be re-lent/pledged (narrow exceptions); issuers publish monthly reserve-composition reports examined by a registered public accounting firm — the deck's framing matches the corrected §4(a)(3) examination requirement.</div>
+</section>
+
+<!-- ============ 5 AGENCIES ============ -->
+<section id="s5">
+  <div class="sectop"><div><span class="sn">Section 5 · Agency Architecture</span><h2 class="serif">Treasury · SCRC · Primary Supervisors</h2></div><span class="src-chip c-ng">NAV-GENIUS</span> <span class="pill t1">ENACTED</span></div>
+  <p class="lead">Policy-setting is separated from day-to-day supervision — a checks-and-balances design.</p>
+
+  <h3>The strategic architect — Department of the Treasury</h3>
+  <ul>
+    <li><b>Overarching rulemaking</b> — incl. defining "de minimis" safe harbors and "unusual &amp; exigent circumstances."</li>
+    <li><b>Foreign comparability determinations</b> — whether a foreign regime is "comparable," gating reciprocal market access (the Tether/offshore question, §8).</li>
+    <li><b>Illicit-finance oversight via FinCEN</b> — tailored AML/CTF rules for issuers.</li>
+  </ul>
+
+  <h3>The gatekeeper — Stablecoin Certification Review Committee (SCRC)</h3>
+  <p>Interagency super-committee <b>chaired by the Treasury Secretary</b>; members: <b>Fed Chair</b> (may delegate to Vice Chair for Supervision) + <b>FDIC Chair</b>.</p>
+  <table>
+    <tr><th>Decision area</th><th>Required outcome</th></tr>
+    <tr><td>Non-financial firm issuance</td><td>Default <b>prohibition</b>; requires a <b>unanimous</b> finding the firm poses no material risk to the banking system / financial stability</td></tr>
+    <tr><td>State-regime certification</td><td>State laws "substantially similar" to federal and "meet or exceed" Section 4(a) standards</td></tr>
+    <tr><td>Interpretive rulemaking</td><td>Clarifies restrictions/requirements for non-financial companies</td></tr>
+  </table>
+
+  <h3>Primary supervisory authorities (prudential oversight)</h3>
+  <table>
+    <tr><th>Agency</th><th>Supervises</th></tr>
+    <tr><td><b>Federal Reserve</b></td><td>State-member banks &amp; their stablecoin-issuing subsidiaries</td></tr>
+    <tr><td><b>FDIC</b></td><td>Insured non-member banks (Deposit Insurance Fund integrity)</td></tr>
+    <tr><td><b>OCC</b></td><td>Default federal supervisor for nonbank issuers opting into the federal regime</td></tr>
+    <tr><td><b>NCUA</b></td><td>Credit-union stablecoin activities</td></tr>
+  </table>
+  <details><summary>Q&amp;A #4 hook — non-financial firm issuance</summary>"Default is prohibition; the SCRC must <em>unanimously</em> clear it. So 'can a retailer issue?' is really 'can Treasury + Fed + FDIC unanimously find no material risk?' — a high, political bar."</details>
+</section>
+
+<!-- ============ 6 THRESHOLD ============ -->
+<section id="s6">
+  <div class="sectop"><div><span class="sn">Section 6 · Scaling Thresholds</span><h2 class="serif">$10B Federal Cliff · $50B Audit Trigger</h2></div><span class="src-chip c-ng">NAV-GENIUS</span> <span class="src-chip c-dd">DEEP-DIVE</span></div>
+  <table>
+    <tr><th>Trigger</th><th>Consequence</th></tr>
+    <tr><td><b>$10B</b> outstanding (state-qualified issuer)</td><td><b>Corrected:</b> transition to the federal regime within <b>360 days</b>, <em>or</em> obtain a <b>waiver</b> to remain state-supervised (on capitalization / regulatory history / state-framework strength). <span class="pill t1">confirmed</span></td></tr>
+    <tr><td><span class="src-chip c-ng">NAV-GENIUS</span> <b>$50B</b> outstanding (federal regime)</td><td><b>Audited annual financial statements required</b> for issuers above $50B (heightened transparency at systemic scale)</td></tr>
+  </table>
+  <h4>Application roadmap — criteria + the 120-day rule <span class="src-chip c-ng">NAV-GENIUS</span></h4>
+  <ul>
+    <li>1:1 reserve compliance · tailored risk management · monthly composition reports (executive-certified, examined by accounting firms) · clear redemption protocols · AML/sanctions tech (block/freeze/reject) · capital &amp; liquidity rules (distinct from bank capital).</li>
+    <li><b>120-Day "Deemed Approved" rule:</b> a completed application not acted on within 120 days is <b>deemed approved</b> — an anti-pocket-veto forcing-function on regulators.</li>
+  </ul>
+  <div class="why"><b>Strategy:</b> the $10B cliff distorts behavior (stay just under, or front-load the federal charter). Plan the federal path <em>before</em> approaching the line; a forced mid-growth transition restructures the reserve portfolio and capital.</div>
+  <details><summary>Disputed / grey areas</summary>Waiver metrics are subjective/political. Whether two commonly-controlled entities (e.g., $9B + $9B) can split to dodge $10B under common-control definitions.</details>
+</section>
+
+<!-- ============ 7 FED/STATE ============ -->
+<section id="s7">
+  <div class="sectop"><div><span class="sn">Section 7 · Dual Oversight</span><h2 class="serif">Federal &amp; State Regimes</h2></div><span class="src-chip c-dd">DEEP-DIVE</span></div>
+  <p class="lead">GENIUS reproduces the US dual-banking system — cooperative but hierarchical.</p>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>Settled</h5>OCC = central coordinator (master list of recognized state regimes; final authority over federal nonbanks). CFPB = consumer-protection overlay (Reg E-equivalent) across all PPSIs.</div>
+    <div class="col disputed"><h5><span class="dot"></span>Disputed</h5>Can the OCC selectively revoke a state's "substantially similar" status if it under-regulates (invalidating that state's licenses)? Federal preemption of state money-transmitter law vs state AGs' consumer enforcement.</div>
+    <div class="col critical"><h5><span class="dot"></span>Critical for issuers</h5>State trust legacy paths: NYDFS Limited Purpose Trust (Paxos/Gemini), Wyoming SPDI (Custodia/Kraken). Joint state+OCC examinations compound audit burden.</div>
+  </div>
+</section>
+
+<!-- ============ 8 CROSS-BORDER ============ -->
+<section id="s8">
+  <div class="sectop"><div><span class="sn">Section 8 · Extraterritoriality</span><h2 class="serif">Cross-Border Reach</h2></div><span class="src-chip c-dd">DEEP-DIVE</span></div>
+  <p class="lead">User-based, functional trigger — not physical presence.</p>
+  <table>
+    <tr><th>Analogy</th><th>Reaches offshore via</th><th>Best for</th></tr>
+    <tr><td>FATCA</td><td>reporting-via-intermediary + withholding stick</td><td>the reporting mechanic</td></tr>
+    <tr><td>OFAC</td><td>USD-clearing / US-nexus leverage</td><td><b>enforceability</b> (the real teeth)</td></tr>
+    <tr><td>GDPR</td><td>targeting/monitoring trigger</td><td>the user-based trigger itself</td></tr>
+  </table>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>Settled</h5>Applies to any stablecoin used by a "US person" regardless of issuer domicile. Offshore issuers serving US persons must register/certify with the OCC + reserve/audit parity + reporting.</div>
+    <div class="col disputed"><h5><span class="dot"></span>Disputed</h5>Unsolicited secondary-market inflow to US persons via DEXs — does it trigger jurisdiction? Regulators: issuer must police it; industry: lacks "purposeful availment."</div>
+    <div class="col critical"><h5><span class="dot"></span>Critical for issuers</h5>Self-certified IP blocks are insufficient — need multi-layer geofencing (IP + VPN-detect + billing-address + phone country code). Clearing-house risk: US can freeze USD rails without foreign cooperation.</div>
+  </div>
+</section>
+
+<!-- ============ 9 CLARITY ============ -->
+<section id="s9">
+  <div class="sectop"><div><span class="sn">Section 9 · CLARITY Act</span><h2 class="serif">Market Structure &amp; the §404 Yield Ban</h2></div><span class="src-chip c-dd">DEEP-DIVE</span> <span class="pill t2">DRAFT BILL</span></div>
+  <p class="lead">H.R. 3633 + Senate substitute. Resolves SEC vs CFTC and (in the Senate draft) hardens the yield ban.</p>
+  <h4>Three-part taxonomy</h4>
+  <table>
+    <tr><th>Category</th><th>Test</th><th>Primary regulator</th></tr>
+    <tr><td>Digital commodity</td><td>value "intrinsically linked" to the blockchain; excludes securities/derivatives/stablecoins</td><td>CFTC</td></tr>
+    <tr><td>Investment contract asset</td><td>sold via an investment contract (a security) — but the asset is <em>not itself</em> the investment contract/security</td><td>SEC (primary); see secondary carve-out</td></tr>
+    <tr><td>Permitted payment stablecoin</td><td>GENIUS-governed</td><td>GENIUS regulators; CFTC for on-platform use</td></tr>
+  </table>
+  <div class="corr"><b>Corrections:</b>
+    <ul style="margin:.4em 0">
+      <li><span class="pill fix">FIX</span> <b>Secondary trading isn't "treated as commodities."</b> It's a securities-law <b>carve-out</b>: a non-issuer secondary sale conveying no ongoing enterprise rights, where the asset meets the digital-commodity definition, isn't an investment-contract-asset/security. Three conditions gate it.</li>
+      <li><span class="pill fix">FIX</span> Registration: digital commodity exchanges/brokers/dealers register with the CFTC + join a <b>registered futures association</b> (the NFA is the sole one). "180 days" is the deadline for the CFTC to <em>stand up</em> the provisional-registration process — nuance it.</li>
+    </ul>
+  </div>
+  <h4>The §404 yield ban — corrected attribution <span class="pill fix">FIX</span></h4>
+  <div class="why"><b>It's two-layer, not "CLARITY invented it":</b>
+    <ul style="margin:.4em 0">
+      <li><b>Baseline:</b> <b>GENIUS §4(a)(11)</b> already bars a <em>permitted/foreign payment stablecoin issuer</em> from paying interest/yield "solely in connection with the holding" of the stablecoin. <span class="pill t1">ENACTED</span> But it doesn't bind intermediaries — so Coinbase pays "USDC Rewards" funded by Circle revenue-sharing.</li>
+      <li><b>Hardening:</b> <b>CLARITY §404</b> (Tillis-Alsobrooks Senate compromise; Senate Banking advanced it 15-9 on 2026-05-14 — the House-passed H.R. 3633 had <em>no</em> yield provision) extends to <b>"covered parties"</b> incl. affiliates/distributors, with a functional-equivalence test, anti-evasion rule, and <b>$5M-per-violation</b> civil penalty. <span class="pill t2">DRAFT BILL</span></li>
+    </ul>
+  </div>
+  <details><summary>§105 / §109 / §702 / §904 (other updated-draft changes)</summary>
+  <p><b>§105</b> "characteristics of network tokens" + safe harbor that decentralized governance ≠ "common control." <b>§109</b> Rule 10b-5 carve-out for non-security ancillary-asset secondary trades — <span class="pill t4">caveat</span> insider-trading-type risk may shift to CFTC (Rule 180.1). <b>§702</b> insolvency safe harbor (the Celsius/FTX customer-property fight). <b>§904</b> "Build Now Act" infrastructure permitting.</p></details>
+</section>
+
+<!-- ============ 10 YIELD ECONOMICS (CEA) ============ -->
+<section id="s10" style="border-left:4px solid var(--gold)">
+  <div class="sectop"><div><span class="sn">Section 10 · Yield-Ban Economics</span><h2 class="serif">Does the Yield Ban Actually Protect Bank Lending?</h2></div><span class="src-chip c-cea">CEA APR-2026</span></div>
+  <p class="lead">The yield ban is sold as "protecting bank lending" (deposit-flight argument). The Council of Economic Advisers' own model says the effect is tiny.</p>
+  <div class="why"><b>The deposit-flight theory:</b> if stablecoins paid competitive yield, households shift dollars out of fractional-reserve bank deposits into fully-reserved tokens → less lending capacity. Some analyses claimed effects "in the trillions." The CEA built a model to test it.</div>
+  <h4>What the CEA model found (baseline)</h4>
+  <table>
+    <tr><th>Metric</th><th>Result</th></tr>
+    <tr><td>Increase in bank lending from eliminating yield</td><td><b>~$2.1 billion (0.02%)</b></td></tr>
+    <tr><td>Net welfare cost</td><td><b>~$800 million</b> · cost-benefit ratio <b>6.6</b> (costs ≈ 6.6× benefits)</td></tr>
+    <tr><td>Distribution</td><td>Large banks 76% · community banks 24% (≤$500M; +0.026%)</td></tr>
+    <tr><td>Even worst-case (every adverse assumption stacked)</td><td>only <b>$531B (4.4%)</b> — requires the market to grow ~6×, all reserves locked as unlendable cash, and the Fed abandoning ample-reserves (implausible)</td></tr>
+  </table>
+  <div class="why"><b>The mechanism (why so small):</b> when a depositor converts to a stablecoin and the issuer buys T-bills or holds bank deposits, the dollar is <em>redeposited</em> elsewhere in the banking system — aggregate deposits are largely unchanged; only the fraction held as <b>100%-reserved cash</b> (narrow banking) is locked out of the credit multiplier. Under ample reserves, no bank is forced to contract. <span class="src-chip c-cea">CEA</span></div>
+  <div class="warn"><b>Teaching framing (be fair):</b> the CEA is the Executive Office of the President — present these as "the Administration's own economic model," advocacy-tinged, not neutral ground truth. The honest takeaway: the <em>lending-protection</em> rationale for §404 is empirically weak; the real drivers are bank-deposit-franchise politics and a level-playing-field argument. That's a strong, defensible classroom point — and a great open question (Q6).</div>
+  <p class="prov">Source: Council of Economic Advisers, <cite>Effects of Stablecoin Yield Prohibition on Bank Lending</cite> (Apr 2026). Confirms GENIUS yield ban = <b>§4(a)(11)</b> (issuer-only; doesn't bind intermediaries → CLARITY would).</p>
+</section>
+
+<!-- ============ 11 PARITY ============ -->
+<section id="s11">
+  <div class="sectop"><div><span class="sn">Section 11 · PARITY Act</span><h2 class="serif">Tax Reforms &amp; Staking</h2></div><span class="src-chip c-dd">DEEP-DIVE</span> <span class="pill t2">DRAFT BILL</span></div>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>Core provisions</h5><b>Stablecoin non-recognition — new IRC <span class="corr" style="display:inline;padding:1px 5px"><b>§1034</b> (FIX: not §1046)</span></b>: no gain/loss unless basis &lt; 99% of redemption value; basis deemed $1; qualifying needs acquisition within 1% of $1 + GENIUS-PPSI issuer.<br/><br/><b>Wash sale:</b> extends §1091 to digital assets (crypto is <em>not</em> currently subject — closes the loophole).</div>
+    <div class="col disputed"><h5><span class="dot"></span>Disputed</h5>Liquid-staking-derivative (e.g., stETH) timing. Subchapter W deferral valuation mechanics. <span class="pill fix">FIX</span> Receipt-taxation of staking (<cite>Rev. Rul. 2023-14</cite>) is the <b>IRS position, contested</b> (<cite>Jarrett</cite>) — not "settled."</div>
+    <div class="col critical"><h5><span class="dot"></span>Critical</h5><b>Subchapter W</b> ("Digital Assets Acquired Through Passive Validation Activities"): elective ≤5-yr deferral; FMV ordinary income on recognition. <b>UBTI:</b> passive staking not a trade/business → unlocks pensions/endowments/ETFs <span class="pill t2">§7701 plumbing draft-unverified</span>.</div>
+  </div>
+</section>
+
+<!-- ============ 12 AI MONITORING ============ -->
+<section id="s12">
+  <div class="sectop"><div><span class="sn">Section 12 · AI Monitoring</span><h2 class="serif">Building the Reg-Watch Pipeline</h2></div><span class="src-chip c-dd">DEEP-DIVE</span></div>
+  <p class="lead">The tool is a commodity; the <em>filter</em> and the <em>discipline</em> are the lawyering.</p>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>The free DIY stack</h5>Tier 1 Federal Register API (structured, all US rules). Tier 2 official RSS (SEC/CFTC/OCC/ESMA/EBA/FCA/BoE/UK-HMT — 8 verified). Tier 3 email subscription + Google News for no-RSS regulators (MAS/ASIC/JP/UAE).</div>
+    <div class="col disputed"><h5><span class="dot"></span>The traps</h5>An HTTP 200 from <code>/rss</code> ≠ a feed (verify the body). Google News returns gzip (need <code>--compressed</code>). Secondary sources (law-firm alerts) need primary verification.</div>
+    <div class="col critical"><h5><span class="dot"></span>The architecture</h5>Two layers: a <b>script</b> fetches/de-dupes/structures; the <b>LLM</b> judges materiality (routine ETP listing vs a GENIUS NPRM). Every AI summary needs a traceable primary-source link or it's flagged untrustworthy.</div>
+  </div>
+  <div class="why"><b>Verification discipline (3 rules):</b> (1) verify the primary citation; (2) date-stamp everything; (3) human-in-the-loop — AI is triage, not the decision. <em>Discipline &gt; confidence.</em> Live example: the law-firm alert that looked authoritative but described a <em>draft</em> bill with section-number errors.</div>
+</section>
+
+<!-- ============ 13 AGENTIC ============ -->
+<section id="s13">
+  <div class="sectop"><div><span class="sn">Section 13 · Agentic Payments</span><h2 class="serif">Doctrinal Gaps <span class="pill t4">MY READ</span></h2></div><span class="src-chip c-dd">DEEP-DIVE</span></div>
+  <p class="lead">When an autonomous agent holds the wallet, four doctrines break down. <b>Label these as open structuring questions / "my read," not settled law.</b></p>
+  <div class="grid3">
+    <div class="col disputed"><h5><span class="dot"></span>Identity / KYC</h5>An AI isn't a legal person → agency law (tool vs agent of a principal). FinCEN CDD Rule needs a beneficial owner — undefined for an autonomous agent.</div>
+    <div class="col disputed"><h5><span class="dot"></span>Liability</h5>UCC Art. 4A turns on "authorized" payment orders. A hallucinated transfer — authorized? Scienter for fraud — imputed to the operator?</div>
+    <div class="col critical"><h5><span class="dot"></span>Settled-ish for issuers</h5>The <b>operator</b> is very likely an <b>MSB</b> (FinCEN CVC guidance) → full KYC/AML + Travel Rule. Mitigate via ToS putting liability on the human/corporate principal.</div>
+  </div>
+</section>
+
+<!-- ============ 14 ILLICIT FINANCE ============ -->
+<section id="s14">
+  <div class="sectop"><div><span class="sn">Section 14 · Illicit Finance &amp; Compliance</span><h2 class="serif">Perimeter Defenses</h2></div><span class="src-chip c-bp">BLUEPRINT</span></div>
+  <p class="lead"><span class="src-chip c-bp">BLUEPRINT</span> frames three compliance perimeters every PPSI must build.</p>
+  <table>
+    <tr><th>Defense</th><th>What it requires</th></tr>
+    <tr><td><b>1 · BSA &amp; FinCEN mandates</b></td><td>Issuers are fully subject to the Bank Secrecy Act; FinCEN writes tailored AML rules; issuers must facilitate detection of illicit activity involving digital assets.</td></tr>
+    <tr><td><b>2 · Active technological interception</b></td><td><b>§4(a)(5)(B):</b> issuers must possess the technological capability to <b>block, freeze, or reject</b> transactions to comply with lawful orders — including (contested) on secondary markets.</td></tr>
+    <tr><td><b>3 · Executive certification</b></td><td>Executives must officially certify the AML/sanctions compliance program (a personal-attestation forcing-function on the C-suite).</td></tr>
+  </table>
+  <div class="why"><b>Teaching hook:</b> §4(a)(5)(B)'s "freeze/block on secondary markets" is in tension with permissionless transfer — a great discussion of whether a compliant stablecoin can be truly bearer/permissionless.</div>
+</section>
+
+<!-- ============ 15 RULEMAKING HUB ============ -->
+<section id="s15">
+  <div class="sectop"><div><span class="sn">Section 15 · Treasury Rulemaking Hub</span><h2 class="serif">Six Areas for Industry Input</h2></div><span class="src-chip c-bp">BLUEPRINT</span> <span class="pill t3">ANPRM</span></div>
+  <p class="lead"><span class="src-chip c-bp">BLUEPRINT</span> The Treasury ANPRM (TREAS-DO-2025-0637) opens six areas for industry comment — where practitioners can actually shape the rules:</p>
+  <div class="grid3">
+    <div class="col settled"><h5><span class="dot"></span>1 · Issuers &amp; Service Providers</h5>Safe harbors for de-minimis issuance; licensing/accounting/marketing.</div>
+    <div class="col settled"><h5><span class="dot"></span>2 · Illicit Finance</h5>Technological capabilities; secondary-market &amp; AML programs.</div>
+    <div class="col settled"><h5><span class="dot"></span>3 · Foreign Regimes</h5>Comparability criteria; reciprocity &amp; interoperability.</div>
+    <div class="col disputed"><h5><span class="dot"></span>4 · Taxation</h5>Classification of payment stablecoins (e.g., as money-like instruments).</div>
+    <div class="col disputed"><h5><span class="dot"></span>5 · Insurance</h5>Reserve practices; reserve requirements for issuers acting as IPOs/coverage minimums.</div>
+    <div class="col critical"><h5><span class="dot"></span>6 · Economic Data</h5>Cost-benefit analysis of compliance; impacts on Treasury demand, startup formation.</div>
+  </div>
+  <div class="why"><b>Practitioner action:</b> these comment windows are the leverage point. Tie this back to §12 — a reg-watch pipeline that catches the ANPRM/NPRM comment deadlines is how a small shop punches above its weight.</div>
+</section>
+
+<!-- ============ REFS ============ -->
+<section id="refs">
+  <div class="sectop"><div><span class="sn">References</span><h2 class="serif">Sources, Pin-Cites &amp; Provenance</h2></div></div>
+  <h4>Primary (verify before relying)</h4>
+  <ul>
+    <li>GENIUS Act, Pub. L. 119-27 (signed 2025-07-18); reserves/exam/rehypothecation at 12 U.S.C. §5903 (§4(a)(1)/(2)/(3)); issuer yield ban §4(a)(11); tech-interception §4(a)(5)(B). S.1582: congress.gov.</li>
+    <li>The 7 GENIUS implementing NPRMs (Treasury/FDIC/OCC/FinCEN/OFAC/NCUA/Fed), Federal Register 2026; Treasury ANPRM TREAS-DO-2025-0637.</li>
+    <li>H.R. 3633 (CLARITY) + Senate substitute; PARITY Act — both draft; congress.gov.</li>
+    <li>FDIC pass-through: 12 CFR §330.7 (§330.5 = recognition predicate). SEC Rule 2a-7: 17 CFR §270.2a-7 (2023 reforms removed gates).</li>
+  </ul>
+  <h4>Pin-cites (model knowledge — confirm before quoting)</h4>
+  <ul>
+    <li><cite>SEC v. W.J. Howey Co.</cite>, 328 U.S. 293 (1946) · <cite>Reves v. Ernst &amp; Young</cite>, 494 U.S. 56 (1990) · <cite>SEC v. Ripple Labs</cite>, 682 F. Supp. 3d 308 (S.D.N.Y. 2023) · <cite>SEC v. Panuwat</cite>, No. 21-cv-06322 (N.D. Cal.)</li>
+    <li>CFTC Rule 180.1 = 17 C.F.R. §180.1; CEA §6(c)(1) = 7 U.S.C. §9(1) · <cite>Rev. Rul. 2023-14</cite>, 2023-33 I.R.B. · UCC Art. 4A · ICA 1940 · FinCEN CDD Rule (2016) · PWG Stablecoin Report (Nov 2021)</li>
+    <li><b>Constitutional federalism (§1):</b> <cite>Gamble v. United States</cite>, 587 U.S. 678 / 139 S. Ct. 1960 (2019) (dual-sovereignty upheld 7-2) · <cite>Heath v. Alabama</cite>, 474 U.S. 82 (1985) · <cite>McCulloch v. Maryland</cite>, 17 U.S. (4 Wheat.) 316 (1819) · U.S. Const. art. VI cl. 2 (Supremacy) · art. I §8 (Commerce) · amend. V (Double Jeopardy) · amend. X (reserved powers)</li>
+  </ul>
+  <h4>This edition's four inputs</h4>
+  <ul>
+    <li><span class="src-chip c-dd">DEEP-DIVE</span> prior reference guide (base) · <span class="src-chip c-ng">NAV-GENIUS</span> "Navigating the GENIUS Act" (agency architecture)</li>
+    <li><span class="src-chip c-cea">CEA APR-2026</span> Council of Economic Advisers, <cite>Effects of Stablecoin Yield Prohibition on Bank Lending</cite> · <span class="src-chip c-bp">BLUEPRINT</span> <cite>The Blueprint of Digital Fiat</cite> deck</li>
+  </ul>
+  <div class="prov"><b>Provenance &amp; corrections:</b> 12 specific claims in the deep-dive were web-verified June 2026 and corrected here (FDIC §330.7 + no-pass-through; MMF gates removed; monthly examination not audit; no tri-party mandate; rehypothecation exceptions; yield-ban two-layer attribution; PARITY §1034; CLARITY secondary carve-out + registration nuance). CEA figures are the Administration's own model (advocacy-tinged). CLARITY/PARITY are draft. Not legal advice — confirm primary sources before teaching or advising.</div>
+</section>
+
+</main>
+<footer>
+  US Stablecoin &amp; Crypto Regulation — Teachable Masterclass Edition · consolidated &amp; fact-checked June 2026 · Jason J. Lai / BLF Stablecoin Academy · educational use, not legal advice.
+</footer>
 </body>
 </html>
