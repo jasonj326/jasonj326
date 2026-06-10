@@ -1,5 +1,30 @@
 [
   {
+    "id": "2026-06-11-000932",
+    "ts": "2026-06-11T00:09:32+08:00",
+    "tags": [
+      "y2026",
+      "storytelling",
+      "reflection",
+      "Eng"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "90-mins casual presentation on the GENIUS Act; lost track of time; a good start;",
+    "word_count": 14,
+    "excerpt": "90-mins casual presentation on the GENIUS Act; lost track of time; a good start;",
+    "search_text": "90 mins casual presentation on the genius act lost track of time a good start y2026 storytelling reflection eng",
+    "media_count": 0,
+    "derived_from": [
+      "2026-05-26-orator-performance"
+    ]
+  },
+  {
     "id": "2026-06-08-093554",
     "ts": "2026-06-08T09:35:54+08:00",
     "tags": [
@@ -479,6 +504,7 @@
       }
     ],
     "derived_descendants": [
+      "2026-06-11-000932",
       "2026-05-30-180559"
     ]
   },
