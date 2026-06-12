@@ -8,11 +8,12 @@ tags:
   - knowledge
   - readout
   - Eng
-updated_at: "2026-06-05T13:39:10+08:00"
+updated_at: "2026-06-12T12:05:32+08:00"
 
 ---
 
 去年底一直在優化我的知識系統，也藉讀友發問公開，也算是好事一件，順手貼回自己的種子牆，也翻譯成英文
+English version below
 
 回覆讀友手札：
 

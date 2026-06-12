@@ -5,8 +5,10 @@ tags:
   - y2026
   - reflection
 derived_from:
+updated_at: "2026-06-12T12:05:32+08:00"
+
 ---
-SA 社群的自介，也轉貼過來當做種子，期待他的開花結果
+Superlinear Academy 社群的自介，也轉貼過來當做種子，期待他的開花結果
 
 > APAC Regulatory / Jason Lai / Builder at PIF12
 > 

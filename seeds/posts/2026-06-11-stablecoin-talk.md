@@ -1,5 +1,5 @@
 ---
-id: 2026-06-11-000932
+id: 2026-06-11-stablecoin-talk
 ts: 2026-06-11T00:09:32+08:00
 tags:
   - y2026
@@ -9,4 +9,8 @@ tags:
 derived_from: 2026-05-26-orator-performance
 ---
 
-90-mins casual presentation on the GENIUS Act; lost track of time; a good start;
+90-mins casual presentation on the GENIUS Act; 
+
+Lost track of time; 
+
+Still, a good start.
