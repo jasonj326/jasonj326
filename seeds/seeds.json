@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-06-15-130544",
+    "ts": "2026-06-15T13:05:44+08:00",
+    "tags": [
+      "y2026"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "事實：暴雨天，一個男子拿著兩包冰塊進電梯；推論1: 這個鄰居是兼職外送員；另一個推論：鄰居不想出門，叫外送買了兩包冰塊",
+    "word_count": 50,
+    "excerpt": "事實：暴雨天，一個男子拿著兩包冰塊進電梯；推論1: 這個鄰居是兼職外送員；另一個推論：鄰居不想出門，叫外送買了兩包冰塊",
+    "search_text": "事實 暴雨天 一個男子拿著兩包冰塊進電梯 推論1 這個鄰居是兼職外送員 另一個推論 鄰居不想出門 叫外送買了兩包冰塊 y2026",
+    "media_count": 0,
+    "derived_from": [
+      "2026-06-04-inference-in-between"
+    ]
+  },
+  {
     "id": "2026-06-13-201219",
     "ts": "2026-06-13T20:12:19+08:00",
     "tags": [
@@ -270,6 +292,9 @@
     "media_count": 0,
     "derived_from": [
       "2026-06-03-facts-vs-evaluation"
+    ],
+    "derived_descendants": [
+      "2026-06-15-130544"
     ]
   },
   {
