@@ -1,5 +1,25 @@
 [
   {
+    "id": "2026-06-17-123008",
+    "ts": "2026-06-17T12:30:08+08:00",
+    "tags": [
+      "y2026",
+      "legal"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "勞動法與ㄓㄥˋ ㄌㄨ ㄩㄝ ㄆㄧㄣ",
+    "word_count": 4,
+    "excerpt": "勞動法與ㄓㄥˋ ㄌㄨ ㄩㄝ ㄆㄧㄣ",
+    "search_text": "勞動法與ㄓㄥˋ ㄌㄨ ㄩㄝ ㄆㄧㄣ y2026 legal",
+    "media_count": 0
+  },
+  {
     "id": "2026-06-15-130544",
     "ts": "2026-06-15T13:05:44+08:00",
     "tags": [
