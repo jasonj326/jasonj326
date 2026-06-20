@@ -1,5 +1,5 @@
 ---
-id: 2026-06-12-170809
+id: 2026-06-12-pattern-recognition-eureka
 ts: 2026-06-12T17:08:09+08:00
 tags:
   - y2026
