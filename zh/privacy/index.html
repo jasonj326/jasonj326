@@ -123,7 +123,7 @@
     <header class="mb-14">
       <h1 class="text-4xl md:text-5xl font-bold font-mono tracking-tight mb-3">隱私</h1>
       <p class="text-base font-mono text-slate-500 dark:text-slate-400 mb-6">
-        最後更新：2026 年 5 月 11 日
+        最後更新：2026 年 6 月 20 日
       </p>
       <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
         大白話。法律上必要的部分才寫法律語言。如果這裡有什麼不清楚或寫錯，<a href="mailto:hello@jasonjlai.net" class="inline-link">告訴我</a>。
@@ -157,6 +157,9 @@
           <strong class="text-slate-900 dark:text-white">如果你透過加密貨幣支持我</strong>，我會看到你的錢包位址（或你交易所出金錢包的位址），但原則上我不會知道你是誰。
         </p>
         <p>
+          <strong class="text-slate-900 dark:text-white">如果你受邀並領取靈魂綁定代幣（SBT）或個人 SBT（pSBT）</strong>，在 <a href="https://claim.jasonjlai.net" target="_blank" rel="noopener" class="inline-link">claim.jasonjlai.net</a> 領取時，即代表你同意揭露持有該 SBT/pSBT 的錢包位址。當你領取 PIF12 的 SBT 或 pSBT 時，我的後端儲存的內容包含你的錢包位址，以及你的 Privy 使用者 ID（一個隨機識別碼，僅用來防止同一人重複領取同一枚代幣）。
+        </p>
+        <p>
           就是這樣，沒了。
         </p>
       </div>
@@ -166,7 +169,7 @@
       <h2 class="text-2xl font-bold font-mono mb-4 text-slate-900 dark:text-slate-100">我不做的事</h2>
       <ul class="space-y-2 text-base text-slate-600 dark:text-slate-300 leading-relaxed list-disc pl-6">
         <li>不放任何 analytics 腳本。</li>
-        <li>不用 cookie。瀏覽器端唯一的 persistence 是上面提到的 <code class="font-mono text-sm bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded">localStorage</code> 主題鍵。</li>
+        <li>我不放 cookie。瀏覽器端唯一的 persistence 是上面提到的 <code class="font-mono text-sm bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded">localStorage</code> 主題鍵。但請注意：像 Privy、Alchemy 這類第三方服務商可能會收集你的 cookie。我不會收到、也讀不到它們。</li>
         <li>寄出的信件裡不埋開信追蹤像素。</li>
         <li>連結上不放點擊追蹤。</li>
         <li>不用會分析你的第三方字型、嵌入元件、腳本。（圖示與 Tailwind/Lucide CDN 是當作靜態檔案抓取的；CDN 看到你的 IP 是因為 HTTP 本身就會這樣。）</li>
@@ -185,7 +188,7 @@
     <section class="mb-12">
       <h2 class="text-2xl font-bold font-mono mb-4 text-slate-900 dark:text-slate-100">涉及的第三方</h2>
       <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
-        本網站依賴的服務。每一個都有自己的隱私政策，連結附在下方。
+        本網站依賴的服務。每一個都有自己的隱私政策，連結附在下方。其中部分僅用於 PIF12 領取網站（<a href="https://claim.jasonjlai.net" target="_blank" rel="noopener" class="inline-link">claim.jasonjlai.net</a>），於下方標註。
       </p>
       <div class="overflow-x-auto">
         <table class="w-full text-sm border-collapse">
@@ -208,9 +211,19 @@
               <td class="py-2.5"><a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener" class="inline-link">Formspree</a></td>
             </tr>
             <tr class="border-b border-slate-200 dark:border-slate-800">
-              <td class="py-2.5 pr-4">Cloudflare Workers + KV</td>
-              <td class="py-2.5 pr-4">Lia 聊天後端與 rate limit</td>
+              <td class="py-2.5 pr-4">Cloudflare（Workers、KV、Pages、D1）</td>
+              <td class="py-2.5 pr-4">Lia 聊天後端與 rate limit；PIF12 領取網站託管與領取紀錄</td>
               <td class="py-2.5"><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener" class="inline-link">Cloudflare</a></td>
+            </tr>
+            <tr class="border-b border-slate-200 dark:border-slate-800">
+              <td class="py-2.5 pr-4">Privy</td>
+              <td class="py-2.5 pr-4">PIF12 領取網站的登入與錢包；保管你的登入身分</td>
+              <td class="py-2.5"><a href="https://www.privy.io/privacy-policy" target="_blank" rel="noopener" class="inline-link">Privy</a></td>
+            </tr>
+            <tr class="border-b border-slate-200 dark:border-slate-800">
+              <td class="py-2.5 pr-4">Alchemy</td>
+              <td class="py-2.5 pr-4">領取網站的區塊鏈存取（RPC）——會看到錢包位址與交易</td>
+              <td class="py-2.5"><a href="https://www.alchemy.com/privacy-policy" target="_blank" rel="noopener" class="inline-link">Alchemy</a></td>
             </tr>
             <tr class="border-b border-slate-200 dark:border-slate-800">
               <td class="py-2.5 pr-4">Anthropic API</td>
@@ -233,6 +246,9 @@
       <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mt-4 italic">
         GitHub Pages 為了提供服務，可能會保留 server access log——那些紀錄 GitHub 看得到，我看不到。
       </p>
+      <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed mt-5">
+        如果你不信任這裡列出的任何第三方服務商，歡迎來信告訴我——如果有替代方案就更好了，我會持續改善整個網站，維持你我的信任。
+      </p>
     </section>
 
     <section class="mb-12">
@@ -253,7 +269,7 @@
       <ul class="space-y-1.5 text-base text-slate-600 dark:text-slate-300 leading-relaxed list-disc pl-6 mb-4">
         <li>告訴你我手上有你哪些資料，</li>
         <li>更正或更新它，</li>
-        <li>永久刪除，</li>
+        <li>永久刪除（區塊鏈上的資訊除外，那不在我的掌控範圍），</li>
         <li>停止寄信給你（即時——一看到我就照辦）。</li>
       </ul>
       <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
