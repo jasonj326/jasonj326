@@ -171,16 +171,23 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
     lines = body.split("\n")
     quotes: list[dict] = []
     leftover: list[str] = []
+    seen_commentary = False
     i = 0
     n = len(lines)
 
     while i < n:
         if not lines[i].strip().startswith(">"):
             leftover.append(lines[i])
+            if lines[i].strip() and lines[i].strip() != "---":
+                seen_commentary = True
             i += 1
             continue
 
-        # Found a `>` — pop trailing separators from leftover (OCR buffer noise)
+        # Found a `>` — position: trailing if commentary already seen, else leading.
+        # Lets the renderer keep a quote at the END (after Jason's commentary) instead
+        # of hoisting every blockquote to the top of the card.
+        quote_pos = "trail" if seen_commentary else "lead"
+        # pop trailing separators from leftover (OCR buffer noise)
         while leftover and (leftover[-1].strip() == "" or leftover[-1].strip() == "---"):
             leftover.pop()
 
@@ -219,13 +226,13 @@ def split_ocr_and_body(body: str) -> tuple[list[dict], str]:
             if ln.strip() == "---":
                 text = _block_to_quote_text(block)
                 if text:
-                    quotes.append({"text": text})
+                    quotes.append({"text": text, "pos": quote_pos})
                 block = []
             else:
                 block.append(ln)
         text = _block_to_quote_text(block)
         if text:
-            quotes.append({"text": text})
+            quotes.append({"text": text, "pos": quote_pos})
 
     commentary = "\n".join(leftover).strip()
     return quotes, commentary

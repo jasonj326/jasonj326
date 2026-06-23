@@ -43,9 +43,21 @@
     .dark .seed-card img { background: rgb(30 41 59); }
     .seed-quote { font-family: ui-serif, Georgia, serif; }
     .seed-quote em { font-style: italic; }
+    /* Trailing quote: sits after the commentary instead of being hoisted to top */
+    .seed-quote-trail { margin-top: 0.85rem; }
+
+    /* Video / reel embeds — rendered OUTSIDE the body clamp so they're never clipped */
+    .seed-embed { margin-top: 0.85rem; }
+    .seed-embed.embed-yt { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 0.5rem; overflow: hidden; }
+    .seed-embed.embed-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .seed-embed.embed-ig { display: flex; justify-content: center; }
+    .seed-embed.embed-ig iframe { width: 100%; max-width: 400px; height: 540px; border: 1px solid rgb(226 232 240); border-radius: 0.5rem; background: #fff; }
+    .dark .seed-embed.embed-ig iframe { border-color: rgb(51 65 85); }
 
     /* Body clamp + expand/collapse toggle */
     .seed-body { max-height: 18rem; overflow: hidden; }
+    /* Fade the clamped bottom edge so text doesn't cut mid-line (only when actually clamped) */
+    .seed-body.is-clamped { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), transparent); }
     .seed-body.expanded { max-height: none; }
 
     /* Block-rendered body: CSS-controlled spacing (no whitespace-pre-wrap) */
@@ -334,6 +346,8 @@
     // ─── Helpers ───────────────────────────────────────────────
     const $ = id => document.getElementById(id);
     const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    // Only allow safe URL schemes in author markdown links (block javascript:/data: etc.)
+    const safeHref = u => /^(https?:|mailto:|\/|#)/i.test(String(u).trim()) ? u : '#';
     function statusOf(s) {
       if (s.sprouted_into && s.sprouted_into.length) return 'sprouted';
       if (s.derived_descendants && s.derived_descendants.length) return 'sprouted'; // has child seeds = germinated
@@ -362,6 +376,33 @@
       if (s.source_no != null) return `No.${dayCountNo(s.ts)}`;   // cackle → No.X
       const tail = id.replace(/^\d{4}-\d{2}-\d{2}-?/, '');        // strip date prefix
       return /[a-zA-Z]/.test(tail) ? tail : s.ts.slice(0, 10);    // slug seed → slug; worker time-id → date
+    }
+    // ─── Embeds: a bare YouTube / Instagram URL on its own line becomes an iframe ──
+    function videoEmbed(url) {
+      let m = url.match(/(?:youtube\.com\/(?:watch\?(?:[^#&]*&)*v=|shorts\/|embed\/|live\/)|youtu\.be\/)([\w-]{11})/);
+      if (m) return `<div class="seed-embed embed-yt"><iframe src="https://www.youtube-nocookie.com/embed/${m[1]}" title="YouTube video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
+      m = url.match(/instagram\.com\/(reel|reels|p|tv)\/([\w-]+)/);
+      if (m) { const t = m[1] === 'reels' ? 'reel' : m[1]; return `<div class="seed-embed embed-ig"><iframe src="https://www.instagram.com/${t}/${m[2]}/embed/" title="Instagram post" loading="lazy" scrolling="no"></iframe></div>`; }
+      return null;
+    }
+    // Pull embeddable URL-only lines out of the body so the iframe renders full-size
+    // outside the height clamp. Non-embeddable bare URLs stay (autolinked inline).
+    function extractEmbeds(text) {
+      const embeds = [];
+      const body = (text || '').replace(/^[ \t]*(https?:\/\/\S+?)[ \t;]*$/gm, (line, url) => {
+        const e = videoEmbed(url);
+        if (e) { embeds.push(e); return ''; }
+        return line;
+      }).replace(/\n{3,}/g, '\n\n').trim();
+      return { body, embeds: embeds.join('') };
+    }
+    // Shorten a bare URL for display (host + path, no query); href keeps the full URL.
+    function shortenUrl(url) {
+      try {
+        const u = new URL(url);
+        const s = u.hostname.replace(/^www\./, '') + (u.pathname === '/' ? '' : u.pathname);
+        return s.length > 38 ? s.slice(0, 37) + '…' : s;
+      } catch (e) { return url.length > 40 ? url.slice(0, 39) + '…' : url; }
     }
     // Render body text: escape HTML + handle markdown for fenced code blocks,
     // inline code, and [text](url) links. Newlines preserved by parent's
@@ -428,17 +469,23 @@
     }
     // Process [text](url) links AND **bold** (links nest inside bold).
     function renderLinksAndBold(text) {
-      const tokenRe = /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*\n]+)\*\*/g;
+      const tokenRe = /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*\n]+)\*\*|(https?:\/\/[^\s<　-〿぀-ヿ一-鿿＀-￯]+)/g;
       let out = '';
       let last = 0;
       let m;
       while ((m = tokenRe.exec(text)) !== null) {
         out += escapeHtml(text.slice(last, m.index));
         if (m[1] !== undefined) {
-          out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
-        } else {
+          out += `<a href="${escapeHtml(safeHref(m[2]))}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
+        } else if (m[3] !== undefined) {
           // bold — recursively process links inside
           out += `<strong>${renderLinksOnly(m[3])}</strong>`;
+        } else {
+          // bare URL → autolink; trim trailing punctuation, shorten the visible text
+          let url = m[4], trail = '';
+          const tm = url.match(/[).,;:!?。，、！？）]+$/);
+          if (tm) { trail = url.slice(url.length - tm[0].length); url = url.slice(0, -tm[0].length); }
+          out += `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(shortenUrl(url))}</a>` + escapeHtml(trail);
         }
         last = m.index + m[0].length;
       }
@@ -450,7 +497,7 @@
       let out = '', last = 0, m;
       while ((m = linkRe.exec(text)) !== null) {
         out += escapeHtml(text.slice(last, m.index));
-        out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
+        out += `<a href="${escapeHtml(safeHref(m[2]))}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(m[1])}</a>`;
         last = m.index + m[0].length;
       }
       out += escapeHtml(text.slice(last));
@@ -716,10 +763,15 @@
       const flags = [];
       if (s.category === 'image_speaks') flags.push('<span class="flag-indicator font-mono" title="Tagged 一圖勝千言 (a picture is worth a thousand words)">🖼 image_speaks</span>');
 
-      const quotes = (s.ocr_quotes || []).map((q, i) => {
+      const renderQuotes = (arr) => arr.map((q, i) => {
         const sep = i > 0 ? '<hr class="my-2 border-slate-300 dark:border-slate-700">' : '';
-        return sep + `<blockquote class="seed-quote text-lg text-slate-700 dark:text-slate-300 border-l-2 border-slate-400 dark:border-slate-500 pl-4 italic whitespace-pre-line leading-loose">${escapeHtml(q.text)}</blockquote>`;
+        return sep + `<blockquote class="seed-quote text-lg text-slate-700 dark:text-slate-300 border-l-2 border-slate-400 dark:border-slate-500 pl-4 italic whitespace-pre-line leading-loose">${renderInlineMd(q.text)}</blockquote>`;
       }).join('');
+      // Quote position: lead quotes sit above the commentary, trail quotes below it
+      // (so a closing quote stays at the bottom instead of being hoisted to the top).
+      const leadQuotes = renderQuotes((s.ocr_quotes || []).filter(q => (q.pos || 'lead') !== 'trail'));
+      const trailQuotes = renderQuotes((s.ocr_quotes || []).filter(q => q.pos === 'trail'));
+      const { body: bodyForRender, embeds: embedsHtml } = extractEmbeds(s.body_text);
 
       const sproutLinks = (s.sprouted_into || []).map(x => `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener" class="inline-link">→ ${escapeHtml(x.title)}</a>`).join(' · ');
 
@@ -737,8 +789,9 @@
 
       return `
         <article class="seed-card border border-slate-200 dark:border-slate-700 rounded-xl p-7 bg-white/50 dark:bg-slate-800/50" data-seed-id="${escapeHtml(s.id)}">
-          ${quotes ? `<div class="mb-3">${quotes}</div>` : ''}
-          ${s.body_text ? `<div class="text-base text-slate-700 dark:text-slate-300 seed-body">${renderBodyMarkdown(s.body_text)}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
+          ${leadQuotes ? `<div class="mb-3">${leadQuotes}</div>` : ''}
+          ${(bodyForRender || trailQuotes) ? `<div class="text-base text-slate-700 dark:text-slate-300 seed-body">${renderBodyMarkdown(bodyForRender)}${trailQuotes ? `<div class="seed-quote-trail">${trailQuotes}</div>` : ''}</div><button class="expand-btn text-xs font-mono mt-1 text-indigo-600 dark:text-emerald-400 hover:underline" style="display:none;">Expand</button>` : ''}
+          ${embedsHtml}
           ${mediaHtml}
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
             <time>${dateLabel(s.ts)}</time>
@@ -773,9 +826,12 @@
         if (el.classList.contains('expanded')) {
           btn.style.display = 'inline-block';
           btn.textContent = 'Collapse';
+          el.classList.remove('is-clamped');
         } else {
-          btn.style.display = (el.scrollHeight > el.clientHeight + 2) ? 'inline-block' : 'none';
+          const overflowing = el.scrollHeight > el.clientHeight + 2;
+          btn.style.display = overflowing ? 'inline-block' : 'none';
           btn.textContent = 'Expand';
+          el.classList.toggle('is-clamped', overflowing);
         }
       });
     }
@@ -788,8 +844,10 @@
         body.classList.toggle('expanded');
         if (body.classList.contains('expanded')) {
           e.target.textContent = 'Collapse';
+          body.classList.remove('is-clamped');
         } else {
           e.target.textContent = 'Expand';
+          body.classList.add('is-clamped');
         }
       }
       if (e.target.classList.contains('copylink-btn')) {
