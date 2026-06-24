@@ -527,17 +527,28 @@
     function renderTagChips() {
       const tagCounts = {};
       SEEDS.forEach(s => (s.tags || []).forEach(t => tagCounts[t] = (tagCounts[t] || 0) + 1));
-      const sorted = Object.entries(tagCounts).sort((a,b) => b[1] - a[1]).slice(0, 20);
       const TAG_CLR = {builder:'tag-builder', legal:'tag-legal', invites:'tag-invites'};
+      const ranked = Object.entries(tagCounts).sort((a,b) => b[1] - a[1]);
+      const top = ranked.slice(0, 20);
+      const shown = new Set(top.map(([t]) => t));
+      // Always surface curated/colored tags even when their count falls past the top-20 cut
+      Object.keys(TAG_CLR).forEach(t => { if (tagCounts[t] && !shown.has(t)) { top.push([t, tagCounts[t]]); shown.add(t); } });
+      const rest = ranked.filter(([t]) => !shown.has(t));
+      const chip = ([tag, count], extra) => `<button class="tag-chip ${TAG_CLR[tag] || ''}${extra ? ' tag-extra hidden' : ''} px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)} <span class="text-slate-400">${count}</span></button>`;
       const html = ['<button class="tag-chip active px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="">All tags</button>'];
-      sorted.forEach(([tag, count]) => {
-        const colorCls = TAG_CLR[tag] || '';
-        html.push(`<button class="tag-chip ${colorCls} px-2.5 py-1 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)} <span class="text-slate-400">${count}</span></button>`);
-      });
+      top.forEach(t => html.push(chip(t, false)));
+      rest.forEach(t => html.push(chip(t, true)));
+      if (rest.length) html.push(`<button id="tag-more-btn" type="button" class="tag-chip px-2.5 py-1 rounded-full border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono text-slate-500 dark:text-slate-400">+${rest.length} more</button>`);
       $('tag-chips').innerHTML = html.join('');
       $('tag-chips').addEventListener('click', e => {
         const btn = e.target.closest('.tag-chip');
         if (!btn) return;
+        if (btn.id === 'tag-more-btn') {
+          const expanded = $('tag-chips').classList.toggle('tags-expanded');
+          $('tag-chips').querySelectorAll('.tag-extra').forEach(el => el.classList.toggle('hidden', !expanded));
+          btn.textContent = expanded ? 'less' : `+${rest.length} more`;
+          return;
+        }
         document.querySelectorAll('.tag-chip').forEach(b => b.classList.remove('active', 'bg-indigo-100', 'dark:bg-emerald-900/40'));
         btn.classList.add('active', 'bg-indigo-100', 'dark:bg-emerald-900/40');
         state.tag = btn.dataset.tag || null;
