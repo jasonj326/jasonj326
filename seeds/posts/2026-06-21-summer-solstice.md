@@ -1,13 +1,16 @@
 ---
 id: 2026-06-21-summer-solstice
-ts: "2026-06-21T23:30:00+08:00"
+ts: 2026-06-21T23:30:00+08:00
 tags:
   - y2026
   - builder
   - reflection
   - pif12
+  - invites
 derived_from:
   - 2026-05-09-pif12-and-solidity
+updated_at: "2026-06-24T13:00:41+08:00"
+
 ---
 火馬年夏至，PIF 12 | 佩福十二年計劃上鏈
 
