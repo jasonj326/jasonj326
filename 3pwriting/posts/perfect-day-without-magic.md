@@ -13,6 +13,7 @@ major_tag: playgrounds
 tags:
   - playgrounds
   - y2026
+  - blog
 pinned: false
 summary: 部落格同樂會投稿，反思自己理想的一天的樣貌與現實
 hero_image:

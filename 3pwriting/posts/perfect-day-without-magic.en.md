@@ -5,11 +5,12 @@ updated: 2026-05-10
 year: 2026
 lang: en
 slug: perfect-day-without-magic
-url: "https://jasonjlai.net/3pwriting/playgrounds/perfect-day-without-magic.html"
+url: https://jasonjlai.net/3pwriting/playgrounds/perfect-day-without-magic.html
 major_tag: playgrounds
 tags:
   - playgrounds
   - y2026
+  - blog
 pinned: false
 summary: Three ideal days visualized, plus a normal ideal one — the EN version, finished six weeks after the Chinese version went out.
 hero_image:
