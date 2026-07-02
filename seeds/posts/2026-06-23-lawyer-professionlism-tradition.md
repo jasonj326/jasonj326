@@ -1,0 +1,20 @@
+---
+id: 2026-06-23-213955
+ts: 2026-06-23T21:39:55+08:00
+tags:
+  - y2026
+  - reflection
+  - quotes
+  - legal
+  - Eng
+---
+
+蘇軾說：“猝然臨之而不驚，以無故加之而不怒。” 所以，這是我從劉墉在臉書的一篇影片看到的內容。他之後還補充說，他在歐洲旅遊的時候有個導遊，過程都很活潑、開朗、親切、熱情。直到散會了，在機場的時候，導遊才說他的媽媽去世了。  但因為他是導遊，這是他的專業，沒有必要把他私事去影響大家出遊的心情。 剛好今天白天我和女友說我很討厭 Meta。 
+
+女友問我說，那如果他請你去當法務長，你不去嗎？  我就笑著說：“幫當事人辯護跟提供他的法律意見是我的專業，跟我討不討厭我的當事人沒有關係。想想我也是挺專業的。 
+
+我記得美國剛獨立建國的時候，也有審判一些英國人，還是獨立之前？總之，他們的開國元勳也有幫英國人辯護，所以我也覺得蠻有趣的。這或許就是法律人的傳統吧。
+
+**P.S. — Two cases, both defending the "enemy":**
+1. **Boston Massacre (1770)** — John Adams, later the second U.S. President, defended the eight British soldiers and their commanding officer, Captain Preston. His courtroom line became famous: "**Facts are stubborn things; and whatever may be our wishes, our inclinations, or the dictates of our passions, they cannot alter the state of facts and evidence**." He later called it one of the most disinterested actions of his life and one of the best services he ever rendered his country.
+2. **Rutgers v. Waddington (1784)** — Alexander Hamilton defended a British merchant against a Patriot plaintiff suing under New York's Trespass Act, arguing that the Treaty of Paris and the law of nations preempted the state statute.
