@@ -387,14 +387,22 @@
     }
     // Pull embeddable URL-only lines out of the body so the iframe renders full-size
     // outside the height clamp. Non-embeddable bare URLs stay (autolinked inline).
+    // Fuse: at most MAX_EMBEDS_PER_CARD iframes per card — overflow degrades to links
+    // so one link-dump seed can't turn the wall into an endless scroll of players.
+    const MAX_EMBEDS_PER_CARD = 10;
     function extractEmbeds(text) {
       const embeds = [];
       const body = (text || '').replace(/^[ \t]*(https?:\/\/\S+?)[ \t;]*$/gm, (line, url) => {
         const e = videoEmbed(url);
-        if (e) { embeds.push(e); return ''; }
+        if (e) { embeds.push({ html: e, url }); return ''; }
         return line;
       }).replace(/\n{3,}/g, '\n\n').trim();
-      return { body, embeds: embeds.join('') };
+      let embedsHtml = embeds.slice(0, MAX_EMBEDS_PER_CARD).map(e => e.html).join('');
+      const overflow = embeds.slice(MAX_EMBEDS_PER_CARD);
+      if (overflow.length) {
+        embedsHtml += `<div class="seed-embed-overflow mt-3 text-xs font-mono text-slate-500 dark:text-slate-400">▶ +${overflow.length} 更多：${overflow.map(e => `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener" class="inline-link">${escapeHtml(shortenUrl(e.url))}</a>`).join(' · ')}</div>`;
+      }
+      return { body, embeds: embedsHtml };
     }
     // Shorten a bare URL for display (host + path, no query); href keeps the full URL.
     function shortenUrl(url) {
