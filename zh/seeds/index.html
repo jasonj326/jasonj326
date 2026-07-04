@@ -74,6 +74,19 @@
     .seed-body .seed-list:last-child { margin-bottom: 0; }
     .seed-body .seed-li { padding-left: 1.6em; text-indent: -1.6em; line-height: 1.7; margin: 0.15em 0; }
     .seed-body .seed-li.sub { padding-left: 3.1em; text-indent: -1.5em; }
+    /* Collapsible ## sections (only emitted when a seed has ≥2 ## headings) */
+    .seed-body .seed-section-toggle {
+      display: block; width: 100%; text-align: left; cursor: pointer;
+      background: none; border: none; padding: 0; margin: 1.05em 0 0.4em;
+      font: inherit; font-weight: 700; font-size: 1.18em; line-height: 1.45; color: rgb(15 23 42);
+    }
+    .dark .seed-body .seed-section-toggle { color: rgb(241 245 249); }
+    .seed-body .seed-section:first-child .seed-section-toggle { margin-top: 0; }
+    .seed-body .seed-section-toggle::before {
+      content: '▾'; display: inline-block; width: 1.15em; font-size: 0.82em; color: rgb(100 116 139);
+    }
+    .seed-body .seed-section.collapsed .seed-section-toggle::before { content: '▸'; }
+    .seed-body .seed-section.collapsed .seed-section-body { display: none; }
     /* Markdown horizontal rule */
     .seed-body .seed-hr {
       border: none;
@@ -436,14 +449,14 @@
       const lines = md.split('\n');
       const out = [];
       let para = [];
-      const flush = () => { if (para.length) { out.push(`<p class="seed-p">${para.map(renderInlineMd).join('\n')}</p>`); para = []; } };
+      const flush = () => { if (para.length) { out.push({ html: `<p class="seed-p">${para.map(renderInlineMd).join('\n')}</p>` }); para = []; } };
       let i = 0;
       while (i < lines.length) {
         const line = lines[i], t = line.trim();
         if (t === '') { flush(); i++; continue; }
         const h = t.match(/^(#{1,4})\s+(.*)$/);
-        if (h) { flush(); out.push(`<div class="seed-heading h${h[1].length}">${renderInlineMd(h[2])}</div>`); i++; continue; }
-        if (t === '---' || t === '***' || t === '___') { flush(); out.push('<hr class="seed-hr">'); i++; continue; }
+        if (h) { flush(); const ht = renderInlineMd(h[2]); out.push({ h2: h[1].length === 2, headText: ht, html: `<div class="seed-heading h${h[1].length}">${ht}</div>` }); i++; continue; }
+        if (t === '---' || t === '***' || t === '___') { flush(); out.push({ html: '<hr class="seed-hr">' }); i++; continue; }
         if (/^\s*\d+\.\s/.test(line)) {
           flush();
           const items = [];
@@ -453,13 +466,23 @@
             items.push(`<div class="seed-li${sub ? ' sub' : ''}">${txt}</div>`);
             i++;
           }
-          out.push(`<div class="seed-list">${items.join('')}</div>`);
+          out.push({ html: `<div class="seed-list">${items.join('')}</div>` });
           continue;
         }
         para.push(line); i++;
       }
       flush();
-      return out.join('');
+      // Collapsible ## sections — only when there are ≥2 (normal/cackle seeds untouched)
+      if (out.filter(b => b.h2).length < 2) return out.map(b => b.html).join('');
+      let html = '', open = false;
+      for (const b of out) {
+        if (b.h2) {
+          if (open) html += '</div></section>';
+          html += `<section class="seed-section"><button type="button" class="seed-section-toggle" aria-expanded="true">${b.headText}</button><div class="seed-section-body">`;
+          open = true;
+        } else html += b.html;
+      }
+      return html + (open ? '</div></section>' : '');
     }
     function renderInlineMd(text) {
       // Inline code first (single backticks), then links + bold, then plain escape
@@ -859,6 +882,13 @@
 
     // Toggle expand/collapse
     document.addEventListener('click', e => {
+      const secToggle = e.target.closest('.seed-section-toggle');
+      if (secToggle) {
+        const sec = secToggle.closest('.seed-section');
+        const collapsed = sec.classList.toggle('collapsed');
+        secToggle.setAttribute('aria-expanded', String(!collapsed));
+        return;
+      }
       if (e.target.classList.contains('expand-btn')) {
         const card = e.target.closest('article');
         const body = card.querySelector('.seed-body');
