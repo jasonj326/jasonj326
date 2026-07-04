@@ -1,10 +1,12 @@
 [
   {
-    "id": "2026-07-04-125147",
+    "id": "2026-07-04-TCE-grateful",
     "ts": "2026-07-04T12:51:47+08:00",
     "tags": [
       "y2026",
-      "gratef"
+      "grateful",
+      "movies",
+      "quotes"
     ],
     "source": null,
     "source_no": null,
@@ -13,11 +15,14 @@
     "ocr_pending": false,
     "category": null,
     "ocr_quotes": [],
-    "body_text": "im grateful for TCE  session",
-    "word_count": 5,
-    "excerpt": "im grateful for TCE session",
-    "search_text": "im grateful for tce session y2026 gratef",
-    "media_count": 0
+    "body_text": "I'm grateful for people showing up at my TCE session on Saturday\n\nPoint taken from  from Neo's sharing\n- Hitchhiker's guide to the galaxy (movie) \"Only when you know the question will you know what the answer means\"\n- Winsurf & Cursor\n- Generate prompt with AI first.\n\nhttps://www.youtube.com/shorts/f1jKemHGd_U\n\nA sticker is just a label that helps us think a little bit efficiently yet we can take off any time.",
+    "word_count": 73,
+    "excerpt": "I'm grateful for people showing up at my TCE session on Saturday Point taken fro…",
+    "search_text": "i m grateful for people showing up at my tce session on saturday point taken from from neo s sharing hitchhiker s guide to the galaxy movie only when you know the question will you know what the answer means winsurf cursor generate prompt with ai first https www youtube com shorts f1jkemhgd_u a sticker is just a label that helps us think a little bit efficiently yet we can take off any time y2026 grateful movies quotes",
+    "media_count": 0,
+    "derived_from": [
+      "2026-07-02-reality-loneliness"
+    ]
   },
   {
     "id": "2026-07-03-q2-brain-dump",
@@ -83,7 +88,10 @@
     "word_count": 16,
     "excerpt": "Reality: https://www.instagram.com/reel/DZVCoCCvZke/?",
     "search_text": "reality https www instagram com reel dzvcoccvzke igsh ywyymwp2ngt4mti2 metacognition the clip is real authentic and deep y2026 reflection",
-    "media_count": 0
+    "media_count": 0,
+    "derived_descendants": [
+      "2026-07-04-TCE-grateful"
+    ]
   },
   {
     "id": "2026-07-01-micro-appreciaiton",
