@@ -8,10 +8,10 @@ tags:
   - reading
   - legal
   - AI
-updated_at: "2026-07-03T22:58:31+08:00"
-
+  - addiction
+updated_at: "2026-07-04T09:02:17+08:00"
 ---
-
+# Q2-brain-dump
 ## Legal & Biz
 1. BBC: how korea legalizes the tatoo artists: https://www.instagram.com/reel/DZEt6TbGijr/ 
 2. Go Pro went broke from IPO and peak of 11 billion https://www.instagram.com/p/DZM6rSsyFAo/
