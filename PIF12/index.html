@@ -65,6 +65,14 @@
         "@type": "Answer",
         "text": "Because PIF12 is a twelve-year promise, and the chain it lives on is one of the very few choices that's almost impossible to undo. A cheaper Layer-2 like Base would save on gas — but each L2 is still a young system carrying its own sequencer, treasury, and governance risk across a twelve-year horizon, and the chain that's hottest this year can be cold in three. So PIF12 optimizes for survival, not hype: Ethereum L1 is the most permanent ground available, and the best bet that these blessings are still here in 2037. The gas cost of a low-frequency project like this is modest. For Year One and Year Two I cover it for you — through the relay, plus a Paymaster from Year Two — so you pay nothing for now. I'm not promising twelve years of free, though: whether I can keep covering it beyond that depends on Ethereum's gas fees and my own finances. It's the North Star applied to infrastructure: choose direction over heat."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "If it's an experiment, what's the hypothesis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hypothesis: technology is neutral — the same force behind our loneliness can also be the tool that reconnects us. The control group needs no recruiting; it's everyday life: tech loneliness is this era's default setting, where we'd rather chat with an AI all night than take a ten-minute call from a human. The treatment group is here: a charm you can't buy or transfer, one ritual a year, and a circle of people deliberately connected — curious, generous, and unwilling to throw the baby of technology out with the bathwater. Setting out in the Year of the Horse, arriving in the Year of the Snake. Observed over twelve years: who's still here, who helped whom, who brought new stars. Success: by the Snake year of 2037, the constellation no longer needs Jason — it hatches into Republic Labs: curiosity as the warp, practice as the weft, woven into a tribe where members light each other up and launch experiments of their own."
+      }
     }
   ]
 }
@@ -793,6 +801,20 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="zh_TW">
 <meta property="og:url" content="https://jasonjlai.net/PIF12/">
+<link rel="canonical" href="https://jasonjlai.net/PIF12/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="jasonjlai.net">
+<meta property="og:title" content="PIF12 — A 12-Year Onchain Experiment in Trust">
+<meta property="og:description" content="Twelve years, twelve non-transferable digital omamori — one Soulbound design a year, on Ethereum. It can't be bought or transferred. Its only value: you actually came.">
+<meta property="og:image" content="https://jasonjlai.net/PIF12/assets/og-pif12.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PIF12 gold medallion on a night-sky starfield — a 12-year onchain experiment in trust">
+<!-- Yearly ritual: add one star to this image each year + refresh (Y2 = 2027) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jasonjlai.net/PIF12/assets/og-pif12.png">
+<meta name="twitter:title" content="PIF12 — A 12-Year Onchain Experiment in Trust">
+<meta name="twitter:description" content="Twelve years, twelve non-transferable digital omamori. Its only value: you actually came.">
 </head>
 <body>
 
@@ -869,7 +891,7 @@
     </svg>
   </div>
 
-  <h1>I know remarkable people.<br>They've <span class="gold">never met each other</span>.</h1>
+  <h1>Remarkable people have <span style="white-space:nowrap">crossed my life</span><br>like shooting stars — <span class="gold" style="white-space:nowrap">lighting up wishes</span></h1>
   <p class="hero-subtitle">Technology connected us to everyone — and somehow, we got lonelier. PIF12 is my experiment in using onchain blessings to bring the people I admire into one circle — a constellation that keeps growing as we light each other up, across twelve years.</p>
   <a href="#what" class="hero-cta">See What I'm Building | 佩福12年</a>
 
@@ -1064,6 +1086,10 @@
         <h3>Q7. Why Ethereum mainnet, and not a cheaper L2?</h3>
         <p>Honestly? Because PIF12 is a twelve-year promise, and the chain it lives on is one of the very few choices that's almost impossible to undo. A cheaper Layer-2 like Base would save on gas — but each L2 is still a young system carrying its own sequencer, treasury, and governance risk across a twelve-year horizon, and the chain that's hottest this year can be cold in three. So PIF12 optimizes for <strong>survival, not hype</strong>: Ethereum L1 is the most permanent ground available — the best bet that these blessings are still here in 2037. The gas cost of a low-frequency project like this — a handful of onchain actions per member per year — is modest. For Year One and Year Two I cover it for you — through the relay, plus a Paymaster from Year Two — so you pay nothing for now. I'm not promising twelve years of free, though: whether I can keep covering it beyond that depends on Ethereum's gas fees and my own finances. It's the North Star applied to infrastructure: <em>choose direction over heat</em>.</p>
       </div>
+      <div class="faq-item">
+        <h3>Q8. If it's an experiment, what's the hypothesis?</h3>
+        <p>An experiment deserves some experimental spirit.<br><br><strong>Hypothesis:</strong> technology is neutral — the same force behind our loneliness can also be the tool that reconnects us. The problem was never the tool; it's how we use it.<br><br><strong>The control group needs no recruiting — it's everyday life:</strong> tech loneliness is this era's default setting. We'd rather chat with an AI all night than take a ten-minute call from a human.<br><br><strong>The treatment group is here:</strong> a charm you can't buy or transfer, one ritual a year, and a circle of people deliberately connected — curious, generous, and unwilling to throw the baby of technology out with the bathwater. Setting out in the Year of the Horse, arriving in the Year of the Snake.<br><br><strong>Observed over twelve years:</strong> who's still here, who helped whom, who brought new stars.<br><br><strong>Success is defined as:</strong> by the Snake year of 2037, this constellation no longer needs me — it hatches into Republic Labs — curiosity as the warp, practice as the weft, woven into a tribe: a public space where members light each other up and launch experiments of their own. Come check the results then — or fork the experiment and run your own.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1082,6 +1108,21 @@
   const ctx = canvas.getContext('2d');
   let stars = [];
   let constellationLines = [];
+
+  // Shooting star — one streaks across roughly every 30s (skipped for reduced-motion)
+  let meteor = null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function spawnMeteor() {
+    if (reducedMotion || document.hidden || meteor) return;
+    const fromLeft = Math.random() > 0.4;
+    meteor = {
+      x: fromLeft ? -80 : canvas.width * (0.4 + Math.random() * 0.6),
+      y: canvas.height * Math.random() * 0.35,
+      vx: (fromLeft ? 1 : -1) * (6 + Math.random() * 4),
+      vy: 2.2 + Math.random() * 1.8,
+      life: 1
+    };
+  }
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -1140,12 +1181,39 @@
       ctx.fill();
     });
 
+    // Shooting star
+    if (meteor) {
+      const tx = meteor.x - meteor.vx * 11;
+      const ty = meteor.y - meteor.vy * 11;
+      const grad = ctx.createLinearGradient(meteor.x, meteor.y, tx, ty);
+      grad.addColorStop(0, `rgba(255, 246, 220, ${0.9 * meteor.life})`);
+      grad.addColorStop(1, 'rgba(201, 169, 110, 0)');
+      ctx.beginPath();
+      ctx.moveTo(meteor.x, meteor.y);
+      ctx.lineTo(tx, ty);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(meteor.x, meteor.y, 1.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 250, 232, ${meteor.life})`;
+      ctx.fill();
+      meteor.x += meteor.vx;
+      meteor.y += meteor.vy;
+      meteor.life -= 0.012;
+      if (meteor.life <= 0 || meteor.y > canvas.height + 100 || meteor.x < -150 || meteor.x > canvas.width + 150) meteor = null;
+    }
+
     requestAnimationFrame(drawStars);
   }
 
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
   requestAnimationFrame(drawStars);
+  setTimeout(spawnMeteor, 5000);
+  (function scheduleMeteor() {
+    setTimeout(() => { spawnMeteor(); scheduleMeteor(); }, 26000 + Math.random() * 9000);
+  })();
 
   // ===== SCROLL ANIMATIONS =====
   const observer = new IntersectionObserver(entries => {
