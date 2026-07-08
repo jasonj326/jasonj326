@@ -15,7 +15,7 @@ tags:
   - playgrounds
   - y2026
   - quarterly-review
-pinned: true
+pinned: false
 image: /assets/images/2026-q1-review/og-2026-q1-review.jpg
 summary: An opportunity in New York unexpectedly sparked a 12-year Pay-it-Forward project. Thoughts on adopting a "Builder" identity, a soul-searching question about blockchain, and why human collaboration is still essential in the age of AI.
 ---

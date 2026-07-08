@@ -16,7 +16,7 @@ tags:
   - playgrounds
   - y2026
   - quarterly-review
-pinned: true
+pinned: false
 image: /assets/images/2026-q1-review/og-2026-q1-review.jpg
 summary: 從一份紐約職缺，意外開出一個 12 年的 Pay-it-Forward 計畫——關於 Builder 認同、區塊鏈靈魂拷問、與 AI 時代人類為何還需要合作。
 ---

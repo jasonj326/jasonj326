@@ -253,18 +253,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jasonjlai.net/3pwriting/partnership/2026-q1-review-builder.html</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jasonjlai.net/zh/3pwriting/partnership/2026-q1-review-builder.html</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://jasonjlai.net/zh/3pwriting/playbooks/ai-fleet-audit.html</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -297,6 +285,18 @@
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html</loc>
     <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jasonjlai.net/3pwriting/partnership/2026-q1-review-builder.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jasonjlai.net/zh/3pwriting/partnership/2026-q1-review-builder.html</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
