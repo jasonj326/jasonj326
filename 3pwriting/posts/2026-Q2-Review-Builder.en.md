@@ -16,7 +16,7 @@ summary: "Quarter two, laid bare: twin wins, three rain checks, seven fast failu
 ---
 TL;DR:
 
-This is the second edition of the quarterly review. It runs in ten parts — (1+10) × 10 ÷ 2 = 55 small items in all — and the section titles may keep getting tuned. I'd suggest reading from the top, or at least finishing a section before chasing its links; jumping straight to whatever interests you works too.
+This is the second edition of the quarterly review with the new 10-point format: It has 55 bite-size items, and the section titles may keep getting tuned. I'd suggest reading from the top, or at least finishing a section before clicking any hyperlinks. Or just jump straight to whatever interests you — that works too.
 
 Thoughts and ideas welcome at hello@jasonjlai.net.
 
@@ -76,7 +76,7 @@ As for the half marathon, I've put too much mental pressure on myself, feeling l
 	I couldn't remember the plot of the fourth one — only a vague disappointment. But people recommended this one, some even calling it the best of the series, so I went to the theater. I liked it: beyond mirroring our era's predicament — dopamine addiction to our devices — I loved the touch of dark humor, semi-retired Woody, and the way it stacks emotion, turns, and lands the ending inside ninety-odd minutes without going cheap (not one of those "technology bad, back to nature" cop-out endings).
 
 3. [BlogBlog.Club](https://blogblog.club/) (Mandarin) — a place devoted to nudging everyone into blogging
-	The one really worth recommending is Wiwi Kuan: ["whatever happens, treat it as the best thing that could have happened right now."](https://wiwi.blog/blog/best-outcome) Sounds like chicken soup for the soul, but to me it echoes *Camus insisting we must imagine Sisyphus happy*. This deeply resonates with me; as I've dealt with bodily aging and accumulated small ailments over the past two years, I’ve found real, comforting benefits in this mindset. I truly believe there is so much more to explore here — so let's break free from the grip of algorithms and join the BlogBlog Club.
+	The one really worth recommending is Wiwi Kuan: ["whatever happens, treat it as the best thing that could have happened right now."](https://wiwi.blog/blog/best-outcome) Sounds like chicken soup for the soul, but to me it echoes *Camus insisting we must imagine Sisyphus happy*. This deeply resonates with me; as I've dealt with bodily aging and accumulated small ailments over the past two years, I've found real, comforting benefits in this mindset. I truly believe there is so much more to explore here — so let's break free from the grip of algorithms and join the BlogBlog Club.
 
 	There's also a monthly [blog party](https://blogblog.club/party) with themed prompts. I've submitted two pieces so far, and I'll be hosting the September edition — come join us.
 
@@ -188,20 +188,20 @@ From harder to easier.
 
 ## 10 · Tenfold Thanks {#s10}
 
-1. The TCE crew — whether at the sessions I hosted or the ones others prepared with such care: pickleball, digital comparisons, EMT. I came away richer every time.
+1. The TCE crew — whether at the sessions I hosted or the ones others prepared with such care: pickleball, digital note-taking systems, EMT, etc. I came away richer every time.
 
 2. The WPRC & XueDAO crews — thanks to J.H. and R.X. for the invitations to two whitepaper reading sessions, on agentic payments and the EF Mandate / EIP-7805 — and I co-hosted the second one with the team. A bear market is exactly the season for tilling and building. Old faces and new — is it not a delight to have friends come from afar?
 
 	![Co-hosting the second whitepaper reading session](/assets/images/2026-q2-review/whitepaper-session.jpg)
 
-3. ETHTaipei: this year's edition runs 9/13–15, and I'm glad to have joined the organizing team. Having dinner with the crew yesterday and I'm looking forward to working closely in Q3.
+3. ETHTaipei: this year's edition runs 9/13–15, and I'm glad to have joined the organizing team. I had dinner with the crew yesterday, and I'm looking forward to working closely in Q3.
 
 4. Thanks to A.H. in New York for handling a personal matter.
 
 5. Thanks to E.H. and A.L. for the farewell-lunch invitation — we talked US–China relations and Mencius's "we thrive in hardship and perish in ease," echoed across the centuries by Will Durant: ["A nation is born stoic, and dies epicurean."](https://www.goodreads.com/quotes/7474738-a-nation-is-born-stoic-and-dies-epicurean-at-its)
 6. A chance encounter on the street with C.Y.W., a senior schoolmate, turned into lunch — more than fifteen years since we'd last met, and our paths turned out strangely alike. We talked about everything inside the profession and out. Thank you for the warmth and the generous treat.
 
-7. A reunion with old colleagues and over dinner together at a buzzing restaurant. 
+7. A reunion with old colleagues over dinner at a buzzing restaurant.
 
 8. Catching up with my friend Terry, losing track of time; a high-school reunion of karaoke and dinner — rare and precious.
 
