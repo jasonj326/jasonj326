@@ -65,16 +65,8 @@ Since this quarterly review is about transparency, I'm honestly logging what did
 
 1. [Yorushika — "Abuku" (OFFICIAL VIDEO)](https://youtu.be/OHAjc-ayhus?si=tjZpX7uIv-FbbZNN)
 	The YouTube algorithm served me this one. What hooked me first was the upbeat tempo and the absurd plot; since I happen to be learning Japanese and liked the song, I saved it. According to my AI consultations, it's written in a minor key — echoing a despairing loop of a life the protagonist keeps punching back at — except the tempo is so light you'd never hear the minor key. And every counterpunch dissolves like a dream, like foam: exactly the title, "abuku" — bubbles.
-	I had my own smug reading too — easy to talk from the sidelines. There I was, guessing how the protagonist might escape the room… and a few minutes in, it was my turn on stage.
-	<!-- 典故選項(站著說話不腰疼) — 目前用 A:
-	A. "easy to talk from the sidelines"(旁觀者風涼話,最自然)
-	B. "talk is cheap when it's not your back that aches"(保留「腰疼」的身體意象,較奇趣)
-	C. "armchair critic that I am"(自嘲版) -->
-	**"If you're so good, *you* do it!" (laughs)**
-	<!-- 典故選項(你行你來啊) — 目前用 A:
-	A. "If you're so good, you do it!"(直譯,嗆味足)
-	B. "Oh yeah? Let's see you try."(美式口語)
-	C. "Put up or shut up."(最短,但比原文兇) -->
+	I had my own smug reading too — easy to talk from the sidelines, and in this case, from the TV set. There I was, guessing how the protagonist might escape the room… and a few minutes in, it was my turn on stage.
+	**"Oh yeah? Let's see you try." (laughs)**
 
 2. Toy Story 5
 	I couldn't remember the plot of the fourth one — only a vague disappointment. But people recommended this one, some even calling it the best of the series, so I went to the theater. I liked it: beyond mirroring our era's predicament — dopamine addiction to our devices — I loved the touch of dark humor, semi-retired Woody, and the way it stacks emotion, turns, and lands the ending inside ninety-odd minutes without going cheap (not one of those "technology bad, back to nature" cop-out endings).
@@ -109,11 +101,7 @@ Since this quarterly review is about transparency, I'm honestly logging what did
 5. [Talk Less, Win More: How Lawyers in Business Development Roles Can Turn Meetings Into Revenue](https://www.amazon.com/Talk-Less-Win-More-Development-ebook/dp/B0H24FYXH1/?utm_source=substack&utm_medium=email): I've been meaning to write a proper review and never started. In early 2025 it struck me that fresh out of college I should have done sales to sharpen my tongue — business school calls it marketing, lawyers call it advocacy, same essence — but street-smart selling, whether 2B or 2C, is only forged in the field. This book is by Alex, a lawyer who moved into sales, writing for legal people. I finished it itching to try.
 
 Honestly, I'm still not sure how to cleanly separate "Four on Repeat" from "Five-Star Finds."
-For now, Four is the artsy shelf — poetry and faraway places — while Five is the practical one: self-improvement, or food and the appetites. Though I've discovered I don't carry that much artistic nourishment anyway. Either way: whatever is worth sharing and recommending gets recorded. My hunch is the two will simply interweave from here on.
-<!-- 典故選項(食色性也) — 目前用 A:
-A. "food and the appetites"(含蓄)
-B. "food and desire — human nature, as Gaozi said"(點名告子,學術趣味)
-C. "the pleasures of the table and the flesh"(直白,西方讀者秒懂) -->
+Right now, the "Four on Repeat" lean toward the artistic side — representing poetry and distant horizons — while the "Five-Star Finds" are more practical, focused on self-growth, or earthly pleasures (food, desires, and daily life). Yet, I've realized I don't actually possess that much "artistic" nourishment in me. Ultimately, it's just about documenting content worth sharing and recommending. I have a feeling these two categories will just naturally blur together in the future.
 
 ## 6 · Six on a Roll: six habits and sparks {#s6}
 
@@ -131,11 +119,7 @@ C. "the pleasures of the table and the flesh"(直白,西方讀者秒懂) -->
 
 4. Practicing analogy, metaphor, and simile: I've always wanted to train the knack of reaching for the example close at hand — a truly creative analogy makes me slap the table — but I could never find the way in. Then recently, through AI, I learned "forced association": weight training for the brain, and perhaps, at last, my entry-level program.
 
-5. A new input method — voice-flow dictation. Honestly I can't articulate how it differs from old-school voice input; probably that AI now corrects your words at speed. The main players are Typeless and Wispr. I'm not used to it yet — but when a flow state hits, it's wings on a tiger.
-	<!-- 典故選項(如虎添翼) — 目前用 A:
-	A. "it's wings on a tiger"(保留中文意象,異國趣味)
-	B. "it's a genuine force multiplier"(科技語彙,無趣但精準)
-	C. "it's like giving a tiger wings — unstoppable"(意象+解釋,最安全) -->
+5. A new input method — voice-flow dictation. Honestly I can't articulate how it differs from old-school voice input; probably that AI now corrects your words at speed. The main players are Typeless and Wispr. While I'm still adjusting, whenever I occasionally slip into a flow state, it's an absolute game-changer.
 
 6. Ongoing conflicts and contradictions: no-self × high agency. Cultivating humor partly means practicing not taking myself so seriously — no fixation, no self-centeredness, laughing along with life. Yet last quarter's theme of high agency demands the opposite posture: going permissionless after what I want. Reconciling the two modes — and switching between them — is the next habit I want to train.
 
@@ -163,11 +147,7 @@ A log of the setbacks and the slumps.
 
 2. The website: after browsing many blogrolls ([for instance](https://wiwi.blog/blogroll)), my favorite Q2 addition is the [seed wall](https://jasonjlai.net/seeds/) — may it grow into a garden in full bloom. Also refreshed the gamified-thinking pages. The self-training continues.
 
-3. Markets × escaping to wealth: the two most tiresome small-talk topics of the moment are stocks and AI — and I can't stand myself, because I open with both every time. After all, who doesn't like striking it rich? Most people will never actually buy Treasuries, but if you hold fiat in a bank you already hold bonds: you are trusting the government's ability to govern and lending the bank your money — "deposit" is simply the word game for that IOU. Cash and bonds usually swing less than stocks — but these past two years, especially in Taiwan, everyone is a stock god. No one knows when the market corrects or where the bubble sits. Mr. Market's moods swing without warning; serving him is like attending a tiger, walking on thin ice. Earn while you can — and treasure it.
-	<!-- 典故選項(伴君如伴虎+如履薄冰+且賺且珍惜) — 目前用 A:
-	A. "serving him is like attending a tiger, walking on thin ice. Earn while you can — and treasure it."(三典串譯,保中文節奏)
-	B. "keeping his company is keeping a tiger's company — tread lightly, take profits gratefully."(較意譯)
-	C. "stay humble, stay hedged, and cherish every gain."(全去典故,理財專欄腔) -->
+3. Markets × escaping to wealth: the two most tiresome small-talk topics of the moment are stocks and AI — and I can't stand myself, because I open with both every time. After all, who doesn't like striking it rich? Most people will never actually buy Treasuries, but if you hold fiat in a bank you already hold bonds: you are trusting the government's ability to govern and lending the bank your money — "deposit" is simply the word game for that IOU. Cash and bonds usually swing less than stocks — but these past two years, especially in Taiwan, everyone is a stock god. No one knows when the market corrects or where the bubble sits. Mr. Market's moods swing without warning; keeping his company is keeping a tiger's company — tread lightly, take profits gratefully.
 
 4. The blockchain industry: traditional finance is limbering up, itching to move on RWA[^2]. I watch Hyperliquid stand alone — HYPE up 180% this year — and that against a total crypto market cap sliding from $2.7T to $2.1T. I keep meaning to write the full Hyperliquid analysis and map its whole ecosystem, but it stays a wish; my material never feels rigorous enough. On the non-financial side, most of my energy went into my own PIF12; I've also noticed privacy projects — Zcash, for one — running hot, though it, too, faces the risk of latent vulnerabilities.
 
@@ -219,11 +199,7 @@ From harder to easier.
 
 ---
 
-Epilogue — a forward-looking note to close. Beyond ETHTaipei and ETHTokyo, Q3 comes down to drilling one thing. Just one. Be Zenitsu from *Demon Slayer* — the swordsman who mastered exactly one move — instead of chasing every secret art in the wuxia library. <!-- 典故選項(我妻善逸+九陽神功) — 目前用 A:
-A. "Be Zenitsu from *Demon Slayer* — the swordsman who mastered exactly one move — instead of chasing every secret art in the wuxia library."(善逸點名+釋義;九陽神功泛化為 wuxia library,不點名)
-B. "Be Zenitsu, not a collector of Nine Yang Manuals — master one move instead of hoarding every martial-arts cheat book."(兩個典故都點名,對不懂的讀者較晦澀)
-C. "Master one move a thousand times, instead of a thousand moves once."(完全去典故,李小龍式格言,最普世但丟掉動漫趣味)
--->That one thing might be Japanese; might be writing a book; might be writing a book *in* Japanese. Or going deep on AI × legal, or finally producing that Hyperliquid analysis, or hunting overseas collaborations. A few days ago I told a friend my focus is AI × Legal × Crypto × Gamification — in my head that meant the *intersection* of the four, which is why it felt like focus. Looking at my actual behavior, I've been taking the *union*. A domain that size is absurd. Time to fix that.
+Epilogue — a forward-looking note to close. Beyond ETHTaipei and ETHTokyo, Q3 comes down to drilling one thing. Just one. Master one move a thousand times, instead of a thousand moves once — Bruce Lee's wisdom, retold for our cross-cultural age: be Zenitsu from *Demon Slayer*, the swordsman who mastered exactly one move, not a collector of every secret art in the wuxia library. That one thing might be Japanese; might be writing a book; might be writing a book *in* Japanese. Or going deep on AI × legal, or finally producing that Hyperliquid analysis, or hunting overseas collaborations. A few days ago I told a friend my focus is AI × Legal × Crypto × Gamification — in my head that meant the *intersection* of the four, which is why it felt like focus. Looking at my actual behavior, I've been taking the *union*. A domain that size is absurd. Time to fix that.
 
 
 *賴建順
