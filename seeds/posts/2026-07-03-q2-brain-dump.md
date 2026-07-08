@@ -9,25 +9,27 @@ tags:
   - legal
   - AI
   - addiction
-updated_at: "2026-07-04T09:02:17+08:00"
+updated_at: "2026-07-08T08:57:41+08:00"
 ---
 # Q2-brain-dump
 ## Legal & Biz
-1. BBC: how korea legalizes the tatoo artists: https://www.instagram.com/reel/DZEt6TbGijr/ 
-2. Go Pro went broke from IPO and peak of 11 billion https://www.instagram.com/p/DZM6rSsyFAo/
-3. 1.77 billion slush fund https://www.instagram.com/reel/DZYLXlODRg9/
-4. goal, risk, commercial, clarity, listen and good judgement https://www.instagram.com/p/DZstjtqGd7V/
-5. three books on chinese law https://www.instagram.com/reel/DZxB09Nxpih/ (Learned Hand: The Man and the Judge Book by Gerald Gunther; 中國法律與中國社會 瞿同祖; Speak Memory, Conclusive evidence, brothers Karamazov)
-6. 阿姆斯特丹禁止肉類與汽油車廣告 https://www.instagram.com/reels/DYI5DpYCHcn/
-7. Lawyers at M&A law firms among 30 charged by US in insider trading scheme https://www.instagram.com/reel/DYDMQJTEV0D/; https://www.reuters.com/world/us-charges-30-people-with-roles-global-insider-trading-scheme-2026-05-06/
-8. Reckless Ben, the thief who stole LEGO, https://youtu.be/wscQpkcwgNU?si=iE0r7MLxxfv7Tuox
-9. Seven types of tech attorneys: emerging tech, IP, media, cyber & privacy, IT & commerce, anti-trust, fintech
-10. Legal SOPA:
+1. 台灣穩定幣 https://www.threads.com/@fox.hsiao/post/DY7T-2pksXh?xmt=AQG057wWJ3li43_B75UPCzntnsEWxw1bswOmLjxY_N1NSQ
+2. Taiwan VASP Act https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0,2&mcustomize=news_view.jsp&dataserno=202606300002&dtable=News
+3. BBC: how korea legalizes the tatoo artists: https://www.instagram.com/reel/DZEt6TbGijr/ 
+4. Go Pro went broke from IPO and peak of 11 billion https://www.instagram.com/p/DZM6rSsyFAo/
+5. 1.77 billion slush fund https://www.instagram.com/reel/DZYLXlODRg9/
+6. goal, risk, commercial, clarity, listen and good judgement https://www.instagram.com/p/DZstjtqGd7V/
+7. three books on chinese law https://www.instagram.com/reel/DZxB09Nxpih/ (Learned Hand: The Man and the Judge Book by Gerald Gunther; 中國法律與中國社會 瞿同祖; Speak Memory, Conclusive evidence, brothers Karamazov)
+8. 阿姆斯特丹禁止肉類與汽油車廣告 https://www.instagram.com/reels/DYI5DpYCHcn/
+9. Lawyers at M&A law firms among 30 charged by US in insider trading scheme https://www.instagram.com/reel/DYDMQJTEV0D/; https://www.reuters.com/world/us-charges-30-people-with-roles-global-insider-trading-scheme-2026-05-06/
+10. Reckless Ben, the thief who stole LEGO, https://youtu.be/wscQpkcwgNU?si=iE0r7MLxxfv7Tuox
+11. Seven types of tech attorneys: emerging tech, IP, media, cyber & privacy, IT & commerce, anti-trust, fintech
+12. Legal SOPA:
 	1. https://www.facebook.com/chihuangchiu/posts/pfbid0W3pEaV6J9oHkrGWrZiy3LPVfP1JLWjwdimvbRv9jd29crvVpNYyg3ZPuz16Pyr6Yl
 	2. SOPA 那天,網路自由的命被救了下來 2012 年 1 月 18 日,美國網路停擺一天。Wikipedia 英文版全站變黑,首頁只有一段話:「Imagine a world without free knowledge」
-11. 日本 個人資訊保護法最新修訂通過(5/21) https://www.facebook.com/veritaswan/posts/pfbid0FX9erhZGrTAjbUTa8XUXVmiz11c7kmtaEUTMA9F1w5ZNacx4SrZVXSQBo53aPqJVl
-12. Who owns AI by Nikhil Mulani nikhil@augurai.net https://whoownsai.org/
-13. Open-Weight AI Models Require Proportional Evaluation Approaches https://www.rand.org/pubs/perspectives/PEA4886-1.html
+13. 日本 個人資訊保護法最新修訂通過(5/21) https://www.facebook.com/veritaswan/posts/pfbid0FX9erhZGrTAjbUTa8XUXVmiz11c7kmtaEUTMA9F1w5ZNacx4SrZVXSQBo53aPqJVl
+14. Who owns AI by Nikhil Mulani nikhil@augurai.net https://whoownsai.org/
+15. Open-Weight AI Models Require Proportional Evaluation Approaches https://www.rand.org/pubs/perspectives/PEA4886-1.html
 
 
 ## Nerdy topics that still get viewership
@@ -120,56 +122,59 @@ updated_at: "2026-07-04T09:02:17+08:00"
 
 ## Self-growth & AI-related
 1. My Book review: Book Talk Less Win More: How Lawyers in Business Development Roles Can Turn Meetings Into Revenue
-2. My book review: 真本事：會工作到會賺錢
-3. meaning of friendship and traveling: https://www.instagram.com/p/DYi7L0hRNz0/
-4. communication in one take https://www.instagram.com/p/DTwL_NEj6kR/
-5. A few tips for mental wellbeing from Dr. Olivia Remes https://www.instagram.com/dr.olivia.remes/
-6. Kling motion control: https://www.instagram.com/p/DSmSFSHgCwZ/
-7. https://www.instagram.com/p/DZDWtDyhP3l/ will be obsolete in 10s 
-8. https://www.instagram.com/p/DZai2yDkmyQ/ conquering analysis paralysis by Mark Manson
-9. https://www.instagram.com/p/DZXSmH2SSiI/ probably also fit the nerdy topics
-10. artist's storytelling: https://www.instagram.com/p/DYw_X61zTo0/
-11. https://www.instagram.com/p/DZOe04cJdw_/
-12. https://www.instagram.com/p/DYrlkgrSPNK/ appreciate what you have
-13. made a pledge to cure your procrastination in Taipei https://www.instagram.com/p/DVD7i0AgTM-/
-14. confidence and action: https://www.instagram.com/p/DYmZ0hOSh_P/
+2. tbc - My book review: 真本事：會工作到會賺錢
+3. Learning from animals: https://www.instagram.com/p/DZITinvDE51/?img_index=1
+4. "I'm gonna see them": https://www.instagram.com/p/DZIFOCxgrgP/
+5. meaning of friendship and traveling: https://www.instagram.com/p/DYi7L0hRNz0/
+6. communication in one take https://www.instagram.com/p/DTwL_NEj6kR/
+7. Andrej Karpathy's AI note/LLM https://www.threads.com/@fox.hsiao/post/DWqxgHFmc4x?xmt=AQG057wWJ3li43_B75UPCzntnsEWxw1bswOmLjxY_N1NSQ
+8. A few tips for mental wellbeing from Dr. Olivia Remes https://www.instagram.com/dr.olivia.remes/
+9. Kling motion control: https://www.instagram.com/p/DSmSFSHgCwZ/
+10. https://www.instagram.com/p/DZDWtDyhP3l/ will be obsolete in 10s 
+11. https://www.instagram.com/p/DZai2yDkmyQ/ conquering analysis paralysis by Mark Manson
+12. https://www.instagram.com/p/DZXSmH2SSiI/ probably also fit the nerdy topics
+13. artist's storytelling: https://www.instagram.com/p/DYw_X61zTo0/
+14. https://www.instagram.com/p/DZOe04cJdw_/
+15. https://www.instagram.com/p/DYrlkgrSPNK/ appreciate what you have
+16. made a pledge to cure your procrastination in Taipei https://www.instagram.com/p/DVD7i0AgTM-/
+17. confidence and action: https://www.instagram.com/p/DYmZ0hOSh_P/
 	1. Acceptance – trusting yourself even when you’re imperfect
 	2. Agency – believing you can handle challenges and figure things out
 	3. Autonomy – believing your actions influence your life more than external circumstances
 	4. Adaptability – staying grounded instead of being ruled by stress, emotion or overwhelm
-15. https://www.instagram.com/p/DYibvnDMbuV/ new phd dropout and moved to Taiwan
-16. Man's mental health https://www.instagram.com/p/DYgJ-WWBvlK/
-17. 2c marketing through livestream tips: https://www.instagram.com/p/DVnQSKRj6Xu/
-18. https://www.instagram.com/nuva.now?igsh=NW9qdnQ1ZnAweGht 林上哲 
-19. https://www.instagram.com/p/DX6btz5FJAr/ Chrome 擴充元件「Cat Gatekeeper」
-20. https://www.instagram.com/p/DW_p5wkk3ui/ R&M on capitalism
-21. tips for stop scrolling https://www.instagram.com/p/DXMTF4Oj9t8/ 
-22. 前一天訂好隔天待辦，持之以恆 https://jamesclear.com/ivy-lee 
-23. don't overexplain yourself: https://www.instagram.com/p/DU0O5LYCW-3/
-24. https://www.instagram.com/reel/DV2dojVjY3N/ expression system = quality(input) + frequency (output) + AI-enhancement
-25. https://www.instagram.com/reel/DUwQvDIkuR7/ structure - image: opening and closing with the same visual – a technique called threading 
-26. https://www.instagram.com/reel/DTtqi4Sj_Jc/ reading drill: enunciation + pronunciation with a pen on mouth + speak on the fly 
-27. https://www.instagram.com/reel/DWIJcmbiSHn/ AI course from anthropic 
-28. Oyez, Turbo AI, 
-29. Face it framework https://www.instagram.com/reels/DXNWiUujTZl/ : write down what you've been avoided it; what you're afraid; what happen if you never do it; worst case? 
-30. Be yourself https://www.instagram.com/reel/DZEE7k7IxjZ/ 
-31. modes of scrolling https://www.instagram.com/reel/DZMtWUCNunl/ and Elon https://www.instagram.com/reel/DZMe4Z7Snwm/
-32. challenges by choice, ignore others https://www.instagram.com/reel/DZX0vP3tjLS/
-33. Three books for leveling up communication and creative thinking: The making of a manager, start with why, personal MBA
-34. get rich and escape the bermuda triangle of talent and https://www.instagram.com/p/DWNZhvYjgqh/; https://youtu.be/vd_oYgwQSBM?si=nume7UI8juzEEAFF
-35. strike up a more rewarding conversation https://www.instagram.com/p/DZm0OS_jFcp/
-36. games to hack your motivation: https://www.instagram.com/p/DZnNDCtEuEM/
-37. a list of three films: https://www.instagram.com/p/DZoS0zKE_7n/?img_index=2 (Being productive is easy, actually; success is hard until you build systems; one hour a day can change your life)
-38. Algorithmic Monoculture in Hiring https://digitaleconomy.stanford.edu/news/qa-algorithmic-monoculture/
-39. Jevons paradox x Geoffrey Hinton [**王伯達觀點**](https://www.facebook.com/potawang/posts/pfbid034iVyPM691C88eyzXYNCSmkjmtgjcmECGuT8jJdJnw7h3gtg3dqEa2uiSF9C4nNs6l)
-40. ExplainThis 軟體工程白話聊 : 
+18. https://www.instagram.com/p/DYibvnDMbuV/ new phd dropout and moved to Taiwan
+19. Man's mental health https://www.instagram.com/p/DYgJ-WWBvlK/
+20. 2c marketing through livestream tips: https://www.instagram.com/p/DVnQSKRj6Xu/
+21. https://www.instagram.com/nuva.now?igsh=NW9qdnQ1ZnAweGht 林上哲 
+22. https://www.instagram.com/p/DX6btz5FJAr/ Chrome 擴充元件「Cat Gatekeeper」
+23. https://www.instagram.com/p/DW_p5wkk3ui/ R&M on capitalism
+24. tips for stop scrolling https://www.instagram.com/p/DXMTF4Oj9t8/ 
+25. 前一天訂好隔天待辦，持之以恆 https://jamesclear.com/ivy-lee 
+26. don't overexplain yourself: https://www.instagram.com/p/DU0O5LYCW-3/
+27. https://www.instagram.com/reel/DV2dojVjY3N/ expression system = quality(input) + frequency (output) + AI-enhancement
+28. https://www.instagram.com/reel/DUwQvDIkuR7/ structure - image: opening and closing with the same visual – a technique called threading 
+29. https://www.instagram.com/reel/DTtqi4Sj_Jc/ reading drill: enunciation + pronunciation with a pen on mouth + speak on the fly 
+30. https://www.instagram.com/reel/DWIJcmbiSHn/ AI course from anthropic 
+31. Oyez, Turbo AI, 
+32. Face it framework https://www.instagram.com/reels/DXNWiUujTZl/ : write down what you've been avoided it; what you're afraid; what happen if you never do it; worst case? 
+33. Be yourself https://www.instagram.com/reel/DZEE7k7IxjZ/ 
+34. modes of scrolling https://www.instagram.com/reel/DZMtWUCNunl/ and Elon https://www.instagram.com/reel/DZMe4Z7Snwm/
+35. challenges by choice, ignore others https://www.instagram.com/reel/DZX0vP3tjLS/
+36. Three books for leveling up communication and creative thinking: The making of a manager, start with why, personal MBA
+37. get rich and escape the bermuda triangle of talent and https://www.instagram.com/p/DWNZhvYjgqh/; https://youtu.be/vd_oYgwQSBM?si=nume7UI8juzEEAFF
+38. strike up a more rewarding conversation https://www.instagram.com/p/DZm0OS_jFcp/
+39. games to hack your motivation: https://www.instagram.com/p/DZnNDCtEuEM/
+40. a list of three films: https://www.instagram.com/p/DZoS0zKE_7n/?img_index=2 (Being productive is easy, actually; success is hard until you build systems; one hour a day can change your life)
+41. Algorithmic Monoculture in Hiring https://digitaleconomy.stanford.edu/news/qa-algorithmic-monoculture/
+42. Jevons paradox x Geoffrey Hinton [**王伯達觀點**](https://www.facebook.com/potawang/posts/pfbid034iVyPM691C88eyzXYNCSmkjmtgjcmECGuT8jJdJnw7h3gtg3dqEa2uiSF9C4nNs6l)
+43. ExplainThis 軟體工程白話聊 : 
 	1. 這幾天社群有非常多解析 Claude Code 原始碼的內容，但相比之下，我們覺得更值得討論的是「當團隊中有人捅了大婁子，Claude Code 的團隊負責人如何應對?」。https://www.facebook.com/explainthis.io/posts/pfbid0D4CCmQcHcigCbxEoPezZivWu1zFJKrmaufjHa3oi391gq3PY4qhtiPqfQxmN49d6l 
 	2. Midjourney 是一間有個性到令人嚮往的公司 they are doing Midjourney Medical  https://www.facebook.com/explainthis.io/posts/pfbid02d3rgNnJCQELM3XA8BeUyWxvzvLca8H3bsEx5KxbP9JJz9JJHQurrScUo41Hf8tzJl
 	3. Ponytail https://www.facebook.com/explainthis.io/posts/pfbid02UYfVdXuyt8V9Hk3gsstU9qSFfQ9NVtin5yWBzVAa6ScQJfCfeYZECgXoYY6SWqbfl
-41. Andrew Wilkinson 靠收購軟體公司致富，宣稱軟體產業要死了
-42. https://www.facebook.com/veritaswan/posts/pfbid02AXXMdEjuE5V9zYWjJ9vZsSMgowGAq782ezvg3fEBfEEYZVTjZe5dWXgCxrYj4Rfyl AI poses Risks to Democratic and Social Systems
-43.  ICML（International Conference on Machine Learning）https://www.facebook.com/jeffcheng2020/posts/pfbid0uqo1hPvV2okyQqNa3hg341WkAnB9kxMEzsmYcpbXSSvETZdMdqQXN8WdKmao4PL4l 
-44. Claude x Youtube: https://www.facebook.com/huang.hao.543/posts/pfbid02d3kLzaYRUKJvxeNq4BuuV5kBnrF4HC8bDfJob48wfzmcgjF1nS8nLMwg4fLYeoWol
+44. Andrew Wilkinson 靠收購軟體公司致富，宣稱軟體產業要死了
+45. https://www.facebook.com/veritaswan/posts/pfbid02AXXMdEjuE5V9zYWjJ9vZsSMgowGAq782ezvg3fEBfEEYZVTjZe5dWXgCxrYj4Rfyl AI poses Risks to Democratic and Social Systems
+46.  ICML（International Conference on Machine Learning）https://www.facebook.com/jeffcheng2020/posts/pfbid0uqo1hPvV2okyQqNa3hg341WkAnB9kxMEzsmYcpbXSSvETZdMdqQXN8WdKmao4PL4l 
+47. Claude x Youtube: https://www.facebook.com/huang.hao.543/posts/pfbid02d3kLzaYRUKJvxeNq4BuuV5kBnrF4HC8bDfJob48wfzmcgjF1nS8nLMwg4fLYeoWol
 	1. ▋ 你以為 YouTube 是「排名系統」，它其實是「配對系統」
 	2. ▋ YouTube 背後真正的三層 AI: 1. 語意理解, 2. 主題聚類, 3. 觀眾意圖建模
 	3. ▋ 影片爆紅的四個觸發條件
@@ -177,28 +182,28 @@ updated_at: "2026-07-04T09:02:17+08:00"
 		2. 時間窗口:在一個新的主題群聚裡，第一支夠強的影片，沒有競爭者。它會被塞進本來要讓觀眾失望的推薦位。
 		3. 外部流量: 從 Reddit、Twitter、電子報來的觀看，是一種信號——這些是真的人想看這個，不是演算法塞給他們的。
 		4. Session Resonance（單 session 共鳴）這是他最愛的一個: 如果你的影片，讓觀眾在 YouTube 停留的時間，比他本來可能看的下一支更久，系統會默默把你推得更廣。
-45. "納瓦爾"主導，AngelList 宣布推出 USVC 基金，讓散戶只要 500 美元就能買到 xAI、Anthropic、OpenAI 這幾家目前最燙手的 AI 私人公司的股權 https://www.facebook.com/reel/2316758615478361/
-46. Claude AI Safety and ethics https://www.facebook.com/jiawei.cui2/posts/pfbid0jqLneysEucMRfS7SjY1KVA7dM54i5qNibyi5VGQpNz4fK6DvQT2ej4cYFQaRrsp7l
-47. "Anthropic 基於 2025 年 10 月至 2026 年 4 月間，約 40 萬次 Claude Code 實際對話 session 分析（來自約 23.5 萬名使用者）的隱私保護分析，探討Agentic  AI 程式設計工具的實際使用情況。" https://www.facebook.com/gatelynch/posts/pfbid0dCVAXFTf1cb8Cymb4PPiAzhjSVkf3mLL8Ejgi2MSNGi4X1vCnTKm5AFkaqJNF6Frl; https://www.anthropic.com/research/claude-code-expertise
-48. Daniel Pink's posts: https://www.facebook.com/reel/4366516453627217/; https://www.facebook.com/danielhpink/posts/pfbid02UKk2DF7FdYHD1bL4RNdeN9ekAaZMRXvVQTAkXa2edzDspigs1sWCbchqwdF99Rgl; https://www.facebook.com/reel/1541899534334463/?s=single_unit
+48. "納瓦爾"主導，AngelList 宣布推出 USVC 基金，讓散戶只要 500 美元就能買到 xAI、Anthropic、OpenAI 這幾家目前最燙手的 AI 私人公司的股權 https://www.facebook.com/reel/2316758615478361/
+49. Claude AI Safety and ethics https://www.facebook.com/jiawei.cui2/posts/pfbid0jqLneysEucMRfS7SjY1KVA7dM54i5qNibyi5VGQpNz4fK6DvQT2ej4cYFQaRrsp7l
+50. "Anthropic 基於 2025 年 10 月至 2026 年 4 月間，約 40 萬次 Claude Code 實際對話 session 分析（來自約 23.5 萬名使用者）的隱私保護分析，探討Agentic  AI 程式設計工具的實際使用情況。" https://www.facebook.com/gatelynch/posts/pfbid0dCVAXFTf1cb8Cymb4PPiAzhjSVkf3mLL8Ejgi2MSNGi4X1vCnTKm5AFkaqJNF6Frl; https://www.anthropic.com/research/claude-code-expertise
+51. Daniel Pink's posts: https://www.facebook.com/reel/4366516453627217/; https://www.facebook.com/danielhpink/posts/pfbid02UKk2DF7FdYHD1bL4RNdeN9ekAaZMRXvVQTAkXa2edzDspigs1sWCbchqwdF99Rgl; https://www.facebook.com/reel/1541899534334463/?s=single_unit
 	1. - Viktor Frankl - Man’s Search for Meaning, - Mason Currey - Daily Rituals, ￼ Anne Lamott - Bird by Bird, Daniel Kahneman - Thinking Fast and Slow, - Robert Cialdini - Influence
 	2. teach to learn, make it harder, retrieval beats review, and walk to think
 	3. why you put off things you wanna do: Book "Drive" - seven levels of motivation (survive, rewards, approval, achievement, growth, purpose, autonomy) - application: find the thing you procrastinate and the write a reason one level up its current motivation level. Motivation is not about forcing yourself but designing better reasons to act
-49. https://www.facebook.com/vktechread/posts/pfbid0TLSfxSX4NW6p8UALCyJsTCbSVm5K18WxL11keSc3pJdkjPkzVdVW5N1jvAeEGKFCl 馬斯克自己回頭看：「如果我當年恨他們，Founders Fund 不會在 2008 年投資 SpaceX，公司就會死亡。因果報應可能是真實的。」
-50. A millionaire who doesn't believe in entrepreneurship https://www.instagram.com/reel/DYdICIJSw72/ - Get sharp at your skill and interview a lot, and get a high-paying job and invest.
-51. 10-year therapy in 10 minutes: https://www.instagram.com/reel/DZ164zGyqqW/ 1.no one is going to save you; 2. strong boundary 3. live with your problems; 4. learn how to read your own mind and tell it to shut up; 5. stop trying to convince to like you; 6. let the dream dies - and accept it; 7. only a few people matter in your life in the long run so when you find them, make time for them, be grateful, and treat them right; 
-52. 11 books for reshaping views of human behavior: interpretation of cultures, the evolution of cooperation, suicide (E.D.), the NUER (E.E. Evans-Pritchard), Argonauts of the western pacific (B. M.), the Gift (Marcel Mauss), Purity and Danger, Orientalism, the structures of the life-world, the use and abuse of biology, outline of a theory of practice https://www.instagram.com/p/DYZkW8zlZHe/?img_index=4
-53. physics - MIT opencourseware; biology nija nerd, chemistry - math & science (the organic chemistry tutor,) Knowt
-54. Tom Scott at GQ https://youtu.be/wtzmHzaZjcM?si=MIUj3liIybIwkhhL
-55. Roadmap for AI agent https://youtu.be/1RTOJcwwJJQ?si=MoncJKZvYu36dy_m; 
-56. Mike and Matty: https://youtu.be/19K6BDac2UM?si=CaIFzKfdLTXw5Sne 
+52. https://www.facebook.com/vktechread/posts/pfbid0TLSfxSX4NW6p8UALCyJsTCbSVm5K18WxL11keSc3pJdkjPkzVdVW5N1jvAeEGKFCl 馬斯克自己回頭看：「如果我當年恨他們，Founders Fund 不會在 2008 年投資 SpaceX，公司就會死亡。因果報應可能是真實的。」
+53. A millionaire who doesn't believe in entrepreneurship https://www.instagram.com/reel/DYdICIJSw72/ - Get sharp at your skill and interview a lot, and get a high-paying job and invest.
+54. 10-year therapy in 10 minutes: https://www.instagram.com/reel/DZ164zGyqqW/ 1.no one is going to save you; 2. strong boundary 3. live with your problems; 4. learn how to read your own mind and tell it to shut up; 5. stop trying to convince to like you; 6. let the dream dies - and accept it; 7. only a few people matter in your life in the long run so when you find them, make time for them, be grateful, and treat them right; 
+55. 11 books for reshaping views of human behavior: interpretation of cultures, the evolution of cooperation, suicide (E.D.), the NUER (E.E. Evans-Pritchard), Argonauts of the western pacific (B. M.), the Gift (Marcel Mauss), Purity and Danger, Orientalism, the structures of the life-world, the use and abuse of biology, outline of a theory of practice https://www.instagram.com/p/DYZkW8zlZHe/?img_index=4
+56. physics - MIT opencourseware; biology nija nerd, chemistry - math & science (the organic chemistry tutor,) Knowt
+57. Tom Scott at GQ https://youtu.be/wtzmHzaZjcM?si=MIUj3liIybIwkhhL
+58. Roadmap for AI agent https://youtu.be/1RTOJcwwJJQ?si=MoncJKZvYu36dy_m; 
+59. Mike and Matty: https://youtu.be/19K6BDac2UM?si=CaIFzKfdLTXw5Sne 
 	1. The hosts argue that "picking a niche" is often poor advice because it is too broad and can confuse the YouTube algorithm, which is trying to find a specific audience for your content (0:18-0:58).
 		Instead, they suggest focusing on **transformation** and **audience specificity**:
 		* **Algorithm confusion:** If your channel is simply in the "business" niche, the algorithm may struggle to find viewers because a restaurant owner, a SaaS founder, and an online course creator all have different needs. If you try to appeal to all of them, the audience won't click, and the algorithm won't know who to show your videos to (0:41-2:18).
 		* **The Power of Transformation:** Rather than picking a generic niche, you should define the specific **transformation** you provide—teaching someone how to go from *Point A* to *Point B* (3:02-3:30). 
 		* **Targeting the Right Person:** By focusing on a specific individual (e.g., "sushi restaurant owners" instead of "business owners"), you create "perfect content-market fit." When the algorithm sees that your target audience consistently clicks on your videos to solve their specific problems, it will naturally find more viewers like them, helping your channel grow faster (1:30-3:00).
 		* **The Tree Method:** You don't have to limit your content diversity; by focusing on a specific transformation, you can use the "tree method" to cover unlimited topics as long as they serve as solutions for your target audience's journey (6:34-7:37).
-57. Data Growth https://www.youtube.com/watch?v=yWTjrqx8SJE; 
+60. Data Growth https://www.youtube.com/watch?v=yWTjrqx8SJE; 
 	1. 本期视频围绕新书《Growth Data Analysis Playbook / 增长数据分析实战手册》的发布，邀请嘉宾 *Mengying*、*Joe* 和 *Yuzheng* 进行深度对谈。嘉宾们分享了他们在 *Meta*、*Notion* 等公司的一线实践经验，探讨了增长数据分析在现代企业中的核心作用与方法论。
 	**核心议题与观点：**
 	*   **增长分析的本质 (05:54-12:52)：** 数据分析不应局限于报表和指标，其核心是帮助团队理解用户、做出产品决策并验证增长假设。增长是公司生存的命脉，数据工作的价值在于通过科学的决策驱动业务增长。
@@ -209,19 +214,23 @@ updated_at: "2026-07-04T09:02:17+08:00"
 	*   **AI 时代的数据工作 (29:24-35:58)：** AI 将改变数据消费和生产方式（如对话式数据分析）。嘉宾们鼓励数据从业者向“构建者（Builder）”转型，利用 AI 工具亲自落地产品功能，提升个人核心竞争力。
 	**观众问答环节 (35:58-50:01)：**
 	探讨了数据科学家的职业角色演变、PLG 营销策略的选择，以及在 AI Agent 时代如何衡量新产品成功的 KPIs 等实际问题。
-58. 健康：
+61. 健康：
 	1. Nature: news feature - Tech titans are hacking their bodies for a longer life https://www.facebook.com/hemodialysis.taiwan/posts/pfbid0nMTyicytk9ZQVvXspkUgytuTxQDkHBKfT5cwjhUyTcLnJrAsBBv6RzkAWMr4oxD5l ; Nature 654，589–591（2026）doi：10.1038/d41586-026-01884-z ; https://www.nature.com/articles/d41586-026-01884-z?utm_id=97758_v0_s00_e0_tv1_a1demondzt6dk8
 	2. 肌酸：少數有效的運動營養補充品（導讀） https://www.facebook.com/hemodialysis.taiwan/posts/pfbid0bhzTuW53uMtv2GxH2M3dwaqYWtPYHbxr1dnANfVMxtzxhbPkt6QQGByorRDiuGnyl
 	3. https://www.facebook.com/bluepigeonnn/posts/pfbid0RWQBFeftvdcDmUyxQCvhUcJ3FWEhR4dNjABGjwPwHPLsDeyvvi9tC2wgjEyEihCCl 把LDL控制在<100，能大幅減低中風跟心梗風險。
 	4. 川普健檢報告  
 		1. https://x.com/RapidResponse47/status/2060558237313663177?fbclid=IwY2xjawS0SU9leHRuA2FlbQIxMABicmlkETFjOE9iWFNXZEpWSjRjcUV6c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk-xKCuy2tIi8t5iDQmAUkWFa5A6kUH1LJS4wTV96QIDoMAm5b0UMAcLSVTM_aem_WrZ9hBTm73gwn7OkgBrBUA
 		2. https://www.facebook.com/share/p/1CubwWaGyb/
-	5. 足癬 https://www.facebook.com/share/p/196bqVJ7Gy/
-		皮膚專科 烏惟新醫師 最容易被誤診為汗皰疹的黴菌感染：水泡性足癬
-59. 資安院發布OpenClaw與NemoClaw資安檢測報告，提醒各界謹慎使用AI代理工具 https://www.nics.nat.gov.tw/latest_news/announcements/Latest_Announcement/58756447-b350-4bbe-88cc-c994b5549acf/
-60. 歷史上來看，想翻身就不要去做勞力活  https://www.facebook.com/share/p/1H8sR358Fs/
+	5. 足癬 https://www.facebook.com/share/p/196bqVJ7Gy/ 皮膚專科 烏惟新醫師 最容易被誤診為汗皰疹的黴菌感染：水泡性足癬
+	6. 聽力改善避免失智 https://www.instagram.com/p/DZ4fr3uJfLa/
+	7. 失眠 https://www.threads.com/@jasonj.lai/post/DW1TdM1j-cc?xmt=AQG057wWJ3li43_B75UPCzntnsEWxw1bswOmLjxY_N1NSQ
+62. 資安院發布OpenClaw與NemoClaw資安檢測報告，提醒各界謹慎使用AI代理工具 https://www.nics.nat.gov.tw/latest_news/announcements/Latest_Announcement/58756447-b350-4bbe-88cc-c994b5549acf/
+63. 歷史上來看，想翻身就不要去做勞力活  https://www.facebook.com/share/p/1H8sR358Fs/
 	1. 寧可遊手好閒也不幹勞力活，比如：張儀、商鞅、劉邦、韓信…趙匡胤
-61. The paradox of relationship - probably just a variant of the more you learn, the more you forget, the more you forget, the less you remember. https://www.instagram.com/p/DUulvQxEp7A/
+64. The paradox of relationship - probably just a variant of the more you learn, the more you forget, the more you forget, the less you remember. https://www.instagram.com/p/DUulvQxEp7A/
+65. Do something different https://www.instagram.com/p/DTy74J5kWy-/
+66. Mutual influence matters in relationship https://www.instagram.com/p/DZIP1ePR4go/
+67. perception https://www.instagram.com/p/DWILg8-uwbk/
 
 ## Quotes & Street interviews
 1. His favorite principle: "Pain plus reflection equals progress from Ray Dalio's speech at Long Island University 2026 speech https://www.instagram.com/p/DYh8SByKCi0/
@@ -250,6 +259,10 @@ updated_at: "2026-07-04T09:02:17+08:00"
 18. book for ambitious people: mastery, inner game of tennis, finite and infinite games, peak (Anders Ericsson),   https://www.instagram.com/p/DZLsgwxltir/?img_index=6
 19. build a system for job-hunting, reference: https://www.instagram.com/reel/DZe-ESvvVfp/ 
 20. https://www.instagram.com/reels/DZe-7pbCxPf/ Day 62 of 200 things to do alone: go to a cafe alone, phone stays in the bag. Order something, drink your drink, watch the room. Be a person sitting in a cafe.
+21. My own quotes: 
+	1. 追求「完美自洽的立場」是一種現代性病症——受啟蒙理性主義影響，以為好的人生應該像一個一致的論證。但人實際上不是一個論證，是一個在時間中展開的實踐。
+	   https://www.threads.com/@jasonj.lai/post/DXgJtewEXXV?xmt=AQG057wWJ3li43_B75UPCzntnsEWxw1bswOmLjxY_N1NSQ
+	2. Life's meaningless—let's dare to build our own: connect, destroy, explore, freestyle, and goof around. https://www.threads.com/@jasonj.lai/post/DXyGb2SEbLW?xmt=AQG057wWJ3li43_B75UPCzntnsEWxw1bswOmLjxY_N1NSQ
  
 
 ## Food and travel, and potential shopping list:
@@ -271,22 +284,26 @@ updated_at: "2026-07-04T09:02:17+08:00"
 16. Hyrox 聖地 巴黎大皇宮 https://www.instagram.com/p/DYwzUp-Et3h/?img_index=1
 17. https://www.instagram.com/reel/DZeve-KzFLx/ 沖繩的古老技藝
 18. 迪卡儂防水鞋: https://www.instagram.com/p/DYtScKpkeuK/
+19. 完美的燈 https://www.instagram.com/p/DVZYxLHEvHZ/
 
 
 ## Art, Movies and Music:
 1. Probably best on hero and pregnancy, https://www.instagram.com/p/DVvqhdKCSxQ/
 2. 懸疑劇： https://www.instagram.com/p/DYcCqcPAc9T
-3. Thomas Deininger perspective: https://www.instagram.com/p/DWlwcxviTlQ/
-4. https://www.instagram.com/p/DY2N7yzIvLZ/ Nice song
-5. https://www.instagram.com/p/DZe_UpiDudq/ 三部情慾電影
-6. https://www.instagram.com/p/DZAF0iIBP7A/  Nearly NT$6 billion. Jackson Pollock 《Number 7A, 1948》Christie’s New York, May 18, 2026.
-7. https://www.instagram.com/p/DXxuWYAnyO4/ 「德國聲樂家一人唱出兩把聲德國聲樂家 Wolfgang Saus 近日表演《Canon in D》，以獨特「泛音唱法」同時唱出低音與高音旋律。」
-8. Wargame winner with a knife https://www.instagram.com/reels/DXg2Ul_gDNH/
-9. https://www.instagram.com/p/DZjY242iJ_R/ Tarantino - Hollyhood is like a sausage factory; exception: West Side Story, Horizon: an American Saga; The Rip 
-10. 50 legal movies https://www.instagram.com/p/DZsdf3CiPVq/?img_index=5
-11. Babylon https://www.instagram.com/p/DZzmToUGqll/?img_index=4
-12. New legal tv show AXN《王牌律師：造雨人》
-13. music Abuku https://youtu.be/OHAjc-ayhus?si=GdH4uSYXjhHQQIWv
+3. Cats walk in https://www.instagram.com/p/DYkCsspD8Q4/?img_index=14
+4. Thomas Deininger perspective: https://www.instagram.com/p/DWlwcxviTlQ/
+5. https://www.instagram.com/p/DY2N7yzIvLZ/ Nice song
+6. https://www.instagram.com/p/DZe_UpiDudq/ 三部情慾電影
+7. https://www.instagram.com/p/DZAF0iIBP7A/  Nearly NT$6 billion. Jackson Pollock 《Number 7A, 1948》Christie’s New York, May 18, 2026.
+8. https://www.instagram.com/p/DXxuWYAnyO4/ 「德國聲樂家一人唱出兩把聲德國聲樂家 Wolfgang Saus 近日表演《Canon in D》，以獨特「泛音唱法」同時唱出低音與高音旋律。」
+9. Wargame winner with a knife https://www.instagram.com/reels/DXg2Ul_gDNH/
+10. https://www.instagram.com/p/DZjY242iJ_R/ Tarantino - Hollyhood is like a sausage factory; exception: West Side Story, Horizon: an American Saga; The Rip 
+11. 50 legal movies https://www.instagram.com/p/DZsdf3CiPVq/?img_index=5
+12. Babylon https://www.instagram.com/p/DZzmToUGqll/?img_index=4
+13. New legal tv show AXN《王牌律師：造雨人》
+14. music Abuku https://youtu.be/OHAjc-ayhus?si=GdH4uSYXjhHQQIWv
+15. five TV shows about self-sabotage, BoJack Horseman https://www.instagram.com/monday_blueeee/reel/DVsHpU-k6eV/
+16. watched in Q2: 雙囍, His & Hers, Dragonball DaiMA, Berline and the Lady with an Ermine, Beyond her eyes
 
 ## X & Crypto-related
 
@@ -326,4 +343,5 @@ updated_at: "2026-07-04T09:02:17+08:00"
 7. Google Quantum AI 上週發了一篇 57 頁的研究論文 https://x.com/mnhsuTW/status/2041701182608175532?s=20
 8. Nature 期刊盖章：普通人到底怎么变有钱？ https://x.com/Phoenixyin13/status/2072213638752940531?s=20
 	1. https://www.nature.com/articles/s41586-022-04996-4.pdf
+9. Social engineering: https://www.threads.com/@jasonj.lai/post/DZd3l8ID9nW?xmt=AQG057wWJ3li43_B75UPCzntnsEWxw1bswOmLjxY_N1NSQ
 

@@ -2,243 +2,255 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jasonjlai.net/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/about/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/about/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/now/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/now/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/PIF12/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/PIF12/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/long-game/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/long-game/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/communication/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/communication/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/japanese/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/japanese/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/qualia/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/qualia/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/seeds/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/seeds/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/privacy/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/contribute/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/blog/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/blog/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/music/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/music/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/partnership/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/partnership/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/playbooks/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/playbooks/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/playgrounds/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/playgrounds/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/quarterly-review/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/quarterly-review/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/skill-tree/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/skill-tree/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/translated/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/translated/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/y2026/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/zh/3pwriting/y2026/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://jasonjlai.net/zh/3pwriting/partnership/2026-q2-review-builder.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jasonjlai.net/3pwriting/partnership/2026-q2-review-builder.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jasonjlai.net/3pwriting/partnership/2026-q1-review-builder.html</loc>

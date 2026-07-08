@@ -995,7 +995,7 @@ def main():
 
         safe_summary = escape(p["summary"]).replace('"', '&quot;')
 
-        content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes"])
+        content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes", "attr_list"])
         content_html = add_target_blank_to_external(content_html)
         updated_value = effective_updated(p)
         if updated_value:

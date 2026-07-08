@@ -8,6 +8,9 @@ tags:
   - quotes
 derived_from:
   - 2026-07-02-reality-loneliness
+  - 2021-03-16-mrps075
+updated_at: "2026-07-08T08:57:41+08:00"
+
 ---
 I'm grateful for people showing up at my TCE session on Saturday
 
