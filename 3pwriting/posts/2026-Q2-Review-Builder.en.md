@@ -16,7 +16,7 @@ summary: "Quarter two, laid bare: twin wins, three rain checks, seven fast failu
 ---
 TL;DR:
 
-This is the second edition of the quarterly review with the new 10-point format: It has 55 bite-size items, and the section titles may keep getting tuned. I'd suggest reading from the top, or at least finishing a section before clicking any hyperlinks. Or just jump straight to whatever interests you — that works too.
+This is the second edition of my quarterly review. In this Q2 issue, I use a new 10-point format to reflect on my gratitude, personal growth, key milestones, and recommendations. It has 55 bite-sized items, and the section titles may keep getting tuned. I'd suggest reading from the top, or at least finishing a section before clicking any hyperlinks. Or just jump straight to whatever interests you — that works too.
 
 Thoughts and ideas welcome at hello@jasonjlai.net.
 
@@ -53,18 +53,17 @@ Keep becoming more transparent in how I think and work — to lower the friction
 1. [PIF12 (Pay it Forward 12)](https://jasonjlai.net/PIF12/) went onchain right on schedule, on the summer solstice.
 	It's a long-term onchain community experiment. Year one is simply about spreading the idea: technology wired the world together yet left us more closed off, and I want to use a blockchain to connect and reconnect the interesting souls in my life. That's all.
 
-2. The Blockchain Lawyers Forum (BLF) — I gave a talk on U.S. digital asset law, and contributed an article: "From Immunity to Accountability: How U.S. Digital Asset Regulation Can Support Both Institutional Adoption and the Crypto-Native Community."
+2. At the Blockchain Lawyers Forum (BLF), I gave a talk on U.S. digital asset law and had an article published in the [BLF Law Review](https://www.linkedin.com/posts/blockchain-lawyers-forum_blr-2026-activity-7475964066633531392-60pi?utm_source=share&utm_medium=member_desktop&rcm=ACoAACoJk-8BXYUAV-NYXKO9qS6QKwMYorsspH8): "From Immunity to Accountability: How U.S. Digital Asset Regulation Can Support Both Institutional Adoption and the Crypto-Native Community."
 
 ## 3 · Three Rain Checks {#s3}
 
-1. Didn't finish my half-marathon self-training
-2. Didn't finish the video on Bayesian thinking
-3. Didn't finish my review of [Tyler Cowen's new book on "Marginal Revolution"](https://tylercowen.com/marginal-revolution-generative-book/)
+Since this quarterly review is about transparency, I'm honestly logging what didn't get done — without piling up excuses; the reasons belong in the retrospective, in how I made trade-offs. Mostly it comes down to time management and energy allocation: once I said yes to the BLF invitation, there was not much bandwidth left for these. 
 
-Since this quarterly review is about transparency, I'm honestly logging what didn't get done — without piling up excuses; the reasons belong in the retrospective, in how I made trade-offs. Mostly it comes down to time management and energy allocation: once I said yes to the BLF invitation, there was not much bandwidth left for these. As for Cowen's book in particular: it really requires revisiting marginal utility theory from microeconomics first. I feel like I finished reading it, yet beyond restating the author's points I can't voice an insight of my own — which surely means my understanding isn't deep enough, and that's why the pen still hasn't moved.
+1. Didn't finish my half-marathon self-training: I've put too much mental pressure on myself, feeling like I need to rush to run a 10K one to three times first, which has actually left me paralyzed and unable to take a single step.
+2. Didn't finish the video on Bayesian thinking: I collected tons of information—from the debate between frequentists and Bayesians, to how the courts and statisticians made mistakes in the Sally Clark case, to "beyond a reasonable doubt" as a Bayesian framework. I even added a few anime scenes that show how our prior beliefs play a huge role in how we perceive the world. But by the end of the quarter, I still couldn't finish the script.  
+3. Didn't finish my review of [Tyler Cowen's new book on "Marginal Revolution"](https://tylercowen.com/marginal-revolution-generative-book/): While I enjoyed reading it, it really requires revisiting marginal utility theory from microeconomics first. I feel like I finished reading it, yet beyond restating the author's points I can't voice an insight of my own — which surely means my understanding isn't deep enough, and that's why the pen still hasn't moved.
 
-As for the half marathon, I've put too much mental pressure on myself, feeling like I need to rush to run a 10K one to three times first, which has actually left me paralyzed and unable to take a single step.
-
+What is clear to me is that my ambition is harmfully high. It often paralyzes me, stopping me right before the finish line.
 ## 4 · Four on Repeat {#s4}
 
 1. [Yorushika — "Abuku" (OFFICIAL VIDEO)](https://youtu.be/OHAjc-ayhus?si=tjZpX7uIv-FbbZNN)(Japanese)
@@ -87,7 +86,7 @@ As for the half marathon, I've put too much mental pressure on myself, feeling l
 
 1. [Sun Brand Ice (太陽牌冰品)](https://maps.app.goo.gl/2aXo8XsWzuDEPthN7): a mid-May trip to Tainan brought me to this old-school ice treat — the most recommendable bite of the whole trip. After all my visits to Tainan, my only regret is not discovering it sooner. We went two days in a row.
 
-2. [Wangji Fucheng Zongzi (王記府城肉粽)](https://maps.app.goo.gl/au1h3kGXm6QPoKeF7): this one hardly needs my endorsement — Jensen has signed his name there three times. One useful note: dine-in barely has a queue (we went on Dragon Boat Festival day two years in a row and were seated within five minutes).
+2. [Wangji Fucheng Zongzi (王記府城肉粽)](https://maps.app.goo.gl/au1h3kGXm6QPoKeF7): this one hardly needs my endorsement — Jensen Huang has visited and signed his name there three times. Even so, dine-in barely has a queue (we went on Dragon Boat Festival day two years running and were seated within five minutes).
 
 3. [Arashiyama Aged Gyukatsu (嵐山熟成牛かつ專売)](https://maps.app.goo.gl/amWQ6FLTk2XpFJxN9): finding this place was mildly surreal. I was headed to Taichung for an event, restless on the HSR: a gap before the event, and no idea where to eat or rest. So I quit searching and went on instinct — ride the metro to the neighborhood, then trust luck, or a local's tip, on the walk to the venue. First I stepped into a brunch café with exactly one table of customers.
 	"Sit anywhere you like." So I headed for the second floor —
@@ -177,12 +176,12 @@ From harder to easier.
 1. Three talks in English (challenge: medium) — the Blockchain Lawyers Forum, plus hosting two TCE sessions. As of July 7 I'm at six talks for the year, still a distance from the 24-talk goal. Onward — and I'll take all the help I can get: [invitations of every kind welcome](https://jasonjlai.net/communication/).
 2. Going live from the HSR platform (challenge: medium): one episode of the livestream diary began right on the high-speed-rail platform, travelers packed around me — genuinely uncomfortable. I kept thinking of [this video](https://www.instagram.com/reels/DZX0vP3tjLS/) and [this one](https://www.instagram.com/p/DWILg8-uwbk/).
 3. Formatting the quarterly review (challenge: medium). This is probably the format from here on — holding at fifty-five items. Next improvement: borrow from IPO prospectuses and add more forward-looking hopes and expectations.
-4. Joining the ETHTaipei organizing team (challenge: medium)
-5. Deploying the smart contract, onchain on schedule (challenge: medium-low)
-6. Introducing PIF12 to new friends (challenge: medium-low)
-7. Serving as an interviewer for a club (challenge: medium-low)
-8. In-person meetups of online communities × 2: Waki's community and Manny's (challenge: low)
-9. Growing my hair long; joining an amateur makeover event in Taichung (challenge: low)
+4. Joining the ETHTaipei organizing team (challenge: medium): I've enjoyed the past editions I attended, and this is my first year on the organizing side. Mostly I just hope not to get in anyone's way — and if there's somewhere I can genuinely help, all the better.
+5. Deploying the smart contract, onchain on schedule (challenge: medium-low): it ate up a lot of time. By rights I should write a dedicated piece and invite old and new friends to come interact with it, but I shelved that to get this Q2 review out on time — hopefully I'll finish it this week.
+6. Introducing PIF12 to new friends (challenge: medium-low): I've joined a lot of communities lately, and saying the PIF12 pitch out loud still doesn't come easily — it hasn't yet become a habit or part of my identity. But after pouring in this much time, I have to get more people to hear about it and take part; that's the only way the community comes alive.
+7. Serving as an interviewer for a club (challenge: medium-low): so far I've helped interview new members at two TCE sessions — not a heavy lift. I'm looking forward to seeing the community keep growing and bringing in the right people.
+8. In-person meetups of online communities × 2: Waki's community and Manny's (challenge: low): I couldn't land a ticket to any of the Taipei ones, so I made a special trip to the Manny's Newsletter meetup in Taichung. Meeting Manny in the flesh was a novelty given that he barely shows his face online. Hearing that he wants to be a backstop for creators in Taiwan — helping them overcome the maximum static friction of a cold start — struck me as wonderful and genuinely moving, so I volunteered on the spot. I just don't yet know how to shape the proposal (maybe I'll simply send Manny this quarterly review). Someone there asked about a business analysis of Bitcoin, so after the event I set out to write a Bitcoin business breakdown with AI to help Manny's Newsletter serve its existing subscribers — then got sidetracked writing about Hyperliquid, and still haven't sent it over. I'm also rooting for Manny's Newsletter to land a community manager and make the whole ecosystem thrive. The other is Waki's "Readers' Strategy Guide," lively at the moment; I've set up a July online chat with an overseas friend and started a group with fellow Japanese-learners to give myself a little more pressure and support. I'm not sure what I can contribute here yet — maybe just start by sharing more of what I see and hear, and the things I make.
+9. Growing my hair long; joining an amateur makeover event in Taichung (challenge: low): mostly it's meant a bit of added hassle (having to blow-dry it) and, at first, a faint strangeness in the mirror — but all in all, a wonderfully odd and fun experience.
 
 "Nine Lives" is a new idea that came out of rethinking the review format. Five levels of challenge: high (serious money, reputation, and time at stake — or extreme discomfort), medium-high (money, reputation, and time, or real discomfort), medium (reputation and time, or a dose of minor discomfort), medium-low (reputation or time), low (a novel experience without much risk). I hope my Q3 carries more high and medium-high entries.
 
@@ -215,7 +214,7 @@ From harder to easier.
 
 Beyond ETHTaipei and ETHTokyo, I want Q3 to come down to drilling **one thing**. Just one. Master one move a thousand times instead of a thousand moves once. Be like Zenitsu from _Demon Slayer_ — the swordsman who mastered exactly one technique.
 
-That one thing might be Japanese, writing a book, going deep on AI × Legal, or hunting overseas collaborations. A few days ago I told a friend my focus is **AI** × **Legal** × **Crypto** × **Gamification**. In my head, I envisioned the _intersection_ of the four, which felt like focus. Looking at my actual behavior, I've been taking the _union_. A domain that size is absurd. Time to fix that, now!
+That one thing might be Japanese, writing a book, going deep on AI × Legal, producing that Hyperliquid analysis and broader blockchain-industry write-ups, or hunting overseas collaborations. A few days ago I told a friend my focus is **AI** × **Legal** × **Crypto** × **Gamification**. In my head, I envisioned the _intersection_ of the four, which felt like focus. Looking at my actual behavior, I've been taking the _union_. A domain that size is absurd. Time to fix that, now!
 
 
 *賴建順

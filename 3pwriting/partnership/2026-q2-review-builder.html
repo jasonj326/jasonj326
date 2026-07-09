@@ -47,6 +47,23 @@
     .dark .footnote-ref { color: rgb(52 211 153) !important; }
     .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
     .footnote { padding-top: 4rem; margin-top: -4rem; }
+    /* Anchor jumps ({#sN} TOC links) land below the sticky nav.
+       Nav wraps to ~2 rows (~89px) below lg; single row (~65px) at lg+. */
+    .prose h2[id], .prose h3[id] { scroll-margin-top: 6.5rem; }
+    @media (min-width: 1024px) { .prose h2[id], .prose h3[id] { scroll-margin-top: 5rem; } }
+    /* Floating right-side section nav (long posts w/ TOC; wide screens only) */
+    .jump-nav { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 30; display: none; flex-direction: column; gap: 0.55rem; align-items: flex-end; }
+    @media (min-width: 1280px) { .jump-nav { display: flex; } }
+    .jump-nav a { position: relative; display: block; padding: 3px 0; }
+    .jump-nav .jn-dot { display: block; width: 9px; height: 9px; border-radius: 9999px; background: rgb(203 213 225); transition: background .2s, transform .2s; }
+    .dark .jump-nav .jn-dot { background: rgb(71 85 105); }
+    .jump-nav .jn-label { position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; font-size: 13px; line-height: 1; color: rgb(100 116 139); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .dark .jump-nav .jn-label { color: rgb(148 163 184); }
+    .jump-nav:hover .jn-label, .jump-nav a.active .jn-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .jump-nav a:hover .jn-dot, .jump-nav a.active .jn-dot { background: rgb(79 70 229); transform: scale(1.3); }
+    .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
+    .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
+    .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
 </style>
               <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -92,6 +109,18 @@
       </div>
   </nav>
 
+<nav class="jump-nav" aria-label="Section navigation">
+    <a href="#s1" data-section="s1"><span class="jn-dot"></span><span class="jn-label">1 Transparency</span></a>
+    <a href="#s2" data-section="s2"><span class="jn-dot"></span><span class="jn-label">2 Twin Wins</span></a>
+    <a href="#s3" data-section="s3"><span class="jn-dot"></span><span class="jn-label">3 Rain Checks</span></a>
+    <a href="#s4" data-section="s4"><span class="jn-dot"></span><span class="jn-label">4 On Repeat</span></a>
+    <a href="#s5" data-section="s5"><span class="jn-dot"></span><span class="jn-label">5 Five-Star Finds</span></a>
+    <a href="#s6" data-section="s6"><span class="jn-dot"></span><span class="jn-label">6 On a Roll</span></a>
+    <a href="#s7" data-section="s7"><span class="jn-dot"></span><span class="jn-label">7 Fast Failures</span></a>
+    <a href="#s8" data-section="s8"><span class="jn-dot"></span><span class="jn-label">8 Eight Pillars</span></a>
+    <a href="#s9" data-section="s9"><span class="jn-dot"></span><span class="jn-label">9 Nine Lives</span></a>
+    <a href="#s10" data-section="s10"><span class="jn-dot"></span><span class="jn-label">10 Tenfold Thanks</span></a>
+  </nav>
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
     <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
         <header>
@@ -107,7 +136,7 @@
         </header>
 
         <p>TL;DR:</p>
-<p>This is the second edition of the quarterly review with the new 10-point format: It has 55 bite-size items, and the section titles may keep getting tuned. I'd suggest reading from the top, or at least finishing a section before clicking any hyperlinks. Or just jump straight to whatever interests you — that works too.</p>
+<p>This is the second edition of my quarterly review. In this Q2 issue, I use a new 10-point format to reflect on my gratitude, personal growth, key milestones, and recommendations. It has 55 bite-sized items, and the section titles may keep getting tuned. I'd suggest reading from the top, or at least finishing a section before clicking any hyperlinks. Or just jump straight to whatever interests you — that works too.</p>
 <p>Thoughts and ideas welcome at hello@jasonjlai.net.</p>
 <p>This review was originally drafted in Chinese and subsequently translated with assistance from Claude, ChatGPT, and Gemini.</p>
 <p><strong>Contents</strong></p>
@@ -130,17 +159,17 @@
     It's a long-term onchain community experiment. Year one is simply about spreading the idea: technology wired the world together yet left us more closed off, and I want to use a blockchain to connect and reconnect the interesting souls in my life. That's all.</p>
 </li>
 <li>
-<p>The Blockchain Lawyers Forum (BLF) — I gave a talk on U.S. digital asset law, and contributed an article: "From Immunity to Accountability: How U.S. Digital Asset Regulation Can Support Both Institutional Adoption and the Crypto-Native Community."</p>
+<p>At the Blockchain Lawyers Forum (BLF), I gave a talk on U.S. digital asset law and had an article published in the <a href="https://www.linkedin.com/posts/blockchain-lawyers-forum_blr-2026-activity-7475964066633531392-60pi?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAACoJk-8BXYUAV-NYXKO9qS6QKwMYorsspH8" target="_blank" rel="noopener noreferrer">BLF Law Review</a>: "From Immunity to Accountability: How U.S. Digital Asset Regulation Can Support Both Institutional Adoption and the Crypto-Native Community."</p>
 </li>
 </ol>
 <h2 id="s3">3 · Three Rain Checks</h2>
+<p>Since this quarterly review is about transparency, I'm honestly logging what didn't get done — without piling up excuses; the reasons belong in the retrospective, in how I made trade-offs. Mostly it comes down to time management and energy allocation: once I said yes to the BLF invitation, there was not much bandwidth left for these. </p>
 <ol>
-<li>Didn't finish my half-marathon self-training</li>
-<li>Didn't finish the video on Bayesian thinking</li>
-<li>Didn't finish my review of <a href="https://tylercowen.com/marginal-revolution-generative-book/" target="_blank" rel="noopener noreferrer">Tyler Cowen's new book on "Marginal Revolution"</a></li>
+<li>Didn't finish my half-marathon self-training: I've put too much mental pressure on myself, feeling like I need to rush to run a 10K one to three times first, which has actually left me paralyzed and unable to take a single step.</li>
+<li>Didn't finish the video on Bayesian thinking: I collected tons of information—from the debate between frequentists and Bayesians, to how the courts and statisticians made mistakes in the Sally Clark case, to "beyond a reasonable doubt" as a Bayesian framework. I even added a few anime scenes that show how our prior beliefs play a huge role in how we perceive the world. But by the end of the quarter, I still couldn't finish the script.  </li>
+<li>Didn't finish my review of <a href="https://tylercowen.com/marginal-revolution-generative-book/" target="_blank" rel="noopener noreferrer">Tyler Cowen's new book on "Marginal Revolution"</a>: While I enjoyed reading it, it really requires revisiting marginal utility theory from microeconomics first. I feel like I finished reading it, yet beyond restating the author's points I can't voice an insight of my own — which surely means my understanding isn't deep enough, and that's why the pen still hasn't moved.</li>
 </ol>
-<p>Since this quarterly review is about transparency, I'm honestly logging what didn't get done — without piling up excuses; the reasons belong in the retrospective, in how I made trade-offs. Mostly it comes down to time management and energy allocation: once I said yes to the BLF invitation, there was not much bandwidth left for these. As for Cowen's book in particular: it really requires revisiting marginal utility theory from microeconomics first. I feel like I finished reading it, yet beyond restating the author's points I can't voice an insight of my own — which surely means my understanding isn't deep enough, and that's why the pen still hasn't moved.</p>
-<p>As for the half marathon, I've put too much mental pressure on myself, feeling like I need to rush to run a 10K one to three times first, which has actually left me paralyzed and unable to take a single step.</p>
+<p>What is clear to me is that my ambition is harmfully high. It often paralyzes me, stopping me right before the finish line.</p>
 <h2 id="s4">4 · Four on Repeat</h2>
 <ol>
 <li>
@@ -169,7 +198,7 @@
 <p><a href="https://maps.app.goo.gl/2aXo8XsWzuDEPthN7" target="_blank" rel="noopener noreferrer">Sun Brand Ice (太陽牌冰品)</a>: a mid-May trip to Tainan brought me to this old-school ice treat — the most recommendable bite of the whole trip. After all my visits to Tainan, my only regret is not discovering it sooner. We went two days in a row.</p>
 </li>
 <li>
-<p><a href="https://maps.app.goo.gl/au1h3kGXm6QPoKeF7" target="_blank" rel="noopener noreferrer">Wangji Fucheng Zongzi (王記府城肉粽)</a>: this one hardly needs my endorsement — Jensen has signed his name there three times. One useful note: dine-in barely has a queue (we went on Dragon Boat Festival day two years in a row and were seated within five minutes).</p>
+<p><a href="https://maps.app.goo.gl/au1h3kGXm6QPoKeF7" target="_blank" rel="noopener noreferrer">Wangji Fucheng Zongzi (王記府城肉粽)</a>: this one hardly needs my endorsement — Jensen Huang has visited and signed his name there three times. Even so, dine-in barely has a queue (we went on Dragon Boat Festival day two years running and were seated within five minutes).</p>
 </li>
 <li>
 <p><a href="https://maps.app.goo.gl/amWQ6FLTk2XpFJxN9" target="_blank" rel="noopener noreferrer">Arashiyama Aged Gyukatsu (嵐山熟成牛かつ專売)</a>: finding this place was mildly surreal. I was headed to Taichung for an event, restless on the HSR: a gap before the event, and no idea where to eat or rest. So I quit searching and went on instinct — ride the metro to the neighborhood, then trust luck, or a local's tip, on the walk to the venue. First I stepped into a brunch café with exactly one table of customers.
@@ -275,12 +304,12 @@ Right now, the "Four on Repeat" lean toward the artistic side — representing p
 <li>Three talks in English (challenge: medium) — the Blockchain Lawyers Forum, plus hosting two TCE sessions. As of July 7 I'm at six talks for the year, still a distance from the 24-talk goal. Onward — and I'll take all the help I can get: <a href="https://jasonjlai.net/communication/">invitations of every kind welcome</a>.</li>
 <li>Going live from the HSR platform (challenge: medium): one episode of the livestream diary began right on the high-speed-rail platform, travelers packed around me — genuinely uncomfortable. I kept thinking of <a href="https://www.instagram.com/reels/DZX0vP3tjLS/" target="_blank" rel="noopener noreferrer">this video</a> and <a href="https://www.instagram.com/p/DWILg8-uwbk/" target="_blank" rel="noopener noreferrer">this one</a>.</li>
 <li>Formatting the quarterly review (challenge: medium). This is probably the format from here on — holding at fifty-five items. Next improvement: borrow from IPO prospectuses and add more forward-looking hopes and expectations.</li>
-<li>Joining the ETHTaipei organizing team (challenge: medium)</li>
-<li>Deploying the smart contract, onchain on schedule (challenge: medium-low)</li>
-<li>Introducing PIF12 to new friends (challenge: medium-low)</li>
-<li>Serving as an interviewer for a club (challenge: medium-low)</li>
-<li>In-person meetups of online communities × 2: Waki's community and Manny's (challenge: low)</li>
-<li>Growing my hair long; joining an amateur makeover event in Taichung (challenge: low)</li>
+<li>Joining the ETHTaipei organizing team (challenge: medium): I've enjoyed the past editions I attended, and this is my first year on the organizing side. Mostly I just hope not to get in anyone's way — and if there's somewhere I can genuinely help, all the better.</li>
+<li>Deploying the smart contract, onchain on schedule (challenge: medium-low): it ate up a lot of time. By rights I should write a dedicated piece and invite old and new friends to come interact with it, but I shelved that to get this Q2 review out on time — hopefully I'll finish it this week.</li>
+<li>Introducing PIF12 to new friends (challenge: medium-low): I've joined a lot of communities lately, and saying the PIF12 pitch out loud still doesn't come easily — it hasn't yet become a habit or part of my identity. But after pouring in this much time, I have to get more people to hear about it and take part; that's the only way the community comes alive.</li>
+<li>Serving as an interviewer for a club (challenge: medium-low): so far I've helped interview new members at two TCE sessions — not a heavy lift. I'm looking forward to seeing the community keep growing and bringing in the right people.</li>
+<li>In-person meetups of online communities × 2: Waki's community and Manny's (challenge: low): I couldn't land a ticket to any of the Taipei ones, so I made a special trip to the Manny's Newsletter meetup in Taichung. Meeting Manny in the flesh was a novelty given that he barely shows his face online. Hearing that he wants to be a backstop for creators in Taiwan — helping them overcome the maximum static friction of a cold start — struck me as wonderful and genuinely moving, so I volunteered on the spot. I just don't yet know how to shape the proposal (maybe I'll simply send Manny this quarterly review). Someone there asked about a business analysis of Bitcoin, so after the event I set out to write a Bitcoin business breakdown with AI to help Manny's Newsletter serve its existing subscribers — then got sidetracked writing about Hyperliquid, and still haven't sent it over. I'm also rooting for Manny's Newsletter to land a community manager and make the whole ecosystem thrive. The other is Waki's "Readers' Strategy Guide," lively at the moment; I've set up a July online chat with an overseas friend and started a group with fellow Japanese-learners to give myself a little more pressure and support. I'm not sure what I can contribute here yet — maybe just start by sharing more of what I see and hear, and the things I make.</li>
+<li>Growing my hair long; joining an amateur makeover event in Taichung (challenge: low): mostly it's meant a bit of added hassle (having to blow-dry it) and, at first, a faint strangeness in the mirror — but all in all, a wonderfully odd and fun experience.</li>
 </ol>
 <p>"Nine Lives" is a new idea that came out of rethinking the review format. Five levels of challenge: high (serious money, reputation, and time at stake — or extreme discomfort), medium-high (money, reputation, and time, or real discomfort), medium (reputation and time, or a dose of minor discomfort), medium-low (reputation or time), low (a novel experience without much risk). I hope my Q3 carries more high and medium-high entries.</p>
 <h2 id="s10">10 · Tenfold Thanks</h2>
@@ -320,7 +349,7 @@ Right now, the "Four on Repeat" lean toward the artistic side — representing p
 <hr />
 <h2>Epilogue</h2>
 <p>Beyond ETHTaipei and ETHTokyo, I want Q3 to come down to drilling <strong>one thing</strong>. Just one. Master one move a thousand times instead of a thousand moves once. Be like Zenitsu from <em>Demon Slayer</em> — the swordsman who mastered exactly one technique.</p>
-<p>That one thing might be Japanese, writing a book, going deep on AI × Legal, or hunting overseas collaborations. A few days ago I told a friend my focus is <strong>AI</strong> × <strong>Legal</strong> × <strong>Crypto</strong> × <strong>Gamification</strong>. In my head, I envisioned the <em>intersection</em> of the four, which felt like focus. Looking at my actual behavior, I've been taking the <em>union</em>. A domain that size is absurd. Time to fix that, now!</p>
+<p>That one thing might be Japanese, writing a book, going deep on AI × Legal, producing that Hyperliquid analysis and broader blockchain-industry write-ups, or hunting overseas collaborations. A few days ago I told a friend my focus is <strong>AI</strong> × <strong>Legal</strong> × <strong>Crypto</strong> × <strong>Gamification</strong>. In my head, I envisioned the <em>intersection</em> of the four, which felt like focus. Looking at my actual behavior, I've been taking the <em>union</em>. A domain that size is absurd. Time to fix that, now!</p>
 <p><em>賴建順
 Jason Lai</em></p>
 <p><em>2026.7.8</em></p>
@@ -410,6 +439,21 @@ Jason Lai</em></p>
             window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
         }
     }
+
+    // Floating jump-nav: highlight the section currently in view
+    (function () {
+      const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+      if (!links.length) return;
+      const targets = links.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+      function onScroll() {
+        let active = targets[0];
+        for (const t of targets) { if (t.getBoundingClientRect().top <= 100) active = t; }
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === active.id));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
   </script>
     <script src="/assets/fab-subscribe.js" defer></script>
 </body>

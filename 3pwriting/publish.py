@@ -228,6 +228,27 @@ def build_footer(lang):
 def is_zh(lang):
     return lang.startswith("zh")
 
+def build_jump_nav(body, lang):
+    """Floating right-side section nav for long posts that carry an inline TOC.
+    Reuses the inline TOC's short labels; triggers only when >=3 in-body anchor
+    links to heading ids are present (short posts get nothing). Desktop-only via CSS."""
+    entries = re.findall(r'\[([^\]]+)\]\(#(s\d+)\)', body)
+    seen, toc = set(), []
+    for label, anchor in entries:
+        if anchor in seen:
+            continue
+        seen.add(anchor)
+        toc.append((label.strip(), anchor))
+    if len(toc) < 3:
+        return ""
+    aria = "章節導覽" if is_zh(lang) else "Section navigation"
+    links = "\n".join(
+        f'    <a href="#{a}" data-section="{a}"><span class="jn-dot"></span>'
+        f'<span class="jn-label">{escape(lbl)}</span></a>'
+        for lbl, a in toc
+    )
+    return f'<nav class="jump-nav" aria-label="{aria}">\n{links}\n  </nav>'
+
 def get_color_for_tag(t):
     t_lower = t.lower()
     if 'playbook' in t_lower: return "bg-blue-500"
@@ -365,11 +386,29 @@ HTML_TMPL = """<!DOCTYPE html>
     .dark .footnote-ref { color: rgb(52 211 153) !important; }
     .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
     .footnote { padding-top: 4rem; margin-top: -4rem; }
+    /* Anchor jumps ({#sN} TOC links) land below the sticky nav.
+       Nav wraps to ~2 rows (~89px) below lg; single row (~65px) at lg+. */
+    .prose h2[id], .prose h3[id] { scroll-margin-top: 6.5rem; }
+    @media (min-width: 1024px) { .prose h2[id], .prose h3[id] { scroll-margin-top: 5rem; } }
+    /* Floating right-side section nav (long posts w/ TOC; wide screens only) */
+    .jump-nav { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 30; display: none; flex-direction: column; gap: 0.55rem; align-items: flex-end; }
+    @media (min-width: 1280px) { .jump-nav { display: flex; } }
+    .jump-nav a { position: relative; display: block; padding: 3px 0; }
+    .jump-nav .jn-dot { display: block; width: 9px; height: 9px; border-radius: 9999px; background: rgb(203 213 225); transition: background .2s, transform .2s; }
+    .dark .jump-nav .jn-dot { background: rgb(71 85 105); }
+    .jump-nav .jn-label { position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; font-size: 13px; line-height: 1; color: rgb(100 116 139); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .dark .jump-nav .jn-label { color: rgb(148 163 184); }
+    .jump-nav:hover .jn-label, .jump-nav a.active .jn-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .jump-nav a:hover .jn-dot, .jump-nav a.active .jn-dot { background: rgb(79 70 229); transform: scale(1.3); }
+    .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
+    .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
+    .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
 </style>
               <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 {nav_html}
+{jump_nav}
   <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
     <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
         <header>
@@ -455,6 +494,21 @@ HTML_TMPL = """<!DOCTYPE html>
             window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
         }
     }
+
+    // Floating jump-nav: highlight the section currently in view
+    (function () {
+      const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+      if (!links.length) return;
+      const targets = links.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+      function onScroll() {
+        let active = targets[0];
+        for (const t of targets) { if (t.getBoundingClientRect().top <= 100) active = t; }
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === active.id));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
   </script>
     <script src="/assets/fab-subscribe.js" defer></script>
 </body>
@@ -1060,6 +1114,7 @@ def main():
                 .replace("{full_link}", escape(p["full_link"]))
                 .replace("{tags_html}", article_tags_html)
                 .replace("{content}", content_html)
+                .replace("{jump_nav}", build_jump_nav(body, p["final_lang"]))
                 .replace("{site_author_desc}", escape(SITE_AUTHOR_DESC))
                 .replace("{prev_button}", prev_btn_html)
                 .replace("{next_button}", next_btn_html)
