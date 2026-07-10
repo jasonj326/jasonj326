@@ -135,6 +135,46 @@
                 <i data-lucide="flag" class="w-6 h-6 text-amber-500"></i> 2026 目標與路徑
             </h2>
 
+            <!-- 硬性目標 + 考試倒數 -->
+            <div class="p-6 mb-6 rounded-xl border-2 border-slate-900 dark:border-slate-300 bg-amber-50 dark:bg-slate-800 game-shadow relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1">硬性目標</div>
+                        <div class="font-mono font-extrabold text-2xl">JLPT N3</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">2026-12-06 週日下午 · 台灣 LTTC <span class="opacity-70 ml-1">JLPT N3 に合格する</span></div>
+                    </div>
+                    <div class="text-center sm:text-right shrink-0">
+                        <div class="font-mono font-extrabold text-5xl text-amber-600 dark:text-amber-400 leading-none" id="jlpt-countdown">—</div>
+                        <div class="font-mono text-xs uppercase tracking-wider text-slate-500 mt-1">距考試天數</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 衝刺：5 階段 + 固定事件 -->
+            <div class="p-5 mb-8 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                <div class="font-mono text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+                    <i data-lucide="headphones" class="w-4 h-4"></i> 衝刺 — 聽力是最大約束
+                </div>
+                <div class="flex flex-wrap items-center gap-2 font-mono text-sm">
+                    <span class="px-2 py-1 rounded bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800 font-bold">五十音 ✓</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    <span class="px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600">N5 <span class="opacity-60">· 8 月中</span></span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    <span class="px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600">N4 <span class="opacity-60">· 10 月底</span></span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    <span class="px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600">N3 core <span class="opacity-60">· 11 月–12 月初</span></span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    <span class="px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600">Taper <span class="opacity-60">· 11/30–12/6</span></span>
+                </div>
+                <div class="flex flex-wrap gap-x-5 gap-y-1 mt-4 text-xs text-slate-500 dark:text-slate-400 font-mono">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="pen-line" class="w-3 h-3"></i> 報名 ~8 月底</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="plane" class="w-3 h-3"></i> 日本行 · 9 月中（沉浸）</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="plane" class="w-3 h-3"></i> 日本行 · 12 月（暫定）</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="graduation-cap" class="w-3 h-3"></i> 考試 · 12/6</span>
+                </div>
+            </div>
+
             <div class="space-y-6">
                 
                 <!-- Q1 -->
@@ -164,7 +204,7 @@
                         <li class="flex gap-3">
                             <i data-lucide="circle-dashed" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
                             <div>
-                                <span class="font-bold"> 學習並紀錄過程  </span>
+                                <span class="font-bold line-through opacity-60"> 學習並紀錄過程  </span>
                                 <p class="text-xs text-slate-500 dark:text-slate-400 mb-1">様々なリソースから楽しみながら学び、プロセスを記録する</p>
                                 <p class="text-xs mb-2 leading-relaxed">資源來源：
                                     <s>
@@ -178,18 +218,14 @@
                             </div>
                         </li>
 
-                        <!-- Item 3: Transition Period (獨立成新的 li) -->
+                        <!-- Item 3: 過渡期間——已放棄，教材併入 Q3 -->
                         <li class="flex gap-3">
-                            <i data-lucide="loader-2" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5 animate-[spin_3s_linear_infinite]"></i>
+                            <i data-lucide="circle-slash" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
                             <div>
-                                <span class="font-bold"> Q1–Q2 過渡期間  </span>
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-1"> Q1-Q2 過渡期間 日文學習計画 最終修正版 </p>
-                                <p class="text-xs mb-2 leading-relaxed"> 新教材：
-                                    <a href="https://www.books.com.tw/products/0010932735?srsltid=AfmBOooBNcvvzudf9oFhU3NXLVoUUwiLu6Wov6TgDa1pdDIPIA8rE-8R" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-emerald-400 hover:underline">ふさわしい日本語 恰當日本語 </a> | 
-                                    <a href="https://book.tpml.edu.tw/bookDetail/888875" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-emerald-400 hover:underline">世界最強日文文法</a> | 動漫與電影筆記 (葬送のフリーレン; Godzilla Minus One; Age of Samurai: Battle for Japan)
-                                </p> 
-                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
-                                    進度：10%
+                                <span class="font-bold line-through opacity-60"> Q1–Q2 過渡期間  </span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-1 line-through opacity-60"> Q1-Q2 過渡期間 日文學習計画 最終修正版 </p>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-400 border border-slate-300 dark:border-slate-600">
+                                    已被取代——併入下方真正的 Q3 教材。
                                 </span>
                             </div>
                         </li>
@@ -206,48 +242,99 @@
                         </div>
                         <h3 class="font-bold text-xl font-mono">Q2：交流 <span class="text-sm font-sans text-slate-500 dark:text-slate-400 ml-2">Kōryū</span></h3>
                     </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 italic">本季全部未達成——兩項都順延至 Q4。</p>
                     <ul class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
                         <li class="flex gap-3">
-                            <i data-lucide="circle-dashed" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
+                            <i data-lucide="circle-slash" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
                             <div>
-                                <span class="font-bold">用日語邀請日本朋友加入 100 SBT 計畫</span>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">日本語で日本人に「100 SBTプロジェクト」への参加を招待し、成功させる。</p>
+                                <span class="font-bold line-through opacity-60">用日語邀請日本朋友加入 100 SBT 計畫</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 line-through opacity-60">日本語で日本人に「100 SBTプロジェクト」への参加を招待し、成功させる。</p>
                             </div>
                         </li>
                         <li class="flex gap-3">
-                            <i data-lucide="circle-dashed" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
+                            <i data-lucide="circle-slash" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
                             <div>
-                                <span class="font-bold">完成 20 小時的語言交換</span>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">日本語で20時間の言語交換（ランゲージエクスチェンジ）を行う。</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-3">
-                            <i data-lucide="more-horizontal" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
-                            <div>
-                                <span class="font-bold italic text-slate-500">更多任務待補充⋯</span>
+                                <span class="font-bold line-through opacity-60">完成 20 小時的語言交換</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 line-through opacity-60">日本語で20時間の言語交換（ランゲージエクスチェンジ）を行う。</p>
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Q3 & Q4 (Grid) -->
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <!-- Q3 -->
-                    <div class="p-6 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/50 relative group">
-                        <h3 class="font-bold text-lg font-mono mb-2 text-slate-500 dark:text-slate-400">Q3</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">
-                            視 Q1–Q2 進度決定。
-                            <br/><span class="text-xs opacity-70">Q1-Q2の結果に基づいて未定。</span>
-                        </p>
+                <!-- Q3：現在的真實教材 -->
+                <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow transition-all relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
+                            <i data-lucide="book-open" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl font-mono">Q3：真實教材 <span class="text-sm font-sans text-slate-500 dark:text-slate-400 ml-2">Kyōzai</span></h3>
+                        <span class="ml-auto inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">進行中</span>
                     </div>
-                    <!-- Q4 -->
-                    <div class="p-6 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/50 relative group">
-                        <h3 class="font-bold text-lg font-mono mb-2 text-slate-500 dark:text-slate-400">Q4</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">
-                            視 Q2–Q3 進度決定。
-                            <br/><span class="text-xs opacity-70">Q2-Q3の結果に基づいて未定。</span>
-                        </p>
+                    <ul class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                        <li class="flex gap-3">
+                            <i data-lucide="repeat" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">持續複習五十音</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">五十音の復習を続ける</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="pen-tool" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">文法與結構</span>
+                                <p class="text-xs leading-relaxed mt-0.5">明智日文講座（7/10 起）· <a href="https://book.tpml.edu.tw/bookDetail/888875" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-emerald-400 hover:underline">世界最強日文文法</a> · <a href="https://www.sigure.tw/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-emerald-400 hover:underline">時雨の日本語（sigure.tw）</a></p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="headphones" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">聽力與母語輸入 <span class="text-xs font-normal text-slate-500">— 最大約束</span></span>
+                                <p class="text-xs leading-relaxed mt-0.5">Nihongo con Teppei（初學者 podcast）· <a href="https://www.youtube.com/playlist?list=PLPdNX2arS9MZ70r0Vi6d6dUazHb_3z2sd" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-emerald-400 hover:underline">Natural Japanese (NIJ)</a> · <a href="https://www.youtube.com/@JapanesewithShun" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-emerald-400 hover:underline">Japanese with Shun</a> · 等</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="pen-line" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">報名 JLPT N3 <span class="text-xs font-normal text-slate-500">~ 8 月底</span></span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">8 月下旬までに JLPT N3 に申し込む</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Q4：最後衝刺 -->
+                <div class="p-6 border-2 border-slate-900 dark:border-slate-300 rounded-xl bg-white dark:bg-slate-800 game-shadow transition-all relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-lg">
+                            <i data-lucide="target" class="w-5 h-5 text-amber-600 dark:text-amber-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl font-mono">Q4：最後衝刺 <span class="text-sm font-sans text-slate-500 dark:text-slate-400 ml-2">Oikomi</span></h3>
                     </div>
+                    <ul class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                        <li class="flex gap-3">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">考過 JLPT N3 — 12/6</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">N4 → N3 core → taper，全程以聽力為軸。聴解を軸に、N3 合格まで走り切る。</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="circle-dashed" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">用日語邀請日本朋友加入 100 SBT 計畫 <span class="text-xs font-normal text-slate-500">— 自 Q2 順延</span></span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">日本語で日本人に「100 SBTプロジェクト」への参加を招待し、成功させる。</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="circle-dashed" class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold">完成 20 小時的語言交換 <span class="text-xs font-normal text-slate-500">— 自 Q2 順延</span></span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">日本語で20時間の言語交換（ランゲージエクスチェンジ）を行う。</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
@@ -290,6 +377,16 @@
     <!-- Interactive Scripts -->
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // JLPT N3 考試倒數 — 純日期運算，免維護
+        (function () {
+            const el = document.getElementById('jlpt-countdown');
+            if (!el) return;
+            const exam = new Date('2026-12-06T00:00:00+08:00');
+            const days = Math.max(0, Math.ceil((exam - new Date()) / 86400000));
+            el.textContent = days.toLocaleString();
+        })();
+
         lucide.createIcons();
         
         const htmlElement = document.documentElement;
