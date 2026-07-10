@@ -1,5 +1,28 @@
 [
   {
+    "id": "2026-07-11-072925",
+    "ts": "2026-07-11T07:29:25+08:00",
+    "tags": [
+      "y2026",
+      "fitness"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "previous one is general fitness; specific fitness: admiration, sharing, problem-solving over finger-pointing; live with uncertainty; balance between individual liberty and commitment; family. anything else?",
+    "word_count": 26,
+    "excerpt": "previous one is general fitness; specific fitness: admiration, sharing, problem-…",
+    "search_text": "previous one is general fitness specific fitness admiration sharing problem solving over finger pointing live with uncertainty balance between individual liberty and commitment family anything else y2026 fitness",
+    "media_count": 0,
+    "derived_from": [
+      "2026-07-07-what-matters"
+    ]
+  },
+  {
     "id": "2026-07-09-235100",
     "ts": "2026-07-09T23:51:00+08:00",
     "tags": [
@@ -86,7 +109,10 @@
     "word_count": 7,
     "excerpt": "senses of time, money, value, and manner",
     "search_text": "senses of time money value and manner y2026 fitness",
-    "media_count": 0
+    "media_count": 0,
+    "derived_descendants": [
+      "2026-07-11-072925"
+    ]
   },
   {
     "id": "2026-07-07-182629",
