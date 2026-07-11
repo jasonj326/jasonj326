@@ -1,5 +1,28 @@
 [
   {
+    "id": "2026-07-12-065755",
+    "ts": "2026-07-12T06:57:55+08:00",
+    "tags": [
+      "y2026",
+      "fitness"
+    ],
+    "source": null,
+    "source_no": null,
+    "source_title": null,
+    "multi_image": false,
+    "ocr_pending": false,
+    "category": null,
+    "ocr_quotes": [],
+    "body_text": "indicator: desire to share / Willingness to fight",
+    "word_count": 7,
+    "excerpt": "indicator: desire to share / Willingness to fight",
+    "search_text": "indicator desire to share willingness to fight y2026 fitness",
+    "media_count": 0,
+    "derived_from": [
+      "2026-07-11-072925"
+    ]
+  },
+  {
     "id": "2026-07-11-150326",
     "ts": "2026-07-11T15:03:26+08:00",
     "tags": [
@@ -40,6 +63,9 @@
     "media_count": 0,
     "derived_from": [
       "2026-07-07-what-matters"
+    ],
+    "derived_descendants": [
+      "2026-07-12-065755"
     ]
   },
   {
