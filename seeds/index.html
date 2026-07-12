@@ -390,10 +390,12 @@
       const tail = id.replace(/^\d{4}-\d{2}-\d{2}-?/, '');        // strip date prefix
       return /[a-zA-Z]/.test(tail) ? tail : s.ts.slice(0, 10);    // slug seed → slug; worker time-id → date
     }
-    // ─── Embeds: a bare YouTube / Instagram URL on its own line becomes an iframe ──
+    // ─── Embeds: a bare YouTube / Vimeo / Instagram URL on its own line becomes an iframe ──
     function videoEmbed(url) {
       let m = url.match(/(?:youtube\.com\/(?:watch\?(?:[^#&]*&)*v=|shorts\/|embed\/|live\/)|youtu\.be\/)([\w-]{11})/);
       if (m) return `<div class="seed-embed embed-yt"><iframe src="https://www.youtube-nocookie.com/embed/${m[1]}" title="YouTube video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
+      m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      if (m) return `<div class="seed-embed embed-yt"><iframe src="https://player.vimeo.com/video/${m[1]}" title="Vimeo video" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
       m = url.match(/instagram\.com\/(reel|reels|p|tv)\/([\w-]+)/);
       if (m) { const t = m[1] === 'reels' ? 'reel' : m[1]; return `<div class="seed-embed embed-ig"><iframe src="https://www.instagram.com/${t}/${m[2]}/embed/" title="Instagram post" loading="lazy" scrolling="no"></iframe></div>`; }
       return null;
