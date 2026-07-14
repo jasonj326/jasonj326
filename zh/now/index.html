@@ -116,6 +116,24 @@
       color: rgb(110 231 183);
       background: rgb(6 78 59 / 0.5);
     }
+    .dropped-tag {
+      display: inline-block;
+      font-family: ui-monospace, monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgb(100 116 139);
+      background: rgb(226 232 240);
+      padding: 0.05rem 0.45rem;
+      border-radius: 9999px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .dark .dropped-tag {
+      color: rgb(148 163 184);
+      background: rgb(51 65 85 / 0.6);
+    }
   </style>
     <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -182,35 +200,18 @@
     </header>
 
     <!-- ============================================== -->
-    <!-- Long Game roles · compact pointer to /zh/long-game/ -->
+    <!-- Intro · how to connect / follow                 -->
     <!-- ============================================== -->
-    <section class="mb-16">
-      <div class="mb-6">
-        <h3 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 mb-3">
-          🛠️ 建造者
-        </h3>
-        <p class="text-base text-slate-500 dark:text-slate-400 italic mb-1">能餬口的工作。能玩的工作。最好兩者皆是。</p>
-        <p class="text-base font-mono text-slate-700 dark:text-slate-300">
-          <a href="/zh/PIF12/" class="inline-link">PIF12</a> + <a href="/zh/qualia/" class="inline-link">Qualia</a> + <a href="/zh/seeds/" class="inline-link">種子</a> 以及更多
-        </p>
-      </div>
-
-      <div class="mb-6">
-        <h3 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800 mb-3">
-          🎙️ 表達者
-        </h3>
-        <p class="text-base text-slate-500 dark:text-slate-400 italic mb-1">把作品放到別人看得到的地方。</p>
-        <p class="text-base font-mono text-slate-700 dark:text-slate-300">
-          <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">YouTube</a> + <a href="/zh/3pwriting/" class="inline-link">3P 寫作</a> + <a href="/zh/communication/" class="inline-link">紀錄與邀約都在這裡</a>
-        </p>
-      </div>
-
-      <div>
-        <h3 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800 mb-3">
-          🏄🏻‍♂️ 行者
-        </h3>
-        <p class="text-base text-slate-500 dark:text-slate-400 italic">我其實不太關心 work-life balance ——我關心的是 <strong class="text-slate-900 dark:text-slate-100 not-italic">身心平衡</strong>。</p>
-      </div>
+    <section class="mb-16 space-y-4">
+      <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        如果你有故事想說，或正面對某個挑戰，來找我組隊吧。細節可以看我的 <a href="/zh/PIF12/" class="inline-link">PIF12</a> 專案。
+      </p>
+      <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        我有一個<a href="https://www.youtube.com/@MindLegalTalk/streams" target="_blank" rel="noopener" class="inline-link">中文每日直播日記</a>，已經連續 124+ 天。你可以來看看我每天在想什麼、又是怎麼練習口語表達的。建議先從「五日回顧」那幾集看起——它們回顧我過去五天，通常也比較有結構、比較整理過。
+      </p>
+      <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        如果你比較喜歡閱讀，我的 <a href="/zh/3pwriting/" class="inline-link">3P 寫作</a>是不錯的起點：關於夥伴關係（partnership）、劇本（playbook）與遊樂場（playground）的文章。比較隨性、未經打磨的文字則在<a href="/zh/seeds/" class="inline-link">種子牆</a>。
+      </p>
     </section>
 
     <!-- ============================================== -->
@@ -218,7 +219,7 @@
     <!-- ============================================== -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">閱讀與觀影</h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">最近在輪播的內容。</p>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">2026 年到目前為止我讀過、看過的內容。</p>
 
       <!-- Books -->
       <div class="mb-10">
@@ -248,6 +249,10 @@
             <a href="https://www.amazon.com/Thinkertoys-Handbook-Creative-Thinking-Techniques-2nd/dp/1580087736" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">Thinkertoys: A Handbook of Creative-Thinking Techniques</a>
             <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Michael Michalko</p>
           </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <a href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">《禪與摩托車維修的藝術》/ Zen and the Art of Motorcycle Maintenance</a>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">羅伯特·波西格（Robert M. Pirsig）</p>
+          </li>
         </ul>
       </div>
 
@@ -257,7 +262,39 @@
         <ul class="space-y-5">
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
             <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
-              <a href="https://en.wikipedia.org/wiki/Kim%27s_Convenience" target="_blank" rel="noopener" class="inline-link inline-link-plain">Kim's Convenience</a>
+              <a href="https://en.wikipedia.org/wiki/Toy_Story_5" target="_blank" rel="noopener" class="inline-link inline-link-plain">玩具總動員5 / Toy Story 5</a>
+            </div>
+            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              一個我們（大人小孩都一樣）正共同面對的挑戰。
+            </p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Bloodhounds_(TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">獵犬 / Bloodhounds（第 1、2 季）</a>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/His_%26_Hers_(2026_TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">His &amp; Hers</a>
+              <span class="completed-tag">✓ 看完</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Berlin_(Spanish_TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">Berlin and the Lady with an Ermine</a>
+              <span class="completed-tag">✓ 看完</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Dragon_Ball_Daima" target="_blank" rel="noopener" class="inline-link inline-link-plain">七龍珠 DAIMA / Dragon Ball Daima</a>
+              <span class="completed-tag">✓ 看完</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base mb-1">
+              <a href="https://en.wikipedia.org/wiki/Kim%27s_Convenience" target="_blank" rel="noopener" class="inline-link inline-link-plain line-through text-slate-400 dark:text-slate-500">Kim's Convenience</a>
+              <span class="dropped-tag">✗ 棄追</span>
             </div>
           </li>
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">

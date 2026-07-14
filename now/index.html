@@ -116,6 +116,24 @@
       color: rgb(110 231 183);
       background: rgb(6 78 59 / 0.5);
     }
+    .dropped-tag {
+      display: inline-block;
+      font-family: ui-monospace, monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgb(100 116 139);
+      background: rgb(226 232 240);
+      padding: 0.05rem 0.45rem;
+      border-radius: 9999px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .dark .dropped-tag {
+      color: rgb(148 163 184);
+      background: rgb(51 65 85 / 0.6);
+    }
   </style>
     <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -182,35 +200,18 @@
     </header>
 
     <!-- ============================================== -->
-    <!-- Long Game roles · compact pointer to /long-game/-->
+    <!-- Intro · how to connect / follow                 -->
     <!-- ============================================== -->
-    <section class="mb-16">
-      <div class="mb-6">
-        <h3 class="role-chip text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 mb-3">
-          🛠️ Builder
-        </h3>
-        <p class="text-base text-slate-500 dark:text-slate-400 italic mb-1">Work that pays. Work that plays. Ideally both.</p>
-        <p class="text-base font-mono text-slate-700 dark:text-slate-300">
-          <a href="/PIF12/" class="inline-link">PIF12</a> + <a href="/qualia/" class="inline-link">Qualia</a> + <a href="/seeds/" class="inline-link">Seeds</a> and beyond
-        </p>
-      </div>
-
-      <div class="mb-6">
-        <h3 class="role-chip text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800 mb-3">
-          🎙️ Storyteller
-        </h3>
-        <p class="text-base text-slate-500 dark:text-slate-400 italic mb-1">Putting the work where people can actually see it.</p>
-        <p class="text-base font-mono text-slate-700 dark:text-slate-300">
-          <a href="https://www.youtube.com/@MindLegalTalk" target="_blank" rel="noopener" class="inline-link">YouTube</a> + <a href="/3pwriting/" class="inline-link">3pwriting</a> + <a href="/communication/" class="inline-link">Records and inbound invites live here</a>
-        </p>
-      </div>
-
-      <div>
-        <h3 class="role-chip text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-800 mb-3">
-          🏄🏻‍♂️ Wayfarer
-        </h3>
-        <p class="text-base text-slate-500 dark:text-slate-400 italic">I don't really care about work–life balance — what I care about is <strong class="text-slate-900 dark:text-slate-100 not-italic">Mind &amp; Body balance</strong>.</p>
-      </div>
+    <section class="mb-16 space-y-4">
+      <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        Group up with me if you have a story to tell or are facing a challenge. Check out my <a href="/PIF12/" class="inline-link">PIF12</a> project for details.
+      </p>
+      <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        I have a <a href="https://www.youtube.com/@MindLegalTalk/streams" target="_blank" rel="noopener" class="inline-link">Chinese daily livestream diary</a> which has been running for 124+ days. So take a look at what I'm thinking and how I practice my orality every day. I recommend you pick 5-fold episodes first, which debrief my past five days and usually are more structured and organized.
+      </p>
+      <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+        If you prefer reading, my <a href="/3pwriting/" class="inline-link">3P writing</a> is a good start: writings on partnership, playbook, and playground. Less polished writing is at the <a href="/seeds/" class="inline-link">seed wall</a>.
+      </p>
     </section>
 
     <!-- ============================================== -->
@@ -218,7 +219,7 @@
     <!-- ============================================== -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold font-mono mb-2 text-slate-900 dark:text-slate-100">Reading &amp; Watching</h2>
-      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">What's currently in rotation.</p>
+      <p class="text-base text-slate-500 dark:text-slate-400 mb-8 italic">What I have been consuming this year (2026).</p>
 
       <!-- Books -->
       <div class="mb-10">
@@ -248,6 +249,10 @@
             <a href="https://www.amazon.com/Thinkertoys-Handbook-Creative-Thinking-Techniques-2nd/dp/1580087736" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">Thinkertoys: A Handbook of Creative-Thinking Techniques</a>
             <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Michael Michalko</p>
           </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <a href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance" target="_blank" rel="noopener" class="inline-link inline-link-plain font-bold font-mono text-base text-slate-900 dark:text-slate-100">Zen and the Art of Motorcycle Maintenance</a>
+            <p class="text-base text-slate-500 dark:text-slate-400 mt-0.5">Robert M. Pirsig</p>
+          </li>
         </ul>
       </div>
 
@@ -257,7 +262,39 @@
         <ul class="space-y-5">
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
             <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
-              <a href="https://en.wikipedia.org/wiki/Kim%27s_Convenience" target="_blank" rel="noopener" class="inline-link inline-link-plain">Kim's Convenience</a>
+              <a href="https://en.wikipedia.org/wiki/Toy_Story_5" target="_blank" rel="noopener" class="inline-link inline-link-plain">Toy Story 5</a>
+            </div>
+            <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              A current challenge we (children and adults alike) face together.
+            </p>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Bloodhounds_(TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">Bloodhounds (season 1 &amp; 2)</a>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/His_%26_Hers_(2026_TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">His &amp; Hers</a>
+              <span class="completed-tag">✓ done</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Berlin_(Spanish_TV_series)" target="_blank" rel="noopener" class="inline-link inline-link-plain">Berlin and the Lady with an Ermine</a>
+              <span class="completed-tag">✓ done</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base text-slate-900 dark:text-slate-100 mb-1">
+              <a href="https://en.wikipedia.org/wiki/Dragon_Ball_Daima" target="_blank" rel="noopener" class="inline-link inline-link-plain">Dragon Ball Daima</a>
+              <span class="completed-tag">✓ done</span>
+            </div>
+          </li>
+          <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
+            <div class="font-bold font-mono text-base mb-1">
+              <a href="https://en.wikipedia.org/wiki/Kim%27s_Convenience" target="_blank" rel="noopener" class="inline-link inline-link-plain line-through text-slate-400 dark:text-slate-500">Kim's Convenience</a>
+              <span class="dropped-tag">✗ dropped</span>
             </div>
           </li>
           <li class="border-l-2 border-slate-300 dark:border-slate-700 pl-5">
