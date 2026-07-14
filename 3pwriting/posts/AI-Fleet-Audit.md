@@ -9,6 +9,7 @@ tags:
   - playbooks
   - blog
   - y2026
+  - AI-generated
 summary: How does one person run a website, a legal practice, an on-chain project, and a coaching bot at once? I don't — I run eight AI sessions with names, mandates, and handoff files. Here's how the fleet works, the disasters behind its rules, and what a five-month self-audit taught me about why lessons don't compound on their own.
 ---
 

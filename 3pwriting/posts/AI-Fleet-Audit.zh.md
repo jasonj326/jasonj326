@@ -9,6 +9,7 @@ tags:
   - playbooks
   - blog
   - y2026
+  - AI-generated
 feed_canonical: true
 summary: 一個人怎麼同時經營網站、法律實務、鏈上專案、行為教練 bot？我不是一個人——我有八個各司其職的 AI session。這是它們的構造、它們闖過的禍，以及一場五個月自我審計教我的事：教訓不會自己複利。
 ---
