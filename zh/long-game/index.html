@@ -301,7 +301,7 @@
             <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
               <i data-lucide="flag" class="w-3.5 h-3.5"></i> 任務目標
             </span>
-            <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100">找到夥伴建立部落。</p>
+            <p class="text-xl sm:text-2xl font-bold mt-1 text-slate-900 dark:text-slate-100" id="quest-objective">助人、變富足：找奇特有故事的靈魂</p>
           </div>
           <div class="inline-flex items-center text-sm font-mono font-bold text-indigo-600 dark:text-emerald-400 shrink-0">
             <i data-lucide="swords" class="w-4 h-4 mr-1.5"></i> 接受挑戰
@@ -311,7 +311,7 @@
         <div class="mt-5">
           <span class="font-mono text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">目前狀態</span>
           <p class="text-sm font-mono font-bold text-purple-600 dark:text-purple-400 mt-1 flex items-center gap-1.5">
-            <i data-lucide="skull" class="w-4 h-4"></i> 狀態異常：被科技孤立所毒。
+            <i data-lucide="sparkles" class="w-4 h-4"></i> <span id="quest-status">非理性樂觀者</span>
           </p>
         </div>
       </div>
@@ -764,6 +764,11 @@
         const d = lastUpdateDate;
         $('three-roles-updated').textContent = `最後更新 · ${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
       }
+
+      // ── Quest Objective header card (SoT: /data/long-game.md → "Quest Objective")
+      const qo = kv(data['Quest Objective'] || []);
+      if ($('quest-objective') && qo['objective_' + LANG]) $('quest-objective').textContent = qo['objective_' + LANG];
+      if ($('quest-status') && qo['status_' + LANG]) $('quest-status').textContent = qo['status_' + LANG];
 
       // ── Wayfarer axes (Lv auto-derived from value via per-axis ceiling caps;
       //    caps mirror the ladder block lower on the page)

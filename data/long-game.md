@@ -5,17 +5,17 @@
 > Empty cells: leave blank (do not write `0` or `-`).
 > Bilingual columns (`*_en`, `*_zh`): each page picks its own language.
 
-# Long Game
+## Quest Objective
 
-Quest Objective
-Help people and get rich: Looking for wonderfully odd people with stories.
-助人、變富足：找奇特有故事的靈魂
+> Header card. Edit the value cells; each page (EN/zh) picks its language. `Challenge Accepted` stays a fixed label in the HTML.
 
-Challenge Accepted
+| key          | value                                                                      |
+| ------------ | -------------------------------------------------------------------------- |
+| objective_en | Help people and get rich: Looking for wonderfully odd people with stories. |
+| objective_zh | 助人、變富足：找奇特有故事的靈魂                                                            |
+| status_en    | Irrationally optimistic                                                    |
+| status_zh    | 非理性樂觀者                                                                     |
 
-Current Status
-Irrationally optimistic 
-非理性樂觀者
 ## Wayfarer axes
 
 > `lv` auto-derived from `value` via per-axis ceiling thresholds (see ladder block in `/long-game/`). You only edit `value`.
