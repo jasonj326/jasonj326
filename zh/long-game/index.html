@@ -337,8 +337,8 @@
         </div>
         <div class="milestone-dots">
           <span class="milestone-dot done"  data-key="sketch"      data-tooltip="設計概念與雙語 landing page 已上線"><span class="dot"></span><span class="label">構想</span></span>
-          <span class="milestone-dot doing" data-key="onchain"     data-tooltip="智能合約 testnet → 6/21 上 mainnet"><span class="dot"></span><span class="label">上鏈</span><span class="sub">測試 → 主網 6/21</span></span>
-          <span class="milestone-dot"       data-key="find-twelve" data-tooltip="找到願意持有 SBT 的前 12+ 位核心成員"><span class="dot"></span><span class="label">找到核心成員</span><span class="sub">0 of 12+</span></span>
+          <span class="milestone-dot done"  data-key="onchain"     data-tooltip="智能合約 6/21 上主網"><span class="dot"></span><span class="label">上鏈</span><span class="sub">測試 → 主網 6/21</span></span>
+          <span class="milestone-dot doing" data-key="find-twelve" data-tooltip="找到願意持有 SBT 的前 12+ 位核心成員"><span class="dot"></span><span class="label">找到核心成員</span><span class="sub">10 of 12+</span></span>
           <span class="milestone-dot"       data-key="year-end"    data-tooltip="2026 年底十二人實體聚會"><span class="dot"></span><span class="label">年終聚會</span><span class="sub">2026 年底</span></span>
           <span class="milestone-dot"       data-key="y2-sbt"      data-tooltip="設計並推出 Y2 SBT（2027 週期）"><span class="dot"></span><span class="label">第二年 SBT</span><span class="sub">2027</span></span>
         </div>
@@ -353,6 +353,7 @@
         <i data-lucide="users" class="w-5 h-5 text-slate-500 self-center"></i>
         三個角色
         <span class="text-base font-sans font-medium text-slate-500 dark:text-slate-400 ml-2">——我的公開建造角色</span>
+        <span id="three-roles-updated" class="ml-auto self-center text-sm font-sans font-medium text-slate-400 dark:text-slate-500 whitespace-nowrap">最後更新 · 2026-07-14</span>
       </h2>
 
       <div class="grid grid-cols-1 gap-5">
@@ -463,17 +464,16 @@
             身心平衡。木桶板基準（最弱軸）。
           </p>
 
-          <!-- Current level: min(Move=2, Mind=1, Force=2, Rest=5) = Lv.1 初行者 -->
+          <!-- Current level: weakest-link (min Lv across axes); JS-updated from /data/long-game.md -->
           <div class="flex items-baseline gap-2 mb-2">
-            <span class="text-xl">👟</span>
-            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100">Lv.1 初行者</span>
+            <span class="text-xl" id="wf-emoji">👟</span>
+            <span class="font-bold font-mono text-base text-slate-900 dark:text-slate-100" id="wf-lv-name">Lv.1 初行者</span>
           </div>
 
-          <!-- Progress within Lv.1 (Mind 10/10 = max of Lv.1, near Lv.2) -->
-          <div class="lv-bar mb-1.5"><div class="bg-emerald-600 dark:bg-emerald-400" style="width: 90%"></div></div>
+          <div class="lv-bar mb-1.5"><div class="bg-emerald-600 dark:bg-emerald-400" id="wf-progress" style="width: 90%"></div></div>
           <div class="flex justify-between text-sm font-mono text-slate-500 dark:text-slate-400 mb-3">
             <span>最弱軸</span>
-            <span>→ 實踐者</span>
+            <span id="wf-next">→ 實踐者</span>
           </div>
 
           <!-- 4 sub-axes with descriptions (values from /data/long-game.md → "Wayfarer axes" table) -->
@@ -502,28 +502,28 @@
               <i data-lucide="info" class="w-3 h-3"></i> 完整等級
               <i data-lucide="chevron-down" class="w-3 h-3 chev ml-auto"></i>
             </summary>
-            <ul class="text-sm font-mono space-y-1 mt-3 text-slate-500 dark:text-slate-400">
-              <li class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/30">
+            <ul class="text-sm font-mono space-y-1 mt-3 text-slate-500 dark:text-slate-400" id="wf-ladder">
+              <li data-lv="1" class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
                 <span>Lv.1 👟 初行者</span>
-                <span class="text-xs font-normal opacity-70 whitespace-nowrap">🫀(50) + 🧘(10) + 💪(5) + 😴(5)</span>
+                <span class="text-xs opacity-70 whitespace-nowrap">🫀(50) + 🧘(10) + 💪(5) + 😴(5)</span>
               </li>
-              <li class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
+              <li data-lv="2" class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
                 <span>Lv.2 ⏱️ 實踐者</span>
                 <span class="text-xs opacity-70 whitespace-nowrap">🫀(100) + 🧘(20) + 💪(15) + 😴(10)</span>
               </li>
-              <li class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
+              <li data-lv="3" class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
                 <span>Lv.3 🐫 砥礪者</span>
                 <span class="text-xs opacity-70 whitespace-nowrap">🫀(200) + 🧘(50) + 💪(30) + 😴(15)</span>
               </li>
-              <li class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
+              <li data-lv="4" class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
                 <span>Lv.4 🦁 開拓者</span>
                 <span class="text-xs opacity-70 whitespace-nowrap">🫀(400) + 🧘(100) + 💪(60) + 😴(20)</span>
               </li>
-              <li class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
+              <li data-lv="5" class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
                 <span>Lv.5 🧙‍♂️ 甘布利多</span>
                 <span class="text-xs opacity-70 whitespace-nowrap">🫀(1000) + 🧘(250) + 💪(150) + 😴(30)</span>
               </li>
-              <li class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
+              <li data-lv="6" class="flex flex-wrap items-baseline gap-x-2 px-1.5 py-1 rounded">
                 <span>Lv.6 👦 老頑童</span>
                 <span class="text-xs opacity-70 whitespace-nowrap">🫀(1000+) + 🧘(250+) + 💪(150+) + 😴(30+)</span>
               </li>
@@ -554,7 +554,7 @@
             <i data-lucide="youtube" class="w-7 h-7 text-red-600 dark:text-red-400"></i>
           </div>
           <h3 class="font-bold text-base font-mono mb-1">YouTube</h3>
-          <p class="text-xl font-bold font-mono text-slate-900 dark:text-slate-100 mb-1" id="sq-youtube-num">60+</p>
+          <p class="text-xl font-bold font-mono text-slate-900 dark:text-slate-100 mb-1" id="sq-youtube-num">124+</p>
           <p class="text-xs font-mono text-slate-500 dark:text-slate-400" id="sq-youtube-sub">日記直播 60+</p>
           <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">@MindLegalTalk</p>
         </a>
@@ -722,24 +722,48 @@
       }
       const kv = rows => Object.fromEntries(rows.map(r => [r.key, r.value]));
 
-      let data, essaysCount;
+      let data, essaysCount, lastUpdateDate = null;
       try {
-        const [mdR, enR, zhR] = await Promise.all([
+        const [mdR, enR, zhR, seedsR] = await Promise.all([
           fetch('/data/long-game.md'),
           fetch('/3pwriting/feed-en.xml'),
           fetch('/3pwriting/feed-zh.xml'),
+          fetch('/seeds/seeds.json'),
         ]);
-        const [mdText, enText, zhText] = await Promise.all([mdR.text(), enR.text(), zhR.text()]);
+        const [mdText, enText, zhText, seedsJson] = await Promise.all([mdR.text(), enR.text(), zhR.text(), seedsR.json()]);
         data = parseMd(mdText);
-        const enCount = new DOMParser().parseFromString(enText, 'application/xml').querySelectorAll('channel > item').length;
-        const zhCount = new DOMParser().parseFromString(zhText, 'application/xml').querySelectorAll('channel > item').length;
-        essaysCount = Math.ceil((enCount + zhCount) / 2);
+        const meta = Object.fromEntries((data['Meta'] || []).map(r => [r.key, r.value]));
+        const enDoc = new DOMParser().parseFromString(enText, 'application/xml');
+        const zhDoc = new DOMParser().parseFromString(zhText, 'application/xml');
+        // Storyteller essay count excludes AI-written essays (Meta.aiEssays, counted as bilingual pairs)
+        const aiEssays = parseInt(meta.aiEssays, 10) || 0;
+        essaysCount = Math.max(0, Math.ceil((enDoc.querySelectorAll('channel > item').length + zhDoc.querySelectorAll('channel > item').length) / 2) - aiEssays);
+
+        // ── "Last update" = most recent of: manual bump (Meta.lastUpdate),
+        //    newest builder seed (auto Builder count), newest essay pubDate (auto Storyteller count)
+        const luCand = [];
+        if (meta.lastUpdate) { const d = new Date(meta.lastUpdate + 'T00:00:00'); if (!isNaN(d)) luCand.push(d); }
+        const seedsArr = Array.isArray(seedsJson) ? seedsJson : (seedsJson.seeds || []);
+        const bTs = seedsArr.filter(s => (s.tags || []).includes('builder'))
+          .map(s => new Date(s.ts || s.updated_at || 0)).filter(d => !isNaN(d.getTime()));
+        if (bTs.length) luCand.push(new Date(Math.max(...bTs.map(d => d.getTime()))));
+        const pTs = [...enDoc.querySelectorAll('channel > item > pubDate'), ...zhDoc.querySelectorAll('channel > item > pubDate')]
+          .map(n => new Date(n.textContent)).filter(d => !isNaN(d.getTime()));
+        if (pTs.length) luCand.push(new Date(Math.max(...pTs.map(d => d.getTime()))));
+        if (luCand.length) lastUpdateDate = new Date(Math.max(...luCand.map(d => d.getTime())));
       } catch (e) {
         console.warn('Long Game data load failed:', e);
         return; // HTML fallbacks remain
       }
 
       const $ = id => document.getElementById(id);
+
+      // ── Three Roles "Last update" label
+      if ($('three-roles-updated') && lastUpdateDate) {
+        const p = n => String(n).padStart(2, '0');
+        const d = lastUpdateDate;
+        $('three-roles-updated').textContent = `最後更新 · ${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+      }
 
       // ── Wayfarer axes (Lv auto-derived from value via per-axis ceiling caps;
       //    caps mirror the ladder block lower on the page)
@@ -761,6 +785,38 @@
         const lv = deriveLv(parseFloat(a.value), a.axis);
         el.textContent = `${a.value}${unit} · Lv.${lv}`;
       });
+
+      // ── Wayfarer overall level = weakest-link (min Lv across axes);
+      //    progress bar = how far the bottleneck axis is into its own band
+      const WF_LADDER = [
+        { name: '初行者', emoji: '👟' }, { name: '實踐者', emoji: '⏱️' },
+        { name: '砥礪者', emoji: '🐫' }, { name: '開拓者', emoji: '🦁' },
+        { name: '甘布利多', emoji: '🧙‍♂️' }, { name: '老頑童', emoji: '👦' },
+      ];
+      const wfAxes = (data['Wayfarer axes'] || []).filter(a => WF_CAPS[a.axis] && !isNaN(parseFloat(a.value)));
+      if (wfAxes.length) {
+        const band = a => {
+          const v = parseFloat(a.value), caps = WF_CAPS[a.axis], lv = deriveLv(v, a.axis);
+          const lo = lv === 1 ? 0 : caps[lv - 2];
+          const hi = lv >= 6 ? caps[4] : caps[lv - 1];
+          return { lv, frac: lv >= 6 ? 1 : Math.min(1, Math.max(0, (v - lo) / (hi - lo))) };
+        };
+        const minLv = Math.min(...wfAxes.map(a => band(a).lv));
+        const minFrac = Math.min(...wfAxes.filter(a => band(a).lv === minLv).map(a => band(a).frac));
+        const curW = WF_LADDER[minLv - 1], nextW = WF_LADDER[minLv];
+        if ($('wf-emoji'))    $('wf-emoji').textContent = curW.emoji;
+        if ($('wf-lv-name'))  $('wf-lv-name').textContent = `Lv.${minLv} ${curW.name}`;
+        if ($('wf-progress')) $('wf-progress').style.width = `${Math.round(minFrac * 100)}%`;
+        if ($('wf-next'))     $('wf-next').textContent = nextW ? `→ ${nextW.name}` : '已滿級';
+        const wfLadder = $('wf-ladder');
+        if (wfLadder) wfLadder.querySelectorAll('li[data-lv]').forEach(li => {
+          if (parseInt(li.dataset.lv) === minLv) {
+            li.classList.add('font-bold', 'text-emerald-700', 'dark:text-emerald-300', 'bg-emerald-50', 'dark:bg-emerald-900/30');
+            const last = li.querySelector('span:last-child');
+            if (last) last.classList.replace('opacity-70', 'opacity-80');
+          }
+        });
+      }
 
       // ── Side Quest — YouTube
       const sq = kv(data['Side Quest — YouTube'] || []);
