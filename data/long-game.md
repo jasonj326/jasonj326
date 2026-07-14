@@ -34,11 +34,11 @@
 
 ## PIF12 header
 
-| key     | value |
-|---------|-------|
-| fillPct | 30    |
-| hero_en | A 12-year commitment to a tribe of curious polymaths — testnet now, mainnet 6/21, invite open. |
-| hero_zh | 12 年的承諾，建立一個好奇博學者的部落——testnet 進行中、6/21 上 mainnet、邀請開放中。 |
+| key     | value                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------- |
+| fillPct | 30                                                                                           |
+| hero_en | A 12-year commitment to a tribe of curious polymaths — mainnet 6/21, invite open for storie. |
+| hero_zh | 12 年的承諾，建立一個好奇博學者、樂於助人者的部落——6/21 上 mainnet，歡迎分享你的故事                                          |
 
 ## PIF12 milestones
 
