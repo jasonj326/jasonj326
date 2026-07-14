@@ -37,7 +37,7 @@
 | key     | value                                                                                        |
 | ------- | -------------------------------------------------------------------------------------------- |
 | fillPct | 30                                                                                           |
-| hero_en | A 12-year commitment to a tribe of curious polymaths — mainnet 6/21, invite open for storie. |
+| hero_en | A 12-year commitment to a tribe of curious, gratiful, polymaths — mainnet 6/21, invite open. |
 | hero_zh | 12 年的承諾，建立一個好奇博學者、樂於助人者的部落——6/21 上 mainnet，歡迎分享你的故事                                          |
 
 ## PIF12 milestones
