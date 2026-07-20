@@ -14,6 +14,121 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://jasonjlai.net/long-game/builder/#page",
+      "url": "https://jasonjlai.net/long-game/builder/",
+      "name": "My Builder Dashboard",
+      "description": "A tech attorney starting with zero coding, using AI to build open-source tools at the intersection of law and crypto. The H2 2026 plan, tracked in public.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://jasonjlai.net/",
+        "name": "Jason J. Lai"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://jasonjlai.net/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Long Game",
+            "item": "https://jasonjlai.net/long-game/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Builder Dashboard",
+            "item": "https://jasonjlai.net/long-game/builder/"
+          }
+        ]
+      },
+      "mainEntity": {
+        "@id": "https://jasonjlai.net/#person"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI governance"
+        },
+        {
+          "@type": "Thing",
+          "name": "Legal technology"
+        },
+        {
+          "@type": "Thing",
+          "name": "Blockchain regulation"
+        },
+        {
+          "@type": "Thing",
+          "name": "Learning to code with AI"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://jasonjlai.net/#person",
+      "name": "Jason J. Lai",
+      "url": "https://jasonjlai.net/",
+      "jobTitle": "Web3 & AI Legal Builder",
+      "description": "A tech attorney starting with zero coding, using AI to build open-source tools at the intersection of law and crypto.",
+      "email": "mailto:projects@jasonjlai.net",
+      "knowsAbout": [
+        "AI Governance",
+        "AI Safety",
+        "Legal Operational Risk",
+        "Blockchain Regulation",
+        "Real-World Asset Tokenization",
+        "Smart Contract Compliance",
+        "Legal Engineering"
+      ],
+      "sameAs": [
+        "https://github.com/jasonj326",
+        "https://linkedin.com/in/psjasonlai"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "CLO Cockpit",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Cross-platform",
+      "author": {
+        "@id": "https://jasonjlai.net/#person"
+      },
+      "description": "An MVP for legal operational-risk management, covering legal research, investor relations, regulatory tracking, product review, IP management, cyber hygiene and AI-safety policy. Runs on either a local or a third-party LLM. Open to legal professionals for collaboration and beta testing.",
+      "url": "https://jasonjlai.net/long-game/builder/"
+    },
+    {
+      "@type": "VideoGame",
+      "name": "Blockchain Law RPG",
+      "author": {
+        "@id": "https://jasonjlai.net/#person"
+      },
+      "inLanguage": [
+        "en",
+        "zh-Hant"
+      ],
+      "genre": [
+        "Educational",
+        "Role-playing"
+      ],
+      "description": "A bilingual role-playing game that puts the player in the seat of a startup founder, a legal professional in web3, a regulatory supervisor, or a banker. Educational and entertaining; not legal advice and not a legal service.",
+      "url": "https://jasonjlai.net/long-game/builder/"
+    }
+  ]
+}
+</script>
+
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -298,7 +413,7 @@
   <div class="strip">
     <div class="k">Now · <span id="nowPhase">Phase 0</span> · one next action</div>
     <p id="nowAction"><b>Loading…</b></p>
-    <p>Deadline inside the deadline: <b>everything ships by end of November.</b> December is for write-ups only — anything half-done on 1 December is invisible.</p>
+    <p>Deadline inside the deadline: <b>everything public finishes by mid-December.</b> Anything still half-done then is, for every practical purpose, invisible.</p>
   </div>
 
   <div class="week">
@@ -332,13 +447,13 @@
     <h3 class="serif"><span class="k">The five months</span>What lands when</h3>
     <p style="margin-bottom:7px"><b>Aug</b> — Python fundamentals; reverse-engineer the <span class="mono">publish.py</span> and GitHub Action already running this site. Building: the cockpit's connective layer.</p>
     <p style="margin-bottom:7px"><b>Sep – Oct</b> — Prompts, the Claude API, RAG, agents, evals, and the AI-governance write-up. Building: the game ships publicly.</p>
-    <p style="margin-bottom:7px"><b>Nov</b> — On-chain data and a Solidity on-ramp. Building: the analytics dashboard, and both cornerstones close out. <b>Everything public finishes this month.</b></p>
-    <p style="margin-bottom:0"><b>Dec</b> — No new builds: write-ups, the portfolio page, the H1 2027 plan.</p>
+    <p style="margin-bottom:7px"><b>Nov</b> — On-chain data and a Solidity on-ramp. Building: the analytics dashboard, and both cornerstones close out.</p>
+    <p style="margin-bottom:0"><b>Dec</b> — <b>Everything public finishes by mid-December.</b> After that: write-ups, the portfolio page, the H1 2027 plan.</p>
   </div>
 
   <div class="card">
     <h3 class="serif"><span class="k">The guardrail</span>The illusion of the vibe-coding builder</h3>
-    <p>Directing an AI to build produces real artifacts and no transferable capability — the ability is borrowed, and the bill arrives the moment I have to verify, maintain or extend it on my own.</p>
+    <p>Directing an AI to build produces real artifacts and no transferable capability — the sense that I can build is illusory, and the bill arrives the moment I have to verify, maintain or extend it on my own.</p>
     <p style="margin-bottom:0"><b>The tell:</b> if I can't explain last session's code in plain language, that was consumption, not building.</p>
   </div>
 
@@ -348,7 +463,7 @@
       <div class="logitem"><div class="logv">v1</div><div class="logt"><b>The first plan</b>Cut the Stanford AI courses — wrong layer; they teach making AI, the goal is using it. Added the missing tracks: applied AI, smart contracts, on-chain data. Four phases, each gated.</div></div>
       <div class="logitem"><div class="logv">v2</div><div class="logt"><b>Widened the materials</b>Any format competes — one best fit plus one backup per module. Added the signal layer: proof nobody sees is half-finished.</div></div>
       <div class="logitem"><div class="logv">v3</div><div class="logt"><b>Two cornerstones and a budget</b>Added the real projects, the two-lane budget, and the capability-debt rules.</div></div>
-      <div class="logitem"><div class="logv">v3.1</div><div class="logt"><b>Half-year scope; one plan, one progress bar</b>Re-scoped to H2 2026 at ~12 hrs/week, deep crypto deferred to H1 2027. Header rewritten as a Smart Brevity brief and one word in five cut page-wide. Four tabs became two: learning and projects now share a single plan and a single progress bar. Dropped the standalone benchmark anchor — it is a by-product of the game, not a market I claim. The market brief, the deferred list and the parking lot merged into a single <b>On radar</b>, stated as what is live rather than as what is excluded. Projects rewritten in my own words; the RPG moved to WIP. Site disclaimer added. Review every 15 days.</div></div>
+      <div class="logitem"><div class="logv">v3.1</div><div class="logt"><b>Half-year scope; one plan, one progress bar</b>Re-scoped to H2 2026 at ~12 hrs/week, deep crypto deferred to H1 2027. Header rewritten as a Smart Brevity brief and one word in five cut page-wide. Four tabs became two: learning and projects now share a single plan and a single progress bar. Dropped the standalone benchmark anchor — it is a by-product of the game, not a market I claim.</div></div>
     </div>
   </div>
 
@@ -375,13 +490,13 @@
   <h2 class="secttl serif">On radar</h2>
   <p class="lede" style="margin:0 0 13px">Live rather than scheduled — what I am tracking now, and what the next plan will most likely be built from. A fresh one gets written in December.</p>
   <div class="later">
-    <p style="margin-bottom:10px"><b>The market, up close and at a distance.</b> Up close: real-world asset tokenisation, and how institutions are actually entering rather than how they say they will. At a distance: the shape those add up to, including the part most coverage skips — the non-financial uses of a chain. There is no deliverable to promise here yet, and I would rather say so than invent one. The likely first move is a contribution rather than a project of my own: an open-source tool whose missing piece is someone who reads both the code and the regulation.</p>
+    <p style="margin-bottom:10px"><b>The blockchain market, up close and at a distance.</b> Up close: real-world asset tokenization, and how institutions are actually entering rather than how they say they will. At a distance: blockchain application within and outside finance, with and without AI. There is no deliverable to promise here yet, and I would rather say so than invent one. The likely first move is a contribution rather than a project of my own: an open-source tool whose missing piece is someone who reads both the code and the regulation.</p>
     <p style="margin-bottom:8px"><b>Ready once the fundamentals are in:</b></p>
     <ul>
       <li><b>Solidity + Foundry in depth</b> — Cyfrin Updraft, ~40h. The on-ramp is this year; the deep water follows.</li>
       <li><b>Ethernaut</b> — security intuition, which pays off once the basics hold.</li>
       <li><b>ERC-3643 contribution</b> — earned once I can read the standard in its own language.</li>
-      <li><b>AI-native rigor (CS146S)</b> — richer after a half-year of directing agents daily.</li>
+      <li><b>AI-native rigor (CS146S)</b> — richer after a year of directing agents daily.</li>
       <li><b>The flagship</b> — an agent producing a compliance read from on-chain data.</li>
       <li><b>Also queued</b> — the cockpit’s v2 collaboration layer, the game’s second content batch, the full Speedrun Ethereum track.</li>
     </ul>
@@ -414,7 +529,7 @@ const PROJECTS = [
     title:"CLO Cockpit",
     next:"Improve the app from how it actually gets used, and turn that into a roadmap I can keep.",
     hours:"~50h · Jul–Nov",
-    detail:"My MVP for legal operational-risk management — from legal research to investor relations, from regulatory tracking to product review, from IP management to cyber hygiene and AI-safety policy. It runs on either a local LLM or a third-party one. Open to legal professionals for collaboration and beta testing. It is also where I practise AI governance rather than write about it — the boundary between what the model proposes and what actually gets written is documented in the Phase 1 write-up." },
+    detail:"My MVP for legal operational-risk management — from legal research to investor relations, from regulatory tracking to product review, from IP management to cyber hygiene and AI-safety policy. It runs on either a local LLM or a third-party one. Open to legal professionals for collaboration and beta testing. It is also where I practice AI governance rather than write about it — the boundary between what the model proposes and what actually gets written is documented in the Phase 1 write-up." },
   { id:"pr4", kind:"corner", role:"Cornerstone 2 · Public", status:"live", statusLabel:"WIP",
     title:"Blockchain Law RPG",
     next:"Finish the plot and the legal research, then open alpha testing.",

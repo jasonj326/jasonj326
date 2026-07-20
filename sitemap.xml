@@ -67,6 +67,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jasonjlai.net/long-game/builder/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jasonjlai.net/zh/long-game/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
