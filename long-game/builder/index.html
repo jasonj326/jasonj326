@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Builder Dashboard · Jason J. Lai</title>
+<meta name="description" content="A tech attorney starting with zero coding, using AI to build open-source tools at the intersection of law and crypto.">
+<link rel="canonical" href="https://jasonjlai.net/long-game/builder/">
+
+<meta property="og:title" content="My Builder Dashboard · Jason J. Lai">
+<meta property="og:description" content="A tech attorney starting with zero coding, using AI to build open-source tools at the intersection of law and crypto.">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/long-game/builder/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F6F8; --surface:#FFFFFF; --surface-2:#FAFBFC;
+    /* --muted / --faint darkened from the draft: the originals were 4.72:1 and 2.60:1.
+       --faint must clear 4.5:1 on BOTH the white cards and the greyer page background. */
+    --ink:#181B22; --ink-2:#39414E; --muted:#525A66; --faint:#656D7B;
+    --line:#E4E7EC; --line-2:#D2D7DE;
+    --learn:#B0761A; --learn-deep:#9A6716; --learn-ink:#7C5211; --learn-soft:#F5EBD8; --learn-track:#EADFC8;
+    --build:#5A6472; --build-soft:#EDEFF2;
+    --live:#397048; --live-soft:#E6F0E8;
+    --radius:12px; --radius-sm:8px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif; font-size:17px; line-height:1.55;
+    letter-spacing:-0.005em; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 18px 70px}
+  a{color:var(--learn-ink); text-decoration:none; border-bottom:1px solid var(--learn-track)}
+  a:hover{border-bottom-color:var(--learn)}
+  .serif{font-family:'Newsreader',Georgia,serif}
+  .mono{font-family:'JetBrains Mono',monospace; letter-spacing:0}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+  :focus-visible{outline:2px solid var(--learn); outline-offset:2px}
+
+  /* === Site chrome — mirrors jasonjlai.net nav/footer, hand-rolled so this
+     page stays Tailwind-free (the CDN build is render-blocking; see /long-game/). === */
+  .sitebar{border-bottom:1px solid var(--line); padding:13px 0; display:flex;
+    align-items:center; gap:17px; flex-wrap:wrap}
+  .sitebar a{border-bottom:0; color:var(--muted); font-family:'JetBrains Mono',monospace;
+    font-size:13px; font-weight:600; letter-spacing:-0.01em}
+  .sitebar a:hover{color:var(--learn-ink)}
+  .sitebar a.home{color:var(--ink)}
+  .sitebar .spacer{margin-left:auto}
+  .sitebar a.ext{font-weight:500; color:var(--faint)}
+  .crumb{padding:15px 0 0; font-family:'JetBrains Mono',monospace; font-size:13px}
+  .crumb a{border-bottom:0; color:var(--learn-ink)}
+  .crumb a:hover{border-bottom:1px solid var(--learn-track)}
+  footer.site{margin-top:14px; padding:17px 0 0; border-top:1px solid var(--line);
+    font-size:13px; color:var(--muted); display:flex; gap:15px; flex-wrap:wrap; align-items:center}
+  footer.site a{color:var(--muted); border-bottom:0}
+  footer.site a:hover{color:var(--learn-ink)}
+  footer.site .cc{margin-left:auto; color:var(--faint)}
+  footer.site .cc a{color:var(--faint)}
+
+  header.top{padding:26px 0 18px; border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--learn-ink); display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+  .vchip{border:1px solid var(--learn-track); background:var(--learn-soft); border-radius:5px; padding:1px 7px; letter-spacing:0.06em}
+  h1{font-family:'Newsreader',serif; font-weight:500; font-size:clamp(34px,7vw,52px);
+    line-height:1.02; margin:9px 0 6px; letter-spacing:-0.01em}
+  h1 em{font-style:italic; color:var(--ink-2)}
+  .sub{color:var(--muted); font-size:16px; max-width:62ch; margin:0}
+  .sub b{color:var(--ink-2); font-weight:600}
+  .brief{margin-top:13px; font-size:16px; color:var(--ink-2); max-width:66ch; line-height:1.55}
+  .brief p{margin:0 0 8px}
+  .brief b{color:var(--ink)}
+  .brief ul{margin:0 0 4px; padding-left:20px}
+  .brief li{margin:2px 0}
+  .meter{margin-top:18px; display:flex; align-items:center; gap:13px; flex-wrap:wrap}
+  .meter .bar{flex:1; min-width:170px; height:7px; background:var(--learn-track); border-radius:99px; overflow:hidden}
+  .meter .fill{height:100%; width:0; background:var(--learn); border-radius:99px; transition:width .35s ease}
+  .meter .pct{font-family:'JetBrains Mono',monospace; font-size:14.5px; font-weight:600; color:var(--learn-ink); min-width:132px}
+  .meter .reset{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--faint);
+    background:none; border:1px solid var(--line-2); border-radius:99px; padding:4px 10px; cursor:pointer}
+  .meter .reset:hover{color:var(--ink-2)}
+  .flag{display:none; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--learn-ink);
+    background:var(--learn-soft); border-radius:99px; padding:3px 10px; margin-top:10px}
+
+  nav.tabs{position:sticky; top:0; z-index:20; background:var(--bg); padding:10px 0;
+    display:flex; gap:6px; border-bottom:1px solid var(--line); margin-bottom:24px; overflow-x:auto}
+  .tab{font-size:15.5px; font-weight:600; color:var(--muted); background:none; border:0;
+    padding:8px 13px; border-radius:99px; cursor:pointer; white-space:nowrap; letter-spacing:-0.01em}
+  .tab:hover{color:var(--ink-2)}
+  .tab[aria-selected="true"]{color:var(--ink); background:var(--surface); box-shadow:inset 0 0 0 1px var(--line-2)}
+  .panel{display:none} .panel.active{display:block; animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .strip{background:var(--ink); color:#E6E9ED; border-radius:var(--radius); padding:16px 18px; margin-bottom:20px}
+  .strip .k{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.13em;
+    text-transform:uppercase; color:#E0BC72; margin-bottom:5px}
+  .strip p{margin:0; font-size:16px; line-height:1.5; color:#D9DDE3}
+  .strip p b{color:#fff}
+  .strip p + p{margin-top:8px}
+
+  .week{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:19px 20px; margin-bottom:16px}
+  .week h2{font-family:'Newsreader',serif; font-weight:600; font-size:23px; margin:0 0 3px}
+  .week .lede{font-size:15px; color:var(--muted); margin:0 0 15px}
+  .lanes{display:flex; height:64px; border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--line-2)}
+  .lane{display:flex; flex-direction:column; justify-content:center; padding:0 14px; min-width:0}
+  .lane.l{background:var(--learn-soft); flex:7; border-right:1px solid var(--line-2)}
+  .lane.b{background:var(--build-soft); flex:5}
+  .lane .hrs{font-family:'JetBrains Mono',monospace; font-size:19.5px; font-weight:600; line-height:1}
+  .lane.l .hrs{color:var(--learn-ink)} .lane.b .hrs{color:var(--build)}
+  .lane .nm{font-size:13px; margin-top:3px; line-height:1.3}
+  .lane.l .nm{color:var(--learn-ink)} .lane.b .nm{color:var(--build)}
+  .shift{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:13px}
+  .sh{border:1px solid var(--line); border-radius:var(--radius-sm); padding:10px 12px}
+  .sh.now{border-color:var(--learn); background:var(--learn-soft)}
+  .sh .per{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.09em;
+    text-transform:uppercase; color:var(--faint)}
+  .sh.now .per{color:var(--learn-ink)}
+  .sh .val{font-size:15px; margin-top:3px; color:var(--ink-2); line-height:1.4}
+  .sh .val b{font-family:'JetBrains Mono',monospace; font-size:15px}
+
+  .budget{display:flex; height:30px; border-radius:6px; overflow:hidden; margin:14px 0 8px}
+  .bseg{display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace;
+    font-size:13px; font-weight:600; color:#fff}
+  .bseg.a{background:var(--learn-deep); flex:140} .bseg.b{background:var(--build); flex:120}
+  .blegend{font-size:14px; color:var(--muted); line-height:1.5}
+  .blegend b{color:var(--ink-2)}
+
+  .grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px}
+  .proj{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:15px 16px}
+  .proj.anchor{border-left:3px solid var(--learn)}
+  .proj.corner{border-left:3px solid var(--build)}
+  .proj .role{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.11em;
+    text-transform:uppercase; color:var(--faint); display:flex; justify-content:space-between; gap:8px; align-items:center}
+  .proj.anchor .role span:first-child{color:var(--learn-ink)}
+  .proj.corner .role span:first-child{color:var(--build)}
+  .st{border-radius:99px; padding:1px 8px; font-size:13px; letter-spacing:0.06em; white-space:nowrap}
+  .st.live{background:var(--live-soft); color:var(--live)}
+  .st.ready{background:var(--learn-soft); color:var(--learn-ink)}
+  .st.latent{background:var(--build-soft); color:var(--build)}
+  .st.block{background:var(--line); color:var(--muted)}
+  .proj h3{font-family:'Newsreader',serif; font-weight:600; font-size:20px; margin:6px 0 4px; line-height:1.2}
+  .proj p{margin:0; font-size:14.5px; color:var(--muted); line-height:1.5}
+  .proj .nx{margin-top:9px; padding-top:9px; border-top:1px dashed var(--line); font-size:14.5px; color:var(--ink-2)}
+  .proj .nx b{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.09em;
+    text-transform:uppercase; color:var(--faint); font-weight:500; display:block; margin-bottom:2px}
+  .hrschip{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:13px;
+    border:1px solid var(--line-2); background:var(--surface-2); color:var(--muted);
+    border-radius:5px; padding:1px 6px; margin-top:8px}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:17px 18px; margin-bottom:15px}
+  .card h3{font-family:'Newsreader',serif; font-weight:600; font-size:22px; margin:0 0 5px}
+  .card h3 .k{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--learn-ink); display:block; font-weight:500; margin-bottom:4px}
+  .card p{margin:0 0 10px; font-size:15.5px; color:var(--ink-2)}
+  .card p:last-child{margin-bottom:0}
+  .callout{background:var(--learn-soft); border:1px solid var(--learn-track); border-radius:var(--radius);
+    padding:14px 16px; font-size:15px; color:var(--ink-2); line-height:1.55; margin-bottom:15px}
+  .callout .k{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--learn-ink); display:block; margin-bottom:5px; font-weight:600}
+  .callout b{color:var(--learn-ink)}
+
+  .rule{display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--line)}
+  .rule:last-child{border-bottom:0; padding-bottom:0}
+  .rule .n{font-family:'Newsreader',serif; font-size:27.5px; font-weight:500; color:var(--learn); line-height:1; flex:none; width:26px}
+  .rule .t{flex:1}
+  .rule .t b{font-size:15.5px; display:block; margin-bottom:2px}
+  .rule .t p{margin:0; font-size:14.5px; color:var(--muted); line-height:1.5}
+
+  .phase{margin-bottom:30px}
+  .ph-head{display:flex; align-items:baseline; gap:13px; margin-bottom:3px}
+  .ph-num{font-family:'Newsreader',serif; font-weight:500; font-size:48.5px; line-height:.9; color:#868FA0; flex:none}
+  .phase.done .ph-num{color:var(--learn)}
+  .ph-title{font-family:'Newsreader',serif; font-weight:600; font-size:23px; margin:0; line-height:1.1}
+  .ph-meta{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted); margin-top:3px}
+  .here{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.1em;
+    text-transform:uppercase; color:#fff; background:var(--learn-deep); border-radius:99px; padding:2px 8px; vertical-align:middle}
+  .ph-goal{color:var(--ink-2); font-size:15.5px; margin:5px 0 12px; padding-left:62px}
+  .ph-prog{padding-left:62px; margin-bottom:12px; display:flex; align-items:center; gap:10px}
+  .ph-prog .pb{flex:1; height:5px; background:var(--line); border-radius:99px; overflow:hidden}
+  .ph-prog .pf{height:100%; width:0; background:var(--learn); border-radius:99px; transition:width .3s}
+  .ph-prog .pt{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--faint)}
+  @media(max-width:560px){.ph-goal,.ph-prog{padding-left:0} .ph-num{font-size:39px}}
+
+  .resetrow{margin-top:24px; display:flex; justify-content:flex-end}
+  .secttl{font-family:'Newsreader',serif; font-weight:600; font-size:23px; margin:36px 0 2px}
+  .mods{display:flex; flex-direction:column; gap:9px}
+  .mod{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:13px 14px; display:flex; gap:12px}
+  .mod.checked{background:var(--surface-2)}
+  .cbox{flex:none; width:21px; height:21px; margin-top:1px; border:1.5px solid var(--line-2);
+    border-radius:6px; background:#fff; cursor:pointer; position:relative; transition:all .15s}
+  .cbox:hover{border-color:var(--learn)}
+  .cbox[aria-checked="true"]{background:var(--learn); border-color:var(--learn)}
+  .cbox[aria-checked="true"]::after{content:""; position:absolute; left:6px; top:2.5px; width:5px; height:9.5px;
+    border:solid #fff; border-width:0 2.2px 2.2px 0; transform:rotate(45deg)}
+  .mod-b{flex:1; min-width:0}
+  .mod-sk{font-weight:700; font-size:16px; letter-spacing:-0.01em; margin-bottom:2px}
+  .mod.checked .mod-sk{color:var(--ink-2)}
+  .opt{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.07em; text-transform:uppercase;
+    color:var(--faint); border:1px solid var(--line-2); border-radius:5px; padding:1px 5px; margin-left:6px}
+  .res{margin-top:6px}
+  .res-r{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--learn-ink)}
+  .res-r.bk{color:var(--faint)}
+  .res-n{font-weight:600; font-size:15px}
+  .res-t{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted)}
+  .res-t .fr{color:var(--live)} .res-t .pd{color:var(--learn-ink)}
+  .res-w{font-size:14.5px; color:var(--muted); line-height:1.45; margin-top:2px}
+  .res.bk{margin-top:5px; padding-top:5px; border-top:1px dashed var(--line)}
+
+  .gate{margin-top:12px; margin-left:62px; background:var(--learn-soft); border-left:3px solid var(--learn);
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:10px 13px}
+  .gate .gl{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.13em;
+    text-transform:uppercase; color:var(--learn-ink); font-weight:600}
+  .gate .gt{font-size:14.5px; color:var(--ink-2); margin-top:3px}
+  @media(max-width:560px){.gate{margin-left:0}}
+
+  .later{background:var(--surface-2); border:1px dashed var(--line-2); border-radius:var(--radius); padding:17px 18px}
+  .later h3{font-family:'Newsreader',serif; font-weight:600; font-size:22px; margin:0 0 4px}
+  .later .k{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--faint); display:block; margin-bottom:4px}
+  .later p{font-size:15px; color:var(--muted); margin:0 0 10px}
+  .later ul{margin:0; padding-left:18px; font-size:15px; color:var(--ink-2); line-height:1.7}
+
+  .wk{display:grid; grid-template-columns:auto 1fr; gap:8px 14px; margin-top:8px; font-size:15px; align-items:baseline}
+  .wk .sl{font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; white-space:nowrap}
+  .wk .sl.l{color:var(--learn-ink)} .wk .sl.b{color:var(--build)}
+  .wk .wt{color:var(--ink-2)}
+
+  .log{margin-top:8px}
+  .logitem{display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line)}
+  .logitem:last-child{border-bottom:0}
+  .logv{font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; color:var(--learn-ink);
+    flex:none; width:50px; padding-top:1px}
+  .logt{flex:1; font-size:14.5px; color:var(--ink-2); line-height:1.5}
+  .logt b{display:block; font-size:14.5px; margin-bottom:2px}
+
+  .note{margin-top:26px; padding:13px 15px; border:1px dashed var(--line-2); border-radius:var(--radius);
+    font-size:14px; color:var(--muted); line-height:1.5}
+  .note .k{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--faint); display:block; margin-bottom:5px}
+  .note b{color:var(--ink-2)}
+  footer.ft{margin-top:24px; padding-top:14px; border-top:1px solid var(--line);
+    font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--faint);
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="sitebar" aria-label="Site">
+  <a class="home" href="/">&gt;_ Jason_Lai</a>
+  <a href="/long-game/">Long Game</a>
+  <a href="/3pwriting/">Writing on 3P</a>
+  <a href="/qualia/">Qualia</a>
+  <a href="/seeds/">Seeds</a>
+  <span class="spacer"></span>
+  <a class="ext" href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <a class="ext" href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a class="ext" href="mailto:hello@jasonjlai.net">Email</a>
+</nav>
+<div class="crumb"><a href="/long-game/">← Long Game</a></div>
+
+<header class="top">
+  <div class="eyebrow"><span>Law × AI × Crypto × Gamification · H2 2026</span><span class="vchip">v3.1 · 2026-07-20</span></div>
+  <h1 class="serif">My Builder Dashboard</h1>
+  <p class="sub"><b>A tech attorney starting with zero coding, using AI to build open-source tools at the intersection of law and crypto.</b></p>
+  <div class="brief">
+    <p><b>Why it matters:</b> the digital noise in law and emerging tech is deafening. Building in public is how I cut through it — prove what's possible with AI, and find the co-builders and teams who want this space safer and more efficient.</p>
+    <p><b>The backstory:</b> I failed a few times at Git and Python. AI changed the game. This site is my live playground, where I translate legal frameworks into executable web3 protocols.</p>
+    <p><b>Building &amp; learning now</b>, alongside my 12-year project <a href="/PIF12/">PIF12</a>:</p>
+    <ul>
+      <li>AI &amp; CS tech fundamentals</li>
+      <li>Blockchain Law RPG</li>
+      <li>CLO Cockpit</li>
+    </ul>
+  </div>
+  <div class="meter">
+    <div class="pct" id="pctText">0% · 0 / 0</div>
+    <div class="bar"><div class="fill" id="pctFill"></div></div>
+    <button class="reset" id="resetBtn">reset progress</button>
+  </div>
+  <div class="flag" id="persistFlag">Your browser is blocking local storage, so ticks won't persist.</div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button class="tab" id="tab-dash" role="tab" aria-selected="true" aria-controls="dash" data-tab="dash">Dashboard</button>
+  <button class="tab" id="tab-plan" role="tab" aria-selected="false" aria-controls="plan" data-tab="plan">Build plan</button>
+</nav>
+
+<!-- ================= DASHBOARD ================= -->
+<section class="panel active" id="dash" role="tabpanel" aria-labelledby="tab-dash" tabindex="0">
+
+  <div class="strip">
+    <div class="k">Now · <span id="nowPhase">Phase 0</span> · one next action</div>
+    <p id="nowAction"><b>Loading…</b></p>
+    <p>Deadline inside the deadline: <b>everything ships by end of November.</b> December is for write-ups only — anything half-done on 1 December is invisible.</p>
+  </div>
+
+  <div class="week">
+    <h2 class="serif">The week: twelve hours, two lanes</h2>
+    <p class="lede">Hours per week: courses left, projects right.</p>
+    <div class="lanes">
+      <div class="lane l"><div class="hrs">7 hrs</div><div class="nm">Learning — courses, protected</div></div>
+      <div class="lane b"><div class="hrs">4 hrs</div><div class="nm">Building — projects, capped</div></div>
+    </div>
+    <div class="shift">
+      <div class="sh now"><div class="per">Aug – Sep · foundations</div><div class="val"><b>7 learning · 4 building</b><br>Fundamentals can't be crammed — they go first.</div></div>
+      <div class="sh"><div class="per">Oct – Dec · shipping</div><div class="val"><b>5 learning · 6 building</b><br>Flips when the artifacts need finishing.</div></div>
+    </div>
+
+    <div class="budget">
+      <div class="bseg a">Learning 140h</div>
+      <div class="bseg b">Building 120h</div>
+    </div>
+    <p class="blegend"><b>~23 weeks · 260h.</b> The twelfth hour is the queue slot — short lessons between other things. <b>12 is the target; 8 is the floor.</b> A heavy client week cuts scope inside a project, never a whole lane.</p>
+
+    <div class="wk" style="margin-top:15px; padding-top:14px; border-top:1px solid var(--line)">
+      <div class="sl l">~2h × 2 weekday evenings</div><div class="wt">Learning — current module; end with code I wrote or ran.</div>
+      <div class="sl l">~3h weekend morning</div><div class="wt">Learning — continue, or push the current Ship milestone.</div>
+      <div class="sl b">~4h weekend afternoon</div><div class="wt">Building — one project, one increment, ending by reading back what the agent actually wrote.</div>
+      <div class="sl l">~1h on the go</div><div class="wt">Queue — short lessons or docs between other things.</div>
+    </div>
+    <p class="blegend" style="margin-top:11px">Learning blocks are booked first; building gets what's left — that ordering is the whole defence. Every session ends with code I wrote or verified, not watched. <b>Watching is not a session.</b></p>
+  </div>
+
+  <div class="card">
+    <h3 class="serif"><span class="k">The five months</span>What lands when</h3>
+    <p style="margin-bottom:7px"><b>Aug</b> — Python fundamentals; reverse-engineer the <span class="mono">publish.py</span> and GitHub Action already running this site. Building: the cockpit's connective layer.</p>
+    <p style="margin-bottom:7px"><b>Sep – Oct</b> — Prompts, the Claude API, RAG, agents, evals. Building: the game ships publicly.</p>
+    <p style="margin-bottom:7px"><b>Nov</b> — On-chain data and a Solidity on-ramp. Building: the analytics dashboard. <b>Everything public finishes this month.</b></p>
+    <p style="margin-bottom:0"><b>Dec</b> — No new builds: write-ups, the portfolio page, the H1 2027 plan.</p>
+  </div>
+
+  <div class="card">
+    <h3 class="serif"><span class="k">The guardrail</span>The illusion of the vibe-coding builder</h3>
+    <p>Directing an AI to build produces real artifacts and no transferable capability — the ability is borrowed, and the bill arrives the moment I have to verify, maintain or extend it on my own.</p>
+    <p style="margin-bottom:0"><b>The tell:</b> if I can't explain last session's code in plain language, that was consumption, not building.</p>
+  </div>
+
+  <div class="card">
+    <h3 class="serif"><span class="k">Version history</span>What changed and why</h3>
+    <div class="log">
+      <div class="logitem"><div class="logv">v1</div><div class="logt"><b>The first plan</b>Cut the Stanford AI courses — wrong layer; they teach making AI, the goal is using it. Added the missing tracks: applied AI, smart contracts, on-chain data. Four phases, each gated.</div></div>
+      <div class="logitem"><div class="logv">v2</div><div class="logt"><b>Widened the materials</b>Any format competes — one best fit plus one backup per module. Added the signal layer: proof nobody sees is half-finished.</div></div>
+      <div class="logitem"><div class="logv">v3</div><div class="logt"><b>Two cornerstones and a budget</b>Added the real projects, the two-lane budget, and the capability-debt rules.</div></div>
+      <div class="logitem"><div class="logv">v3.1</div><div class="logt"><b>Half-year scope; one plan, one progress bar</b>Re-scoped to H2 2026 at ~12 hrs/week, deep crypto deferred to H1 2027. Header rewritten as a Smart Brevity brief and one word in five cut page-wide. Four tabs became two: learning and projects now share a single plan and a single progress bar. Dropped the standalone benchmark anchor — it is a by-product of the game, not a market I claim. The market brief, the deferred list and the parking lot merged into a single <b>On radar</b>, stated as what is live rather than as what is excluded. Projects rewritten in my own words; the RPG moved to WIP. Site disclaimer added. Review every 15 days.</div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="k">Notes &amp; uncertainty</span>
+    The biggest open risk is 12 hrs/week on top of client work — the honest failure mode isn't quitting, it's sliding to 8 and feeling behind. Hence the floor. Ticks live in your own browser and are never sent anywhere.
+  </div>
+
+  <div class="resetrow"><button class="reset" id="resetBtn">reset my progress</button></div>
+</section>
+
+<!-- ================= BUILD PLAN ================= -->
+<section class="panel" id="plan" role="tabpanel" aria-labelledby="tab-plan" tabindex="0">
+  <div class="callout" style="margin-bottom:20px">
+    <span class="k">How to read this</span>
+    The learning lane is protected; the gate tells me borrowed capability has become mine. <b>Advance on the gate, not on hours logged.</b> Projects sit in the same list and the same progress bar — the split was never two plans.
+  </div>
+  <div id="phases"></div>
+
+  <h2 class="secttl serif">Projects</h2>
+  <p class="lede" style="margin:0 0 13px">Two things I am building because they are useful and fun — if you want in, email me at <a href="mailto:projects@jasonjlai.net">projects@jasonjlai.net</a>.</p>
+  <div id="projList"></div>
+
+  <h2 class="secttl serif">On radar</h2>
+  <p class="lede" style="margin:0 0 13px">Live rather than scheduled — what I am tracking now, and what the next plan will most likely be built from. A fresh one gets written in December.</p>
+  <div class="later">
+    <p style="margin-bottom:10px"><b>The market, up close and at a distance.</b> Up close: real-world asset tokenisation, and how institutions are actually entering rather than how they say they will. At a distance: the shape those add up to, including the part most coverage skips — the non-financial uses of a chain. There is no deliverable to promise here yet, and I would rather say so than invent one. The likely first move is a contribution rather than a project of my own: an open-source tool whose missing piece is someone who reads both the code and the regulation.</p>
+    <p style="margin-bottom:8px"><b>Ready once the fundamentals are in:</b></p>
+    <ul>
+      <li><b>Solidity + Foundry in depth</b> — Cyfrin Updraft, ~40h. The on-ramp is this year; the deep water follows.</li>
+      <li><b>Ethernaut</b> — security intuition, which pays off once the basics hold.</li>
+      <li><b>ERC-3643 contribution</b> — earned once I can read the standard in its own language.</li>
+      <li><b>AI-native rigor (CS146S)</b> — richer after a half-year of directing agents daily.</li>
+      <li><b>The flagship</b> — an agent producing a compliance read from on-chain data.</li>
+      <li><b>Also queued</b> — the cockpit’s v2 collaboration layer, the game’s second content batch, the full Speedrun Ethereum track.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="note" style="margin-top:26px">
+  <span class="k">Disclaimer</span>
+  This is my website representing my view only, not my affiliated entities. All information is for informational purpose only. No specific legal, medical, tax, investment advice is rendered here. Seek your own professional advice. The content of this post is provided “as is;” and no representations are made that the content is error-free or up-to-date. Thus, please do your own research and take full responsibility for the consequences if you rely on any information here.
+</div>
+
+<footer class="ft">
+  <span>Law × AI × Crypto × Gamification · Build in Public · v3.1 · 2026-07-20</span>
+  <span>Next review: 30 July 2026 (every 15 days)</span>
+</footer>
+
+<footer class="site">
+  <a href="/about/">About</a>
+  <a href="/privacy/">Privacy</a>
+  <a href="/contribute/">Contribute</a>
+  <span class="cc">Jason J. Lai © <span id="yr">2026</span> ·
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span>
+</footer>
+
+</div>
+
+<script>
+const PROJECTS = [
+  { id:"pr3", kind:"corner", role:"Cornerstone 1 · Practice", status:"ready", statusLabel:"v1 built",
+    title:"CLO Cockpit",
+    next:"Improve the app from how it actually gets used, and turn that into a roadmap I can keep.",
+    hours:"~50h · Jul–Sep",
+    detail:"My MVP for legal operational-risk management — from legal research to investor relations, from regulatory tracking to product review, from IP management to cyber hygiene and AI-safety policy. It runs on either a local LLM or a third-party one. Open to legal professionals for collaboration and beta testing." },
+  { id:"pr4", kind:"corner", role:"Cornerstone 2 · Public", status:"live", statusLabel:"WIP",
+    title:"Blockchain Law RPG",
+    next:"Finish the plot and the legal research, then open alpha testing.",
+    hours:"~50h · Jul–Sep",
+    detail:"My first RPG. It puts you in the seat of a startup founder, a legal professional in web3, a regulatory supervisor, or a banker. I hope it carries some educational value, some entertainment, or both. It is not solicitation, carries no legal implication, renders no legal service, and encourages nothing illicit." }
+];
+
+const PHASES = [
+  { id:"p0", num:"0", title:"Foundations & demystify", weeks:"August · ~30h", hours:"7 learning / 4 building",
+    goal:"Real Python fundamentals — and finally understanding what I already ship.",
+    gate:"A 50-line Python script from scratch, no AI — and explain my own publish.py and GitHub Action out loud.",
+    mods:[
+      {id:"m01", skill:"Programming fundamentals (Python)", na:"Work through the Boot.dev Python track — and submit CS50P Problem Set 1 as the gate check.",
+       p:{n:"Boot.dev — Learn Python", u:"https://www.boot.dev/", f:"interactive · gamified", pr:"paid ~$24.5/mo", t:"~20h", paid:true,
+          w:"RPG-style, build every lesson; the subscription also covers Git, Linux, SQL, HTTP."},
+       bl:"Gate check", b:{n:"CS50P — Introduction to Programming with Python", u:"https://cs50.harvard.edu/python/", f:"video + psets", pr:"free", t:"~25h", paid:false}},
+      {id:"m02", skill:"Command line, Git & my own pipeline",
+       p:{n:"MIT — The Missing Semester", u:"https://missing.csail.mit.edu/", f:"video lectures", pr:"free", t:"~8h", paid:false,
+          w:"Demystifies the tools already running my site; then re-read my repo with the agent as tutor, not doer."},
+       b:{n:"Learn Git Branching", u:"https://learngitbranching.js.org/", f:"interactive · gamified", pr:"free", t:"~3h", paid:false}},
+      {id:"m03", skill:"CS big-picture mental models", opt:true,
+       p:{n:"Crash Course Computer Science", u:"https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo", f:"video series", pr:"free", t:"~12h skim", paid:false,
+          w:"The terrain before the trail — first thing to drop if August runs short."}, b:null}
+    ],
+    ship:{id:"s01", label:"Ship 01 — Understand my own stack",
+      desc:"Rewrite and annotate publish.py; publish a short “how my site really works” post."} },
+
+  { id:"p1", num:"1", title:"Applied AI, pointed at the game", weeks:"September – October · ~70h", hours:"7/4, then 5/6",
+    goal:"Build with LLMs — APIs, RAG, agents, evals — pointed at the game, not a throwaway tool.",
+    gate:"A tool I use weekly, an eval set that beats my manual baseline, and I can debug a bad retrieval myself.",
+    mods:[
+      {id:"m11", skill:"Prompt & context engineering",
+       p:{n:"Anthropic — Prompt Engineering Tutorial + AI Fluency", u:"https://github.com/anthropics/prompt-eng-interactive-tutorial", f:"notebooks + course", pr:"free", t:"~8h", paid:false,
+          w:"First-party and hands-on; trains the verify-the-output judgment this plan rests on. No code required — runs in the queue slot."},
+       b:{n:"DeepLearning.AI — Prompt Engineering for Developers", u:"https://www.deeplearning.ai/short-courses/", f:"short course", pr:"free", t:"~2h", paid:false}},
+      {id:"m12", skill:"LLM APIs & tool use",
+       p:{n:"Anthropic Academy — Building with the Claude API", u:"https://anthropic.skilljar.com/", f:"video + code", pr:"free", t:"~8h", paid:false,
+          w:"The layer beneath the agent I live in. Assumes basic Python — hence August first."},
+       b:{n:"Ed Donner — LLM Engineering", u:"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/", f:"video · 14 projects", pr:"paid (~$15 on sale)", t:"~40h", paid:true}},
+      {id:"m13", skill:"Retrieval-augmented generation",
+       p:{n:"DeepLearning.AI — Building & Evaluating Advanced RAG", u:"https://www.deeplearning.ai/short-courses/", f:"short course", pr:"free", t:"~2h", paid:false,
+          w:"Pairs retrieval with evaluation from lesson one — feeds straight into the benchmark."},
+       b:{n:"LlamaIndex docs", u:"https://docs.llamaindex.ai/", f:"docs", pr:"free", t:"variable", paid:false}},
+      {id:"m14", skill:"Agents & MCP",
+       p:{n:"Anthropic Academy — Introduction to MCP", u:"https://anthropic.skilljar.com/", f:"video + Python", pr:"free", t:"~4h", paid:false,
+          w:"How on-chain data becomes an agent tool — the plumbing under the 2027 flagship, learned cheaply now."},
+       b:{n:"DeepLearning.AI — Functions, Tools & Agents", u:"https://www.deeplearning.ai/short-courses/", f:"short course", pr:"free", t:"~2h", paid:false}},
+      {id:"m15", skill:"Evaluation — the skill behind trusting any of it",
+       p:{n:"“AI Engineering” — Chip Huyen", u:"https://www.amazon.com/dp/1098166302", f:"book", pr:"paid (~$40)", t:"read alongside", paid:true,
+          w:"The reference on LLM systems; the evaluation chapter is how I check the game question bank is actually right."},
+       b:{n:"Anthropic Cookbook — eval recipes", u:"https://github.com/anthropics/anthropic-cookbook", f:"code", pr:"free", t:"variable", paid:false}}
+    ],
+    ship:{id:"s02", label:"Ship 02 — The game, public",
+      desc:"Close out alpha, pick the publishing repo, and ship the Blockchain Law RPG."} },
+
+  { id:"p2", num:"2", title:"On-chain data + Solidity on-ramp", weeks:"November · ~35h", hours:"5 learning / 6 building",
+    goal:"Query chains directly; read enough Solidity to know what I'm looking at.",
+    gate:"Pull on-chain data to answer a question of my own, and read a simple contract and say what it does.",
+    mods:[
+      {id:"m21", skill:"On-chain data & indexing",
+       p:{n:"Dune", u:"https://dune.com/", f:"SQL over decoded chain data", pr:"free tier", t:"~15h", paid:false,
+          w:"Highest artifact-per-hour in the plan: SQL, not Solidity, publishable fast. The edge is the compliance read, not the raw data."},
+       b:{n:"web3.py docs", u:"https://web3py.readthedocs.io/", f:"docs / code", pr:"free", t:"variable", paid:false}},
+      {id:"m22", skill:"Solidity on-ramp (gamified)",
+       p:{n:"CryptoZombies", u:"https://cryptozombies.io/", f:"interactive game", pr:"free", t:"~10h", paid:false,
+          w:"Solidity via a zombie battle game — enough to read contracts without the 40-hour full track."},
+       b:{n:"Solidity by Example", u:"https://solidity-by-example.org/", f:"annotated code", pr:"free", t:"reference", paid:false}},
+      {id:"m23", skill:"Domain — compliant tokens",
+       p:{n:"ERC-3643 / T-REX docs", u:"https://docs.erc3643.org/", f:"docs", pr:"free", t:"~5h browse", paid:false,
+          w:"Securities compliance in Solidity. Reading only this year — contributing is a 2027 job."},
+       b:{n:"Chainalysis — ERC-3643 explainer", u:"https://www.chainalysis.com/blog/introduction-to-erc-3643-ethereum-rwa-token-standard/", f:"article", pr:"free", t:"~1h", paid:false}}
+    ],
+    ship:{id:"s03", label:"Ship 03 — On-chain analytics dashboard",
+      desc:"A published dashboard answering a question I care about, with the compliance read that makes it mine."} }
+];
+
+let state = {}, persistOK = true;
+const KEY = "law_ai_crypto_v31";
+
+// Persist to localStorage. The draft used window.storage, a sandbox-only API that
+// doesn't exist on the open web — it threw on every call, so the checkboxes silently
+// reset on each reload and the reset button had nothing to reset.
+function loadState(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(raw) state = JSON.parse(raw);
+  }catch(e){ persistOK = false; }   // private mode, or storage disabled
+}
+function saveState(){
+  try{
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }catch(e){
+    persistOK = false;
+    document.getElementById("persistFlag").style.display = "inline-block";
+  }
+}
+
+function allIds(){
+  const ids = [];
+  PHASES.forEach(p => { p.mods.forEach(m => { if(!m.opt) ids.push(m.id); }); if(p.ship) ids.push(p.ship.id); });
+  PROJECTS.forEach(p => { if(!p.standing) ids.push(p.id); });   // projects share the one bar
+  return ids;
+}
+
+// The "Now" strip is derived, not hand-written -- otherwise ticking a box moves
+// the meter while the stated next action silently goes stale.
+function nextAction(){
+  for(const p of PHASES){
+    for(const m of p.mods){
+      if(!m.opt && !state[m.id]) return {ph:"Phase "+p.num, txt:m.na || ("Work through "+m.skill+".")};
+    }
+    if(p.ship && !state[p.ship.id]) return {ph:"Phase "+p.num, txt:p.ship.desc};
+  }
+  for(const pr of PROJECTS){
+    if(!pr.standing && !state[pr.id]) return {ph:pr.role, txt:pr.next};
+  }
+  return {ph:"Done", txt:"Everything here is ticked — time to write the H1 2027 plan."};
+}
+function phaseIds(p){
+  const ids = [];
+  p.mods.forEach(m => { if(!m.opt) ids.push(m.id); });
+  if(p.ship) ids.push(p.ship.id);
+  return ids;
+}
+function firstOpenPhase(){
+  for(const p of PHASES){ const ids = phaseIds(p); if(ids.length && !ids.every(i => state[i])) return p.id; }
+  return PHASES[PHASES.length-1].id;
+}
+function tags(r){
+  return '<span class="res-t">'+r.f+' · <span class="'+(r.paid?'pd':'fr')+'">'+r.pr+'</span> · '+r.t+'</span>';
+}
+
+function renderProjects(){
+  document.getElementById("projList").innerHTML = PROJECTS.map(p => {
+    const ck = !!state[p.id];
+    const box = p.standing
+      ? '<div class="cbox" style="opacity:.45"></div>'
+      : '<div class="cbox" role="checkbox" tabindex="0" aria-checked="'+(ck?'true':'false')+'" data-id="'+p.id+'"></div>';
+    return '<div class="mod'+(ck?' checked':'')+'" style="margin-bottom:9px">'+box
+      + '<div class="mod-b"><div class="mod-sk">'+p.title
+      + '<span class="opt">'+p.role+'</span> <span class="st '+p.status+'">'+p.statusLabel+'</span></div>'
+      + '<div class="res-w" style="margin-top:4px">'+p.detail+'</div>'
+      + '<div class="res-w" style="margin-top:6px"><b>Next:</b> '+p.next+'</div>'
+      + '<span class="hrschip">'+p.hours+'</span></div></div>';
+  }).join("");
+}
+
+function renderPhases(){
+  const cur = firstOpenPhase();
+  document.getElementById("phases").innerHTML = PHASES.map(p => {
+    const ids = phaseIds(p), done = ids.length && ids.every(i => state[i]);
+    const mods = p.mods.map(m => {
+      const ck = !!state[m.id];
+      let inner = '<div class="res"><span class="res-r">Best fit</span> <a href="'+m.p.u+'" target="_blank" rel="noopener" class="res-n">'+m.p.n+'</a> '+tags(m.p)+'<div class="res-w">'+m.p.w+'</div></div>';
+      if(m.b) inner += '<div class="res bk"><span class="res-r bk">'+(m.bl||"Backup")+'</span> <a href="'+m.b.u+'" target="_blank" rel="noopener" class="res-n">'+m.b.n+'</a> '+tags(m.b)+'</div>';
+      return '<div class="mod'+(ck?' checked':'')+'"><div class="cbox" role="checkbox" tabindex="0" aria-checked="'+(ck?'true':'false')+'" '
+        + (m.opt ? 'style="opacity:.45"' : 'data-id="'+m.id+'"') + '></div>'
+        + '<div class="mod-b"><div class="mod-sk">'+m.skill+(m.opt?'<span class="opt">optional</span>':'')+'</div>'+inner+'</div></div>';
+    }).join("");
+    const sc = p.ship && !!state[p.ship.id];
+    const ship = p.ship ? '<div class="mod'+(sc?' checked':'')+'" style="border-style:dashed; margin-top:11px">'
+      + '<div class="cbox" role="checkbox" tabindex="0" aria-checked="'+(sc?'true':'false')+'" data-id="'+p.ship.id+'"></div>'
+      + '<div class="mod-b"><div class="mod-sk">'+p.ship.label+'</div><div class="res-w" style="margin-top:3px">'+p.ship.desc+'</div></div></div>' : "";
+    const gate = p.gate ? '<div class="gate"><div class="gl">Phase gate — advance when</div><div class="gt">'+p.gate+'</div></div>' : "";
+    const pct = ids.length ? Math.round(ids.filter(i => state[i]).length / ids.length * 100) : 0;
+    const prog = ids.length ? '<div class="ph-prog"><div class="pb"><div class="pf" style="width:'+pct+'%"></div></div><div class="pt">'+ids.filter(i=>state[i]).length+'/'+ids.length+'</div></div>' : "";
+
+    return '<div class="phase'+(done?' done':'')+'"><div class="ph-head"><div class="ph-num serif">'+p.num+'</div><div>'
+      + '<h2 class="ph-title serif">'+p.title+(p.id===cur?' <span class="here">now</span>':'')+'</h2>'
+      + '<div class="ph-meta">'+p.weeks+' · '+p.hours+'</div></div></div>'
+      + '<div class="ph-goal">'+p.goal+'</div>'+prog+'<div class="mods">'+mods+ship+'</div>'+gate+'</div>';
+  }).join("");
+  bindBoxes();
+}
+
+function updateMeter(){
+  const ids = allIds(), d = ids.filter(i => state[i]).length;
+  const pct = ids.length ? Math.round(d / ids.length * 100) : 0;
+  document.getElementById("pctFill").style.width = pct + "%";
+  document.getElementById("pctText").textContent = pct + "% · " + d + " / " + ids.length;
+  const na = nextAction();
+  document.getElementById("nowPhase").textContent = na.ph;
+  document.getElementById("nowAction").innerHTML = "<b>" + na.txt + "</b>";
+}
+
+function bindBoxes(){
+  document.querySelectorAll('.cbox[data-id]').forEach(box => {
+    const go = async () => {
+      const id = box.getAttribute("data-id");
+      state[id] = !state[id];
+      saveState(); renderPhases(); renderProjects(); updateMeter();
+    };
+    box.addEventListener("click", go);
+    box.addEventListener("keydown", e => { if(e.key === " " || e.key === "Enter"){ e.preventDefault(); go(); }});
+  });
+}
+
+document.querySelectorAll(".tab").forEach(t => {
+  t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", "false"));
+    t.setAttribute("aria-selected", "true");
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+    document.getElementById(t.dataset.tab).classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", async () => {
+  if(confirm("Clear all checked progress?")){
+    state = {}; saveState(); renderPhases(); renderProjects(); updateMeter();
+  }
+});
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+(async function(){
+  loadState();
+  if(!persistOK) document.getElementById("persistFlag").style.display = "inline-block";
+  renderProjects(); renderPhases(); updateMeter();
+})();
+</script>
+</body>
+</html>
