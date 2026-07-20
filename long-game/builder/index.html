@@ -331,8 +331,8 @@
   <div class="card">
     <h3 class="serif"><span class="k">The five months</span>What lands when</h3>
     <p style="margin-bottom:7px"><b>Aug</b> — Python fundamentals; reverse-engineer the <span class="mono">publish.py</span> and GitHub Action already running this site. Building: the cockpit's connective layer.</p>
-    <p style="margin-bottom:7px"><b>Sep – Oct</b> — Prompts, the Claude API, RAG, agents, evals. Building: the game ships publicly.</p>
-    <p style="margin-bottom:7px"><b>Nov</b> — On-chain data and a Solidity on-ramp. Building: the analytics dashboard. <b>Everything public finishes this month.</b></p>
+    <p style="margin-bottom:7px"><b>Sep – Oct</b> — Prompts, the Claude API, RAG, agents, evals, and the AI-governance write-up. Building: the game ships publicly.</p>
+    <p style="margin-bottom:7px"><b>Nov</b> — On-chain data and a Solidity on-ramp. Building: the analytics dashboard, and both cornerstones close out. <b>Everything public finishes this month.</b></p>
     <p style="margin-bottom:0"><b>Dec</b> — No new builds: write-ups, the portfolio page, the H1 2027 plan.</p>
   </div>
 
@@ -413,12 +413,12 @@ const PROJECTS = [
   { id:"pr3", kind:"corner", role:"Cornerstone 1 · Practice", status:"ready", statusLabel:"v1 built",
     title:"CLO Cockpit",
     next:"Improve the app from how it actually gets used, and turn that into a roadmap I can keep.",
-    hours:"~50h · Jul–Sep",
-    detail:"My MVP for legal operational-risk management — from legal research to investor relations, from regulatory tracking to product review, from IP management to cyber hygiene and AI-safety policy. It runs on either a local LLM or a third-party one. Open to legal professionals for collaboration and beta testing." },
+    hours:"~50h · Jul–Nov",
+    detail:"My MVP for legal operational-risk management — from legal research to investor relations, from regulatory tracking to product review, from IP management to cyber hygiene and AI-safety policy. It runs on either a local LLM or a third-party one. Open to legal professionals for collaboration and beta testing. It is also where I practise AI governance rather than write about it — the boundary between what the model proposes and what actually gets written is documented in the Phase 1 write-up." },
   { id:"pr4", kind:"corner", role:"Cornerstone 2 · Public", status:"live", statusLabel:"WIP",
     title:"Blockchain Law RPG",
     next:"Finish the plot and the legal research, then open alpha testing.",
-    hours:"~50h · Jul–Sep",
+    hours:"~50h · Jul–Nov",
     detail:"My first RPG. It puts you in the seat of a startup founder, a legal professional in web3, a regulatory supervisor, or a banker. I hope it carries some educational value, some entertainment, or both. It is not solicitation, carries no legal implication, renders no legal service, and encourages nothing illicit." }
 ];
 
@@ -439,8 +439,8 @@ const PHASES = [
        p:{n:"Crash Course Computer Science", u:"https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo", f:"video series", pr:"free", t:"~12h skim", paid:false,
           w:"The terrain before the trail — first thing to drop if August runs short."}, b:null}
     ],
-    ship:{id:"s01", label:"Ship 01 — Understand my own stack",
-      desc:"Rewrite and annotate publish.py; publish a short “how my site really works” post."} },
+    ships:[{id:"s01", label:"Ship 01 — Understand my own stack",
+      desc:"Rewrite and annotate publish.py; publish a short “how my site really works” post."}] },
 
   { id:"p1", num:"1", title:"Applied AI, pointed at the game", weeks:"September – October · ~70h", hours:"7/4, then 5/6",
     goal:"Build with LLMs — APIs, RAG, agents, evals — pointed at the game, not a throwaway tool.",
@@ -456,7 +456,7 @@ const PHASES = [
        b:{n:"Ed Donner — LLM Engineering", u:"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/", f:"video · 14 projects", pr:"paid (~$15 on sale)", t:"~40h", paid:true}},
       {id:"m13", skill:"Retrieval-augmented generation",
        p:{n:"DeepLearning.AI — Building & Evaluating Advanced RAG", u:"https://www.deeplearning.ai/short-courses/", f:"short course", pr:"free", t:"~2h", paid:false,
-          w:"Pairs retrieval with evaluation from lesson one — feeds straight into the benchmark."},
+          w:"Pairs retrieval with evaluation from lesson one — which is how the game's question bank gets checked."},
        b:{n:"LlamaIndex docs", u:"https://docs.llamaindex.ai/", f:"docs", pr:"free", t:"variable", paid:false}},
       {id:"m14", skill:"Agents & MCP",
        p:{n:"Anthropic Academy — Introduction to MCP", u:"https://anthropic.skilljar.com/", f:"video + Python", pr:"free", t:"~4h", paid:false,
@@ -467,8 +467,10 @@ const PHASES = [
           w:"The reference on LLM systems; the evaluation chapter is how I check the game question bank is actually right."},
        b:{n:"Anthropic Cookbook — eval recipes", u:"https://github.com/anthropics/anthropic-cookbook", f:"code", pr:"free", t:"variable", paid:false}}
     ],
-    ship:{id:"s02", label:"Ship 02 — The game, public",
-      desc:"Close out alpha, pick the publishing repo, and ship the Blockchain Law RPG."} },
+    ships:[{id:"s02", label:"Ship 02 — The game, public",
+      desc:"Close out alpha, pick the publishing repo, and ship the Blockchain Law RPG."},
+      {id:"s02b", label:"Put together — AI governance in practice",
+      desc:"Write up the AI boundary as actually built into the cockpit: the model only proposes, a human gate sits before every write, the core stays deterministic, and the weekly digest touches no model at all. Documenting what the code already does — not a new track."}] },
 
   { id:"p2", num:"2", title:"On-chain data + Solidity on-ramp", weeks:"November · ~35h", hours:"5 learning / 6 building",
     goal:"Query chains directly; read enough Solidity to know what I'm looking at.",
@@ -487,8 +489,8 @@ const PHASES = [
           w:"Securities compliance in Solidity. Reading only this year — contributing is a 2027 job."},
        b:{n:"Chainalysis — ERC-3643 explainer", u:"https://www.chainalysis.com/blog/introduction-to-erc-3643-ethereum-rwa-token-standard/", f:"article", pr:"free", t:"~1h", paid:false}}
     ],
-    ship:{id:"s03", label:"Ship 03 — On-chain analytics dashboard",
-      desc:"A published dashboard answering a question I care about, with the compliance read that makes it mine."} }
+    ships:[{id:"s03", label:"Ship 03 — On-chain analytics dashboard",
+      desc:"A published dashboard answering a question I care about, with the compliance read that makes it mine."}] }
 ];
 
 let state = {}, persistOK = true;
@@ -514,7 +516,7 @@ function saveState(){
 
 function allIds(){
   const ids = [];
-  PHASES.forEach(p => { p.mods.forEach(m => { if(!m.opt) ids.push(m.id); }); if(p.ship) ids.push(p.ship.id); });
+  PHASES.forEach(p => { p.mods.forEach(m => { if(!m.opt) ids.push(m.id); }); (p.ships||[]).forEach(sh => ids.push(sh.id)); });
   PROJECTS.forEach(p => { if(!p.standing) ids.push(p.id); });   // projects share the one bar
   return ids;
 }
@@ -526,7 +528,7 @@ function nextAction(){
     for(const m of p.mods){
       if(!m.opt && !state[m.id]) return {ph:"Phase "+p.num, txt:m.na || ("Work through "+m.skill+".")};
     }
-    if(p.ship && !state[p.ship.id]) return {ph:"Phase "+p.num, txt:p.ship.desc};
+    for(const sh of (p.ships||[])){ if(!state[sh.id]) return {ph:"Phase "+p.num, txt:sh.desc}; }
   }
   for(const pr of PROJECTS){
     if(!pr.standing && !state[pr.id]) return {ph:pr.role, txt:pr.next};
@@ -536,7 +538,7 @@ function nextAction(){
 function phaseIds(p){
   const ids = [];
   p.mods.forEach(m => { if(!m.opt) ids.push(m.id); });
-  if(p.ship) ids.push(p.ship.id);
+  (p.ships||[]).forEach(sh => ids.push(sh.id));
   return ids;
 }
 function firstOpenPhase(){
@@ -574,10 +576,12 @@ function renderPhases(){
         + (m.opt ? 'style="opacity:.45"' : 'data-id="'+m.id+'"') + '></div>'
         + '<div class="mod-b"><div class="mod-sk">'+m.skill+(m.opt?'<span class="opt">optional</span>':'')+'</div>'+inner+'</div></div>';
     }).join("");
-    const sc = p.ship && !!state[p.ship.id];
-    const ship = p.ship ? '<div class="mod'+(sc?' checked':'')+'" style="border-style:dashed; margin-top:11px">'
-      + '<div class="cbox" role="checkbox" tabindex="0" aria-checked="'+(sc?'true':'false')+'" data-id="'+p.ship.id+'"></div>'
-      + '<div class="mod-b"><div class="mod-sk">'+p.ship.label+'</div><div class="res-w" style="margin-top:3px">'+p.ship.desc+'</div></div></div>' : "";
+    const ship = (p.ships||[]).map(sh => {
+      const sc = !!state[sh.id];
+      return '<div class="mod'+(sc?' checked':'')+'" style="border-style:dashed; margin-top:11px">'
+      + '<div class="cbox" role="checkbox" tabindex="0" aria-checked="'+(sc?'true':'false')+'" data-id="'+sh.id+'"></div>'
+      + '<div class="mod-b"><div class="mod-sk">'+sh.label+'</div><div class="res-w" style="margin-top:3px">'+sh.desc+'</div></div></div>';
+    }).join("");
     const gate = p.gate ? '<div class="gate"><div class="gl">Phase gate — advance when</div><div class="gt">'+p.gate+'</div></div>' : "";
     const pct = ids.length ? Math.round(ids.filter(i => state[i]).length / ids.length * 100) : 0;
     const prog = ids.length ? '<div class="ph-prog"><div class="pb"><div class="pf" style="width:'+pct+'%"></div></div><div class="pt">'+ids.filter(i=>state[i]).length+'/'+ids.length+'</div></div>' : "";
