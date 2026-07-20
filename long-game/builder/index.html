@@ -424,8 +424,8 @@
       <div class="lane b"><div class="hrs">4 hrs</div><div class="nm">Building — projects, capped</div></div>
     </div>
     <div class="shift">
-      <div class="sh now"><div class="per">Aug – Sep · foundations</div><div class="val"><b>7 learning · 4 building</b><br>Fundamentals can't be crammed — they go first.</div></div>
-      <div class="sh"><div class="per">Oct – Dec · shipping</div><div class="val"><b>5 learning · 6 building</b><br>Flips when the artifacts need finishing.</div></div>
+      <div class="sh now"><div class="per">Aug – Sep · foundations</div><div class="val"><b>7 hrs learning · 4 hrs building</b>, a week<br>Fundamentals can't be crammed — they go first.</div></div>
+      <div class="sh"><div class="per">Oct – Dec · shipping</div><div class="val"><b>5 hrs learning · 6 hrs building</b>, a week<br>Flips when the artifacts need finishing.</div></div>
     </div>
 
     <div class="budget">
@@ -434,13 +434,7 @@
     </div>
     <p class="blegend"><b>~23 weeks · 260h.</b> The twelfth hour is the queue slot — short lessons between other things. <b>12 is the target; 8 is the floor.</b> A heavy client week cuts scope inside a project, never a whole lane.</p>
 
-    <div class="wk" style="margin-top:15px; padding-top:14px; border-top:1px solid var(--line)">
-      <div class="sl l">~2h × 2 weekday evenings</div><div class="wt">Learning — current module; end with code I wrote or ran.</div>
-      <div class="sl l">~3h weekend morning</div><div class="wt">Learning — continue, or push the current Ship milestone.</div>
-      <div class="sl b">~4h weekend afternoon</div><div class="wt">Building — one project, one increment, ending by reading back what the agent actually wrote.</div>
-      <div class="sl l">~1h on the go</div><div class="wt">Queue — short lessons or docs between other things.</div>
-    </div>
-    <p class="blegend" style="margin-top:11px">Learning blocks are booked first; building gets what's left — that ordering is the whole defence. Every session ends with code I wrote or verified, not watched. <b>Watching is not a session.</b></p>
+    <p class="blegend" style="margin-top:15px; padding-top:14px; border-top:1px solid var(--line)">Learning blocks are booked first; building gets what's left — that ordering is the whole defence. Every session ends with code I wrote or verified, not watched. <b>Watching is not a session.</b></p>
   </div>
 
   <div class="card">
@@ -463,13 +457,8 @@
       <div class="logitem"><div class="logv">v1</div><div class="logt"><b>The first plan</b>Cut the Stanford AI courses — wrong layer; they teach making AI, the goal is using it. Added the missing tracks: applied AI, smart contracts, on-chain data. Four phases, each gated.</div></div>
       <div class="logitem"><div class="logv">v2</div><div class="logt"><b>Widened the materials</b>Any format competes — one best fit plus one backup per module. Added the signal layer: proof nobody sees is half-finished.</div></div>
       <div class="logitem"><div class="logv">v3</div><div class="logt"><b>Two cornerstones and a budget</b>Added the real projects, the two-lane budget, and the capability-debt rules.</div></div>
-      <div class="logitem"><div class="logv">v3.1</div><div class="logt"><b>Half-year scope; one plan, one progress bar</b>Re-scoped to H2 2026 at ~12 hrs/week, deep crypto deferred to H1 2027. Header rewritten as a Smart Brevity brief and one word in five cut page-wide. Four tabs became two: learning and projects now share a single plan and a single progress bar. Dropped the standalone benchmark anchor — it is a by-product of the game, not a market I claim.</div></div>
+      <div class="logitem"><div class="logv">v3.1</div><div class="logt"><b>Half-year scope; one plan, one progress bar</b>Re-scoped to H2 2026 at ~12 hrs/week, deep crypto deferred to H1 2027. Header rewritten as a Smart Brevity brief and one word in five cut page-wide. Four tabs became two: learning and projects now share a single plan and a single progress bar. Dropped the standalone benchmark anchor — it is a by-product of the game, not a market I claim. Builder dashboard online.</div></div>
     </div>
-  </div>
-
-  <div class="note">
-    <span class="k">Notes &amp; uncertainty</span>
-    The biggest open risk is 12 hrs/week on top of client work — the honest failure mode isn't quitting, it's sliding to 8 and feeling behind. Hence the floor. Ticks live in your own browser and are never sent anywhere.
   </div>
 
   <div class="resetrow"><button class="reset" id="resetBtn">reset my progress</button></div>
@@ -490,7 +479,7 @@
   <h2 class="secttl serif">On radar</h2>
   <p class="lede" style="margin:0 0 13px">Live rather than scheduled — what I am tracking now, and what the next plan will most likely be built from. A fresh one gets written in December.</p>
   <div class="later">
-    <p style="margin-bottom:10px"><b>The blockchain market, up close and at a distance.</b> Up close: real-world asset tokenization, and how institutions are actually entering rather than how they say they will. At a distance: blockchain application within and outside finance, with and without AI. There is no deliverable to promise here yet, and I would rather say so than invent one. The likely first move is a contribution rather than a project of my own: an open-source tool whose missing piece is someone who reads both the code and the regulation.</p>
+    <p style="margin-bottom:10px"><b>The blockchain market, up close and at a distance.</b> Up close: real-world asset tokenization, and how institutions are actually entering rather than how they say they will. At a distance: blockchain application within and outside finance, with and without AI.</p>
     <p style="margin-bottom:8px"><b>Ready once the fundamentals are in:</b></p>
     <ul>
       <li><b>Solidity + Foundry in depth</b> — Cyfrin Updraft, ~40h. The on-ramp is this year; the deep water follows.</li>
@@ -510,7 +499,7 @@
 
 <footer class="ft">
   <span>Law × AI × Crypto × Gamification · Build in Public · v3.1 · 2026-07-20</span>
-  <span>Next review: 30 July 2026 (every 15 days)</span>
+  <span>Next review: 15 August 2026 (every 15 days)</span>
 </footer>
 
 <footer class="site">
@@ -538,7 +527,7 @@ const PROJECTS = [
 ];
 
 const PHASES = [
-  { id:"p0", num:"0", title:"Foundations & demystify", weeks:"August · ~30h", hours:"7 learning / 4 building",
+  { id:"p0", num:"0", title:"Foundations & demystify", weeks:"August · ~35h", hours:"7h + 4h a week",
     goal:"Real Python fundamentals — and finally understanding what I already ship.",
     gate:"A 50-line Python script from scratch, no AI — and explain my own publish.py and GitHub Action out loud.",
     mods:[
@@ -557,7 +546,7 @@ const PHASES = [
     ships:[{id:"s01", label:"Ship 01 — Understand my own stack",
       desc:"Rewrite and annotate publish.py; publish a short “how my site really works” post."}] },
 
-  { id:"p1", num:"1", title:"Applied AI, pointed at the game", weeks:"September – October · ~70h", hours:"7/4, then 5/6",
+  { id:"p1", num:"1", title:"Applied AI, pointed at the game", weeks:"September – October · ~60h", hours:"7h + 4h, then 5h + 6h a week",
     goal:"Build with LLMs — APIs, RAG, agents, evals — pointed at the game, not a throwaway tool.",
     gate:"A tool I use weekly, an eval set that beats my manual baseline, and I can debug a bad retrieval myself.",
     mods:[
@@ -587,7 +576,7 @@ const PHASES = [
       {id:"s02b", label:"Put together — AI governance in practice",
       desc:"Write up the AI boundary as actually built into the cockpit: the model only proposes, a human gate sits before every write, the core stays deterministic, and the weekly digest touches no model at all. Documenting what the code already does — not a new track."}] },
 
-  { id:"p2", num:"2", title:"On-chain data + Solidity on-ramp", weeks:"November · ~35h", hours:"5 learning / 6 building",
+  { id:"p2", num:"2", title:"On-chain data + Solidity on-ramp", weeks:"November · ~25h", hours:"5h + 6h a week",
     goal:"Query chains directly; read enough Solidity to know what I'm looking at.",
     gate:"Pull on-chain data to answer a question of my own, and read a simple contract and say what it does.",
     mods:[
