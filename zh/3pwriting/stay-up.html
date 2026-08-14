@@ -63,9 +63,9 @@
     .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
     .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
     /* Typography plugin decorates inline code with literal backticks via ::before/::after.
-       They look like typos and can ride along on copy. */
-    .prose :where(code):not(:where([class~="not-prose"] *))::before,
-    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+       They look like typos and can ride along on copy. Needs !important: the Play CDN
+       injects its stylesheet after this block, so an equal-specificity rule loses. */
+    .prose code::before, .prose code::after { content: none !important; }
     /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
     .code-copy-wrap { position: relative; }
     .code-copy-wrap pre { padding-top: 2.75rem !important; }
@@ -147,7 +147,7 @@
 <p>在生成式 AI 蓬勃發展之際，且寫且讀且珍惜，畢竟<a href="https://www.paulgraham.com/writes.html" target="_blank" rel="noopener noreferrer">可能越來越少人能寫、願意寫作了</a>。</p>
 <p>總之，很期待看到大家的投稿——鼓勵大家（以及我自己）不要太糾結——我自己其實<a href="https://shuaixin.cc/Fun-Fact/" target="_blank" rel="noopener noreferrer">七月份也很想投稿劉昕主持的冷知識</a>，畢竟手邊有好多好多冷知識，想把它們串在一起，最後卻沒有真的動筆而錯過了。</p>
 <p>或許，每一期的同樂會，正是呼應八月份的主題：<a href="https://blog.ikukaroom.com/ichigo-ichie/" target="_blank" rel="noopener noreferrer">一期一會</a>，珍惜每一次的相遇，但不要太珍惜到裹足不前。</p>
-<h2>九月主題：【晚上不睡覺的時候】</h2>
+<h2>九月主題：【晚上不睡覺】</h2>
 <h3>📝 主題文前言</h3>
 <p>當你不睡的時候⋯⋯可能是失眠，也可能是不想睡覺、可能是趕專案燃燒自己的肝。</p>
 <p>每天白天我們把時間交給工作、角色與責任。</p>
@@ -189,17 +189,14 @@
 <ul>
 <li><strong>收件信箱：</strong> blog@jasonjlai.net</li>
 <li><strong>截稿日期：</strong> 2026 年 9 月 30 日 23:59 止</li>
-<li><strong>信件主旨與內文</strong>，按右上角就能複製：</li>
+<li><strong>信件主旨</strong>：【BlogBlog 投稿】文章標題 - 你的稱呼</li>
+<li><strong>信件內文</strong>：[文章標題](網址) - 你的稱呼</li>
 </ul>
-<div class="code-copy-wrap"><button type="button" class="code-copy-btn not-prose" data-copy-label="複製" aria-label="複製">複製</button><pre><code>【BlogBlog 投稿】文章標題 - 你的稱呼
-</code></pre></div>
-<div class="code-copy-wrap"><button type="button" class="code-copy-btn not-prose" data-copy-label="複製" aria-label="複製">複製</button><pre><code>[文章標題](網址) - 你的稱呼
-</code></pre></div>
 <h3>篇數及其他限制提醒</h3>
 <ul>
 <li>每位參與者最多投稿 <strong>1 篇</strong>，必須是發佈在自己的部落格 (Medium/Substack/方格子等部落格亦可)，謝絕社群媒體貼文投稿。如果你還沒有部落格，<a href="https://blogblog.club/resources" target="_blank" rel="noopener noreferrer">開一個吧</a>！</li>
 <li>文章字數不限、形式不拘（散文、心得、工具推坑、清單整理都歡迎）；如果是過去寫過符合主題的舊文章，也歡迎投稿！</li>
-<li>原則上每五到十天會更新投稿清單，感謝耐心等候</li>
+<li>原則上五日或10日會更新投稿清單 (e.g., )，感謝耐心等候</li>
 <li>關於本次投稿的 AI 使用原則上和 <a href="https://blogblog.club/blog/ai-stance" target="_blank" rel="noopener noreferrer">BlogBlog 同樂會的 AI 立場</a>一致，不特別支持也不反對，文責自負。</li>
 </ul>
 <h3>目前投稿（下次更新：8/20）</h3>

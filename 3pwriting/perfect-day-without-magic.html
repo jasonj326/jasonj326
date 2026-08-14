@@ -65,9 +65,9 @@
     .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
     .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
     /* Typography plugin decorates inline code with literal backticks via ::before/::after.
-       They look like typos and can ride along on copy. */
-    .prose :where(code):not(:where([class~="not-prose"] *))::before,
-    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+       They look like typos and can ride along on copy. Needs !important: the Play CDN
+       injects its stylesheet after this block, so an equal-specificity rule loses. */
+    .prose code::before, .prose code::after { content: none !important; }
     /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
     .code-copy-wrap { position: relative; }
     .code-copy-wrap pre { padding-top: 2.75rem !important; }
