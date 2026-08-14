@@ -156,7 +156,7 @@ TL;DR 摘要：
 
 ## 8｜八寶：第二季我的專注力放在這裡 {#s8}
 
-1. AI 戰隊：主要用 Claude 和 Gemini，每天使用。我覺得 AI 工具很像青少年談戀愛，其實大家都知道沒幾年就要分手了，但是這種情竇初開，搶先一步的經驗，總是難以抗拒。我七月初用 Fable 檢討自己的 [AI 紀錄的摘要可以看這裡](https://jasonjlai.net/zh/3pwriting/playbooks/ai-fleet-audit.html)。
+1. AI 戰隊：主要用 Claude 和 Gemini，每天使用。我覺得 AI 工具很像青少年談戀愛，其實大家都知道沒幾年就要分手了，但是這種情竇初開，搶先一步的經驗，總是難以抗拒。我七月初用 Fable 檢討自己的 [AI 紀錄的摘要可以看這裡](https://jasonjlai.net/zh/3pwriting/ai-fleet-audit.html)。
 
 2. 網站：參考[部落格卷推薦的許多部落格風格](https://wiwi.blog/blogroll)，我在第二季新增的最愛自己這個[種子牆](https://jasonjlai.net/zh/seeds/)，期待他成為盛開的花園，也更新了遊戲化思維，持續自我修煉。
 

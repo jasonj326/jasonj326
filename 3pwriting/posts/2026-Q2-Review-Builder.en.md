@@ -155,7 +155,7 @@ A log of the setbacks and the slumps.
 
 ## 8 · Eight Pillars: where my focus went in Q2 {#s8}
 
-1. The AI stack: mainly Claude and Gemini, every day. AI tools feel like teenage romance — everyone knows the breakup is only a few years out, yet that first-love, first-mover thrill is irresistible. In early July I had Fable audit my own AI usage; [the summary is here](https://jasonjlai.net/3pwriting/playbooks/ai-fleet-audit.html).
+1. The AI stack: mainly Claude and Gemini, every day. AI tools feel like teenage romance — everyone knows the breakup is only a few years out, yet that first-love, first-mover thrill is irresistible. In early July I had Fable audit my own AI usage; [the summary is here](https://jasonjlai.net/3pwriting/ai-fleet-audit.html).
 
 2. Website updates: after browsing many blogrolls ([for instance](https://wiwi.blog/blogroll)), my favorite Q2 addition is the [seed wall](https://jasonjlai.net/seeds/) — may it grow into a garden in full bloom. Also refreshed the gamified-thinking pages. The self-training continues.
 
