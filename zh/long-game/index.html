@@ -533,6 +533,11 @@
             <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
               Lv = min(Cardio、Mind、Force、Rest)。最弱軸為基準。
             </p>
+            <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">
+              <!-- 只取 Meta.lastUpdate。上方的標籤會把 builder 種子與文章一起算進去，
+                   Builder/Storyteller 一動就看不出這四軸是什麼時候更新的。 -->
+              四軸手動更新 · <span id="wayfarer-updated">2026-07-14</span>
+            </p>
           </details>
         </div>
 
@@ -759,6 +764,12 @@
       }
 
       const $ = id => document.getElementById(id);
+
+      // ── Wayfarer axes: manual-entry date only (Meta.lastUpdate), so the
+      //    weakest-link figures carry their own provenance
+      if ($('wayfarer-updated') && (kv(data['Meta'] || []) || {}).lastUpdate) {
+        $('wayfarer-updated').textContent = kv(data['Meta'] || []).lastUpdate;
+      }
 
       // ── Three Roles "Last update" label
       if ($('three-roles-updated') && lastUpdateDate) {

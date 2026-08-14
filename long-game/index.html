@@ -533,6 +533,11 @@
             <p class="text-sm text-slate-400 dark:text-slate-500 italic mt-2">
               Lv = min(Move, Mind, Force, Rest). Weakest-link basis.
             </p>
+            <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">
+              <!-- Meta.lastUpdate only — the header label above folds in builder seeds and
+                   essays, so Builder/Storyteller activity hides when these axes last moved. -->
+              Axes last entered by hand · <span id="wayfarer-updated">2026-07-14</span>
+            </p>
           </details>
         </div>
 
@@ -759,6 +764,12 @@
       }
 
       const $ = id => document.getElementById(id);
+
+      // ── Wayfarer axes: manual-entry date only (Meta.lastUpdate), so the
+      //    weakest-link figures carry their own provenance
+      if ($('wayfarer-updated') && (kv(data['Meta'] || []) || {}).lastUpdate) {
+        $('wayfarer-updated').textContent = kv(data['Meta'] || []).lastUpdate;
+      }
 
       // ── Three Roles "Last update" label
       if ($('three-roles-updated') && lastUpdateDate) {
