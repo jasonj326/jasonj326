@@ -62,6 +62,27 @@
     .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
     .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
     .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
+    /* Typography plugin decorates inline code with literal backticks via ::before/::after.
+       They look like typos and can ride along on copy. */
+    .prose :where(code):not(:where([class~="not-prose"] *))::before,
+    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+    /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
+    .code-copy-wrap { position: relative; }
+    .code-copy-wrap pre { padding-top: 2.75rem !important; }
+    .code-copy-btn {
+        position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.3rem 0.6rem; border-radius: 0.4rem;
+        border: 1px solid rgb(203 213 225); background: rgb(255 255 255);
+        color: rgb(51 65 85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1;
+        cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+    }
+    .code-copy-btn:hover { background: rgb(238 242 255); border-color: rgb(79 70 229); color: rgb(79 70 229); }
+    .code-copy-btn.copied { background: rgb(220 252 231); border-color: rgb(22 163 74); color: rgb(21 128 61); }
+    .dark .code-copy-btn { border-color: rgb(71 85 105); background: rgb(30 41 59); color: rgb(203 213 225); }
+    .dark .code-copy-btn:hover { background: rgb(15 42 34); border-color: rgb(52 211 153); color: rgb(52 211 153); }
+    .dark .code-copy-btn.copied { background: rgb(6 78 59); border-color: rgb(52 211 153); color: rgb(167 243 208); }
 </style>
               <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -167,10 +188,14 @@
 <h3>投稿方法</h3>
 <ul>
 <li><strong>收件信箱：</strong> blog@jasonjlai.net</li>
-<li><strong>信件主旨格式：</strong> <code>【BlogBlog 投稿】文章標題 - 你的稱呼</code></li>
-<li>信件內文：<code>[文章標題](網址) - 你的稱呼</code></li>
 <li><strong>截稿日期：</strong> 2026 年 9 月 30 日 23:59 止</li>
 </ul>
+<p>信件主旨，按右上角就能複製：</p>
+<div class="code-copy-wrap"><button type="button" class="code-copy-btn not-prose" data-copy-label="複製" aria-label="複製">複製</button><pre><code>【BlogBlog 投稿】文章標題 - 你的稱呼
+</code></pre></div>
+<p>信件內文，同樣格式貼上就好：</p>
+<div class="code-copy-wrap"><button type="button" class="code-copy-btn not-prose" data-copy-label="複製" aria-label="複製">複製</button><pre><code>[文章標題](網址) - 你的稱呼
+</code></pre></div>
 <h3>篇數及其他限制提醒</h3>
 <ul>
 <li>每位參與者最多投稿 <strong>1 篇</strong>，必須是發佈在自己的部落格 (Medium/Substack/方格子等部落格亦可)，謝絕社群媒體貼文投稿。如果你還沒有部落格，<a href="https://blogblog.club/resources" target="_blank" rel="noopener noreferrer">開一個吧</a>！</li>
@@ -254,6 +279,52 @@
             window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
         }
     }
+
+    // Copy button on fenced code blocks
+    (function () {
+      document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const pre = btn.parentElement.querySelector('pre');
+          if (!pre) return;
+          const text = pre.innerText;
+          const label = btn.dataset.copyLabel;
+          const flash = function (msg, cls) {
+            btn.textContent = msg;
+            if (cls) btn.classList.add(cls);
+            setTimeout(function () {
+              btn.textContent = label;
+              btn.classList.remove('copied');
+            }, 1600);
+          };
+          const done = function () {
+            flash(label === '複製' ? '已複製' : 'Copied', 'copied');
+          };
+          const failed = function () {
+            flash(label === '複製' ? '請手動複製' : 'Select manually', null);
+          };
+          const fallback = function () {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            if (ok) done(); else failed();
+          };
+          // writeText rejects on an unfocused document, under a restrictive
+          // permissions policy, and in some Safari versions — always fall back
+          // rather than leaving the click with no feedback.
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+          } else {
+            fallback();
+          }
+        });
+      });
+    })();
 
     // Floating jump-nav: highlight the section currently in view
     (function () {

@@ -228,6 +228,18 @@ def build_footer(lang):
 def is_zh(lang):
     return lang.startswith("zh")
 
+def build_copyable_pre(html, lang):
+    """Wrap every fenced code block in a positioned container carrying a copy button.
+    Readers copy a submission format in one click instead of hand-selecting it, and
+    what lands on the clipboard is the raw text — no decorative backticks."""
+    label = "複製" if is_zh(lang) else "Copy"
+    def wrap(m):
+        return (f'<div class="code-copy-wrap">'
+                f'<button type="button" class="code-copy-btn not-prose" data-copy-label="{label}" '
+                f'aria-label="{label}">{label}</button>{m.group(0)}</div>')
+    return re.sub(r'<pre>.*?</pre>', wrap, html, flags=re.DOTALL)
+
+
 def build_jump_nav(body, lang):
     """Floating right-side section nav for long posts that carry an inline TOC.
     Reuses the inline TOC's short labels; triggers only when >=3 in-body anchor
@@ -403,6 +415,27 @@ HTML_TMPL = """<!DOCTYPE html>
     .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
     .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
     .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
+    /* Typography plugin decorates inline code with literal backticks via ::before/::after.
+       They look like typos and can ride along on copy. */
+    .prose :where(code):not(:where([class~="not-prose"] *))::before,
+    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+    /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
+    .code-copy-wrap { position: relative; }
+    .code-copy-wrap pre { padding-top: 2.75rem !important; }
+    .code-copy-btn {
+        position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.3rem 0.6rem; border-radius: 0.4rem;
+        border: 1px solid rgb(203 213 225); background: rgb(255 255 255);
+        color: rgb(51 65 85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1;
+        cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+    }
+    .code-copy-btn:hover { background: rgb(238 242 255); border-color: rgb(79 70 229); color: rgb(79 70 229); }
+    .code-copy-btn.copied { background: rgb(220 252 231); border-color: rgb(22 163 74); color: rgb(21 128 61); }
+    .dark .code-copy-btn { border-color: rgb(71 85 105); background: rgb(30 41 59); color: rgb(203 213 225); }
+    .dark .code-copy-btn:hover { background: rgb(15 42 34); border-color: rgb(52 211 153); color: rgb(52 211 153); }
+    .dark .code-copy-btn.copied { background: rgb(6 78 59); border-color: rgb(52 211 153); color: rgb(167 243 208); }
 </style>
               <link rel="stylesheet" href="/assets/fab-subscribe.css">
 </head>
@@ -494,6 +527,52 @@ HTML_TMPL = """<!DOCTYPE html>
             window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
         }
     }
+
+    // Copy button on fenced code blocks
+    (function () {
+      document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const pre = btn.parentElement.querySelector('pre');
+          if (!pre) return;
+          const text = pre.innerText;
+          const label = btn.dataset.copyLabel;
+          const flash = function (msg, cls) {
+            btn.textContent = msg;
+            if (cls) btn.classList.add(cls);
+            setTimeout(function () {
+              btn.textContent = label;
+              btn.classList.remove('copied');
+            }, 1600);
+          };
+          const done = function () {
+            flash(label === '複製' ? '已複製' : 'Copied', 'copied');
+          };
+          const failed = function () {
+            flash(label === '複製' ? '請手動複製' : 'Select manually', null);
+          };
+          const fallback = function () {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            if (ok) done(); else failed();
+          };
+          // writeText rejects on an unfocused document, under a restrictive
+          // permissions policy, and in some Safari versions — always fall back
+          // rather than leaving the click with no feedback.
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+          } else {
+            fallback();
+          }
+        });
+      });
+    })();
 
     // Floating jump-nav: highlight the section currently in view
     (function () {
@@ -926,10 +1005,17 @@ def main():
 
     raw_posts = []
     link_dict = {}
+    skipped_drafts = []
 
     for md in POSTS_DIR.glob("*.md"):
         try:
             fm, body = parse_md(md)
+            # draft: true keeps a post out of every artifact — page, index, feed,
+            # sitemap, tag pages. Lets drafts live next to published posts instead of
+            # being shuffled out of posts/ before each run.
+            if bool(fm.get("draft", False)):
+                skipped_drafts.append(md.name)
+                continue
             title = fm["title"]
             date = str(fm["date"])
             slug = fm.get("slug") or re.sub(r"[^a-z0-9\-]+", "-", title.lower()).strip("-")
@@ -1051,6 +1137,7 @@ def main():
 
         content_html = markdown.markdown(body, extensions=["fenced_code", "tables", "footnotes", "attr_list"])
         content_html = add_target_blank_to_external(content_html)
+        content_html = build_copyable_pre(content_html, p["final_lang"])
         updated_value = effective_updated(p)
         if updated_value:
             if is_zh(p["final_lang"]):
@@ -1167,6 +1254,8 @@ def main():
     sitemap_count = generate_sitemap(posts, all_tags)
 
     print(f"✅ Built {len(posts)} posts ({len(en_posts)} EN + {len(zh_posts)} ZH)")
+    if skipped_drafts:
+        print(f"⏸️  Skipped {len(skipped_drafts)} draft(s): " + ", ".join(sorted(skipped_drafts)))
     print(f"✅ feed.xml: {feed_count} canonical / feed-en.xml: {feed_en_count} / feed-zh.xml: {feed_zh_count}")
     print(f"✅ redirect stubs: {stub_count}")
     print(f"✅ sitemap.xml: {sitemap_count} URLs")
