@@ -1,6 +1,7 @@
 ---
 title: 音樂虐我千百遍，我待音樂如初戀
 date: 2026-06-26
+updated: 2026-06-26
 year: 2026
 lang: zh-Hant
 slug: music-burns-me-a-thousand-times-but-im-still-in-love

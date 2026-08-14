@@ -1,7 +1,7 @@
 ---
 title: 馬年：無處可躲的 AI 浪潮迎面而來，一馬當先
 date: 2026-05-10
-updated:
+updated: 2026-05-10
 year: 2026
 lang: zh-Hant
 slug: workhorse-in-the-year-of-horse

@@ -1,6 +1,7 @@
 ---
 title: "2026 Q2 Review: Transparency"
 date: 2026-07-08
+updated: 2026-07-14
 year: 2026
 lang: en
 slug: 2026-q2-review-builder

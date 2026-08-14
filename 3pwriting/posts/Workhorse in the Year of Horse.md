@@ -1,7 +1,7 @@
 ---
 title: Workhorse in the Year of Horse
 date: 2026-02-24
-updated:
+updated: 2026-05-10
 year: 2026
 lang: en
 slug: workhorse-in-the-year-of-horse

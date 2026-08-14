@@ -1,6 +1,7 @@
 ---
 title: 會頂嘴的夥伴——我的八人 AI 艦隊，和一場五個月的自我審計
 date: 2026-07-05
+updated: 2026-07-14
 year: 2026
 lang: zh-Hant
 slug: ai-fleet-audit

@@ -1,7 +1,7 @@
 ---
 title: Skill Tree Development v1.2
 date: 2026-03-25
-updated:
+updated: 2026-05-11
 year: 2026
 lang: en
 slug: Skill-Tree-Development

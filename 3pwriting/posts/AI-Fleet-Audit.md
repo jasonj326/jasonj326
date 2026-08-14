@@ -1,6 +1,7 @@
 ---
 title: "The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit"
 date: 2026-07-05
+updated: 2026-07-14
 year: 2026
 lang: en
 slug: ai-fleet-audit

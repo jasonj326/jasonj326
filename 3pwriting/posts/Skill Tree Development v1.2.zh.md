@@ -1,7 +1,7 @@
 ---
 title: 技能樹發展 v1.2
 date: 2026-05-10
-updated:
+updated: 2026-05-11
 year: 2026
 lang: zh-Hant
 slug: Skill-Tree-Development

@@ -1,7 +1,7 @@
 ---
 title: README ・合作指南
 date: 2026-05-10
-updated:
+updated: 2026-05-10
 year: 2026
 lang: zh-Hant
 slug: readme

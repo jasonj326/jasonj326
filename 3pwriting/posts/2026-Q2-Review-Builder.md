@@ -1,6 +1,7 @@
 ---
 title: 2026 Q2季報：透明
 date: 2026-07-08
+updated: 2026-07-14
 year: 2026
 lang: zh-Hant
 slug: 2026-q2-review-builder
