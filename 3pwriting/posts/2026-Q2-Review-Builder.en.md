@@ -4,6 +4,8 @@ date: 2026-07-08
 year: 2026
 lang: en
 slug: 2026-q2-review-builder
+redirect_from:
+  - /3pwriting/partnership/2026-q2-review-builder.html
 major_tag: partnership
 tags:
   - playbooks

@@ -5,8 +5,9 @@ updated:
 year: 2026
 lang: en
 slug: Skill-Tree-Development
-url: "https://jasonjlai.net/3pwriting/skill-tree/Skill-Tree-Development.html"
+url: "https://jasonjlai.net/3pwriting/Skill-Tree-Development.html"
 redirect_from:
+  - /3pwriting/skill-tree/Skill-Tree-Development.html
   - /3pwriting/skill-tree/20260325/Skill-Tree-Development.html
 major_tag: skill-tree
 tags:
@@ -24,7 +25,7 @@ First, it reflects my current mantra: life is a game, and we get to choose our o
 
 Admittedly, the gaming aesthetic may make some clients or more conservative legal professionals frown. Even so, I choose to stay true to my mantra and forge my own path. I believe substance ultimately outweighs surface appearances—though I recognize that formality still has its place in law and human nature.
 
-With that background covered, this skill tree will help you use me more effectively in your own life game (alongside the [Long Game](/long-game/), the [README](/3pwriting/partnership/readme.html), and my digital trainee [Lia](/qualia/)). Together, we can party up and tackle a side quest—or something even more fun.
+With that background covered, this skill tree will help you use me more effectively in your own life game (alongside the [Long Game](/long-game/), the [README](/3pwriting/readme.html), and my digital trainee [Lia](/qualia/)). Together, we can party up and tackle a side quest—or something even more fun.
 
 This skill tree is admittedly a subjective art piece rather than a data-based assessment. I'm still thinking about either combining it with — or simply replacing it with — the more data-driven role-level chart in the [Long Game](/long-game/). Either way, this is far from a complete portrait of who I am. Still, these six skills are the ones I believe carry the most practical value (or market value) for you right now:
 

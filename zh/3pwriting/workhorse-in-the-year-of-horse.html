@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>馬年：無處可躲的 AI 浪潮迎面而來，一馬當先 - Jason J. Lai</title>
+<meta name="description" content="這是最好的年代，馬不停蹄，創作、生產、嘗試一切可能">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="馬年：無處可躲的 AI 浪潮迎面而來，一馬當先 - Jason J. Lai">
+<meta property="og:description" content="這是最好的年代，馬不停蹄，創作、生產、嘗試一切可能">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/zh/3pwriting/workhorse-in-the-year-of-horse.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "馬年：無處可躲的 AI 浪潮迎面而來，一馬當先",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-05-10",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "這是最好的年代，馬不停蹄，創作、生產、嘗試一切可能"
+}
+</script>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" hreflang="zh-Hant" href="https://jasonjlai.net/zh/3pwriting/workhorse-in-the-year-of-horse.html" />
+<link rel="alternate" hreflang="en" href="https://jasonjlai.net/3pwriting/workhorse-in-the-year-of-horse.html" />
+<link rel="alternate" hreflang="x-default" href="https://jasonjlai.net/zh/3pwriting/workhorse-in-the-year-of-horse.html" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; }
+    /* Anchor jumps ({#sN} TOC links) land below the sticky nav.
+       Nav wraps to ~2 rows (~89px) below lg; single row (~65px) at lg+. */
+    .prose h2[id], .prose h3[id] { scroll-margin-top: 6.5rem; }
+    @media (min-width: 1024px) { .prose h2[id], .prose h3[id] { scroll-margin-top: 5rem; } }
+    /* Floating right-side section nav (long posts w/ TOC; wide screens only) */
+    .jump-nav { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 30; display: none; flex-direction: column; gap: 0.55rem; align-items: flex-end; }
+    @media (min-width: 1280px) { .jump-nav { display: flex; } }
+    .jump-nav a { position: relative; display: block; padding: 3px 0; }
+    .jump-nav .jn-dot { display: block; width: 9px; height: 9px; border-radius: 9999px; background: rgb(203 213 225); transition: background .2s, transform .2s; }
+    .dark .jump-nav .jn-dot { background: rgb(71 85 105); }
+    .jump-nav .jn-label { position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; font-size: 13px; line-height: 1; color: rgb(100 116 139); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .dark .jump-nav .jn-label { color: rgb(148 163 184); }
+    .jump-nav:hover .jn-label, .jump-nav a.active .jn-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .jump-nav a:hover .jn-dot, .jump-nav a.active .jn-dot { background: rgb(79 70 229); transform: scale(1.3); }
+    .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
+    .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
+    .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
+    /* Typography plugin decorates inline code with literal backticks via ::before/::after.
+       They look like typos and can ride along on copy. */
+    .prose :where(code):not(:where([class~="not-prose"] *))::before,
+    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+    /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
+    .code-copy-wrap { position: relative; }
+    .code-copy-wrap pre { padding-top: 2.75rem !important; }
+    .code-copy-btn {
+        position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.3rem 0.6rem; border-radius: 0.4rem;
+        border: 1px solid rgb(203 213 225); background: rgb(255 255 255);
+        color: rgb(51 65 85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1;
+        cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+    }
+    .code-copy-btn:hover { background: rgb(238 242 255); border-color: rgb(79 70 229); color: rgb(79 70 229); }
+    .code-copy-btn.copied { background: rgb(220 252 231); border-color: rgb(22 163 74); color: rgb(21 128 61); }
+    .dark .code-copy-btn { border-color: rgb(71 85 105); background: rgb(30 41 59); color: rgb(203 213 225); }
+    .dark .code-copy-btn:hover { background: rgb(15 42 34); border-color: rgb(52 211 153); color: rgb(52 211 153); }
+    .dark .code-copy-btn.copied { background: rgb(6 78 59); border-color: rgb(52 211 153); color: rgb(167 243 208); }
+</style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/zh/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span></a>
+              <a href="/zh/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">長期遊戲</span><span class="sm:hidden text-sm">遊戲</span></a>
+              <a href="/zh/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400"><i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">3P 寫作</span><span class="sm:hidden text-sm">3P</span></a>
+              <a href="/zh/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span></a>
+              <a href="/zh/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">種子</span><span class="sm:hidden text-sm">種子</span></a>
+          </div>
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="/3pwriting/workhorse-in-the-year-of-horse.html" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to English" title="English"><i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="text-xs sm:text-sm font-mono font-bold">EN</span></a>
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">馬年：無處可躲的 AI 浪潮迎面而來，一馬當先</h1>
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-05-10" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-05-10</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/zh/3pwriting/playbooks/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-blue-500"></span>playbooks</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a>
+            </div>
+          </div>
+          <div class="not-prose flex gap-2 items-center text-sm font-mono text-slate-500 dark:text-slate-400 mb-8 -mt-4"><span class="font-bold text-slate-900 dark:text-slate-100">中文</span> <span class="text-slate-300 dark:text-slate-700">|</span> <a href="https://jasonjlai.net/3pwriting/workhorse-in-the-year-of-horse.html" class="hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">English</a></div>
+        </header>
+
+        <p>註：這篇文章原本是 Workhorse in the Year of Horse，AI翻譯成 「馬年的工作馬」，2026.5 中文版稍微改寫。</p>
+<h3>這是最好的時代。</h3>
+<p>進入 2026 年的這 55 天裡，我做了：為了應徵 Variant Fund 的夢想職位（🤞）做了一個 demo 網站)；學習 Git/GitHub 的結構，把網站從 Google Site 搬過來（這篇文章就是我用 Markdown 把零散片段拼湊起來的嘗試）；同時開啟我的日語學習旅程、跟家人慶祝農曆新年；目前正在用一場自發的 30 天 AI x N 衝刺打造 <a href="/long-game/index.html">10 年計畫</a>。（註：後來改成十二年計畫）</p>
+<p>轉眼間Gemini 的流量就用完了。</p>
+<p><img alt="Alt text" src="/assets/images/202602/workhorse.png" /></p>
+<p>這一切努力都是為了解決一個問題：建立一個有連結的部落 (tribe)。</p>
+<p>我相信，或說其實是希望，AI與科技衝擊下，我們可以建立、維繫人與人的關係。</p>
+<p>沒有 AI ，我無法獨自在做這個網站以及接下來的十二年計劃——雖然 AI 與遠距工作加劇了我對部落連結的渴望。</p>
+<p>沒有你，我也無法建立部落、甚至小隊。</p>
+<p>享受樂趣的同時，馬不停蹄地前進——這是我目前的行動指南。</p>
+<p>採取行動。不是那種假裝自己在朝目標前進的假行動：自己做研究、做 AI 玩具、隨機滑手機或發文寫感受。</p>
+<p>真的行動，是要創造並建造能呈現給世界的東西。</p>
+<p>讓它沉澱、讓它昇華、發芽成長，或許能有一天發生指數型成長。</p>
+<p>所以，我相信這是最好的時代。</p>
+<p>我們可以彼此扶持成長，用觸手可及的科技與豐沛資源建立一個可持續的部落。</p>
+<p>更重要的是，在這條路上有樂趣相伴——畢竟我們在地球上的時間有限。</p>
+<p>聯絡我，幫助我幫助你解決生命中的難題。</p>
+<p>改寫自我 <a href="https://substack.com/profile/103204388-jason-j-lai/note/c-218941632" target="_blank" rel="noopener noreferrer">30 天 AI x N 衝刺</a> 的第 8 天。</p>
+<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：2026-05-10</p>
+
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    <a href="/3pwriting/2026-q1-review-builder.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="Q1 2026 Review · Becoming a Builder"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">Q1 2026 Review · Becoming a Builder</span></a>
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> 隨機
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    <a href="/zh/3pwriting/Skill-Tree-Development.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="技能樹發展 v1.2"><span class="truncate max-w-[120px] sm:max-w-[200px]">技能樹發展 v1.2</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">免責聲明：</strong>
+          此網站僅代表本人觀點，不代表任何相關機構。所有內容僅供參考，未提供具體法律、醫療、稅務或投資建議。請尋求自身專業諮詢。文章內容「按現況」提供，不保證無誤或為最新；請自行研究並承擔依賴本站任何資訊所致之後果。
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
+        <p class="text-center"><a href="/zh/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">隱私</a> · <a href="/zh/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">支持</a> · <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    initTheme();
+
+    const allPosts = ["/zh/3pwriting/stay-up.html", "/zh/3pwriting/2026-q2-review-builder.html", "/3pwriting/2026-q2-review-builder.html", "/zh/3pwriting/ai-fleet-audit.html", "/3pwriting/ai-fleet-audit.html", "/zh/3pwriting/music-burns-me-a-thousand-times-but-im-still-in-love.html", "/zh/3pwriting/readme.html", "/3pwriting/perfect-day-without-magic.html", "/zh/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/perfect-day-without-magic.html", "/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/brand-age-translation.html", "/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/readme.html"];
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
+
+    // Copy button on fenced code blocks
+    (function () {
+      document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const pre = btn.parentElement.querySelector('pre');
+          if (!pre) return;
+          const text = pre.innerText;
+          const label = btn.dataset.copyLabel;
+          const flash = function (msg, cls) {
+            btn.textContent = msg;
+            if (cls) btn.classList.add(cls);
+            setTimeout(function () {
+              btn.textContent = label;
+              btn.classList.remove('copied');
+            }, 1600);
+          };
+          const done = function () {
+            flash(label === '複製' ? '已複製' : 'Copied', 'copied');
+          };
+          const failed = function () {
+            flash(label === '複製' ? '請手動複製' : 'Select manually', null);
+          };
+          const fallback = function () {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            if (ok) done(); else failed();
+          };
+          // writeText rejects on an unfocused document, under a restrictive
+          // permissions policy, and in some Safari versions — always fall back
+          // rather than leaving the click with no feedback.
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+          } else {
+            fallback();
+          }
+        });
+      });
+    })();
+
+    // Floating jump-nav: highlight the section currently in view
+    (function () {
+      const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+      if (!links.length) return;
+      const targets = links.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+      function onScroll() {
+        let active = targets[0];
+        for (const t of targets) { if (t.getBoundingClientRect().top <= 100) active = t; }
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === active.id));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
+</body>
+</html>

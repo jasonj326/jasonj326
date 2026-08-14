@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>音樂虐我千百遍，我待音樂如初戀 - Jason J. Lai</title>
+<meta name="description" content="部落格同樂會投稿：我的音樂故事">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="音樂虐我千百遍，我待音樂如初戀 - Jason J. Lai">
+<meta property="og:description" content="部落格同樂會投稿：我的音樂故事">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/zh/3pwriting/music-burns-me-a-thousand-times-but-im-still-in-love.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "音樂虐我千百遍，我待音樂如初戀",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-06-26",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "部落格同樂會投稿：我的音樂故事"
+}
+</script>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; }
+    /* Anchor jumps ({#sN} TOC links) land below the sticky nav.
+       Nav wraps to ~2 rows (~89px) below lg; single row (~65px) at lg+. */
+    .prose h2[id], .prose h3[id] { scroll-margin-top: 6.5rem; }
+    @media (min-width: 1024px) { .prose h2[id], .prose h3[id] { scroll-margin-top: 5rem; } }
+    /* Floating right-side section nav (long posts w/ TOC; wide screens only) */
+    .jump-nav { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 30; display: none; flex-direction: column; gap: 0.55rem; align-items: flex-end; }
+    @media (min-width: 1280px) { .jump-nav { display: flex; } }
+    .jump-nav a { position: relative; display: block; padding: 3px 0; }
+    .jump-nav .jn-dot { display: block; width: 9px; height: 9px; border-radius: 9999px; background: rgb(203 213 225); transition: background .2s, transform .2s; }
+    .dark .jump-nav .jn-dot { background: rgb(71 85 105); }
+    .jump-nav .jn-label { position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; font-size: 13px; line-height: 1; color: rgb(100 116 139); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .dark .jump-nav .jn-label { color: rgb(148 163 184); }
+    .jump-nav:hover .jn-label, .jump-nav a.active .jn-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .jump-nav a:hover .jn-dot, .jump-nav a.active .jn-dot { background: rgb(79 70 229); transform: scale(1.3); }
+    .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
+    .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
+    .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
+    /* Typography plugin decorates inline code with literal backticks via ::before/::after.
+       They look like typos and can ride along on copy. */
+    .prose :where(code):not(:where([class~="not-prose"] *))::before,
+    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+    /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
+    .code-copy-wrap { position: relative; }
+    .code-copy-wrap pre { padding-top: 2.75rem !important; }
+    .code-copy-btn {
+        position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.3rem 0.6rem; border-radius: 0.4rem;
+        border: 1px solid rgb(203 213 225); background: rgb(255 255 255);
+        color: rgb(51 65 85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1;
+        cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+    }
+    .code-copy-btn:hover { background: rgb(238 242 255); border-color: rgb(79 70 229); color: rgb(79 70 229); }
+    .code-copy-btn.copied { background: rgb(220 252 231); border-color: rgb(22 163 74); color: rgb(21 128 61); }
+    .dark .code-copy-btn { border-color: rgb(71 85 105); background: rgb(30 41 59); color: rgb(203 213 225); }
+    .dark .code-copy-btn:hover { background: rgb(15 42 34); border-color: rgb(52 211 153); color: rgb(52 211 153); }
+    .dark .code-copy-btn.copied { background: rgb(6 78 59); border-color: rgb(52 211 153); color: rgb(167 243 208); }
+</style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/zh/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span></a>
+              <a href="/zh/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">長期遊戲</span><span class="sm:hidden text-sm">遊戲</span></a>
+              <a href="/zh/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400"><i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">3P 寫作</span><span class="sm:hidden text-sm">3P</span></a>
+              <a href="/zh/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span></a>
+              <a href="/zh/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">種子</span><span class="sm:hidden text-sm">種子</span></a>
+          </div>
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="/3pwriting/" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to English" title="English"><i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="text-xs sm:text-sm font-mono font-bold">EN</span></a>
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">音樂虐我千百遍，我待音樂如初戀</h1>
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-06-26" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-06-26</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/zh/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/music/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>music</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/blog/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>blog</a>
+            </div>
+          </div>
+          
+        </header>
+
+        <h4><em>這是由Wiwi發起中文的<a href="https://blogblog.club/party/" target="_blank" rel="noopener noreferrer">部落格同樂會</a>，本次投稿六月份這期由<a href="https://www.yozblog.com/posts/music-and-memories/" target="_blank" rel="noopener noreferrer">柚子主辦的同樂會</a>，希望今年有機會改寫成英文。</em></h4>
+<p>音樂離我好遠，又離我好近。</p>
+<p>很喜歡音樂，也很害怕音樂。</p>
+<p>或許我就是這麼矛盾的人</p>
+<p>如同音樂一樣</p>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1HAKHAMin8gSci0HCTGSeN?utm_source=generator&si=9477a43d1282461b" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<hr />
+<h3>2026年第二季開始讓音樂融入生活</h3>
+<p>既然這篇手寫不用 AI，就用倒敘法開場吧！</p>
+<p>最新的音樂體驗，是讓音樂成為我的生活一部分。</p>
+<p>我有兩條路線並進，一是問 AI 我要如何培養音樂品味，然後按圖索驥、照表操課，主要就是有耐心的聽，然後玩玩 AI 音樂製作</p>
+<p>二是最近受失眠與手機成癮困擾，我就自己找了音樂歌單，一是晚安歌單，二是早安歌單。</p>
+<p>晚安歌單幫助不大，所以已經放棄了——不確定是選歌的問題，還是什麼緣故——晚安歌單除了費玉清的晚安曲，其他都是請 AI 推薦各國相對應類似的著名晚安曲，其中美國推薦給我的是 Taps</p>
+<div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:1.2rem 0;"><iframe src="https://www.youtube-nocookie.com/embed/E-oeHKC-nXE" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+
+<blockquote>
+<p>《Taps》（熄燈號／晚安曲）是美國武裝部隊中最具代表性且最令人動容的軍樂號令，全曲僅由 24 個音符組成，沒有官方歌詞，通常由單一軍號（Bugle）或小號獨奏。它在美軍中主要扮演兩大核心角色：每日入夜時的熄燈信號，以及軍事葬禮與紀念儀式上的最終致敬</p>
+</blockquote>
+<p>當初同意 AI 推薦這首，一方面的確是很多電影有聽過，另一方面只是想克服自己報復性熬夜的問題——今天的我已經死去，安息去睡覺吧，明天又是重生的開始。</p>
+<p>總之，我也沒有真聽完就關電腦、乖乖去睡覺，所以晚安曲歌單已放棄。</p>
+<p>相比於晚安，早安歌單相對成功，除了有幾天太匆忙去開電腦趕工，大部分起床的儀式是，開啟藍芽音響，用手錶播放音樂。</p>
+<p>我刻意選了都不是中文的歌曲</p>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4DV0QJTmgCL4sRnVe3sSuU?utm_source=generator&si=3a83f4c387524acc" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<p>我想要感受音樂的美，不要被歌詞影響，同時也找了幾首，是因為中文曾經翻唱過而熟悉的日文歌曲，也覺得挺有趣的</p>
+<p>更重要的是，創造了新的儀式感、盡量早起第一個小時不要用手機。</p>
+<hr />
+<h3>但是，音樂也令人望而生畏。</h3>
+<p>對音樂的間歇性學習從未停止</p>
+<p>而音樂性從未降臨</p>
+<p>堅信成長型思維，在30 歲出頭的年紀，曾經學了近一年（？）的鋼琴課，原本想活出士別三日，已非吳下阿蒙的現代版</p>
+<p>想要在多年未見的親友面前，展現新的技法</p>
+<p>但想不到停課不過半年，樂譜又已經忘光，連五線譜都忘了怎麼看</p>
+<p>有人說，當時我學鋼琴，可能只是為了活在他者亮麗的眼光與掌聲，不是真心想學</p>
+<p>我不想承認，畢竟花了不少錢與時間，無法接受自己只是潛意識的魁儡，我是真的想學琴啊</p>
+<p>或許有幾分道理，是我內心還是想學，有外在因素，也有內在動機，只是資質與環境，還沒辦法讓我克服陡峭的初始學習曲線</p>
+<p>往前推，應該是好和弦的 Youtube 影片、書籍，還有隱約印象買了某個大禮包，總希望有一天可以好好吸收，結果只是束之雲端
+（我記得我的鋼琴老師分享過，他有上過幾堂 Wiwi 的鋼琴課，所以 Wiwi 某種程度上可以算我的師公？）</p>
+<p>再往前，應該是退伍後 2014 年，看到北京大學有一門線上音樂課叫做 毕明辉《20世纪西方音乐》，
+那大概是我當時上過所有在體制內音樂教育最清楚的課程，當時學到兩個概念，一是去感受音樂的立體性，去猜想有多少樂器在後面；</p>
+<p>二是建議要學一門樂器，才能夠好好賞析音樂，這才開啟了我 2020 前後學習鋼琴的契機，以及前面提到我想透過 AI 製作音樂的想法。缺點是當時給自己太多負擔，想把每個音樂家的英文、繁體中文、簡體中文的姓名都整理起來，工作一忙，就放棄了</p>
+<p>時間軸再倒帶，應該是在台大的課程，包括兩堂在學期間 （音樂、演化與大腦，以及西洋歌劇史上）、一堂畢業後去旁聽 （張欽全老師的鋼琴作品與演奏欣賞鋼琴作品與賞析）
+西洋歌劇史上課太好睡，拿了 C，覺得有夠難，也對不起老師對歌劇的熱情。</p>
+<p>旁聽的&lt;鋼琴作品&gt;這堂課，過了這門多年還是對老師溫文儒雅很有印象，特別是提到鋼琴家的職業傷害</p>
+<p>我不確定現在是不是音樂家養成還是如此、或是記憶中有無錯誤</p>
+<p>他說學生或學生家長常常或問，怎麼樣可以學琴不要受傷</p>
+<p>老師就很直白的說：</p>
+<p>你當然可以每天只練琴 3 小時，然後每彈一小時休息 20 分鐘。
+但是那些對音樂著迷、也有天份的藝術家，可是每天練 12 小時。</p>
+<p>「追求卓越的路上充滿荊棘」</p>
+<p>我們當然有一些方法可以減少傷害，但要完全不受傷是不可能的，你可以自己選要不要上路。</p>
+<p>這句話當時很震撼，也讓我想起 《進擊的鼓手 Whiplash》 這部音樂電影</p>
+<div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:1.2rem 0;"><iframe src="https://www.youtube-nocookie.com/embed/p2TNS0aGD5g" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+
+<p>另外就是關於彈琴的姿勢，格連·顧爾德（Glenn Gould） ，讓人印象深刻，當然我相信所有鋼琴老師都不會這樣教。
+算是有趣的課程，但每週一堂的課程或旁聽，或許依然不夠灌溉我那枯萎的音樂土壤。</p>
+<p>對音樂土壤的枯萎貧瘠，或許源自於小時候的音樂課。當時有個疾言厲色的音樂老師，會叫每個學生起來唱樂譜</p>
+<p>我根本看不懂五線譜，每次上音樂課都覺得手心冒汗，自己只能濫竽充數，深怕被點到，被點到就是被羞辱的感覺。
+印象中也有一兩次被點到，目前記憶已是空白，大概自我保護吧！
+我只記得，那是小學成績單唯一的「丙」</p>
+<p>從此認定，沒有音樂天份</p>
+<hr />
+<h3>音樂與友誼</h3>
+<p>人生的命運讓我曾經有幸認識音樂班的朋友，也前後參與過幾場他們的發表會演出，
+雖然我始終沒有辦法很清楚區辨其中曲目的差異，也永遠不曉得何時是鼓掌的時機。</p>
+<p>我還是勇敢和他們一起作夢，在 2014 年和他們一起辦場公益音樂會——「嶼你同在」</p>
+<p>當然我的角色，是主持人不是演出者，否則可能沒有善款，還得要額外賠償了</p>
+<p>雖然我也曾向音樂科班出身的幾位朋友請教，怎麼可以培養節奏感、音感，</p>
+<p>但資質駑鈍，加上知識的詛咒——專業的音樂家始終無法理解我的音盲世界。</p>
+<p>不過這時候的我，已經相對自信，也不像兒時那麼在意被批評了。</p>
+<p>這段記憶彌足珍貴，雖然大家後續甚少聯繫，聚少離多，但相信這是命運的最好的安排</p>
+<p>或許哪天真能創作，希望能為這段記憶，譜上一曲，或寫詞，或畫畫吧。</p>
+<p>再往前十年，2001-2004年，是少年維特的煩惱，為賦新詞強說愁不說，聽得多是兄姐 80-90年代的歌單，既獨特老氣，但算是第一次想透過音樂來抒發自己的情感。
+直到高中大學，才開始接觸西洋流行音樂，雖然也是隨意聽聽，雖然始終無法分辨藍調與爵士，反正聽著就舒服</p>
+<p>即使多年以後，聽了很多歌，每次和同學唱歌，很明顯的知道，自己就是孩子王：搶拍、走音是正常發揮，
+人貴自知，通常只跟好朋友唱歌，揮霍他們的包容，其餘大多時候就學論語「子與人歌而善，必使反之，而后和之」</p>
+<p>雖然人生不斷想靠近音樂，卻又被音樂拒於門外，但是總說不出自己喜歡什麼類型的音樂。</p>
+<hr />
+<h3>音樂的現在進行式</h3>
+<p>正因為說不出自己的偏好，透過和 AI 對話，有一些指引與方向，甚至讓音樂創作/AI 共創成為可能</p>
+<p>接下來我會和音樂，刻下怎麼樣的新的記憶，我也很期待。</p>
+<p>雖然音樂如此傲嬌，我多次的靠近，都被他拒於門外，我依然鍥而不捨</p>
+<p>畢竟音樂如此親和，音盲如我，都能感受到情感的共鳴、旋律的真善美</p>
+<p>或許，這就是音樂的兩面性，我如音樂，音樂如我，總在矛盾與衝突之間調和、推進、成長</p>
+<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：2026-06-26</p>
+
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    <a href="/zh/3pwriting/readme.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="README ・合作指南"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">README ・合作指南</span></a>
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> 隨機
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    <a href="/3pwriting/ai-fleet-audit.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit"><span class="truncate max-w-[120px] sm:max-w-[200px]">The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">免責聲明：</strong>
+          此網站僅代表本人觀點，不代表任何相關機構。所有內容僅供參考，未提供具體法律、醫療、稅務或投資建議。請尋求自身專業諮詢。文章內容「按現況」提供，不保證無誤或為最新；請自行研究並承擔依賴本站任何資訊所致之後果。
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
+        <p class="text-center"><a href="/zh/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">隱私</a> · <a href="/zh/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">支持</a> · <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    initTheme();
+
+    const allPosts = ["/zh/3pwriting/stay-up.html", "/zh/3pwriting/2026-q2-review-builder.html", "/3pwriting/2026-q2-review-builder.html", "/zh/3pwriting/ai-fleet-audit.html", "/3pwriting/ai-fleet-audit.html", "/zh/3pwriting/music-burns-me-a-thousand-times-but-im-still-in-love.html", "/zh/3pwriting/readme.html", "/3pwriting/perfect-day-without-magic.html", "/zh/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/perfect-day-without-magic.html", "/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/brand-age-translation.html", "/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/readme.html"];
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
+
+    // Copy button on fenced code blocks
+    (function () {
+      document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const pre = btn.parentElement.querySelector('pre');
+          if (!pre) return;
+          const text = pre.innerText;
+          const label = btn.dataset.copyLabel;
+          const flash = function (msg, cls) {
+            btn.textContent = msg;
+            if (cls) btn.classList.add(cls);
+            setTimeout(function () {
+              btn.textContent = label;
+              btn.classList.remove('copied');
+            }, 1600);
+          };
+          const done = function () {
+            flash(label === '複製' ? '已複製' : 'Copied', 'copied');
+          };
+          const failed = function () {
+            flash(label === '複製' ? '請手動複製' : 'Select manually', null);
+          };
+          const fallback = function () {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            if (ok) done(); else failed();
+          };
+          // writeText rejects on an unfocused document, under a restrictive
+          // permissions policy, and in some Safari versions — always fall back
+          // rather than leaving the click with no feedback.
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+          } else {
+            fallback();
+          }
+        });
+      });
+    })();
+
+    // Floating jump-nav: highlight the section currently in view
+    (function () {
+      const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+      if (!links.length) return;
+      const targets = links.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+      function onScroll() {
+        let active = targets[0];
+        for (const t of targets) { if (t.getBoundingClientRect().top <= 100) active = t; }
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === active.id));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
+</body>
+</html>

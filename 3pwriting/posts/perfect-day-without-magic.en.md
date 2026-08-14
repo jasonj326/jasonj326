@@ -5,7 +5,9 @@ updated: 2026-05-10
 year: 2026
 lang: en
 slug: perfect-day-without-magic
-url: https://jasonjlai.net/3pwriting/playgrounds/perfect-day-without-magic.html
+redirect_from:
+  - /3pwriting/playgrounds/perfect-day-without-magic.html
+url: https://jasonjlai.net/3pwriting/perfect-day-without-magic.html
 major_tag: playgrounds
 tags:
   - playgrounds

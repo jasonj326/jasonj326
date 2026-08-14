@@ -4,6 +4,8 @@ date: 2026-07-05
 year: 2026
 lang: zh-Hant
 slug: ai-fleet-audit
+redirect_from:
+  - /zh/3pwriting/playbooks/ai-fleet-audit.html
 major_tag: playbooks
 tags:
   - playbooks

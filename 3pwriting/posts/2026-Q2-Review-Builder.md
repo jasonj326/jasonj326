@@ -4,6 +4,8 @@ date: 2026-07-08
 year: 2026
 lang: zh-Hant
 slug: 2026-q2-review-builder
+redirect_from:
+  - /zh/3pwriting/partnership/2026-q2-review-builder.html
 feed_canonical: true
 major_tag: partnership
 tags:

@@ -5,7 +5,9 @@ updated:
 year: 2026
 lang: zh-Hant
 slug: Skill-Tree-Development
-url: "https://jasonjlai.net/zh/3pwriting/skill-tree/Skill-Tree-Development.html"
+redirect_from:
+  - /zh/3pwriting/skill-tree/Skill-Tree-Development.html
+url: "https://jasonjlai.net/zh/3pwriting/Skill-Tree-Development.html"
 major_tag: skill-tree
 tags:
   - y2026
@@ -22,7 +24,7 @@ hero_image:
 
 當然，遊戲風格的美學可能會讓某些客戶或傳統的法律專業人士覺得不專業。即使如此，我選擇忠於自己的座右銘，走自己的路。我相信本質終究勝過表象——但也認知到形式在法律與人性中仍有它的位置。
 
-有了上述背景，這份技能樹會幫你在自己的人生遊戲中更有效地運用我（搭配[長期遊戲](/zh/long-game/)、[README](/zh/3pwriting/partnership/readme.html) 與我的 digital trainee [Lia](/zh/qualia/)）。我們可以組隊一起打支線任務——或更有趣的東西。
+有了上述背景，這份技能樹會幫你在自己的人生遊戲中更有效地運用我（搭配[長期遊戲](/zh/long-game/)、[README](/zh/3pwriting/readme.html) 與我的 digital trainee [Lia](/zh/qualia/)）。我們可以組隊一起打支線任務——或更有趣的東西。
 
 雖然這個技能樹只是個主觀的美勞作品（之後思考怎麼整併我在長期遊戲設計的角色等級圖），也很難完整介紹我這個人的本質，但這六個技能我認為對你最有實用價值 （或說市場價值）：
 

@@ -4,7 +4,9 @@ date: 2026-08-14
 year: 2026
 lang: zh-Hant
 slug: stay-up
-url: https://jasonjlai.net/zh/3pwriting/playgrounds/stay-up.html
+redirect_from:
+  - /zh/3pwriting/playgrounds/stay-up.html
+url: https://jasonjlai.net/zh/3pwriting/stay-up.html
 feed_canonical: true
 major_tag: playgrounds
 tags:
@@ -65,14 +67,11 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 
 - **收件信箱：** blog@jasonjlai.net
 - **截稿日期：** 2026 年 9 月 30 日 23:59 止
-
-信件主旨，按右上角就能複製：
+- **信件主旨與內文**，按右上角就能複製：
 
 ```
 【BlogBlog 投稿】文章標題 - 你的稱呼
 ```
-
-信件內文，同樣格式貼上就好：
 
 ```
 [文章標題](網址) - 你的稱呼

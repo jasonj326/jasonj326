@@ -5,8 +5,9 @@ updated:
 year: 2026
 lang: en
 slug: workhorse-in-the-year-of-horse
-url: "https://jasonjlai.net/3pwriting/partnership/workhorse-in-the-year-of-horse.html"
+url: "https://jasonjlai.net/3pwriting/workhorse-in-the-year-of-horse.html"
 redirect_from:
+  - /3pwriting/partnership/workhorse-in-the-year-of-horse.html
   - /3pwriting/partnership/20260224/workhorse-in-the-year-of-horse.html
 major_tag: partnership
 tags:

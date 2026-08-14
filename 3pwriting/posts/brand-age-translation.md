@@ -5,8 +5,9 @@ updated: 2026-03-06
 year: 2026
 lang: zh-Hant
 slug: brand-age-translation
-url: "https://jasonjlai.net/zh/3pwriting/playgrounds/brand-age-translation.html"
+url: "https://jasonjlai.net/zh/3pwriting/brand-age-translation.html"
 redirect_from:
+  - /zh/3pwriting/playgrounds/brand-age-translation.html
   - /3pwriting/playgrounds/20260306/brand-age-translation.html
 feed_canonical: true
 major_tag: playgrounds

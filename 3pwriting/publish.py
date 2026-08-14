@@ -175,14 +175,18 @@ def add_target_blank_to_external(html):
         return f'<a {attrs} target="_blank" rel="noopener noreferrer">'
     return re.sub(r'<a ([^>]+)>', repl, html)
 
-def post_paths(major, slug, final_lang):
-    """Compute (out_dir, relative_link, full_link) per language."""
+def post_paths(slug, final_lang):
+    """Compute (out_dir, relative_link, full_link) per language.
+
+    Articles sit directly under /3pwriting/. The old /{major_tag}/ segment was
+    redundant with `tags` and never rendered anywhere — only the URL carried it.
+    Tag pages still live at /3pwriting/{tag}/, and no slug collides with one."""
     if final_lang.startswith("zh"):
-        out_dir = ZH_BASE / major
-        rel = f"/zh/3pwriting/{major}/{slug}.html"
+        out_dir = ZH_BASE
+        rel = f"/zh/3pwriting/{slug}.html"
     else:
-        out_dir = SITE_DIR / major
-        rel = f"/3pwriting/{major}/{slug}.html"
+        out_dir = SITE_DIR
+        rel = f"/3pwriting/{slug}.html"
     return out_dir, rel, SITE_URL + rel
 
 def effective_updated(p):
@@ -1019,7 +1023,9 @@ def main():
             title = fm["title"]
             date = str(fm["date"])
             slug = fm.get("slug") or re.sub(r"[^a-z0-9\-]+", "-", title.lower()).strip("-")
-            major = fm["major_tag"]
+            # major_tag no longer shapes the URL; kept optional so existing
+            # frontmatter stays valid and new posts can omit it.
+            major = fm.get("major_tag", "")
             summary = (fm.get("summary") or "").strip() or SITE_AUTHOR_DESC
 
             raw_tags = fm.get("tags", [])
@@ -1052,7 +1058,7 @@ def main():
             final_lang = LANG_NORMALIZE.get(chosen, chosen)
 
             # URL pattern: /3pwriting/{major}/{slug}.html or /zh/3pwriting/{major}/{slug}.html
-            _, relative_link, full_link = post_paths(major, slug, final_lang)
+            _, relative_link, full_link = post_paths(slug, final_lang)
 
             # frontmatter `url:` sanity check (kept for back-compat with downstream readers).
             fm_url = fm.get("url", "").strip() if isinstance(fm.get("url"), str) else ""
@@ -1130,7 +1136,7 @@ def main():
         prev_btn_html = f'<a href="{older_post["link"]}" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="{escape(older_post["title"])}"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">{escape(older_post["title"])}</span></a>' if older_post else '<span></span>'
         next_btn_html = f'<a href="{newer_post["link"]}" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="{escape(newer_post["title"])}"><span class="truncate max-w-[120px] sm:max-w-[200px]">{escape(newer_post["title"])}</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>' if newer_post else '<span></span>'
 
-        out_dir, _, _ = post_paths(p["major"], p["slug"], p["final_lang"])
+        out_dir, _, _ = post_paths(p["slug"], p["final_lang"])
         ensure_dir(out_dir)
 
         safe_summary = escape(p["summary"]).replace('"', '&quot;')

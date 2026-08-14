@@ -5,7 +5,9 @@ updated:
 year: 2026
 lang: zh-Hant
 slug: workhorse-in-the-year-of-horse
-url: https://jasonjlai.net/zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html
+redirect_from:
+  - /zh/3pwriting/partnership/workhorse-in-the-year-of-horse.html
+url: https://jasonjlai.net/zh/3pwriting/workhorse-in-the-year-of-horse.html
 major_tag: partnership
 tags:
   - playbooks

@@ -5,8 +5,9 @@ updated: 2026-05-14
 year: 2026
 lang: en
 slug: 2026-q1-review-builder
-url: https://jasonjlai.net/3pwriting/partnership/2026-q1-review-builder.html
+url: https://jasonjlai.net/3pwriting/2026-q1-review-builder.html
 redirect_from:
+  - /3pwriting/partnership/2026-q1-review-builder.html
   - /3pwriting/partnership/20260503/2026-q1-review-builder-en.html
 major_tag: partnership
 tags:

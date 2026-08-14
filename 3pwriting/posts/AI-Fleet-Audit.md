@@ -4,6 +4,8 @@ date: 2026-07-05
 year: 2026
 lang: en
 slug: ai-fleet-audit
+redirect_from:
+  - /3pwriting/playbooks/ai-fleet-audit.html
 major_tag: playbooks
 tags:
   - playbooks

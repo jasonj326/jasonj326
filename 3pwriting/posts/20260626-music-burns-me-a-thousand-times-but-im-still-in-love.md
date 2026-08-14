@@ -4,6 +4,8 @@ date: 2026-06-26
 year: 2026
 lang: zh-Hant
 slug: music-burns-me-a-thousand-times-but-im-still-in-love
+redirect_from:
+  - /zh/3pwriting/playgrounds/music-burns-me-a-thousand-times-but-im-still-in-love.html
 feed_canonical: true
 major_tag: playgrounds
 tags:

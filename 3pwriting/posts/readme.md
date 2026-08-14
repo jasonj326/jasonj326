@@ -5,8 +5,9 @@ updated: 2026-05-10
 year: 2026
 lang: en
 slug: readme
-url: "https://jasonjlai.net/3pwriting/partnership/readme.html"
+url: "https://jasonjlai.net/3pwriting/readme.html"
 redirect_from:
+  - /3pwriting/partnership/readme.html
   - /3pwriting/partnership/20260223/readme.html
 major_tag: partnership
 tags:

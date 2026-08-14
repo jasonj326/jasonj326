@@ -5,7 +5,9 @@ updated:
 year: 2026
 lang: zh-Hant
 slug: readme
-url: "https://jasonjlai.net/zh/3pwriting/partnership/readme.html"
+redirect_from:
+  - /zh/3pwriting/partnership/readme.html
+url: "https://jasonjlai.net/zh/3pwriting/readme.html"
 major_tag: partnership
 tags:
   - playbooks

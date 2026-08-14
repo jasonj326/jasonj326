@@ -5,8 +5,9 @@ updated: 2026-03-31
 year: 2026
 lang: zh-Hant
 slug: perfect-day-without-magic
-url: https://jasonjlai.net/zh/3pwriting/playgrounds/perfect-day-without-magic.html
+url: https://jasonjlai.net/zh/3pwriting/perfect-day-without-magic.html
 redirect_from:
+  - /zh/3pwriting/playgrounds/perfect-day-without-magic.html
   - /3pwriting/playgrounds/20260331/magic-day.html
 feed_canonical: true
 major_tag: playgrounds

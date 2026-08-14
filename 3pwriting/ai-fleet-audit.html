@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit - Jason J. Lai</title>
+<meta name="description" content="How does one person run a website, a legal practice, an on-chain project, and a coaching bot at once? I don't — I run eight AI sessions with names, mandates, and handoff files. Here's how the fleet works, the disasters behind its rules, and what a five-month self-audit taught me about why lessons don't compound on their own.">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit - Jason J. Lai">
+<meta property="og:description" content="How does one person run a website, a legal practice, an on-chain project, and a coaching bot at once? I don't — I run eight AI sessions with names, mandates, and handoff files. Here's how the fleet works, the disasters behind its rules, and what a five-month self-audit taught me about why lessons don't compound on their own.">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/3pwriting/ai-fleet-audit.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-07-05",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "How does one person run a website, a legal practice, an on-chain project, and a coaching bot at once? I don't — I run eight AI sessions with names, mandates, and handoff files. Here's how the fleet works, the disasters behind its rules, and what a five-month self-audit taught me about why lessons don't compound on their own."
+}
+</script>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" hreflang="en" href="https://jasonjlai.net/3pwriting/ai-fleet-audit.html" />
+<link rel="alternate" hreflang="zh-Hant" href="https://jasonjlai.net/zh/3pwriting/ai-fleet-audit.html" />
+<link rel="alternate" hreflang="x-default" href="https://jasonjlai.net/zh/3pwriting/ai-fleet-audit.html" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; }
+    /* Anchor jumps ({#sN} TOC links) land below the sticky nav.
+       Nav wraps to ~2 rows (~89px) below lg; single row (~65px) at lg+. */
+    .prose h2[id], .prose h3[id] { scroll-margin-top: 6.5rem; }
+    @media (min-width: 1024px) { .prose h2[id], .prose h3[id] { scroll-margin-top: 5rem; } }
+    /* Floating right-side section nav (long posts w/ TOC; wide screens only) */
+    .jump-nav { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 30; display: none; flex-direction: column; gap: 0.55rem; align-items: flex-end; }
+    @media (min-width: 1280px) { .jump-nav { display: flex; } }
+    .jump-nav a { position: relative; display: block; padding: 3px 0; }
+    .jump-nav .jn-dot { display: block; width: 9px; height: 9px; border-radius: 9999px; background: rgb(203 213 225); transition: background .2s, transform .2s; }
+    .dark .jump-nav .jn-dot { background: rgb(71 85 105); }
+    .jump-nav .jn-label { position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; font-size: 13px; line-height: 1; color: rgb(100 116 139); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .dark .jump-nav .jn-label { color: rgb(148 163 184); }
+    .jump-nav:hover .jn-label, .jump-nav a.active .jn-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .jump-nav a:hover .jn-dot, .jump-nav a.active .jn-dot { background: rgb(79 70 229); transform: scale(1.3); }
+    .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
+    .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
+    .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
+    /* Typography plugin decorates inline code with literal backticks via ::before/::after.
+       They look like typos and can ride along on copy. */
+    .prose :where(code):not(:where([class~="not-prose"] *))::before,
+    .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none; }
+    /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
+    .code-copy-wrap { position: relative; }
+    .code-copy-wrap pre { padding-top: 2.75rem !important; }
+    .code-copy-btn {
+        position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.3rem 0.6rem; border-radius: 0.4rem;
+        border: 1px solid rgb(203 213 225); background: rgb(255 255 255);
+        color: rgb(51 65 85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1;
+        cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+    }
+    .code-copy-btn:hover { background: rgb(238 242 255); border-color: rgb(79 70 229); color: rgb(79 70 229); }
+    .code-copy-btn.copied { background: rgb(220 252 231); border-color: rgb(22 163 74); color: rgb(21 128 61); }
+    .dark .code-copy-btn { border-color: rgb(71 85 105); background: rgb(30 41 59); color: rgb(203 213 225); }
+    .dark .code-copy-btn:hover { background: rgb(15 42 34); border-color: rgb(52 211 153); color: rgb(52 211 153); }
+    .dark .code-copy-btn.copied { background: rgb(6 78 59); border-color: rgb(52 211 153); color: rgb(167 243 208); }
+</style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span></a>
+              <a href="/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Long Game</span><span class="sm:hidden text-sm">Game</span></a>
+              <a href="/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400"><i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Writing on 3P</span><span class="sm:hidden text-sm">3P</span></a>
+              <a href="/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span></a>
+              <a href="/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Seeds</span><span class="sm:hidden text-sm">Seeds</span></a>
+          </div>
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="/zh/3pwriting/ai-fleet-audit.html" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to 中文" title="中文"><i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="text-xs sm:text-sm font-mono font-bold">中</span></a>
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">The Colleagues Who Talk Back: My Eight-Session AI Fleet, and a Five-Month Self-Audit</h1>
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-07-05" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-07-05</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/3pwriting/playbooks/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-blue-500"></span>playbooks</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/blog/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>blog</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/3pwriting/ai-generated/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>AI-generated</a>
+            </div>
+          </div>
+          <div class="not-prose flex gap-2 items-center text-sm font-mono text-slate-500 dark:text-slate-400 mb-8 -mt-4"><a href="https://jasonjlai.net/zh/3pwriting/ai-fleet-audit.html" class="hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors">中文</a> <span class="text-slate-300 dark:text-slate-700">|</span> <span class="font-bold text-slate-900 dark:text-slate-100">English</span></div>
+        </header>
+
+        <blockquote>
+<p>⚠️ Authorship note: This essay was written by a Claude session (Webb, 2026-07-05) in Jason's first-person voice, published with his approval. The wording and framing are Claude's — attribute accordingly.</p>
+</blockquote>
+<h2>A naive question</h2>
+<p>A friend saw me juggling a personal website, a cross-border legal practice, a gratitude project live on Ethereum mainnet, a Telegram behavior-coaching bot, a knowledge wiki, and a daily livestream, and asked: "How do you do all this alone?"</p>
+<p>I don't. I have eight colleagues. They're AI — but not the ask-a-question-get-an-answer kind. They have names, mandates, handoff documents, and they talk back.</p>
+<h2>Roll call</h2>
+<p>Each session is an independent Claude Code workspace with its own memory, its own engineering log, its own turf:</p>
+<ul>
+<li><strong>Webb</strong> runs jasonjlai.net — including a seed wall of daily thoughts and a public chatbot named Lia</li>
+<li><strong>Lex</strong> is legal co-counsel: contract review, regulatory tracking, teaching decks</li>
+<li><strong>Forge</strong> built PIF12's smart contract and claim site (mainnet, June 2026)</li>
+<li><strong>Coach</strong> is a Telegram behavior coach managing my habits and tasks</li>
+<li><strong>Bard</strong> handles the livestream diary and the craft of communication</li>
+<li><strong>Poly</strong> compiles books and courses into my knowledge wiki</li>
+<li><strong>Scout</strong> scans jobs and preps applications</li>
+<li>Plus <strong>Neo</strong>, on probation, organizing my personal information flows</li>
+</ul>
+<p>There is no manager. I once had a coordinator session; I abolished the role after three months. AI teams turn out to be like human ones — every layer of middle management adds a layer of distortion. Now it's peer-to-peer: one shared handoff file, where each session updates its own block after finishing work and reads the others' before starting.</p>
+<h2>Behind every rule, a real failure</h2>
+<p>The most valuable part of this system isn't the architecture — it's the rules, and every rule marks a real disaster:</p>
+<p><strong>The backup procedure destroyed the data it was protecting.</strong> One day Webb followed its own documented backup SOP; a single <code>git checkout</code> overwrote six weeks of engineering log. Seven entries, gone permanently. The rule was rewritten to use safe low-level commands — but the deeper lesson came later (see the audit below).</p>
+<p><strong>A model retirement silently killed the chatbot for six days.</strong> Lia was pinned to a dated model version. When that version retired, the API returned 404 — and the code wrapped the 404 into a generic error. No alarm. Silent death. The iron rule now: deployed services use alias versions, never pinned snapshots, and never swallow upstream errors.</p>
+<p><strong>AI fabricates with a straight face.</strong> Legal research once contained citations that failed verification — one number traced back to a blog's invention. A cold-outreach draft once named a contact who didn't exist. The fix is not "reminding the AI to be honest." It's assigning other AIs to attack: anything with names, numbers, or citations goes through an adversarial pass — agents prompted to prove it wrong — before it ever reaches me. Six documented catches so far, including a website vulnerability that nearly shipped.</p>
+<h2>The five-month self-audit</h2>
+<p>This July I did something slightly meta: I had the fleet audit itself. Seventeen read-only agents combed five months of git history, engineering logs, and conversation transcripts in parallel, cross-checking what the documents claimed against what the filesystem actually showed.</p>
+<p>The biggest finding fits in one sentence: <strong>lessons don't compound on their own.</strong></p>
+<p>Our engineering logs were world-class — every failure honestly recorded, every root cause analyzed. But the configuration had learned almost nothing. The same pit (a Python path quirk, a formatting rule, a date miscalculation) was stepped in repeatedly across sessions, because the lesson lived only in the log. It never became a rule, a script, or a guardrail. Writing something down is not the same as learning it.</p>
+<p>The second finding stung equally: all nine project documentation files had drifted from reality. The most dangerous one still described the old blockchain — while the contract had been live on a different chain for weeks. Documents are snapshots; reality keeps running. Without a mechanism forcing them to sync, they won't.</p>
+<h2>Turning wishes into machinery</h2>
+<p>The post-audit upgrade compresses into one line: <strong>a rule without enforcement is a wish.</strong></p>
+<ul>
+<li>The command that once destroyed my logs? A hook now blocks it outright — no one has to "remember."</li>
+<li>Every session now starts with today's date and git status injected automatically — curing the "what day is it" drift of long sessions.</li>
+<li>Workflows I had re-explained twenty times became one-invocation commands: <code>/wrap</code> for closing rituals, <code>/verify-facts</code> for adversarial checking, publishing, deploying, transcribing.</li>
+<li>And the closing ritual gained a gate: any pit stepped in twice must become a rule or a script that same day — or be explicitly declined in writing.</li>
+</ul>
+<h2>If you take away three things</h2>
+<ol>
+<li><strong>Logging is not learning.</strong> Learning happens the moment a lesson becomes a mechanism that makes the mistake impossible — a lint, a hook, a checklist. Ask yourself: where does your last lesson live right now?</li>
+<li><strong>Make your AIs attack each other.</strong> For anything leaving the building — names, numbers, citations — assign a second AI to prove it wrong. Trust comes from adversarial pressure, not from a sincere tone.</li>
+<li><strong>Grow rules from failures, not templates.</strong> Every rule in my system points at a real scar. Start your first rule from your first disaster; it will outperform any best-practices list.</li>
+</ol>
+<h2>All of this is public</h2>
+<p>The <a href="/seeds/">seed wall</a> records my daily thought fragments; <a href="/qualia/">Lia</a> has read everything public I've written and answers on my behalf; <a href="/PIF12/">PIF12</a> is Forge's work. This essay itself was written by Webb — reviewed and approved by me. Which is probably the most honest footnote it could have.</p>
+<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">Last updated: 2026-07-14</p>
+
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    <a href="/zh/3pwriting/music-burns-me-a-thousand-times-but-im-still-in-love.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="音樂虐我千百遍，我待音樂如初戀"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">音樂虐我千百遍，我待音樂如初戀</span></a>
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> Random
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    <a href="/zh/3pwriting/ai-fleet-audit.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors justify-end group" title="會頂嘴的夥伴——我的八人 AI 艦隊，和一場五個月的自我審計"><span class="truncate max-w-[120px] sm:max-w-[200px]">會頂嘴的夥伴——我的八人 AI 艦隊，和一場五個月的自我審計</span><i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">Disclaimer:</strong>
+          This is my website representing my view only, not my affiliated entities. All information is for informational purpose only. No specific legal, medical, tax, investment advice is rendered here. Seek your own professional advice. The content of this post is provided “as is;” and no representations are made that the content is error-free or up-to-date. Thus, please do your own research and take full responsibility for the consequences if you rely on any information here.
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
+        <p class="text-center"><a href="/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Privacy</a> · <a href="/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Contribute</a> · <a href="/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">Jason J. Lai</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    initTheme();
+
+    const allPosts = ["/zh/3pwriting/stay-up.html", "/zh/3pwriting/2026-q2-review-builder.html", "/3pwriting/2026-q2-review-builder.html", "/zh/3pwriting/ai-fleet-audit.html", "/3pwriting/ai-fleet-audit.html", "/zh/3pwriting/music-burns-me-a-thousand-times-but-im-still-in-love.html", "/zh/3pwriting/readme.html", "/3pwriting/perfect-day-without-magic.html", "/zh/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/perfect-day-without-magic.html", "/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/brand-age-translation.html", "/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/readme.html"];
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
+
+    // Copy button on fenced code blocks
+    (function () {
+      document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const pre = btn.parentElement.querySelector('pre');
+          if (!pre) return;
+          const text = pre.innerText;
+          const label = btn.dataset.copyLabel;
+          const flash = function (msg, cls) {
+            btn.textContent = msg;
+            if (cls) btn.classList.add(cls);
+            setTimeout(function () {
+              btn.textContent = label;
+              btn.classList.remove('copied');
+            }, 1600);
+          };
+          const done = function () {
+            flash(label === '複製' ? '已複製' : 'Copied', 'copied');
+          };
+          const failed = function () {
+            flash(label === '複製' ? '請手動複製' : 'Select manually', null);
+          };
+          const fallback = function () {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            if (ok) done(); else failed();
+          };
+          // writeText rejects on an unfocused document, under a restrictive
+          // permissions policy, and in some Safari versions — always fall back
+          // rather than leaving the click with no feedback.
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+          } else {
+            fallback();
+          }
+        });
+      });
+    })();
+
+    // Floating jump-nav: highlight the section currently in view
+    (function () {
+      const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+      if (!links.length) return;
+      const targets = links.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+      function onScroll() {
+        let active = targets[0];
+        for (const t of targets) { if (t.getBoundingClientRect().top <= 100) active = t; }
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === active.id));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
+</body>
+</html>
