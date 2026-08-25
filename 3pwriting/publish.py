@@ -928,19 +928,32 @@ def generate_redirect_stubs(posts):
 
 def generate_sitemap(posts, all_tags):
     """sitemap.xml at repo root: static pages + 3pwriting articles + tag listings (EN+ZH)."""
+    # lastmod has to earn its keep: crawlers discount the field entirely on sites
+    # where every page always claims today. Each kind of page gets a real date.
     today = datetime.date.today().isoformat()
     entries = []
+    # Static pages — hand-edited and committed, so git knows when they last moved
     for path, priority, freq in SITEMAP_STATIC_PAGES:
-        entries.append((SITE_URL + path, today, freq, priority))
-    # Tag listings — both EN and ZH
+        page_file = REPO_ROOT / path.strip("/") / "index.html"
+        entries.append((SITE_URL + path, git_last_modified(page_file) or today, freq, priority))
+    # Tag listings — a tag page changes when one of its articles does
+    tag_dates = {}
+    for p in posts:
+        for tag in p["tags"]:
+            d = effective_updated(p)
+            if d > tag_dates.get(tag.lower(), ""):
+                tag_dates[tag.lower()] = d
     for tag in sorted(all_tags):
-        entries.append((f"{SITE_URL}/3pwriting/{tag.lower()}/", today, "weekly", "0.5"))
-        entries.append((f"{SITE_URL}/zh/3pwriting/{tag.lower()}/", today, "weekly", "0.5"))
-    # Articles — full_link already routes to /zh/ for ZH posts
+        d = tag_dates.get(tag.lower(), today)
+        entries.append((f"{SITE_URL}/3pwriting/{tag.lower()}/", d, "weekly", "0.5"))
+        entries.append((f"{SITE_URL}/zh/3pwriting/{tag.lower()}/", d, "weekly", "0.5"))
+    # Articles — full_link already routes to /zh/ for ZH posts.
+    # effective_updated, not date: a post Jason keeps refreshing (the BlogBlog
+    # submission list) would otherwise sit at its original publish date forever.
     for p in posts:
         if "readme" in p["slug"].lower():
             continue
-        entries.append((p["full_link"], p["date"], "monthly", "0.7"))
+        entries.append((p["full_link"], effective_updated(p), "monthly", "0.7"))
     body = "\n".join(
         f'  <url>\n    <loc>{escape(loc)}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{priority}</priority>\n  </url>'
         for loc, lastmod, freq, priority in entries
