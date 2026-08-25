@@ -1,7 +1,7 @@
 ---
 title: BlogBlog 同樂會：晚上不睡覺（2026 年 9 月）
 date: 2026-08-14
-updated: 2026-08-14
+updated: 2026-08-25
 year: 2026
 lang: zh-Hant
 slug: stay-up
@@ -19,7 +19,7 @@ pinned: true
 image:
 summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、借來的時間裡，你都在做什麼？徵稿至 9 月 30 日。
 ---
-很高興能主持九月部落格同樂會，畢竟能夠透過這樣連結交流是很難得的事。參加部落格同樂會的你我，應該都屬於相信老派連結與交流之必要，what is right to share is write to share
+很高興能主持 2026 年 9 月 [BlogBlog 同樂會](https://blogblog.club/party/)，畢竟能夠透過這樣連結交流是很難得的事。參加部落格同樂會的你我，應該都屬於相信老派連結與交流之必要，what is right to share is write to share
 
 在生成式 AI 蓬勃發展之際，且寫且讀且珍惜，畢竟[可能越來越少人能寫、願意寫作了](https://www.paulgraham.com/writes.html)。
 
@@ -61,7 +61,6 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
     
 - **深夜食堂：** 不論是「明知不健康但深夜吃起來特別救贖」的私房宵夜，或是「熬夜已經不健康，必須吃得健康」的獨家食譜菜單，都歡迎分享。
 
-
 **以上提示僅供參考，參與者可以自由發揮，只要內容和「晚上不睡覺」有關即可**
 
 ### 投稿方法
@@ -71,6 +70,9 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - **信件主旨**：【BlogBlog 投稿】文章標題 - 你的稱呼
 - **信件內文**：\[文章標題\](網址) - 你的稱呼
 
+### 複製以下文字到你的投稿文章開頭（非強制）
+
+這是我的「[BlogBlog 同樂會 - 2026 年 9 月](https://blogblog.club/party/)」的投稿文章。本月主題是「[晚上不睡覺](https://jasonjlai.net/zh/3pwriting/stay-up.html)」，由 [Jason Lai](https://jasonjlai.net/) 主持。如果你有自己的部落格，歡迎一起來參加！
 ### 篇數及其他限制提醒
 
 - 每位參與者最多投稿 **1 篇**，必須是發佈在自己的部落格 (Medium/Substack/方格子等部落格亦可)，謝絕社群媒體貼文投稿。如果你還沒有部落格，[開一個吧](https://blogblog.club/resources)！
@@ -78,6 +80,11 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - 原則上每五到十日會更新投稿清單，感謝耐心等候
 - 關於本次投稿的 AI 使用原則上和 [BlogBlog 同樂會的 AI 立場](https://blogblog.club/blog/ai-stance)一致，不特別支持也不反對，文責自負。
 
-### 目前投稿（下次更新：8/25）
+### 目前投稿（下次更新：9/1）
 
-還沒有投稿，歡迎來當第一棒。
+1. [時差](https://angeci.github.io/blog/zh/jet-lag/) - AngeCI
+2. [黑夜籠罩下的幾個時刻與感受：小憩、喚醒、禁忌、陪伴](https://shenjing.me/blog/moments-after-dark) - ShenJing
+3. [晚上不睡覺](https://blog.nudoragon.com/post/264/stay-up-late) - 龍女
+4. [半夜失眠床邊故事](https://jaywalker.bearblog.dev/7676/) - Jay Walker
+
+註：如果你在 8/24 前有投稿但沒有列在上面，麻煩再重寄一次。
