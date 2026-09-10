@@ -99,7 +99,7 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 15. [熬夜換自由](https://ilovemovie.pika.page/posts/blogblog) - 阿標
 16. [開學](https://tp65p.bearblog.dev/3737/) - Jen
 17. [晚上不睡覺，練團囉!](https://www.wen-lab.tw/clear-at-night/) - Wen
-18. [Sī án-chóaⁿ bô khùn?](https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html) - Lí Ka-io̍k
+18. [Sī án-chóaⁿ bô khùn?](https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html) - <span style="font-family:'Times New Roman','Arial Unicode MS',serif">Lí Ka-io̍k</span>
 19. [看人睡覺的工作](https://utakata.bearblog.dev/sleep-study-job/) - 燕麥
 
 註：如果你在 9/9 前有投稿但沒有列在上面，麻煩再重寄一次。
