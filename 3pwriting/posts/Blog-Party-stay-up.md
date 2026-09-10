@@ -1,7 +1,7 @@
 ---
 title: BlogBlog 同樂會：晚上不睡覺（2026 年 9 月）
 date: 2026-08-14
-updated: 2026-09-01
+updated: 2026-09-10
 year: 2026
 lang: zh-Hant
 slug: stay-up
@@ -80,7 +80,7 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - 原則上每五到十日會更新投稿清單，感謝耐心等候
 - 關於本次投稿的 AI 使用原則上和 [BlogBlog 同樂會的 AI 立場](https://blogblog.club/blog/ai-stance)一致，不特別支持也不反對，文責自負。
 
-### 目前投稿（下次更新：9/10）
+### 目前投稿（下次更新：9/20）
 
 1. [時差](https://angeci.github.io/blog/zh/jet-lag/) - AngeCI
 2. [黑夜籠罩下的幾個時刻與感受：小憩、喚醒、禁忌、陪伴](https://shenjing.me/blog/moments-after-dark) - ShenJing
@@ -88,5 +88,18 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 4. [半夜失眠床邊故事](https://jaywalker.bearblog.dev/7676/) - Jay Walker
 5. [享受使用權，放棄佔有欲 2](https://shuaixin.cc/stay-up/) - 劉昕 Shuai
 6. [我不知道意圖使他人發生危害而慫恿其從事高風險活動算不算犯罪](https://e89295.com/blog/2026-08-27.html) - 我
+7. [晚上不睡覺 ✦BBP9✦](https://wiwi.blog/blog/staying-up) - 官大為 Wiwi Kuan
+8. [晚睡早起 ✦BBP9✦](https://kaiblog.is-a.dev/blog/bbp9) - Kai
+9. [39.5](https://lq7.tw/mood/fever/) - LQ7
+10. [星際旅行-夜遊腦海](https://eoiiio.bearblog.dev/star/) - Eo
+11. [怕死](https://young-mann.site/posts/fear-of-death/) - 狗蛋日
+12. [為什麼晚上一定要睡覺？](https://rayrrrrrrr.bearblog.dev/9659/) - RayrrrrrR
+13. [晚上不睡覺](https://aa10200809-svg.github.io/blog/my-blog-9/5/) - Ting
+14. [早睡的夜貓](https://yangbear.bearblog.dev/hayani-yohukashi/) - YangBear
+15. [熬夜換自由](https://ilovemovie.pika.page/posts/blogblog) - 阿標
+16. [開學](https://tp65p.bearblog.dev/3737/) - Jen
+17. [晚上不睡覺，練團囉!](https://www.wen-lab.tw/clear-at-night/) - Wen
+18. [Sī án-chóaⁿ bô khùn?](https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html) - Lí Ka-io̍k
+19. [看人睡覺的工作](https://utakata.bearblog.dev/sleep-study-job/) - 燕麥
 
-註：如果你在 8/31 前有投稿但沒有列在上面，麻煩再重寄一次。
+註：如果你在 9/9 前有投稿但沒有列在上面，麻煩再重寄一次。
