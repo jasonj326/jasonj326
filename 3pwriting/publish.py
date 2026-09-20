@@ -8,7 +8,7 @@ Rebuilt 2026-05-10 for Phase 4a:
 - 1 RSS feed, family_stem dedup, dc:language per item, feed_canonical override
 - ZH index uses Chinese display labels (做人/處事/逍遙遊)
 """
-import os, re, yaml, markdown, datetime, json, subprocess
+import os, re, yaml, markdown, datetime, json, shutil, subprocess
 from pathlib import Path
 from xml.sax.saxutils import escape
 import math
@@ -126,6 +126,60 @@ NAV_LABELS = {
 }
 
 # --- Helpers ---
+
+# Obsidian writes ![[file.jpg]] for a pasted image and drops the file wherever the
+# vault puts attachments, which here is the repo root. Markdown has no such syntax,
+# so the page shows the brackets as text and the image never appears.
+OBSIDIAN_IMG = re.compile(r"!\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]")
+IMG_SUFFIXES = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".avif"}
+
+
+def find_attachment(name):
+    """Locate a pasted attachment by filename. Obsidian drops them in the vault
+    root; look there first, then beside the posts, then anywhere tracked."""
+    for folder in (REPO_ROOT, POSTS_DIR, REPO_ROOT / "assets" / "images"):
+        candidate = folder / name
+        if candidate.is_file():
+            return candidate
+    matches = [m for m in REPO_ROOT.rglob(name)
+               if m.is_file() and ".git" not in m.parts and "node_modules" not in m.parts]
+    return matches[0] if matches else None
+
+
+def adopt_obsidian_images(body, slug):
+    """Rewrite Obsidian image links to markdown and copy the files into
+    assets/images/<slug>/. Returns (new_body, notes) and leaves the body
+    untouched when there is nothing to adopt."""
+    notes = []
+
+    def replace(match):
+        raw_name = match.group(1).strip()
+        label = (match.group(2) or "").strip()
+        # a numeric pipe is Obsidian's display width, not alt text
+        alt = "" if label.isdigit() else label
+        source = find_attachment(raw_name)
+        if source is None:
+            notes.append(f"  \u26a0\ufe0f  image not found, left as-is: {raw_name}")
+            return match.group(0)
+        if source.suffix.lower() not in IMG_SUFFIXES:
+            notes.append(f"  \u26a0\ufe0f  not an image, left as-is: {raw_name}")
+            return match.group(0)
+
+        # "IMG_7488 1.jpg" -> "img-7488-1.jpg": spaces break URLs, and the
+        # camera name says nothing about the picture
+        stem = re.sub(r"[^a-z0-9]+", "-", source.stem.lower()).strip("-") or "image"
+        filename = stem + source.suffix.lower()
+        dest_dir = REPO_ROOT / "assets" / "images" / slug
+        dest = dest_dir / filename
+        if not dest.is_file() or dest.read_bytes() != source.read_bytes():
+            ensure_dir(dest_dir)
+            shutil.copy2(source, dest)
+            notes.append(f"  \u2713 adopted {source.name} -> assets/images/{slug}/{filename}")
+        return f"![{alt}](/assets/images/{slug}/{filename})"
+
+    new_body = OBSIDIAN_IMG.sub(replace, body)
+    return new_body, notes
+
 
 def parse_md(p):
     txt = p.read_text(encoding="utf-8")
@@ -1027,6 +1081,7 @@ def main():
     raw_posts = []
     link_dict = {}
     skipped_drafts = []
+    image_notes = []
 
     for md in POSTS_DIR.glob("*.md"):
         try:
@@ -1044,6 +1099,15 @@ def main():
             # frontmatter stays valid and new posts can omit it.
             major = fm.get("major_tag", "")
             summary = (fm.get("summary") or "").strip() or SITE_AUTHOR_DESC
+
+            # Adopt anything pasted from Obsidian, then write the source back so
+            # the markdown itself is correct and safe to commit, not just the page.
+            adopted_body, adopt_notes = adopt_obsidian_images(body, slug)
+            if adopted_body != body:
+                raw = md.read_text(encoding="utf-8")
+                md.write_text(raw.replace(body, adopted_body, 1), encoding="utf-8")
+                body = adopted_body
+            image_notes.extend(adopt_notes)
 
             raw_tags = fm.get("tags", [])
             tags_list = [t.strip() for t in raw_tags.split(',')] if isinstance(raw_tags, str) else raw_tags
@@ -1276,6 +1340,8 @@ def main():
     # Sitemap
     sitemap_count = generate_sitemap(posts, all_tags)
 
+    for note in image_notes:
+        print(note)
     print(f"✅ Built {len(posts)} posts ({len(en_posts)} EN + {len(zh_posts)} ZH)")
     if skipped_drafts:
         print(f"⏸️  Skipped {len(skipped_drafts)} draft(s): " + ", ".join(sorted(skipped_drafts)))

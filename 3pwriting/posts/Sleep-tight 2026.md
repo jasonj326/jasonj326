@@ -1,6 +1,7 @@
 ---
 title: 不要執著完美睡眠——90分就好！
 date: 2026-09-20
+updated: 2026-09-20
 year: 2026
 lang: zh-Hant
 slug: sleep-tight
