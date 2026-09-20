@@ -1,7 +1,7 @@
 ---
 title: BlogBlog 同樂會：晚上不睡覺（2026 年 9 月）
 date: 2026-08-14
-updated: 2026-09-10
+updated: 2026-09-20
 year: 2026
 lang: zh-Hant
 slug: stay-up
@@ -79,8 +79,9 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - 文章字數不限、形式不拘（散文、心得、工具推坑、清單整理都歡迎）；如果是過去寫過符合主題的舊文章，也歡迎投稿！
 - 原則上每五到十日會更新投稿清單，感謝耐心等候
 - 關於本次投稿的 AI 使用原則上和 [BlogBlog 同樂會的 AI 立場](https://blogblog.club/blog/ai-stance)一致，不特別支持也不反對，文責自負。
+- 無聊的風險聲明：以下文章連結我都點開閱讀過一次以上，但不保證其安全性或正確性、更也無法確保未來連結依舊正確無虞。只要符合主題便列入，不代表支持其連結內容或推薦相關建議，總之小心服用，風險自負。
 
-### 目前投稿（下次更新：9/20）
+### 目前投稿（下次更新：10/1）
 
 1. [時差](https://angeci.github.io/blog/zh/jet-lag/) - AngeCI
 2. [黑夜籠罩下的幾個時刻與感受：小憩、喚醒、禁忌、陪伴](https://shenjing.me/blog/moments-after-dark) - ShenJing
@@ -89,17 +90,39 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 5. [享受使用權，放棄佔有欲 2](https://shuaixin.cc/stay-up/) - 劉昕 Shuai
 6. [我不知道意圖使他人發生危害而慫恿其從事高風險活動算不算犯罪](https://e89295.com/blog/2026-08-27.html) - 我
 7. [晚上不睡覺 ✦BBP9✦](https://wiwi.blog/blog/staying-up) - 官大為 Wiwi Kuan
-8. [晚睡早起 ✦BBP9✦](https://kaiblog.is-a.dev/blog/bbp9) - Kai
-9. [39.5](https://lq7.tw/mood/fever/) - LQ7
-10. [星際旅行-夜遊腦海](https://eoiiio.bearblog.dev/star/) - Eo
-11. [怕死](https://young-mann.site/posts/fear-of-death/) - 狗蛋日
-12. [為什麼晚上一定要睡覺？](https://rayrrrrrrr.bearblog.dev/9659/) - RayrrrrrR
-13. [晚上不睡覺](https://aa10200809-svg.github.io/blog/my-blog-9/5/) - Ting
-14. [早睡的夜貓](https://yangbear.bearblog.dev/hayani-yohukashi/) - YangBear
-15. [熬夜換自由](https://ilovemovie.pika.page/posts/blogblog) - 阿標
-16. [開學](https://tp65p.bearblog.dev/3737/) - Jen
-17. [晚上不睡覺，練團囉!](https://www.wen-lab.tw/clear-at-night/) - Wen
-18. [Sī án-chóaⁿ bô khùn?](https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html) - <span style="font-family:'Times New Roman','Arial Unicode MS',serif">Lí Ka-io̍k</span>
-19. [看人睡覺的工作](https://utakata.bearblog.dev/sleep-study-job/) - 燕麥
+8. [晚上不睡覺](https://blog.wei-lee.me/posts/random-thoughts/2026/09/stay-up-late/) - Wei
+9. [晚睡早起 ✦BBP9✦](https://kaiblog.is-a.dev/blog/bbp9) - Kai
+10. [晚上不睡覺](https://calke.bearblog.dev/night/) - Tommy
+11. [我不知道](https://blog.mattuy.top/blog/2026/i-donot-know/) - Haven Mattuy
+12. [晚上不睡覺](https://haruowang.vercel.app/about/lifelog/blogblog.html#晚上不睡覺) - Haruo Wang
+13. [39.5](https://lq7.tw/mood/fever/) - LQ7
+14. [星際旅行-夜遊腦海](https://eoiiio.bearblog.dev/star/) - Eo
+15. [高中夜生活](https://monsteressinside.bearblog.dev/highschoolnights/) - ra9788
+16. [怕死](https://young-mann.site/posts/fear-of-death/) - 狗蛋日
+17. [為什麼晚上一定要睡覺？](https://rayrrrrrrr.bearblog.dev/9659/) - RayrrrrrR
+18. [晚上不睡覺](https://aa10200809-svg.github.io/blog/my-blog-9/5/) - Ting
+19. [早睡的夜貓](https://yangbear.bearblog.dev/hayani-yohukashi/) - YangBear
+20. [熬夜換自由](https://ilovemovie.pika.page/posts/blogblog) - 阿標
+21. [開學](https://tp65p.bearblog.dev/3737/) - Jen
+22. [晚上不睡覺，練團囉!](https://www.wen-lab.tw/clear-at-night/) - Wen
+23. [Sī án-chóaⁿ bô khùn?](https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html) - <span style="font-family:'Times New Roman','Arial Unicode MS',serif">Lí Ka-io̍k</span>
+24. [看人睡覺的工作](https://utakata.bearblog.dev/sleep-study-job/) - 燕麥
+25. [向夜晚借一點時間：那些不睡覺的晚上，我都在做什麼？](https://staylogue.com/borrowed-time-from-the-night/) - 向北窗
+26. [未寢的旅程](https://fatapple0406.github.io/posts/2026/the-sleepless-journey/) - A 吉胖
+27. [「晚上不睡覺」是開心？還是困擾？](https://ytanton.medium.com/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA-%E6%98%AF%E9%96%8B%E5%BF%83-%E9%82%84%E6%98%AF%E5%9B%B0%E6%93%BE-11574c5420c0?postPublishedType=initial) - 小胤
+28. [衰甲算了睡吧](https://iannntw.bearblog.dev/8000/) - 恩恩安安
+29. [晚上不睡覺苦想睡前故事，以及手指受傷的話怎麼按Ctrl+V？](https://wuliang.netlify.app/posts/bedtime-stories/) - 無糧殿
+30. [沒有晝夜的日子](https://blog.andy-hu.com/days_without_night/) - Andy
+31. [我是廢墟的土生子](https://matling.fit/zh/blog/i-am-a-ruin-aborigine) - 物靈
+32. [想睡卻睡不著？半夜失眠的可能原因與改善方法](https://drchiuneuro.com/cant-sleep/) - 神經沒問題
+33. [21小時循環、5點的小火鍋](https://namitz.com/posts/2026_0914_YeMaoZi/) - 奈米子 Namitz
+34. [貓為什麼晚上不睡覺](https://zuzuthink.blogspot.com/2026/09/blog-post.html) - ZUZU
+35. [半夜睡不著](https://alicehsu.blog/zh-tw/posts/2026/09/cannot-sleep-at-night/) - Alice Hsu
+36. [晚上（幹嘛）不睡覺](https://timoblog.com/post/why-stay-up-late/) - Timo
+37. [晚上不睡覺](https://cheuk.blog/posts/staying-up/) - cheukblog
+38. [找朋友玩](https://my-blog.worldofwheat.cc/blog/2026/09/late-night-conversations-about-life.html "找朋友玩") - 小麥
+39. [不要執著完美睡眠——90分就好！](https://jasonjlai.net/zh/3pwriting/sleep-tight.html) - Jason Lai
 
-註：如果你在 9/9 前有投稿但沒有列在上面，麻煩再重寄一次。
+註：
+1. 如果你在 9/20 前有投稿但沒有列在上面，麻煩再重寄一次。
+2. 刊登順序原則上以我收到時間為主，因為被誤判垃圾信件，所以刊登順序也有調整
