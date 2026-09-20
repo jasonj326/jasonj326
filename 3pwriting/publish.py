@@ -192,7 +192,11 @@ def post_paths(slug, final_lang):
 def effective_updated(p):
     """Last-update date for a post: explicit frontmatter `updated:` >
     git log of source .md > frontmatter `date:`. Returns YYYY-MM-DD."""
-    return p.get("updated") or git_last_modified(p.get("md_path")) or p["date"]
+    # md_path is absent from the reduced dicts the sitemap builder works with, so
+    # a post with no explicit updated: reaches here with nothing to ask git about.
+    md_path = p.get("md_path")
+    from_git = git_last_modified(md_path) if md_path else None
+    return p.get("updated") or from_git or p["date"]
 
 
 _git_mtime_cache = {}
