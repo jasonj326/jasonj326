@@ -1082,6 +1082,7 @@ def main():
     link_dict = {}
     skipped_drafts = []
     image_notes = []
+    slug_owners = {}
 
     for md in POSTS_DIR.glob("*.md"):
         try:
@@ -1099,6 +1100,17 @@ def main():
             # frontmatter stays valid and new posts can omit it.
             major = fm.get("major_tag", "")
             summary = (fm.get("summary") or "").strip() or SITE_AUTHOR_DESC
+
+            # Pasting from a browser or mail client carries U+00A0 along, which
+            # looks identical to a space and quietly breaks anything matching on
+            # one. Seen twice in the BlogBlog submission list.
+            if "\u00a0" in body:
+                count = body.count("\u00a0")
+                body = body.replace("\u00a0", " ")
+                raw = md.read_text(encoding="utf-8")
+                md.write_text(raw.replace("\u00a0", " "), encoding="utf-8")
+                image_notes.append(
+                    f"  \u2713 {md.name}: replaced {count} non-breaking space(s) with a plain space")
 
             # Adopt anything pasted from Obsidian, then write the source back so
             # the markdown itself is correct and safe to commit, not just the page.
@@ -1169,6 +1181,18 @@ def main():
                 "redirect_from": redirect_from,
                 "feed_canonical": feed_canonical,
             })
+
+            # Copying a post's frontmatter to start a new one carries its slug
+            # along, and two posts with one slug and one language silently write
+            # to the same file: whichever runs last wins and a live page is lost.
+            # Nearly took out the BlogBlog page on 2026-09-20.
+            key = (slug, final_lang)
+            if key in slug_owners:
+                raise SystemExit(
+                    f"\u274c Two posts share slug '{slug}' in {final_lang}, so one would "
+                    f"overwrite the other:\n     {slug_owners[key]}\n     {md.name}\n"
+                    f"   Give one of them its own slug, or set draft: true on the unfinished one.")
+            slug_owners[key] = md.name
 
             link_dict[title] = relative_link
             link_dict[md.stem] = relative_link

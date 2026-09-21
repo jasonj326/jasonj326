@@ -228,4 +228,4 @@ Jason Lai*
 
 [^1]: 這裡應該有收錄 90% 我覺得[有價值或有趣的內容](https://jasonjlai.net/seeds/#2026-07-03-q2-brain-dump)，但是非常雜亂。這些有價值、有啟發的內容，可能只佔我的總社群媒體 5%，老實說還是太浪費時間滑社群媒體了。
 
-[^2]: 推薦兩篇，一篇是 [Variant Fund](https://x.com/dbarabander/status/2062516684812947640)，另一篇是 [Inside 與 Jarsy 的訪談](https://youtu.be/s72U4MSu3JI?si=A4fbhy3P1GkrMPCx)。 
+[^2]: 推薦兩篇，一篇是 [Variant Fund](https://x.com/dbarabander/status/2062516684812947640)，另一篇是 [Inside 與 Jarsy 的訪談](https://youtu.be/s72U4MSu3JI?si=A4fbhy3P1GkrMPCx)。 
