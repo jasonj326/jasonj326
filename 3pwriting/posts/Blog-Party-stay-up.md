@@ -1,7 +1,7 @@
 ---
 title: BlogBlog 同樂會：晚上不睡覺（2026 年 9 月）
 date: 2026-08-14
-updated: 2026-09-20
+updated: 2026-10-01
 year: 2026
 lang: zh-Hant
 slug: stay-up
@@ -70,6 +70,7 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - **信件主旨**：【BlogBlog 投稿】文章標題 - 你的稱呼
 - **信件內文**：\[文章標題\](網址) - 你的稱呼
 
+請務必依照上面的信件內文與主旨格式投稿。
 ### 複製以下文字到你的投稿文章開頭（非強制）
 
 這是我的「[BlogBlog 同樂會 - 2026 年 9 月](https://blogblog.club/party/)」的投稿文章。本月主題是「[晚上不睡覺](https://jasonjlai.net/zh/3pwriting/stay-up.html)」，由 [Jason Lai](https://jasonjlai.net/) 主持。如果你有自己的部落格，歡迎一起來參加！
@@ -81,7 +82,7 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - 關於本次投稿的 AI 使用原則上和 [BlogBlog 同樂會的 AI 立場](https://blogblog.club/blog/ai-stance)一致，不特別支持也不反對，文責自負。
 - 無聊的風險聲明：以下文章連結我都點開閱讀過一次以上，但不保證其安全性或正確性、更也無法確保未來連結依舊正確無虞。只要符合主題便列入，不代表支持其連結內容或推薦相關建議，總之小心服用，風險自負。
 
-### 目前投稿（下次更新：10/1）
+### 目前投稿（下次最終更新：10月？日）
 
 1. [時差](https://angeci.github.io/blog/zh/jet-lag/) - AngeCI
 2. [黑夜籠罩下的幾個時刻與感受：小憩、喚醒、禁忌、陪伴](https://shenjing.me/blog/moments-after-dark) - ShenJing
@@ -122,8 +123,48 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 37. [晚上不睡覺](https://cheuk.blog/posts/staying-up/) - cheukblog
 38. [找朋友玩](https://my-blog.worldofwheat.cc/blog/2026/09/late-night-conversations-about-life.html "找朋友玩") - 小麥
 39. [不要執著完美睡眠——90分就好！](https://jasonjlai.net/zh/3pwriting/sleep-tight.html) - Jason Lai
+40. [Nothing Good Happens After 2AM](https://j2hongming.com/2026/09/21/nothing-good-happens-after-2am/) - j2hongming
+41. [無法複製](https://oohmemen.com/blog/non-replicable/) - O’Oh 麵麵
+42. [为什么熬夜](https://www.arnold.eu.org/2026/09/why-stay-up-late.html) - Arnold
+43. [晚上不睡覺 feat. BlogBlogParty 09](https://niugnep.idv.tw/posts/stay-up.html) - Niugnep
+44. [……](https://boringgame.codeberg.page/blog/20260923/ "……") - Boring Game
+45. [瘋狂思考不睡覺](https://k1ej6.bearblog.dev/deprivation/) - Klej
+46. [我做不到的事情](https://yoon.club/736-new/) - Yoon
+47. [我晚上不睡覺，都在跟 AI 討論燒瓶小人與人類暴力。](https://da2base.com/no-sleep/) - 達二
+48. [天亮了💤BBP9](https://hsun.bearblog.dev/sunbreak/) - Hsun
+49. [晚上不睡覺看電影與胡思亂想](https://shuojen.com/blog/2026/09/24/stay_up) - shuojen
+50. [遊戲人生](https://hshuang.com/posts/no-game-no-life/) - 黃宏勝
+51. [深夜加油站遇見蘇格拉底](https://dongdongda.blogspot.com/2026/09/blog-post.html) - 子田
+52. [每到週末就要調時差](https://blog.giveanornot.com/renzo-in-taiwan/) - JN
+53. [晚上不睡覺 - 討論哲學](https://www.shermanho.blog/no-sleep) - Sherman
+54. [差一步](https://vaviona.bearblog.dev/new-post/) - 小妖
+55. [作曲家與他們熬夜的事](https://tianyanfeng.blog/composers-and-their-late-nights/) - Tian-Yan
+56. [晚上不睡覺](https://www.hachizen.blog/blog/staying-up-late) - HachiZen
+57. [晚上不睡覺不如早上很早起](https://jabee.net/notes/260927/) - Jabee姜
+58. [早起](https://hobolu.com/posts/earlyriser/) - ylu
+59. [晚上不睡覺…？聊聊困擾我許久的報復性熬夜](https://jai33snotes.com/revenge-bedtime-procrastination/) - 皆米
+60. [睡前到底要做什麼](https://prontlin.com/posts/bedtime/) - Pront Lin
+61. [晚上不睡覺](https://jahsehjaeger.com/writings/stay-up/) - Jahseh Jaeger
+62. [不睡覺的原因](https://poya.school/blog/staying-up-late) - Poya
+63. [半夜睡不著覺，我就是不睡教](https://daisy27.bearblog.dev/no_sleepy/) - Daisy黛西
+64. [深夜遊戲推坑：吸血鬼倖存者](https://fgzblog.com/zh-tw/posts/vampire_survivors/) - 剛哲
+65. [夜的輪廓](https://blog.crescent-yueyue.com/posts/night/) - 岳岳
+66. [晚上不睡觉](https://mrkeat.bearblog.dev/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A7%89/) - mrkeat
+67. [我的熬夜歷史](https://yuncolorblog.com/posts/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/staying-up-late/) - 雲彩
+68. [熬夜的自省](https://blog.supergrey.uk/self-reflection-on-staying-up-late/) - SuperGrey
+69. [我跟一番夾的一期一會](https://puzelee.cc/posts/no-sleep-night/) - PuzeLee
+70. [晚上不睡覺嗎](https://plog.bearblog.dev/bbp9/) - ㄅㄨ
+71. [觀察入睡](https://erne.bearblog.dev/260928) - ERNE
+72. [我（曾經）的夜生活](https://carrot.tw/posts/stay-up) - 蘿蔔
+73. [半夜随想](https://blog.xinsl.xin/posts/midnight-think/) - 心是灵 Xinsl
+74. [在世界的角落不睡覺](https://yyingjj.substack.com/p/cc3) - Ying
+75. [為了逃離過度追求完美的自己，我開始當夜貓子](https://blog.huacaty.com/posts/why-i-stay-up) - huacat
+76. [晚上不睡覺](https://blog.duckll.tw/blog/stay_up) - DuckLL
+77. [晚上不睡覺 BBP9](https://eddielv.com/musings/stay-up/) - Eddie Lv
+78. [晚上不睡覺!!](https://yomo-kawaii.idv.tw/2026/09/30/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA/) - 羊毛
+
 
 註：
 
-1. 如果你在 9/20 前有投稿但沒有列在上面，麻煩再重寄一次。
+1. 如果你在 9/30 前有投稿但沒有列在上面，麻煩依照投稿格式盡快重寄一次，最終截稿日期是我的回顧文完成之日，所以可能這週末我就寫完這篇，或是更快。總之，回顧文後完成本篇就會進入唯讀，所以請盡快補寄，總之不會超過 10月7日。
 2. 刊登順序原則上以我的信箱時間為主，因為有些投稿被誤判垃圾信件，所以刊登順序也有更新。
