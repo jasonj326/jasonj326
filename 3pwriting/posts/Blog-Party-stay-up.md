@@ -1,7 +1,7 @@
 ---
 title: BlogBlog 同樂會：晚上不睡覺（2026 年 9 月）
 date: 2026-08-14
-updated: 2026-10-01
+updated: 2026-10-07
 year: 2026
 lang: zh-Hant
 slug: stay-up
@@ -19,6 +19,8 @@ pinned: true
 image:
 summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、借來的時間裡，你都在做什麼？徵稿至 9 月 30 日。
 ---
+## 【本次投稿已結束，謝謝大家參與，[請看回顧文](https://jasonjlai.net/zh/3pwriting/Debrief-BlogParty)】
+
 很高興能主持 2026 年 9 月 [BlogBlog 同樂會](https://blogblog.club/party/)，畢竟能夠透過這樣連結交流是很難得的事。參加部落格同樂會的你我，應該都屬於相信老派連結與交流之必要，what is right to share is write to share
 
 在生成式 AI 蓬勃發展之際，且寫且讀且珍惜，畢竟[可能越來越少人能寫、願意寫作了](https://www.paulgraham.com/writes.html)。
@@ -82,7 +84,7 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 - 關於本次投稿的 AI 使用原則上和 [BlogBlog 同樂會的 AI 立場](https://blogblog.club/blog/ai-stance)一致，不特別支持也不反對，文責自負。
 - 無聊的風險聲明：以下文章連結我都點開閱讀過一次以上，但不保證其安全性或正確性、更也無法確保未來連結依舊正確無虞。只要符合主題便列入，不代表支持其連結內容或推薦相關建議，總之小心服用，風險自負。
 
-### 目前投稿（下次最終更新：10月？日）
+### 全部投稿（感謝參與，本文進入唯讀）
 
 1. [時差](https://angeci.github.io/blog/zh/jet-lag/) - AngeCI
 2. [黑夜籠罩下的幾個時刻與感受：小憩、喚醒、禁忌、陪伴](https://shenjing.me/blog/moments-after-dark) - ShenJing
@@ -128,7 +130,7 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 42. [为什么熬夜](https://www.arnold.eu.org/2026/09/why-stay-up-late.html) - Arnold
 43. [晚上不睡覺 feat. BlogBlogParty 09](https://niugnep.idv.tw/posts/stay-up.html) - Niugnep
 44. [……](https://boringgame.codeberg.page/blog/20260923/ "……") - Boring Game
-45. [瘋狂思考不睡覺](https://k1ej6.bearblog.dev/deprivation/) - Klej
+45. [瘋狂思考不停止](https://k1ej6.bearblog.dev/deprivation/) - Klej
 46. [我做不到的事情](https://yoon.club/736-new/) - Yoon
 47. [我晚上不睡覺，都在跟 AI 討論燒瓶小人與人類暴力。](https://da2base.com/no-sleep/) - 達二
 48. [天亮了💤BBP9](https://hsun.bearblog.dev/sunbreak/) - Hsun
@@ -159,12 +161,13 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 73. [半夜随想](https://blog.xinsl.xin/posts/midnight-think/) - 心是灵 Xinsl
 74. [在世界的角落不睡覺](https://yyingjj.substack.com/p/cc3) - Ying
 75. [為了逃離過度追求完美的自己，我開始當夜貓子](https://blog.huacaty.com/posts/why-i-stay-up) - huacat
-76. [晚上不睡覺](https://blog.duckll.tw/blog/stay_up) - DuckLL
-77. [晚上不睡覺 BBP9](https://eddielv.com/musings/stay-up/) - Eddie Lv
-78. [晚上不睡覺!!](https://yomo-kawaii.idv.tw/2026/09/30/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA/) - 羊毛
+76. [夜半三刻，排练与作曲与月饼](https://pennameco.xyz/blog/midnight-rehearsal-composing-mooncakes/) - 顾游GIzeKu
+77. [晚上不睡覺](https://blog.duckll.tw/blog/stay_up) - DuckLL
+78. [晚上不睡覺 BBP9](https://eddielv.com/musings/stay-up/) - Eddie Lv
+79. [晚上不睡覺!!](https://yomo-kawaii.idv.tw/2026/09/30/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA/) - 羊毛
+80. [晚上哞睡覺](https://godmoo.com/%e6%99%9a%e4%b8%8a%e5%93%9e%e7%9d%a1%e8%a6%ba) - 機哞人
+81. [全世界都睡著以後](https://comedovalidus954105.substack.com/p/2d7?r=4q6yzg&utm_campaign=post-expanded-share&utm_medium=web) - Polarbear
+82. [晚上不睡覺在幹麻?](https://eeseoliz.net/posts/other/night-owl-3am/ ) - eeseoliz
+83. [失眠大王1 嗑藥就可以睡著是幸福的](https://susushare.com/%e5%a4%b1%e7%9c%a0%e5%a4%a7%e7%8e%8b1-%e5%97%91%e8%97%a5%e5%8f%af%e4%bb%a5%e5%b0%b1%e7%9d%a1%e8%91%97%e6%98%af%e5%b9%b8%e7%a6%8f%e7%9a%84/)- SUSAN
 
-
-註：
-
-1. 如果你在 9/30 前有投稿但沒有列在上面，麻煩依照投稿格式盡快重寄一次，最終截稿日期是我的回顧文完成之日，所以可能這週末我就寫完這篇，或是更快。總之，回顧文後完成本篇就會進入唯讀，所以請盡快補寄，總之不會超過 10月7日。
-2. 刊登順序原則上以我的信箱時間為主，因為有些投稿被誤判垃圾信件，所以刊登順序也有更新。
+## 【本次投稿已結束，謝謝大家參與，[請看回顧文](https://jasonjlai.net/zh/3pwriting/Debrief-BlogParty) 】

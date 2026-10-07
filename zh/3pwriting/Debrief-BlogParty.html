@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>9 月 BlogBlog 同樂會回顧文 - Jason J. Lai</title>
+<meta name="description" content="九月 BlogBlog 同樂會「晚上不睡覺」回顧：83 篇投稿逐篇回應、八條閱讀路線，以及 12 月 12 日的聚會邀請。">
+<meta name="author" content="Jason J. Lai">
+<meta property="og:title" content="9 月 BlogBlog 同樂會回顧文 - Jason J. Lai">
+<meta property="og:description" content="九月 BlogBlog 同樂會「晚上不睡覺」回顧：83 篇投稿逐篇回應、八條閱讀路線，以及 12 月 12 日的聚會邀請。">
+<meta property="og:image" content="https://jasonjlai.net/og-cover.jpeg">
+<meta property="og:url" content="https://jasonjlai.net/zh/3pwriting/Debrief-BlogParty.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "9 月 BlogBlog 同樂會回顧文",
+  "image": "https://jasonjlai.net/og-cover.jpeg",
+  "datePublished": "2026-10-07",
+  "author": {
+    "@type": "Person",
+    "name": "Jason J. Lai",
+    "url": "https://jasonjlai.net",
+    "jobTitle": "Attorney & Legal Engineer",
+    "description": "New York-qualified attorney and legal engineer designing and shipping AI and blockchain regulatory architecture across the US and APAC. Focused on governance design, compliance by design, and cross-border digital asset strategy."
+  },
+  "description": "九月 BlogBlog 同樂會「晚上不睡覺」回顧：83 篇投稿逐篇回應、八條閱讀路線，以及 12 月 12 日的聚會邀請。"
+}
+</script>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+    tailwind.config = { darkMode: 'class' }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    [x-cloak] { display: none !important; }
+    .footnote-ref { text-decoration: none !important; color: rgb(79 70 229) !important; }
+    .dark .footnote-ref { color: rgb(52 211 153) !important; }
+    .footnote-backref { text-decoration: none !important; font-family: sans-serif; }
+    .footnote { padding-top: 4rem; margin-top: -4rem; }
+    /* Anchor jumps ({#sN} TOC links) land below the sticky nav.
+       Nav wraps to ~2 rows (~89px) below lg; single row (~65px) at lg+. */
+    .prose h2[id], .prose h3[id] { scroll-margin-top: 6.5rem; }
+    @media (min-width: 1024px) { .prose h2[id], .prose h3[id] { scroll-margin-top: 5rem; } }
+    /* Floating right-side section nav (long posts w/ TOC; wide screens only) */
+    .jump-nav { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 30; display: none; flex-direction: column; gap: 0.55rem; align-items: flex-end; }
+    @media (min-width: 1280px) { .jump-nav { display: flex; } }
+    .jump-nav a { position: relative; display: block; padding: 3px 0; }
+    .jump-nav .jn-dot { display: block; width: 9px; height: 9px; border-radius: 9999px; background: rgb(203 213 225); transition: background .2s, transform .2s; }
+    .dark .jump-nav .jn-dot { background: rgb(71 85 105); }
+    .jump-nav .jn-label { position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; font-size: 13px; line-height: 1; color: rgb(100 116 139); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .dark .jump-nav .jn-label { color: rgb(148 163 184); }
+    .jump-nav:hover .jn-label, .jump-nav a.active .jn-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .jump-nav a:hover .jn-dot, .jump-nav a.active .jn-dot { background: rgb(79 70 229); transform: scale(1.3); }
+    .dark .jump-nav a:hover .jn-dot, .dark .jump-nav a.active .jn-dot { background: rgb(52 211 153); }
+    .jump-nav a.active .jn-label { color: rgb(79 70 229); font-weight: 600; }
+    .dark .jump-nav a.active .jn-label { color: rgb(52 211 153); }
+    /* Typography plugin decorates inline code with literal backticks via ::before/::after.
+       They look like typos and can ride along on copy. Needs !important: the Play CDN
+       injects its stylesheet after this block, so an equal-specificity rule loses. */
+    .prose code::before, .prose code::after { content: none !important; }
+    /* Copy-to-clipboard on fenced code blocks (wrapper injected in build_copyable_pre) */
+    .code-copy-wrap { position: relative; }
+    .code-copy-wrap pre { padding-top: 2.75rem !important; }
+    .code-copy-btn {
+        position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.3rem 0.6rem; border-radius: 0.4rem;
+        border: 1px solid rgb(203 213 225); background: rgb(255 255 255);
+        color: rgb(51 65 85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1;
+        cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+    }
+    .code-copy-btn:hover { background: rgb(238 242 255); border-color: rgb(79 70 229); color: rgb(79 70 229); }
+    .code-copy-btn.copied { background: rgb(220 252 231); border-color: rgb(22 163 74); color: rgb(21 128 61); }
+    .dark .code-copy-btn { border-color: rgb(71 85 105); background: rgb(30 41 59); color: rgb(203 213 225); }
+    .dark .code-copy-btn:hover { background: rgb(15 42 34); border-color: rgb(52 211 153); color: rgb(52 211 153); }
+    .dark .code-copy-btn.copied { background: rgb(6 78 59); border-color: rgb(52 211 153); color: rgb(167 243 208); }
+</style>
+              <link rel="stylesheet" href="/assets/fab-subscribe.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 min-h-[4rem] py-2 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+              <a href="/zh/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="terminal" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Jason_Lai</span><span class="sm:hidden text-sm">Jason</span></a>
+              <a href="/zh/long-game/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="target" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">長期遊戲</span><span class="sm:hidden text-sm">遊戲</span></a>
+              <a href="/zh/3pwriting/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-indigo-600 dark:text-emerald-400"><i data-lucide="book-open" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">3P 寫作</span><span class="sm:hidden text-sm">3P</span></a>
+              <a href="/zh/qualia/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="cpu" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">Qualia</span><span class="sm:hidden text-sm">AI</span></a>
+              <a href="/zh/seeds/" class="flex items-center gap-1.5 font-mono font-bold tracking-tight transition-colors text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400"><i data-lucide="sprout" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="hidden sm:inline">種子</span><span class="sm:hidden text-sm">種子</span></a>
+          </div>
+          <div class="flex items-center gap-3 sm:gap-4 ml-auto">
+              <div class="flex items-center gap-3 sm:gap-4">
+                  <a href="/3pwriting/" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1" aria-label="Switch to English" title="English"><i data-lucide="languages" class="w-4 h-4 sm:w-5 sm:h-5"></i><span class="text-xs sm:text-sm font-mono font-bold">EN</span></a>
+                  <a href="https://github.com/jasonj326" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="GitHub Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.2-.38-3.9 1.5a13.38 13.38 0 0 0-7 0C6.2 1.62 5 2 5 2a5.4 5.4 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 9.5c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4"></path>
+                      </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/psjasonlai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="LinkedIn Profile">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                  </a>
+                  <a href="mailto:hello@jasonjlai.net" class="text-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors" aria-label="Email Contact">
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                  </a>
+              </div>
+              <div class="hidden sm:block w-px h-5 bg-slate-300 dark:bg-slate-700"></div>
+              <button onclick="toggleTheme()" class="p-2 -mr-2 sm:mr-0 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                  <i data-lucide="sun" id="icon-sun" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 hidden"></i>
+                  <i data-lucide="moon" id="icon-moon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-600"></i>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+<nav class="jump-nav" aria-label="章節導覽">
+    <a href="#s1" data-section="s1"><span class="jn-dot"></span><span class="jn-label">I. 前言</span></a>
+    <a href="#s2" data-section="s2"><span class="jn-dot"></span><span class="jn-label">II. 逐篇回應</span></a>
+    <a href="#s3" data-section="s3"><span class="jn-dot"></span><span class="jn-label">III. 分類地圖</span></a>
+    <a href="#s4" data-section="s4"><span class="jn-dot"></span><span class="jn-label">IV. 彩蛋邀請：2026 年 12 月 12 日中午 12 點</span></a>
+  </nav>
+  <main class="max-w-3xl mx-auto px-6 py-12 animate-[fadeIn_0.5s_ease-out]">
+    <article class="prose prose-slate dark:prose-invert prose-indigo dark:prose-emerald max-w-none font-sans">
+        <header>
+          <h1 class="mb-6 tracking-tight">9 月 BlogBlog 同樂會回顧文</h1>
+          <div class="flex flex-wrap items-center gap-3 font-mono text-sm text-slate-500 dark:text-slate-400 not-prose mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <time datetime="2026-10-07" class="font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">2026-10-07</time>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <div class="flex flex-wrap items-center">
+               <a href="/zh/3pwriting/playgrounds/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-amber-500"></span>playgrounds</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/partnership/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>partnership</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/y2026/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>y2026</a> <span class="mx-2 text-slate-300 dark:text-slate-700">|</span> <a href="/zh/3pwriting/blog/" class="inline-flex items-center gap-1 uppercase hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors"><span class="w-2 h-2 rounded-full bg-violet-500"></span>blog</a>
+            </div>
+          </div>
+          
+        </header>
+
+        <p><strong>目錄</strong></p>
+<p>· <a href="#s1">I. 前言</a></p>
+<p>· <a href="#s2">II. 逐篇回應</a></p>
+<p>· <a href="#s3">III. 分類地圖</a></p>
+<p>· <a href="#s4">IV. 彩蛋邀請：2026 年 12 月 12 日中午 12 點</a></p>
+<h2 id="s1">I. 前言</h2>
+<p>很高興大家針對這個話題熱烈分享，一共收到了 83 篇投稿。原本想學其他主持人頒個獎，但一直沒有想到什麼有趣的獎項，索性就逐篇回應。</p>
+<p>回應的方式大致有三種：整理文章重點、摘錄喜歡的金句或段落，以及分享文章帶給我的啟發與共鳴。有些文章讓我忍不住多說幾句，有些則是作者已經說得很好，想直接把那段話分享給大家。</p>
+<p>接著，第三部份附上分類地圖，讓各位看官慢慢逛。文末還附上一個臨時起意的彩蛋邀請，歡迎看到最後！</p>
+<h2 id="s2">II. 逐篇回應</h2>
+<ol>
+<li><a href="https://angeci.github.io/blog/zh/jet-lag/" target="_blank" rel="noopener noreferrer">時差</a> - AngeCI<ul>
+<li>作者分享自己的作息長期偏晚；自由晚睡晚起時能睡足，強迫早睡反而難入睡，配合社會時間早起才造成睡眠不足。</li>
+<li>設想能否用跨時區旅行調整作息，也回頭檢視深夜接觸螢幕光線的習慣，延伸到網站深色模式的需求。</li>
+</ul>
+</li>
+<li><a href="https://shenjing.me/blog/moments-after-dark" target="_blank" rel="noopener noreferrer">黑夜籠罩下的幾個時刻與感受：小憩、喚醒、禁忌、陪伴</a> - ShenJing<ul>
+<li>同樣是黑夜中醒來，可能是小睡後與世界脫節的孤單、軍中被叫醒的恐懼，也可能是母親喚醒自己的安心。小時候我也和作者一樣半夜爬起來打電動 XDDD</li>
+<li>文章也分享作者成年後的失眠夜，也能成為感受伴侶存在、親密與陪伴的時刻。</li>
+</ul>
+</li>
+<li><a href="https://blog.nudoragon.com/post/264/stay-up-late" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - 龍女<ul>
+<li>作者的熬夜從青少年時期起，就是回應家庭、升學與情感壓力的方式。從遊戲、動漫和網路關係獲得精神寄託與自主權。</li>
+<li>「作息正常的人要寫什麼？」歡迎看這邊我的逐篇回應，更鼓勵去看全文。的確有很多人沒有晚上不睡覺、失眠或熬夜經驗，有老師分享作曲家的故事、有人分享過去的經驗，有人轉而分享早起的好，可謂應有盡有。</li>
+</ul>
+</li>
+<li><a href="https://jaywalker.bearblog.dev/7676/" target="_blank" rel="noopener noreferrer">半夜失眠床邊故事</a> - Jay Walker<ul>
+<li>職場與家庭壓力使他半夜醒來；除了失眠本身，也要避免陷入「因為睡不著而更加焦慮」的循環。</li>
+<li>在不方便開燈、起身打擾家人的情況下，作者推薦睡眠故事與聲音成為放鬆方式，我之後想試試。</li>
+</ul>
+</li>
+<li><a href="https://shuaixin.cc/stay-up/" target="_blank" rel="noopener noreferrer">享受使用權，放棄佔有欲 2</a> - 劉昕 Shuai<ul>
+<li>作者平常重視睡眠，但健康與長壽也應服務於生活，因此願意偶爾犧牲睡眠，換取值得的相處與體驗。進一步追問：聚會真的一定要在晚上嗎？有些社交若移到白天，就不必總在陪伴與睡眠之間二選一。</li>
+<li>或許呼應：平靜接受不能改變的 （該睡覺就睡覺）、勇敢改變能改變的 （值得睡覺就不要睡），有智慧判斷兩者差異的智慧。</li>
+</ul>
+</li>
+<li><a href="https://e89295.com/blog/2026-08-27.html" target="_blank" rel="noopener noreferrer">我不知道意圖使他人發生危害而慫恿其從事高風險活動算不算犯罪</a> - 我<ul>
+<li>很喜歡作者這篇直書的格式，「我」作為作者的筆名，隱含語言哲學指涉的問題，我覺得很有趣。</li>
+<li>從「慫恿別人寫部落格，導致他熬夜受害」的荒謬設問，展開對因果、責任、監管及雙重標準的反諷思辨。看到這麼多人寫這篇部落格而熬夜，我也只能認罪 XD</li>
+<li>作者結尾嘗試把「事情沒那麼重要」當作鬆綁方式，也是我自己今年遊戲心法的要素，不要把自己（的睡眠）看得太重要。</li>
+</ul>
+</li>
+<li><a href="https://wiwi.blog/blog/staying-up" target="_blank" rel="noopener noreferrer">晚上不睡覺 ✦BBP9✦</a> - 官大為 Wiwi Kuan<ul>
+<li>曾把深夜當成創作、研究與娛樂時間，後來因健康警訊及伴侶相互提醒，轉向戒酒、早睡、晨跑。</li>
+<li>「至於要怎麼改成早睡呢？很簡單：不管有沒有睡飽，先強制早起就好。不用幾天，你的身體就會自動想要早睡了。」完全同意，這也類似我在某個外國醫學 Podcast 聽到跨時區出差調整時差的建議——想辦法撐過第一夜（看時差情況多睡或少睡），之後當地早晨去曬太陽，也給有興趣調時差的夥伴參考！</li>
+</ul>
+</li>
+<li><a href="https://blog.wei-lee.me/posts/random-thoughts/2026/09/stay-up-late/" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - Wei<ul>
+<li>這個真的太重要了：知道應該睡，不等於有餘力作出「現在去睡」的決定！做出「現在去睡」這個決定，也是需要能量的！我覺得就跟吃飯一樣，如果等到很餓才要決定吃什麼，很容易去暴飲暴食、吃垃圾食物。等到刷手機到大腦浩劫/耗竭，根本很難去睡覺。</li>
+<li>「注意力耗盡後，仍會滑手機、補做事情，甚至想用完 AI 額度。」我也是這個 AI token 患者，即使理智上知道不要被沈沒成本綁架，身體就是想要多燒一點 token。</li>
+</ul>
+</li>
+<li><a href="https://kaiblog.is-a.dev/blog/bbp9" target="_blank" rel="noopener noreferrer">晚睡早起 ✦BBP9✦</a> - Kai<ul>
+<li>想學、想研究、想創作的事情太多，晚上捨不得睡，早上又捨不得起床。</li>
+<li>喜歡結尾的這句話：「說出的等待從不是真正的等待，而是讓離別重新獲得不曾擁有的想念」</li>
+</ul>
+</li>
+<li><a href="https://calke.bearblog.dev/night/" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - Tommy<ul>
+<li>簡短記錄夜間用筆電處理事情，以及自己的作息觀察，最後紀錄自我覺察，現在可能已是未來回望時最早睡、最幸福的階段。</li>
+</ul>
+</li>
+<li><a href="https://blog.mattuy.top/blog/2026/i-donot-know/" target="_blank" rel="noopener noreferrer">我不知道</a> - Haven Mattuy<ul>
+<li>熬夜混合了工作後補償、拖延、興趣投入與情緒因素；離開高壓職場後，報復性熬夜有所減少，但入睡困難與早醒仍令人困擾。</li>
+<li>「一切的价值都发生在当下。未来也只有在变现（变为现在）时才有意义。当思维再次焦虑“未来怎么办”的时候，我要淡定地告诉它：我不知道。」</li>
+<li>也祝福你有個好睡眠。</li>
+</ul>
+</li>
+<li><a href="https://haruowang.vercel.app/about/lifelog/blogblog.html#晚上不睡覺" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - Haruo Wang<ul>
+<li>開學前既期待又焦慮，害怕把有限時間用錯地方，也因自己與厲害創作者的差距而不安。紀錄對未來的期待與恐懼，不睡覺想要抓住時間的心態。</li>
+</ul>
+</li>
+<li><a href="https://lq7.tw/mood/fever/" target="_blank" rel="noopener noreferrer">39.5</a> - LQ7<ul>
+<li>一次原以為只是疲累補眠的夜晚，變成發冷、高燒、半夜急診與吊點滴的經歷。</li>
+<li>找不到病因也太可怕，希望你身體健康、早日康復。</li>
+</ul>
+</li>
+<li><a href="https://eoiiio.bearblog.dev/star/" target="_blank" rel="noopener noreferrer">星際旅行-夜遊腦海</a> - Eo<ul>
+<li>以偏鄉夜騎與太空航行交錯的寓言，呈現朋友遠去、研究停滯、孤獨與自我價值動搖。</li>
+<li>「或多或少是因為我身邊的人夠璀璨，而我就像反射太陽光那樣。或多或少是因為太陽亮度夠亮，足以把生鐵變裝成鑽石。」很喜歡這句，雖然不確定我的解讀和作者一致，但「反射遙遠的太陽光時，才會變得耀眼。」，中秋月圓，不因反射陽光而減損月色的美。</li>
+</ul>
+</li>
+<li><a href="https://monsteressinside.bearblog.dev/highschoolnights/" target="_blank" rel="noopener noreferrer">高中夜生活</a> - ra9788<ul>
+<li>「高中是個朦朧的年紀，想知道自己是誰，同時也想把書給念好。但比例沒抓好，沒有人跟我說尋找自己也很重要，甚至是首要目標。」</li>
+<li>「那幾些年的夜晚，特別苦澀⋯⋯和遙遠的電台主持人共享同一個夜晚，以手臂為枕、外套為褥、方桌為床的日子，是我下輩子不想再來過的高中夜生活。」</li>
+<li>有些讀者與投稿者還是中學生，希望作者的文字能讓當今學子有一些啟發與溫暖吧。</li>
+</ul>
+</li>
+<li><a href="https://young-mann.site/posts/fear-of-death/" target="_blank" rel="noopener noreferrer">怕死</a> - 狗蛋日<ul>
+<li>睡前的死亡恐懼，直面死亡的必然，思考有限時間的最佳配置。</li>
+<li>時間配置其實沒有最佳解，只有取捨與不斷追問。</li>
+</ul>
+</li>
+<li><a href="https://rayrrrrrrr.bearblog.dev/9659/" target="_blank" rel="noopener noreferrer">為什麼晚上一定要睡覺？</a> - RayrrrrrR<ul>
+<li>在「重視睡眠」作為當代顯學，重新檢視「為什麼晚上要睡覺」這件事（以及千千萬萬我們視為理所當然的事），光是提出這樣的思考，即使行動依然和社會一致，思考本身即有價值。</li>
+</ul>
+</li>
+<li><a href="https://aa10200809-svg.github.io/blog/my-blog-9/5/" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - Ting<ul>
+<li>分享自己享受僅有的安靜夜晚裡，喜歡這樣特別的孤獨感。但同時也能感受到熬夜的副作用。</li>
+<li>有趣的結論：健康很重要，偶而要早睡（不是偶而熬夜而已XDD）</li>
+</ul>
+</li>
+<li><a href="https://yangbear.bearblog.dev/hayani-yohukashi/" target="_blank" rel="noopener noreferrer">早睡的夜貓</a> - YangBear<ul>
+<li>作者分享自己對於熬夜的定義與過往經驗</li>
+<li>「日出而作 日落而息」這段特別有趣：理論上應該早上六點（約莫當地天亮的時候），設定為 1 點，才符合日出而作？如果這些都是人為的設定，「熬夜」一詞似乎只是賦予額外的意義。</li>
+</ul>
+</li>
+<li><a href="https://ilovemovie.pika.page/posts/blogblog" target="_blank" rel="noopener noreferrer">熬夜換自由</a> - 阿標<ul>
+<li>透過生命中熬夜許多電影經驗，既活在電影裡，填補孤寂、也認識熬夜的代價。</li>
+</ul>
+</li>
+<li><a href="https://tp65p.bearblog.dev/3737/" target="_blank" rel="noopener noreferrer">開學</a> - Jen<ul>
+<li>作者成發前「走火入魔」的修改狀態，和我過往的經驗有 87 分像。</li>
+<li>「固定充足的睡眠時間是件困難的事」：開心捨不得睡、焦慮又睡不著</li>
+</ul>
+</li>
+<li><a href="https://www.wen-lab.tw/clear-at-night/" target="_blank" rel="noopener noreferrer">晚上不睡覺，練團囉!</a> - Wen<ol>
+<li>理性派作者：「雖然崇尚生產力的我很提倡早睡早起，但有些機會，真的就是在半夜才會出現的，年輕的時候熬夜的代價小，我覺得是完全合理的行為。</li>
+<li>花有重開日，人無再少年。</li>
+</ol>
+</li>
+<li><a href="https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html" target="_blank" rel="noopener noreferrer">Sī án-chóaⁿ bô khùn?</a> - <span style="font-family:'Times New Roman','Arial Unicode MS',serif">Lí Ka-io̍k</span><ul>
+<li>本次投稿的浪漫派作者，作者用四個層面描述各種不得不熬夜和不想睡的原因，最後以親情的溫馨結尾。</li>
+<li>雖然能以台語溝通，但完全無法理解台羅，只能以 AI 輔助翻譯。想想作者願意用台羅拼音創作，保守推估全球大概僅有十萬人能夠理解，本身就是一種浪漫吧。</li>
+</ul>
+</li>
+<li><a href="https://utakata.bearblog.dev/sleep-study-job/" target="_blank" rel="noopener noreferrer">看人睡覺的工作</a> - 燕麥<ul>
+<li>「不睡覺必須是出於自由的選擇。可以有各種理由不睡覺，比方說看球，追劇，或跟人聊一整晚的天。但不可以是不能睡覺」</li>
+<li>剛好前陣子我看到網路上一篇短文，小學導師看到學生作文：「我的媽媽的工作是晚上去陪別人睡覺」，一度誤會媽媽是性工作者進而做家庭訪問，實際上是在睡眠中心工作的醫療專業人員。想不到就在這裡真實經驗分享。</li>
+</ul>
+</li>
+<li><a href="https://staylogue.com/borrowed-time-from-the-night/" target="_blank" rel="noopener noreferrer">向夜晚借一點時間：那些不睡覺的晚上，我都在做什麼？</a> - 向北窗<ul>
+<li>「夜晚是一段很奇怪的自由」是一種「終於沒有人需要我的感覺」，作者開始想把夜晚花在值得記得的地方。</li>
+<li>同意作者的觀點，如果花錢是把錢錢變成喜歡的樣子，晚睡也得讓夜晚有一點自己喜愛的形狀——「夜晚也是人生。它不是白天用剩的邊角料。」</li>
+</ul>
+</li>
+<li><a href="https://fatapple0406.github.io/posts/2026/the-sleepless-journey/" target="_blank" rel="noopener noreferrer">未寢的旅程</a> - A 吉胖<ul>
+<li>廣播劇與遊戲故事讓作者即使待在漆黑房間，也能透過聲音與想像遊歷不同世界，陪伴漫長的夜晚。</li>
+<li>雖然這些內容對我很陌生，但可以感受作者豐富的想像力與精彩的夜未眠。</li>
+</ul>
+</li>
+<li><a href="https://ytanton.medium.com/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA-%E6%98%AF%E9%96%8B%E5%BF%83-%E9%82%84%E6%98%AF%E5%9B%B0%E6%93%BE-11574c5420c0?postPublishedType=initial" target="_blank" rel="noopener noreferrer">「晚上不睡覺」是開心？還是困擾？</a> - 小胤<ul>
+<li>不睡的意義隨人生階段改變：童年是偷偷娛樂、大學是日夜顛倒，出社會後則開始面對想睡卻睡不著。</li>
+<li>第四輪人生的現在（？），需要更好的平衡與分配，但就順其自然。</li>
+</ul>
+</li>
+<li><a href="https://iannntw.bearblog.dev/8000/" target="_blank" rel="noopener noreferrer">衰甲算了睡吧</a> - 恩恩安安<ul>
+<li>教學糾紛與客訴焦慮一路侵入睡前，犒賞自己的飲料、失眠後滑手機又讓休息更加困難；以自嘲寫出熬到天亮，仍得早起站導護的無奈。</li>
+</ul>
+</li>
+<li><a href="https://wuliang.netlify.app/posts/bedtime-stories/" target="_blank" rel="noopener noreferrer">晚上不睡覺苦想睡前故事，以及手指受傷的話怎麼按Ctrl+V？</a> - 無糧殿<ul>
+<li>聽過需要別人講床前睡前故事，但是需要自己講給自己聽的人是第一次遇見。</li>
+<li>作者和我一樣有無窮的好奇心，但有更有趣的聯想功力：從電影與故事聯想到手指受傷或者天生併指的話要怎麼按快捷鍵，最後推薦日語 Podcast app 播放器作收。</li>
+</ul>
+</li>
+<li><a href="https://blog.andy-hu.com/days_without_night/" target="_blank" rel="noopener noreferrer">沒有晝夜的日子</a> - Andy<ul>
+<li>是一篇成功「意圖使人生小孩」的推坑文：成為父親後才體會新生兒每隔幾小時的照顧循環，讓一夜到天明成為奢侈品。</li>
+<li>孩子第一次睡過夜帶來希望，往後又出現新的夜間挑戰；回顧展望時，就像人生的綜合滋味：辛苦、親密與對生命成長的感受並存。</li>
+</ul>
+</li>
+<li><a href="https://matling.fit/zh/blog/i-am-a-ruin-aborigine" target="_blank" rel="noopener noreferrer">我是廢墟的土生子</a> - 物靈<ul>
+<li>夜行荒地的觸感喚回童年，讓作者以「廢墟的土生子」理解自己的歸屬，也重新看待與光鮮世界的距離。凌晨美食城的陳舊與冷清、童年的補習街的記憶，交雜著各式情緒。</li>
+</ul>
+</li>
+<li><a href="https://drchiuneuro.com/cant-sleep/" target="_blank" rel="noopener noreferrer">想睡卻睡不著？半夜失眠的可能原因與改善方法</a> - 神經沒問題<ul>
+<li>專業醫師作者以衛教角度說明失眠可能涉及壓力、作息、刺激物與身體因素，不把它歸結為單一原因。</li>
+<li>介紹睡眠習慣調整以及需要專業評估的情況。我覺得很有共鳴的是強調減少對睡眠的焦慮，而不只是要求自己更努力睡著——我自己就會告訴自己：失眠就失眠吧！反而心理暗示讓自己放鬆、更容易入睡。</li>
+</ul>
+</li>
+<li><a href="https://namitz.com/posts/2026_0914_YeMaoZi/" target="_blank" rel="noopener noreferrer">21小時循環、5點的小火鍋</a> - 奈米子 Namitz<ul>
+<li>回憶設計系趕工的通宵：與其說夜深帶來靈感，可能更是截止日期逼出產出。</li>
+<li>喜歡作者從火鍋與飲食選擇，點出熬夜對睡眠的傷害往往還有其他因素，「相關性不等於因果關係」</li>
+</ul>
+</li>
+<li><a href="https://zuzuthink.blogspot.com/2026/09/blog-post.html" target="_blank" rel="noopener noreferrer">貓為什麼晚上不睡覺</a> - ZUZU<ul>
+<li>雖然沒有想到這個主題的主詞可以是動物，但是蠻有趣的：觀察貓萬上不睡覺、並用神秘學塔羅牌和貓互動</li>
+<li>題外話，我以為貓是半個夜行性動物所以叫夜貓子？</li>
+</ul>
+</li>
+<li><a href="https://alicehsu.blog/zh-tw/posts/2026/09/cannot-sleep-at-night/" target="_blank" rel="noopener noreferrer">半夜睡不著</a> - Alice Hsu<ul>
+<li>用詩把失眠寫成意識航行、螢火閃爍與胡思亂想，最後才突然「黑屏」入睡；作品本身也寫於真實的失眠夜，將睡不著轉成創作。</li>
+<li>想不到自己這個主題反而讓更多人有理由熬夜不睡覺，真是罪過罪過（？）</li>
+</ul>
+</li>
+<li><a href="https://timoblog.com/post/why-stay-up-late/" target="_blank" rel="noopener noreferrer">晚上（幹嘛）不睡覺</a> - Timo<ul>
+<li>佩服（羨慕？）作者可以長年踐行早睡早起，同時也願意為伴侶、旅行與親密回憶破例，並清楚知道這是向未來的自己借時間、支付代價。</li>
+</ul>
+</li>
+<li><a href="https://cheuk.blog/posts/staying-up/" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - cheukblog<ul>
+<li>暑假深夜會沿著超連結探索部落格、與 Gemini 辯論、看直播或影集；即使避開社群演算法，也可能持續逛下去。這跟我的症狀好像！指出半夜沒人打擾，其實早上也是有一樣的效果。</li>
+</ul>
+</li>
+<li><a href="https://my-blog.worldofwheat.cc/blog/2026/09/late-night-conversations-about-life.html" title="找朋友玩" target="_blank" rel="noopener noreferrer">找朋友玩</a> - 小麥<ul>
+<li>雖然看過去一度不確定和主題的關係，我想就是本期主題＋文章標題晚上不睡覺 → 「找朋友玩」</li>
+<li>作者和我一樣都喜歡和朋友討論重要的課題。「我們花了一輩子的時間去學習怎麼變得複雜，最後卻要花更大的代價去學習如何變回簡單」大道至簡，可能就是這樣。</li>
+</ul>
+</li>
+<li><a href="https://jasonjlai.net/zh/3pwriting/sleep-tight.html">不要執著完美睡眠——90分就好！</a> - Jason Lai<ul>
+<li>睡眠很重要，失眠或熬夜的時候不要做決定。</li>
+<li>睡眠很重要，但物極必反，過猶不及。推薦看 Andrew Huberman 的新書。</li>
+</ul>
+</li>
+<li><a href="https://j2hongming.com/2026/09/21/nothing-good-happens-after-2am/" target="_blank" rel="noopener noreferrer">Nothing Good Happens After 2AM</a> - j2hongming<ul>
+<li>標題中的影集台詞成為個人生活準則：半夜兩點後沒好事，不如好好睡覺。</li>
+<li>回想思緒不停、蚊子騷擾等被動失眠，也記得年輕時夜衝、玩狼人殺到天亮的快樂。</li>
+</ul>
+</li>
+<li><a href="https://oohmemen.com/blog/non-replicable/" target="_blank" rel="noopener noreferrer">無法複製</a> - O’Oh 麵麵<ul>
+<li>抽象派文章：從生命複製、AI 與《攻殼機動隊》等作品，追問身體、記憶甚至感覺若都能複製，究竟什麼使「我」仍是我。</li>
+<li>和本次主題的關係？夜晚成為容納意識、情感與自我認同問題的空間，這些問題適合晚上思考，也推薦晚上聽〈velveteen〉這首歌。</li>
+</ul>
+</li>
+<li><a href="https://www.arnold.eu.org/2026/09/why-stay-up-late.html" target="_blank" rel="noopener noreferrer">为什么熬夜</a> - Arnold<ul>
+<li>把熬夜理解為想抓住更多時間與可能性的「貪心」：白天交給工作，晚上才想學習、娛樂、實現自己。</li>
+<li>喜歡作者分享別人的做法「看过一个网友说，自己今后只有已完成清单，没有待办清单。」，對於有無限待辦事項的自己，這似乎是不錯的建議。</li>
+</ul>
+</li>
+<li><a href="https://niugnep.idv.tw/posts/stay-up.html" target="_blank" rel="noopener noreferrer">晚上不睡覺 feat. BlogBlogParty 09</a> - Niugnep<ul>
+<li>「鄙人運氣非常好，出生在一個正常家庭，而非亞州家庭。看在我年紀夠大，能壓縮一點睡眠時間，就放我從九點半洗完澡一路玩到十一點。」、「是真的，我已經戒掉短影片了，刷甚麼都很難超過兩小時。」其實不是很明白，聽起來還是家教挺有規矩的正常亞洲家庭、刷一、兩個小時短影片似乎沒辦法支持「已經戒掉短影片」 </li>
+</ul>
+</li>
+<li><a href="https://boringgame.codeberg.page/blog/20260923/" title="……" target="_blank" rel="noopener noreferrer">……</a> - Boring Game<ul>
+<li>最近多半早睡，想不到「不睡覺」的投稿素材，結果為了苦想文章，最後就把這件事寫成投稿；連標題都保留了想不出標題的狀態。</li>
+</ul>
+</li>
+<li><a href="https://k1ej6.bearblog.dev/deprivation/" target="_blank" rel="noopener noreferrer">瘋狂思考不停止</a> - Klej<ul>
+<li>「我爸一直跟我說要在幹部之間制定一個10點以後不討論的規則，說真的我認同這個想法，但我不敢要求其他人⋯⋯，說不定只有我需要10點後不看手機」</li>
+<li>我覺得作者能意識到這樣邊界感很棒，再多一點勇氣，慢慢畫出執行自己的邊界感就好。有句話好像是這樣，“A nice guy says yes all the time to avoid conflict; a good man, on the other hand, draws and enforces boundaries to create peace.”  </li>
+</ul>
+</li>
+<li><a href="https://yoon.club/736-new/" target="_blank" rel="noopener noreferrer">我做不到的事情</a> - Yoon<ul>
+<li>爬山與通宵是自己難以做到、也不想勉強的事情；睡不好，連旅行都無法好好享受。與朋友旅行偏好分床睡，因為同床時會擔心影響對方、無法自在伸展。</li>
+<li>P.S. 這不是碎碎念，這就是你的部落格啊：）</li>
+</ul>
+</li>
+<li><a href="https://da2base.com/no-sleep/" target="_blank" rel="noopener noreferrer">我晚上不睡覺，都在跟 AI 討論燒瓶小人與人類暴力。</a> - 達二<ul>
+<li>腦中想法太多，能聊冷門問題的朋友又已睡了，AI 便成為隨時可對話的對象。</li>
+<li>作者列出的問題都蠻有意思的。「力量母權」其實有一點類似我問過AI 的另一個問題，生物學家發現新的非哺乳類物種的時候，怎麼定義「公/精子」「母/卵子」？</li>
+</ul>
+</li>
+<li><a href="https://hsun.bearblog.dev/sunbreak/" target="_blank" rel="noopener noreferrer">天亮了💤BBP9</a> - Hsun<ul>
+<li>作者居然推薦俄羅斯方塊！？我前年在飛機上玩到俄羅斯方塊，回台灣後就立馬下單 PS5 的俄羅斯方塊，居然遊戲時長成為僅次於戰神的 PS5 遊戲。</li>
+<li>內文還有提到小時候覺得熬夜很酷（可能跟我小時候覺得近視有眼鏡好酷！）</li>
+</ul>
+</li>
+<li><a href="https://shuojen.com/blog/2026/09/24/stay_up" target="_blank" rel="noopener noreferrer">晚上不睡覺看電影與胡思亂想</a> - shuojen<ul>
+<li>作者大學時看電影到天亮，常與共同吐槽、友情及當時情境黏在一起，文中推薦的電影清單也乘載私人回憶。</li>
+<li>作者和我一樣，都是胡思亂想族群、也都喜歡神劇 TBBT。雖然我倒沒有討厭 Ross，但我入戲最深的是很討厭 Modern family 的 Cameron Tucker。</li>
+</ul>
+</li>
+<li><a href="https://hshuang.com/posts/no-game-no-life/" target="_blank" rel="noopener noreferrer">遊戲人生</a> - 黃宏勝<ul>
+<li>童年半夜偷玩遊戲，即時、可量化的成長回饋，比現實進步更有吸引力，也佔用了睡眠與社交。明知熬夜有代價，仍願意為投入其中而不睡；這篇沒有把所有晚睡經驗都收束成後悔。</li>
+<li>作者和我一樣，從小愛打電動，現在也把人生不同階段看成不同的「遊戲」。</li>
+</ul>
+</li>
+<li><a href="https://dongdongda.blogspot.com/2026/09/blog-post.html" target="_blank" rel="noopener noreferrer">深夜加油站遇見蘇格拉底</a> - 子田<ul>
+<li>從大學時避開宿舍門禁、與室友在便利商店看電影的往事，寫到如今被歌曲與照片喚回的青春記憶，並記錄這陣子失眠做的事。</li>
+<li>喜歡作者推薦的<a href="https://www.youtube.com/watch?v=RQsM2uvXow8" target="_blank" rel="noopener noreferrer">宋冬野 - 郭源潮</a></li>
+</ul>
+</li>
+<li><a href="https://blog.giveanornot.com/renzo-in-taiwan/" target="_blank" rel="noopener noreferrer">每到週末就要調時差</a> - JN<ul>
+<li>喜歡這句『人生哪有十全十美的，唯一有的只有「想得美」』</li>
+<li>雖然不是很確定作者在關島-巴基斯坦切換時區的原因（原本以為是遠距離或是駐關島遠距工作），不過看得出來作者生活很精彩，也分享了很多照片。</li>
+</ul>
+</li>
+<li><a href="https://www.shermanho.blog/no-sleep" target="_blank" rel="noopener noreferrer">晚上不睡覺 - 討論哲學</a> - Sherman<ul>
+<li>「我只是想説，人生中能有一些可以由晚上談到早上還覺得意猶未盡的談話，是非常難得的。」這個觀點和許多投稿的夥伴都有共鳴 </li>
+</ul>
+</li>
+<li><a href="https://vaviona.bearblog.dev/new-post/" target="_blank" rel="noopener noreferrer">差一步</a> - 小妖<ul>
+<li>喜歡這個觀點：「曾經羞愧厭惡的歲月，一心想跳過的日日夜夜，一步步把我帶到了今天。也許沒有什麼過去是應該被拋棄的，差一步，終歸沒有實現。」，讓我們一起「感謝那些夜晚的沉澱。」</li>
+</ul>
+</li>
+<li><a href="https://tianyanfeng.blog/composers-and-their-late-nights/" target="_blank" rel="noopener noreferrer">作曲家與他們熬夜的事</a> - Tian-Yan<ul>
+<li>西洋古典音樂的專業老師，從莫札特、柴科夫斯基與薩替的故事切入，並仔細區分流傳軼事與史料可靠程度。</li>
+<li>文章把創作放回趕工、過勞與健康處境，最後勸人別熬夜寫曲子。</li>
+<li>不好意思，我還是喜歡「燃燒自己，創造永恆不朽作品」的故事，即使理性知道沒有因果關係、常常燒乾了只有自己枯朽。</li>
+</ul>
+</li>
+<li><a href="https://www.hachizen.blog/blog/staying-up-late" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - HachiZen<ul>
+<li>以逐時計錄寫出週五晚上的電影、零食、影片與胡思亂想，從興奮一路到身體吃不消；自稱意志堅強、生活充實，卻越來越難收尾，笑點來自這種自嘲反差。</li>
+</ul>
+</li>
+<li><a href="https://jabee.net/notes/260927/" target="_blank" rel="noopener noreferrer">晚上不睡覺不如早上很早起</a> - Jabee姜<ul>
+<li>「道慈老師⋯⋯分享他都會很早起去拍照⋯⋯避開遊客人潮也能拍出超級觀光客景點的方法。」</li>
+<li>第一次學到這個詞：藍調時刻，維基百科說又稱華燈初上。</li>
+</ul>
+</li>
+<li><a href="https://hobolu.com/posts/earlyriser/" target="_blank" rel="noopener noreferrer">早起</a> - ylu<ul>
+<li>透過早晨散步、安排上午活動等嘗試建立節奏，也意外開始觀鳥。早起的價值不只在效率，而是心情更穩、步調更慢，重新看見周遭世界。</li>
+<li>作者看代數跟群論的數學教科書，通常你以為是不喜歡數學的人才會這樣，其實作者很喜歡數學。想不到和我的招數類似，我也很喜歡字典，家裡有三、四本紙本英文字典，失眠的時候都會去翻，偶有成效。</li>
+</ul>
+</li>
+<li><a href="https://jai33snotes.com/revenge-bedtime-procrastination/" target="_blank" rel="noopener noreferrer">晚上不睡覺…？聊聊困擾我許久的報復性熬夜</a> - 皆米<ul>
+<li>「問題往往就出在吃飯的時候：我習慣打開電視或拿起 iPad 看 YouTube。原本只想配著影片吃完飯，但演算法總是精準地推播下一支影片。等我猛然回過神來，往往已經是晚上九點了。」看到這段真的是心有戚戚焉。</li>
+<li>『把睡覺當成「一天的第一件事」』這個想法很棒、『但我不想再像過去那樣嚴厲地責備自己「怎麼又搞砸了」』對自己溫柔也是必要的。</li>
+</ul>
+</li>
+<li><a href="https://prontlin.com/posts/bedtime/" target="_blank" rel="noopener noreferrer">睡前到底要做什麼</a> - Pront Lin<ul>
+<li>作者通常準時睡，問題是睡前時間如何安排：不想只剩白天未完成的作業，也希望留給自己設定的學習目標，然後也明白貪多嚼不爛的道理。</li>
+<li>從中談到寫部落格的觀念轉變：由「一定要專業、有技術含量」，轉向理解日記、交流與建立書寫習慣的價值。</li>
+<li>這兩個觀點不難，但是也是提醒我自己要知行合一。</li>
+</ul>
+</li>
+<li><a href="https://jahsehjaeger.com/writings/stay-up/" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - Jahseh Jaeger<ul>
+<li>平常早睡，因此家庭討論到凌晨、閱讀喜歡的部落格到兩點，或畢旅想陪同學卻因生病撐不住，都成為鮮明記憶。</li>
+<li>為投稿熬夜等靈感，結果腦力耗盡，反而隔天早起才寫出來，形成「借到時間，卻未必有收穫」的自嘲。</li>
+</ul>
+</li>
+<li><a href="https://poya.school/blog/staying-up-late" target="_blank" rel="noopener noreferrer">不睡覺的原因</a> - Poya<ul>
+<li>從和中醫師對話開場，反思自己為什麼無法早睡的文章</li>
+<li>「早睡這件事情，就是我想不到到底哪裡很難，但就是很難。」「晚睡這件事呢，就是明知道沒什麼好處，但又覺得好像有點好處。」</li>
+<li>看完這篇，我只想說：環境很重要，一起練習早睡吧！</li>
+</ul>
+</li>
+<li><a href="https://daisy27.bearblog.dev/no_sleepy/" target="_blank" rel="noopener noreferrer">半夜睡不著覺，我就是不睡教</a> - Daisy黛西<ul>
+<li>學過睡眠、做過睡眠監測受測者，也曾作息規律，仍會因興奮、煩惱或補償私人時間而晚睡。後半分享過去大學的睡眠課堂筆記，呈現知道重要與實際做到的落差。</li>
+</ul>
+</li>
+<li><a href="https://fgzblog.com/zh-tw/posts/vampire_survivors/" target="_blank" rel="noopener noreferrer">深夜遊戲推坑：吸血鬼倖存者</a> - 剛哲<ul>
+<li>成功推坑 《吸血鬼倖存者》這款遊戲。完全同意作者說的『深深體會到一款遊戲好不好玩真的跟畫面張數、畫質有多高無關，遊戲重點就是要「好玩」』</li>
+</ul>
+</li>
+<li><a href="https://blog.crescent-yueyue.com/posts/night/" target="_blank" rel="noopener noreferrer">夜的輪廓</a> - 岳岳<ul>
+<li>習有古人秉燭夜遊，今有岳岳「夜晚才剛開始呢」：熬夜像延長假期，也延長與朋友、伴侶相處的時間。</li>
+<li>獨自吃宵夜、看動畫與胡思亂想也有樂趣，但若只是窩著滑手機，作者仍覺得早睡更值得。</li>
+</ul>
+</li>
+<li><a href="https://mrkeat.bearblog.dev/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A7%89/" target="_blank" rel="noopener noreferrer">晚上不睡觉</a> - mrkeat<ul>
+<li>原以為熬夜練琴、學習能完成更多，實際卻換來隔天疲累；九月改為較早就寢、清晨自然醒後，自覺精神與體力改善，因此轉而支持早睡早起。</li>
+</ul>
+</li>
+<li><a href="https://yuncolorblog.com/posts/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/staying-up-late/" target="_blank" rel="noopener noreferrer">我的熬夜歷史</a> - 雲彩<ul>
+<li>大一通宵寫遊戲程式，曾把成就感與清晨鳥鳴當成「轉大人」里程碑，文末後記也分享自己當初的遊戲程式。</li>
+<li>或許我們都有共同的更的原因：捨不得結束能掌控的時間，也想延後面對明天。</li>
+</ul>
+</li>
+<li><a href="https://blog.supergrey.uk/self-reflection-on-staying-up-late/" target="_blank" rel="noopener noreferrer">熬夜的自省</a> - SuperGrey<ul>
+<li>「報復性熬夜」、「向未來的自己借貸」出發頗析自己熬夜的原因。</li>
+<li>看來是同道中人，腦子開機了就停不下來的朋友，辛苦了。</li>
+</ul>
+</li>
+<li><a href="https://puzelee.cc/posts/no-sleep-night/" target="_blank" rel="noopener noreferrer">我跟一番夾的一期一會</a> - PuzeLee<ul>
+<li>原本以為作者是不是看錯題目投錯稿了，原來是巧妙結合這兩期的題目。</li>
+<li>與室友去一番夾的故事；看似浪費時間，卻留下具體的青春記憶。"Time you enjoy wasting is not wasted time."</li>
+<li>一番夾後來消失，才意識到普通場所與日常玩樂也有不可重來的一面，將「晚上不睡覺」與「一期一會」接在一起。至於什麼是一番夾，請去看內文吧！</li>
+</ul>
+</li>
+<li><a href="https://plog.bearblog.dev/bbp9/" target="_blank" rel="noopener noreferrer">晚上不睡覺嗎</a> - ㄅㄨ<ul>
+<li>回顧人生過往而葉的情境，接著勉勵自己向 Wiwi 看齊，「變成早鳥族把握中午上班前可以感到「今天已經完成很多了」的時光，良性循環」，也想實踐大學修過睡眠心理學的知識。</li>
+</ul>
+</li>
+<li><a href="https://erne.bearblog.dev/260928" target="_blank" rel="noopener noreferrer">觀察入睡</a> - ERNE<ul>
+<li>睡覺原本是小確幸，作者尤其不滿求學時被剝奪睡眠的經驗，以及自己感受到的長期影響。</li>
+<li>原本看標題以為是另一位協助睡眠治療的專業人員，實則是主體記錄童年一次觀察入睡的經歷。</li>
+</ul>
+</li>
+<li><a href="https://carrot.tw/posts/stay-up" target="_blank" rel="noopener noreferrer">我（曾經）的夜生活</a> - 蘿蔔<ul>
+<li>另一位「早起教」的推廣大使：「在現在的我看來，過了九點就是超晚睡的啊！」</li>
+<li>看到這段心有戚戚焉：「電視至少能拔掉插頭，而演算法的成癮是關不掉的！有一堆多巴胺刺激，吵死人的音效，閃瞎人的跳動字卡，最恐怖的還是無止盡的下滑！這是本時代的詛咒，必須引以為戒。」</li>
+</ul>
+</li>
+<li><a href="https://blog.xinsl.xin/posts/midnight-think/" target="_blank" rel="noopener noreferrer">半夜随想</a> - 心是灵 Xinsl<ul>
+<li>面對家長「白天都去幹嘛了」的質問，指出課業、活動與周遭干擾讓白天難以完成任務，夜晚才有完整時間。</li>
+<li>夜深也提供稀少的自由、發呆與想像空間，但代價包括作者自覺夢境更零碎、難以記住。</li>
+</ul>
+</li>
+<li><a href="https://yyingjj.substack.com/p/cc3" target="_blank" rel="noopener noreferrer">在世界的角落不睡覺</a> - Ying<ul>
+<li>用嘉義酒吧、米蘭趕飛機、密西根跨時區活動及台北日常，寫出值得晚睡、不得不晚睡與習慣晚睡的不同處境。</li>
+<li>夜晚的意義取決於城市、關係與當下任務，不能只用「夜深安靜，所以更自在」概括。</li>
+</ul>
+</li>
+<li><a href="https://blog.huacaty.com/posts/why-i-stay-up" target="_blank" rel="noopener noreferrer">為了逃離過度追求完美的自己，我開始當夜貓子</a> - huacat<ul>
+<li>我也是那個猴子會掌控一切的受害者，雖然我不理解為了逃避完美為什麼要變成夜貓子，我以為就是追求完美的受害者，才在死線前變成夜貓子？</li>
+<li>「當興致一來，我時常欲罷不能，看到一則引人入勝的漫畫，我寧願熬夜我也要把它看完，決不讓自己被吊胃口」，推薦吉村旋「致性別為蒙娜麗莎的你」(性別「モナリザ」の君へ。)，感覺蠻有趣的。</li>
+</ul>
+</li>
+<li><a href="https://pennameco.xyz/blog/midnight-rehearsal-composing-mooncakes/" target="_blank" rel="noopener noreferrer">夜半三刻，排练与作曲与月饼</a> - 顾游GIzeKu<ul>
+<li>回憶五年前和團員從午夜開始排練、即興與共同創作，以及夜裡留下大量音樂。</li>
+<li>「夜半还有很多恐惧，关于生死、孤独、绝望、匮乏、梦呓，那些在白日阳光下有所曝褪，我也无能定格了。」</li>
+</ul>
+</li>
+<li><a href="https://blog.duckll.tw/blog/stay_up" target="_blank" rel="noopener noreferrer">晚上不睡覺</a> - DuckLL<ul>
+<li>程式做完一個功能還想接著做，等 AI 時練溜溜球，練習又設下完成目標，加上午夜購物優惠，活動接力讓人停不下來。</li>
+<li>「因為太多想做的事情、抗拒睡覺變得越來越嚴重」，「還是希望我有一天能早睡早起」</li>
+</ul>
+</li>
+<li><a href="https://eddielv.com/musings/stay-up/" target="_blank" rel="noopener noreferrer">晚上不睡覺 BBP9</a> - Eddie Lv<ul>
+<li>因為我正在學日文，抓住我眼球的反而是作者後記的後記：「最喜歡的日文句子是：so re wa so re de」。</li>
+<li>另外是後記，這個主題好寫也不好寫，記錄作者自己寫這篇文章的思路。</li>
+</ul>
+</li>
+<li><a href="https://yomo-kawaii.idv.tw/2026/09/30/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA/" target="_blank" rel="noopener noreferrer">晚上不睡覺!!</a> - 羊毛<ul>
+<li>「睡不著」與「不想睡」的界線並不總清楚；朋友陪伴能減輕孤單，寫歌詞則讓難以整理的情緒得到表達，也留下自我存在的痕跡。</li>
+<li>羊毛是感覺派作者：「失眠的感受是複雜的，在無法釐清的情況下，寫歌詞成為了我的表達方式，即使這些歌詞沒有音樂，也是我內心的吶喊」『所謂的「正常」與「不正常」的劃分其實也是社會所建構的一種文化，除了是屬於每個人的身體經驗，各種社會環境與心理因素、突發事件等因素都會讓我們一步步走向「不正常」的睡眠時間，所以我覺得重要的應該還是「自己」的感受』。</li>
+</ul>
+</li>
+<li><a href="https://godmoo.com/%e6%99%9a%e4%b8%8a%e5%93%9e%e7%9d%a1%e8%a6%ba" target="_blank" rel="noopener noreferrer">晚上哞睡覺</a> - 機哞人<ul>
+<li>平常十一點後就想睡，隔天工作也讓熬夜變得不划算；最近卻因為 RSS 裡有趣的生活文章與新工具，一路讀到凌晨一點。不是完全失去熬夜能力，而是恢復所需的時間變長了。</li>
+</ul>
+</li>
+<li><a href="https://comedovalidus954105.substack.com/p/2d7?r=4q6yzg&amp;utm_campaign=post-expanded-share&amp;utm_medium=web" target="_blank" rel="noopener noreferrer">全世界都睡著以後</a> - Polarbear<ul>
+<li>換工作後需要早起，也提到前陣子有崩潰的熬夜經驗，因此更珍惜週末深夜能獨自閱讀、追劇、查資料的時間。喜歡的是安靜與自由探索，下一個能自主安排的夜晚，仍想留給已經買好的書。</li>
+</ul>
+</li>
+<li><a href="https://eeseoliz.net/posts/other/night-owl-3am/" target="_blank" rel="noopener noreferrer">晚上不睡覺在幹麻?</a> - eeseoliz<ul>
+<li>作者和我一樣常有「不做不會死但想死必須做」的症狀：明知睡足後的早晨舒服，晚上仍有許多「現在就想完成」的事：遊戲想贏、劇想看完、程式問題想解決，也會突然開始構思或打掃。</li>
+<li>結尾的程式的無限迴圈自嘲真心梗很不錯：）</li>
+</ul>
+</li>
+<li><a href="https://susushare.com/%e5%a4%b1%e7%9c%a0%e5%a4%a7%e7%8e%8b1-%e5%97%91%e8%97%a5%e5%8f%af%e4%bb%a5%e5%b0%b1%e7%9d%a1%e8%91%97%e6%98%af%e5%b9%b8%e7%a6%8f%e7%9a%84/" target="_blank" rel="noopener noreferrer">失眠大王1 嗑藥就可以睡著是幸福的</a> - SUSAN<ul>
+<li>作者分享歷經求醫與治療、逐漸放下對用藥的恐懼後，才獲得較穩定的睡眠。核心是接受幫助、恢復生活能力。</li>
+<li>深有同感，太多時候人們因為對醫療的誤解、文化制約而抗拒就醫，真的很可惜。</li>
+</ul>
+</li>
+</ol>
+<h2 id="s3">III. 分類地圖</h2>
+<p>有人捨不得睡，有人只求能好好睡一覺，也有人早已加入「早起教」。讀完這 83 篇文章，才發現同一句「晚上不睡覺」，背後可以是這麼不同的人生。我試著整理成八條閱讀路線，每篇先依主要內容放進一類，方便大家找路。</p>
+<p>表中的作者名稱對應上方的逐篇回應，<strong>點擊作者名稱就能直接閱讀文章原文</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>閱讀路線</th>
+<th>收錄重點</th>
+<th>作者</th>
+<th>篇數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>自己的時鐘</strong></td>
+<td>晚睡晚起、早睡早起，以及自己的節奏碰上社會作息時，該怎麼相處。</td>
+<td><a href="https://angeci.github.io/blog/zh/jet-lag/" target="_blank" rel="noopener noreferrer">AngeCI</a>、<a href="https://wiwi.blog/blog/staying-up" target="_blank" rel="noopener noreferrer">官大為 Wiwi Kuan</a>、<a href="https://calke.bearblog.dev/night/" target="_blank" rel="noopener noreferrer">Tommy</a>、<a href="https://rayrrrrrrr.bearblog.dev/9659/" target="_blank" rel="noopener noreferrer">RayrrrrrR</a>、<a href="https://yangbear.bearblog.dev/hayani-yohukashi/" target="_blank" rel="noopener noreferrer">YangBear</a>、<a href="https://cheuk.blog/posts/staying-up/" target="_blank" rel="noopener noreferrer">cheukblog</a>、<a href="https://jabee.net/notes/260927/" target="_blank" rel="noopener noreferrer">Jabee姜</a>、<a href="https://hobolu.com/posts/earlyriser/" target="_blank" rel="noopener noreferrer">ylu</a>、<a href="https://prontlin.com/posts/bedtime/" target="_blank" rel="noopener noreferrer">Pront Lin</a>、<a href="https://mrkeat.bearblog.dev/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A7%89/" target="_blank" rel="noopener noreferrer">mrkeat</a>、<a href="https://plog.bearblog.dev/bbp9/" target="_blank" rel="noopener noreferrer">ㄅㄨ</a>、<a href="https://carrot.tw/posts/stay-up" target="_blank" rel="noopener noreferrer">蘿蔔</a></td>
+<td>12</td>
+</tr>
+<tr>
+<td><strong>留住自己的時間</strong></td>
+<td>有時白天被工作與課業占滿，晚上才終於輪到自己；有時只是想做的事情太多，捨不得結束這一天。</td>
+<td><a href="https://blog.nudoragon.com/post/264/stay-up-late" target="_blank" rel="noopener noreferrer">龍女</a>、<a href="https://blog.wei-lee.me/posts/random-thoughts/2026/09/stay-up-late/" target="_blank" rel="noopener noreferrer">Wei</a>、<a href="https://kaiblog.is-a.dev/blog/bbp9" target="_blank" rel="noopener noreferrer">Kai</a>、<a href="https://haruowang.vercel.app/about/lifelog/blogblog.html#%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA" target="_blank" rel="noopener noreferrer">Haruo Wang</a>、<a href="https://aa10200809-svg.github.io/blog/my-blog-9/5/" target="_blank" rel="noopener noreferrer">Ting</a>、<a href="https://ytanton.medium.com/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA-%E6%98%AF%E9%96%8B%E5%BF%83-%E9%82%84%E6%98%AF%E5%9B%B0%E6%93%BE-11574c5420c0?postPublishedType=initial" target="_blank" rel="noopener noreferrer">小胤</a>、<a href="https://www.arnold.eu.org/2026/09/why-stay-up-late.html" target="_blank" rel="noopener noreferrer">Arnold</a>、<a href="https://niugnep.idv.tw/posts/stay-up.html" target="_blank" rel="noopener noreferrer">Niugnep</a>、<a href="https://jai33snotes.com/revenge-bedtime-procrastination/" target="_blank" rel="noopener noreferrer">皆米</a>、<a href="https://poya.school/blog/staying-up-late" target="_blank" rel="noopener noreferrer">Poya</a>、<a href="https://yuncolorblog.com/posts/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/staying-up-late/" target="_blank" rel="noopener noreferrer">雲彩</a>、<a href="https://blog.xinsl.xin/posts/midnight-think/" target="_blank" rel="noopener noreferrer">心是灵 Xinsl</a>、<a href="https://blog.huacaty.com/posts/why-i-stay-up" target="_blank" rel="noopener noreferrer">huacat</a>、<a href="https://blog.duckll.tw/blog/stay_up" target="_blank" rel="noopener noreferrer">DuckLL</a>、<a href="https://yomo-kawaii.idv.tw/2026/09/30/%E6%99%9A%E4%B8%8A%E4%B8%8D%E7%9D%A1%E8%A6%BA/" target="_blank" rel="noopener noreferrer">羊毛</a>、<a href="https://godmoo.com/%e6%99%9a%e4%b8%8a%e5%93%9e%e7%9d%a1%e8%a6%ba" target="_blank" rel="noopener noreferrer">機哞人</a>、<a href="https://comedovalidus954105.substack.com/p/2d7?r=4q6yzg&amp;utm_campaign=post-expanded-share&amp;utm_medium=web" target="_blank" rel="noopener noreferrer">Polarbear</a>、<a href="https://eeseoliz.net/posts/other/night-owl-3am/" target="_blank" rel="noopener noreferrer">eeseoliz</a></td>
+<td>18</td>
+</tr>
+<tr>
+<td><strong>睡眠的困擾與和解</strong></td>
+<td>失眠、焦慮、求醫與睡眠知識，以及慢慢練習不再因為睡不好而苛責自己。</td>
+<td><a href="https://jaywalker.bearblog.dev/7676/" target="_blank" rel="noopener noreferrer">Jay Walker</a>、<a href="https://e89295.com/blog/2026-08-27.html" target="_blank" rel="noopener noreferrer">我</a>、<a href="https://blog.mattuy.top/blog/2026/i-donot-know/" target="_blank" rel="noopener noreferrer">Haven Mattuy</a>、<a href="https://young-mann.site/posts/fear-of-death/" target="_blank" rel="noopener noreferrer">狗蛋日</a>、<a href="https://iannntw.bearblog.dev/8000/" target="_blank" rel="noopener noreferrer">恩恩安安</a>、<a href="https://drchiuneuro.com/cant-sleep/" target="_blank" rel="noopener noreferrer">神經沒問題</a>、<a href="https://jasonjlai.net/zh/3pwriting/sleep-tight.html">Jason Lai</a>、<a href="https://k1ej6.bearblog.dev/deprivation/" target="_blank" rel="noopener noreferrer">Klej</a>、<a href="https://yoon.club/736-new/" target="_blank" rel="noopener noreferrer">Yoon</a>、<a href="https://dongdongda.blogspot.com/2026/09/blog-post.html" target="_blank" rel="noopener noreferrer">子田</a>、<a href="https://vaviona.bearblog.dev/new-post/" target="_blank" rel="noopener noreferrer">小妖</a>、<a href="https://daisy27.bearblog.dev/no_sleepy/" target="_blank" rel="noopener noreferrer">Daisy黛西</a>、<a href="https://erne.bearblog.dev/260928" target="_blank" rel="noopener noreferrer">ERNE</a>、<a href="https://susushare.com/%e5%a4%b1%e7%9c%a0%e5%a4%a7%e7%8e%8b1-%e5%97%91%e8%97%a5%e5%8f%af%e4%bb%a5%e5%b0%b1%e7%9d%a1%e8%91%97%e6%98%af%e5%b9%b8%e7%a6%8f%e7%9a%84/" target="_blank" rel="noopener noreferrer">SUSAN</a></td>
+<td>14</td>
+</tr>
+<tr>
+<td><strong>不得不醒著的夜晚</strong></td>
+<td>趕工、考試、疾病與照顧，讓一覺到天明變成奢侈的願望。</td>
+<td><a href="https://lq7.tw/mood/fever/" target="_blank" rel="noopener noreferrer">LQ7</a>、<a href="https://monsteressinside.bearblog.dev/highschoolnights/" target="_blank" rel="noopener noreferrer">ra9788</a>、<a href="https://tp65p.bearblog.dev/3737/" target="_blank" rel="noopener noreferrer">Jen</a>、<a href="https://wox080xow.github.io/2026/09/10/si-an-choann-bo-x-khun.html" target="_blank" rel="noopener noreferrer"><span style="font-family:'Times New Roman','Arial Unicode MS',serif">Lí Ka-io̍k</span></a>、<a href="https://utakata.bearblog.dev/sleep-study-job/" target="_blank" rel="noopener noreferrer">燕麥</a>、<a href="https://blog.andy-hu.com/days_without_night/" target="_blank" rel="noopener noreferrer">Andy</a>、<a href="https://zuzuthink.blogspot.com/2026/09/blog-post.html" target="_blank" rel="noopener noreferrer">ZUZU</a></td>
+<td>7</td>
+</tr>
+<tr>
+<td><strong>陪伴與值得破例的夜晚</strong></td>
+<td>和朋友聊到天亮、一起練團，或只是感受身旁的人，留下願意拿睡眠交換的回憶。</td>
+<td><a href="https://shenjing.me/blog/moments-after-dark" target="_blank" rel="noopener noreferrer">ShenJing</a>、<a href="https://shuaixin.cc/stay-up/" target="_blank" rel="noopener noreferrer">劉昕 Shuai</a>、<a href="https://www.wen-lab.tw/clear-at-night/" target="_blank" rel="noopener noreferrer">Wen</a>、<a href="https://namitz.com/posts/2026_0914_YeMaoZi/" target="_blank" rel="noopener noreferrer">奈米子 Namitz</a>、<a href="https://timoblog.com/post/why-stay-up-late/" target="_blank" rel="noopener noreferrer">Timo</a>、<a href="https://my-blog.worldofwheat.cc/blog/2026/09/late-night-conversations-about-life.html" target="_blank" rel="noopener noreferrer">小麥</a>、<a href="https://j2hongming.com/2026/09/21/nothing-good-happens-after-2am/" target="_blank" rel="noopener noreferrer">j2hongming</a>、<a href="https://blog.giveanornot.com/renzo-in-taiwan/" target="_blank" rel="noopener noreferrer">JN</a>、<a href="https://www.shermanho.blog/no-sleep" target="_blank" rel="noopener noreferrer">Sherman</a>、<a href="https://jahsehjaeger.com/writings/stay-up/" target="_blank" rel="noopener noreferrer">Jahseh Jaeger</a>、<a href="https://blog.crescent-yueyue.com/posts/night/" target="_blank" rel="noopener noreferrer">岳岳</a>、<a href="https://puzelee.cc/posts/no-sleep-night/" target="_blank" rel="noopener noreferrer">PuzeLee</a></td>
+<td>12</td>
+</tr>
+<tr>
+<td><strong>夜遊、城市與旅途</strong></td>
+<td>騎車、散步、旅行，在不同地方的夜色裡，遇見風景，也重新看見自己。</td>
+<td><a href="https://eoiiio.bearblog.dev/star/" target="_blank" rel="noopener noreferrer">Eo</a>、<a href="https://staylogue.com/borrowed-time-from-the-night/" target="_blank" rel="noopener noreferrer">向北窗</a>、<a href="https://matling.fit/zh/blog/i-am-a-ruin-aborigine" target="_blank" rel="noopener noreferrer">物靈</a>、<a href="https://yyingjj.substack.com/p/cc3" target="_blank" rel="noopener noreferrer">Ying</a></td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>夜裡的思想與創作</strong></td>
+<td>寫作、音樂、哲學問題，還有那些腦袋一開機就停不下來的胡思亂想。</td>
+<td><a href="https://wuliang.netlify.app/posts/bedtime-stories/" target="_blank" rel="noopener noreferrer">無糧殿</a>、<a href="https://alicehsu.blog/zh-tw/posts/2026/09/cannot-sleep-at-night/" target="_blank" rel="noopener noreferrer">Alice Hsu</a>、<a href="https://oohmemen.com/blog/non-replicable/" target="_blank" rel="noopener noreferrer">O’Oh 麵麵</a>、<a href="https://boringgame.codeberg.page/blog/20260923/" target="_blank" rel="noopener noreferrer">Boring Game</a>、<a href="https://da2base.com/no-sleep/" target="_blank" rel="noopener noreferrer">達二</a>、<a href="https://tianyanfeng.blog/composers-and-their-late-nights/" target="_blank" rel="noopener noreferrer">Tian-Yan</a>、<a href="https://blog.supergrey.uk/self-reflection-on-staying-up-late/" target="_blank" rel="noopener noreferrer">SuperGrey</a>、<a href="https://pennameco.xyz/blog/midnight-rehearsal-composing-mooncakes/" target="_blank" rel="noopener noreferrer">顾游GIzeKu</a>、<a href="https://eddielv.com/musings/stay-up/" target="_blank" rel="noopener noreferrer">Eddie Lv</a></td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>深夜的閱讀、觀影與娛樂</strong></td>
+<td>電影、遊戲、廣播劇、部落格，一句「再一下就好」，回神時天已經亮了。</td>
+<td><a href="https://ilovemovie.pika.page/posts/blogblog" target="_blank" rel="noopener noreferrer">阿標</a>、<a href="https://fatapple0406.github.io/posts/2026/the-sleepless-journey/" target="_blank" rel="noopener noreferrer">A 吉胖</a>、<a href="https://hsun.bearblog.dev/sunbreak/" target="_blank" rel="noopener noreferrer">Hsun</a>、<a href="https://shuojen.com/blog/2026/09/24/stay_up" target="_blank" rel="noopener noreferrer">shuojen</a>、<a href="https://hshuang.com/posts/no-game-no-life/" target="_blank" rel="noopener noreferrer">黃宏勝</a>、<a href="https://www.hachizen.blog/blog/staying-up-late" target="_blank" rel="noopener noreferrer">HachiZen</a>、<a href="https://fgzblog.com/zh-tw/posts/vampire_survivors/" target="_blank" rel="noopener noreferrer">剛哲</a></td>
+<td>7</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>這些路線彼此相通。同一個夜晚，可能既有自由與快樂，也藏著責任和睡不著的心事。歡迎從有共鳴的地方開始逛，再順著連結去讀作者的全文。</p>
+<h2 id="s4">IV. 彩蛋邀請：2026 年 12 月 12 日中午 12 點</h2>
+<p>這是 PIF12 的第一場年度實體活動，計畫持續辦十二年，想邀請這次投稿的作者一起來台北聚聚。</p>
+<p>今年的邀請原則上都由我這個節點向外發散，想串連我覺得有趣的靈魂。讀大家的文章時，好幾次拍案叫絕，也有相見恨晚的感受，所以臨時起意，在回顧文裡加上這個邀請。</p>
+<p>有興趣的夥伴，歡迎直接到 <a href="https://luma.com/i9ulji66" target="_blank" rel="noopener noreferrer">活動頁面報名</a>。可以的話，請在報名時註記你投稿使用的信箱。</p>
+<p>總之，活動免費，細節未定。想來蹭一頓飯、想認識我或其他朋友，都歡迎報名：）</p>
+<p>最後，為了避免誤會，這個邀請是我個人臨時起意發起的，<strong>與 Wiwi 或部落格部落格同樂會無關</strong>，特此聲明。</p>
+<p class="text-sm italic text-slate-400 dark:text-slate-500 mt-12 pt-6 border-t border-slate-200 dark:border-slate-700">最後更新：2026-10-07</p>
+
+        <div class="not-prose mt-16 mb-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-sm">
+                <div class="w-full sm:w-2/5 flex justify-start">
+                    <a href="/zh/3pwriting/sleep-tight.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 dark:hover:text-emerald-400 transition-colors group" title="不要執著完美睡眠——90分就好！"><i data-lucide="arrow-left" class="w-4 h-4 shrink-0 group-hover:-translate-x-1 transition-transform"></i><span class="truncate max-w-[120px] sm:max-w-[200px]">不要執著完美睡眠——90分就好！</span></a>
+                </div>
+                <div class="w-full sm:w-1/5 flex justify-center shrink-0">
+                    <button onclick="goToRandomPost()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 font-bold" aria-label="Random Post">
+                        <i data-lucide="shuffle" class="w-4 h-4"></i> 隨機
+                    </button>
+                </div>
+                <div class="w-full sm:w-2/5 flex justify-end text-right">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="not-prose mt-12 p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans shadow-sm">
+          <strong class="font-bold text-slate-700 dark:text-slate-300 mr-1">免責聲明：</strong>
+          此網站僅代表本人觀點，不代表任何相關機構。所有內容僅供參考，未提供具體法律、醫療、稅務或投資建議。請尋求自身專業諮詢。文章內容「按現況」提供，不保證無誤或為最新；請自行研究並承擔依賴本站任何資訊所致之後果。
+        </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col justify-center items-center gap-3 text-sm font-mono text-slate-500">
+        <p class="text-center"><a href="/zh/privacy/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">隱私</a> · <a href="/zh/contribute/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">支持</a> · <a href="/zh/about/" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">賴建順</a> © <span id="current-year"></span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline decoration-slate-400 hover:text-indigo-600 dark:hover:text-emerald-400">CC BY 4.0</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    const htmlElement = document.documentElement;
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    }
+
+    initTheme();
+
+    const allPosts = ["/zh/3pwriting/Debrief-BlogParty.html", "/zh/3pwriting/sleep-tight.html", "/zh/3pwriting/stay-up.html", "/zh/3pwriting/2026-q2-review-builder.html", "/3pwriting/2026-q2-review-builder.html", "/zh/3pwriting/ai-fleet-audit.html", "/3pwriting/ai-fleet-audit.html", "/zh/3pwriting/music-burns-me-a-thousand-times-but-im-still-in-love.html", "/zh/3pwriting/readme.html", "/3pwriting/perfect-day-without-magic.html", "/zh/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/2026-q1-review-builder.html", "/zh/3pwriting/perfect-day-without-magic.html", "/3pwriting/Skill-Tree-Development.html", "/zh/3pwriting/brand-age-translation.html", "/3pwriting/workhorse-in-the-year-of-horse.html", "/3pwriting/readme.html"];
+    function goToRandomPost() {
+        const currentPath = window.location.pathname;
+        const otherPosts = allPosts.filter(p => p !== currentPath);
+        if (otherPosts.length > 0) {
+            window.location.href = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+        }
+    }
+
+    // Copy button on fenced code blocks
+    (function () {
+      document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const pre = btn.parentElement.querySelector('pre');
+          if (!pre) return;
+          const text = pre.innerText;
+          const label = btn.dataset.copyLabel;
+          const flash = function (msg, cls) {
+            btn.textContent = msg;
+            if (cls) btn.classList.add(cls);
+            setTimeout(function () {
+              btn.textContent = label;
+              btn.classList.remove('copied');
+            }, 1600);
+          };
+          const done = function () {
+            flash(label === '複製' ? '已複製' : 'Copied', 'copied');
+          };
+          const failed = function () {
+            flash(label === '複製' ? '請手動複製' : 'Select manually', null);
+          };
+          const fallback = function () {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            if (ok) done(); else failed();
+          };
+          // writeText rejects on an unfocused document, under a restrictive
+          // permissions policy, and in some Safari versions — always fall back
+          // rather than leaving the click with no feedback.
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+          } else {
+            fallback();
+          }
+        });
+      });
+    })();
+
+    // Floating jump-nav: highlight the section currently in view
+    (function () {
+      const links = Array.from(document.querySelectorAll('.jump-nav a[data-section]'));
+      if (!links.length) return;
+      const targets = links.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+      function onScroll() {
+        let active = targets[0];
+        for (const t of targets) { if (t.getBoundingClientRect().top <= 100) active = t; }
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === active.id));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+    <script src="/assets/fab-subscribe.js" defer></script>
+</body>
+</html>
