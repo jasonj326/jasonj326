@@ -169,5 +169,6 @@ summary: 九月 BlogBlog 同樂會主題：晚上不睡覺。那段偷來的、�
 81. [全世界都睡著以後](https://comedovalidus954105.substack.com/p/2d7?r=4q6yzg&utm_campaign=post-expanded-share&utm_medium=web) - Polarbear
 82. [晚上不睡覺在幹麻?](https://eeseoliz.net/posts/other/night-owl-3am/ ) - eeseoliz
 83. [失眠大王1 嗑藥就可以睡著是幸福的](https://susushare.com/%e5%a4%b1%e7%9c%a0%e5%a4%a7%e7%8e%8b1-%e5%97%91%e8%97%a5%e5%8f%af%e4%bb%a5%e5%b0%b1%e7%9d%a1%e8%91%97%e6%98%af%e5%b9%b8%e7%a6%8f%e7%9a%84/)- SUSAN
+84. [忙著晚上不睡覺](https://hellenmurmur.bearblog.dev/8841/) - Hellen Murmur
 
 ## 【本次投稿已結束，謝謝大家參與，[請看回顧文](https://jasonjlai.net/zh/3pwriting/Debrief-BlogParty) 】
