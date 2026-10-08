@@ -14,7 +14,7 @@ tags:
   - blog
 pinned: true
 image:
-summary: 九月 BlogBlog 同樂會「晚上不睡覺」回顧：84 篇投稿逐篇回應、八條閱讀路線，以及十月同樂會的投稿資訊。
+summary: 九月 BlogBlog 同樂會「晚上不睡覺」回顧：84 篇投稿逐篇回應、八條閱讀路線。
 ---
 **目錄**
 
@@ -278,10 +278,4 @@ summary: 九月 BlogBlog 同樂會「晚上不睡覺」回顧：84 篇投稿逐�
 
 再次感謝大家的參與！雖然導致自己和部分格友熬夜，希望這是值得的！
 
-新的一期部落部落同樂會也開始了，歡迎大家繼續參與：
-
-- **主題**：「語言的習得、傳承與推廣」
-- **主持人**：[AngeCI](https://angeci.github.io/blog/zh/)
-- **主題頁面**：[https://angeci.github.io/blog/zh/blogblog-party-languages/](https://angeci.github.io/blog/zh/blogblog-party-languages/) （活動期間會持續更新已投稿名單）
-- **投稿信箱**：angeci (at) ltgc.cc
-- **截稿日期**：2026 年 10 月 31 日（即日起就可以開始投稿！）
+也期待之後繼續參加部落部落同樂會啦～～
