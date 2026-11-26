@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PIF12 第一年｜馬年聚會</title>
-<meta name="description" content="2026/12/12（六）11:30 進場、12:12 準時開始。Nearby Cafe 2（附近咖啡二店），台北市中正區延平南路 37 號 1 樓。">
+<meta name="robots" content="noindex">
+<meta name="description" content="這是朋友間的小聚，僅限受邀來賓出席。">
 <meta property="og:title" content="PIF12 第一年｜馬年聚會">
-<meta property="og:description" content="2026/12/12（六）11:30 進場・12:12 準時開始｜Nearby Cafe 2（附近咖啡二店）">
+<meta property="og:description" content="這是朋友間的小聚，僅限受邀來賓出席。">
 <meta name="theme-color" content="#151a2a">
 <style>
 :root{--paper:#f3ebdb;--paper2:#e9dcc3;--ink:#231f1c;--ink2:#5b524a;--red:#c8312a;--red2:#9f2219;--night:#151a2a;--gold:#c99b4e;--hero:50vh;
@@ -63,7 +64,7 @@ h1{margin:0 0 16px;font:700 clamp(24px,6.8vw,30px)/1.3 var(--serif);letter-spaci
 h1 .vb{margin:0 -.12em;color:var(--red2);font-weight:400}
 html[lang=en]{--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"PingFang TC","Noto Sans TC",sans-serif;--serif:Georgia,"Iowan Old Style","Times New Roman","Noto Serif","Noto Serif TC",serif}
 html[lang=en] h1{font-size:clamp(23px,6vw,28px)}
-.msg{margin:0 0 22px;font:400 16px/1.85 var(--sans);color:#2e2823;text-wrap:pretty}
+.msg{margin:0 0 22px;font:400 16px/1.85 var(--sans);color:#2e2823;text-wrap:pretty;white-space:pre-line}
 html[lang=en] .msg{line-height:1.7}
 .facts{margin:0 0 18px;padding:0;border-top:1px solid rgba(35,31,28,.14)}
 .facts>div{display:grid;grid-template-columns:4.4em 1fr;gap:10px;padding:13px 0;border-bottom:1px solid rgba(35,31,28,.14);align-items:baseline}
@@ -82,7 +83,6 @@ html[lang=en] .facts>div{grid-template-columns:6.2em 1fr}
 .btn.primary{background:var(--red);border-color:var(--red);color:#fff7ea}
 .btn svg{width:17px;height:17px;flex:none}
 .made{margin:12px 0 0;font:400 11px/1.6 var(--sans);color:rgba(35,31,28,.55);text-align:center;text-wrap:balance}
-.msg.custom{white-space:pre-line}
 .legal{margin:14px 2px 0;font:400 11.5px/1.5 var(--sans);color:rgba(246,236,214,.55);text-align:center}
 @media (min-width:860px) and (min-aspect-ratio:1/1){
  #info{position:fixed;top:0;right:0;bottom:0;margin:0;width:min(470px,42vw);max-width:none;overflow-y:auto;padding:76px 28px 28px 0;display:flex;flex-direction:column;justify-content:center;transform:translateX(40px)}
@@ -117,17 +117,19 @@ body.static #info{opacity:1;visibility:visible;transform:none;margin-top:20vh}
 <main id="info" aria-labelledby="t-title">
  <div class="sheet">
   <svg class="knot" viewBox="-60 -70 120 150" aria-hidden="true"><g fill="none" stroke="#c8312a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0 C-18 -30 -12 -58 0 -62 C12 -58 18 -30 0 0"/><path d="M0 0 C-30 -4 -52 -20 -54 -32 C-44 -40 -20 -26 0 0"/><path d="M0 0 C30 -4 52 -20 54 -32 C44 -40 20 -26 0 0"/><path d="M-6 8 C-14 30 -22 52 -16 76"/><path d="M6 8 C14 30 22 52 16 76"/></g><circle r="9" fill="#9f2219"/></svg>
-  <p class="kicker" data-i18n="kicker">PIF12 · 第一年</p>
-  <p class="greet" id="greet"></p>
+  <p class="kicker" data-i18n="kicker">PIF12 · 第一年 · 邀請制</p>
   <h1 id="t-title" data-i18n="title">PIF12 第一年<span class="vb">｜</span>馬年聚會</h1>
-  <p class="msg" data-i18n="msg">PIF12 想聚集我認識有趣的靈魂，也分享過去一年成長與感謝。只是想把美國 Friendsgiving 的文化種在台灣的土壤，第一年簡單一起吃吃喝喝，看看十二年後會長出什麼樣子。</p>
+  <p class="greet" id="greet"></p>
+  <p class="msg">PIF12 想聚集我認識有趣的靈魂。
+
+我想和你一起把美國 Friendsgiving 的文化種在台灣的土壤，第一年簡單一起吃吃喝喝、分享我的近況，看看十二年後會長出什麼樣子。</p>
   <dl class="facts">
    <div><dt data-i18n="lDate">日期</dt><dd data-i18n="vDate">2026/12/12（六）</dd></div>
    <div><dt data-i18n="lTime">時間</dt><dd data-i18n-html="vTime">11:30 進場、<span class="nw"><b>12:12</b> 準時開始</span></dd></div>
    <div><dt data-i18n="lPlace">地點</dt><dd data-i18n-html="vPlace">Nearby Cafe 2<br><span class="pr">（附近咖啡二店）</span><span class="sub">捷運西門站五號出口步行五分鐘</span></dd></div>
    <div><dt data-i18n="lFood">吃吃喝喝</dt><dd data-i18n-html="vFood">供應午餐和飲料<span class="sub">年度聚會，人來就好。</span></dd></div>
   </dl>
-  <p class="note" data-i18n-html="note">吃飽就走，沒有壓力。<br>知己相逢千杯少，還是請理性飲酒。</p>
+  <p class="note" data-i18n-html="note">吃飽就走，沒有壓力。</p>
   <p class="sign">— Jason</p>
   <div class="foot">
    <a class="btn primary" id="navBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Nearby+Cafe+2%2C+No.+37+Yanping+South+Road%2C+Zhongzheng+District%2C+Taipei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="nav">Google Maps 導航</span></a>
@@ -146,21 +148,21 @@ const T = {
  zh:{
   peek:'時間地點', skip:'跳過', open:'拆開邀請', details:'直接看時間、地點',
   hint:'拖曳畫面可倒帶／快轉・點一下暫停', paused:'已暫停・點一下繼續',
-  kicker:'PIF12 · 第一年', title:'PIF12 第一年<span class="vb">｜</span>馬年聚會',
-  msg:'PIF12 想聚集我認識有趣的靈魂，也分享過去一年成長與感謝。只是想把美國 Friendsgiving 的文化種在台灣的土壤，第一年簡單一起吃吃喝喝，看看十二年後會長出什麼樣子。',
+  kicker:'PIF12 · 第一年 · 邀請制', title:'PIF12 第一年<span class="vb">｜</span>馬年聚會',
+  msg:invited=>`PIF12 想聚集我認識有趣的靈魂${invited?'，而你這麼有趣當然也必須邀請！':'。'}\n\n我想和你一起把美國 Friendsgiving 的文化種在台灣的土壤，第一年簡單一起吃吃喝喝、分享我的近況，看看十二年後會長出什麼樣子。`,
   lDate:'日期', vDate:'2026/12/12（六）', lTime:'時間',
   vTime:'11:30 進場、<span class="nw"><b>12:12</b> 準時開始</span>',
   lPlace:'地點', vPlace:'Nearby Cafe 2<br><span class="pr">（附近咖啡二店）</span><span class="sub">捷運西門站五號出口步行五分鐘</span>',
   lFood:'吃吃喝喝', vFood:'供應午餐和飲料<span class="sub">年度聚會，人來就好。</span>',
-  note:'吃飽就走，沒有壓力。<br>知己相逢千杯少，還是請理性飲酒。',
+  note:'吃飽就走，沒有壓力。',
   nav:'Google Maps 導航', cal:'加入行事曆', replay:'重播片頭', langOther:'English', sound:'音樂',
   made:'本網頁由 Claude Opus 5.5 生成，html 檔案丟入 VirusTotal 顯示無惡意軟體',
-  calTitle:'PIF12 第一年｜馬年聚會', calDesc:'11:30 進場、12:12 準時開始。\n捷運西門站五號出口步行五分鐘。\n供應午餐和飲料。年度聚會，人來就好。\n吃飽就走，沒有壓力。知己相逢千杯少，還是請理性飲酒。', calLoc:'Nearby Cafe 2（附近咖啡二店），台北市中正區延平南路 37 號 1 樓', legal:'PIF12 · 2026 · 馬年',
-  greet:n=>`${n}，`, docTitle:'PIF12 第一年｜馬年聚會',
-  aria:'PIF12 第一年馬年聚會邀請卡：2026 年 12 月 12 日（六），11:30 進場、12:12 準時開始；地點 Nearby Cafe 2（附近咖啡二店），台北市中正區延平南路 37 號 1 樓。',
+  calTitle:'PIF12 第一年｜馬年聚會', calDesc:'11:30 進場、12:12 準時開始。\n捷運西門站五號出口步行五分鐘。\n供應午餐和飲料。年度聚會，人來就好。\n吃飽就走，沒有壓力。', calLoc:'Nearby Cafe 2（附近咖啡二店），台北市中正區延平南路 37 號 1 樓', legal:'PIF12 · 2026 · 馬年',
+  greet:n=>`Hi ${n}!`, docTitle:'PIF12 第一年｜馬年聚會',
+  aria:'PIF12 第一年馬年聚會邀請卡，邀請制。2026 年 12 月 12 日（六），11:30 進場、12:12 準時開始；地點 Nearby Cafe 2（附近咖啡二店），台北市中正區延平南路 37 號 1 樓。',
   // canvas
-  cTop:'PIF12 · 第一年', cTitle:['馬年聚會'], cSub:'PIF12 Year One · Year of the Horse Gathering',
-  cDate:'2026.12.12（六）', cTime:'11:30 進場 · 12:12 準時開始', cPlace1:'Nearby Cafe 2（附近咖啡二店）', cPlace2:'捷運西門站五號出口步行五分鐘',
+  cTop:'PIF12 · 第一年 · 邀請制', cTitle:['馬年聚會'], cSub:'PIF12 Year One · Year of the Horse Gathering',
+  cDate:'2026.12.12（六）', cTime:'11:30 進場 · 12:12 準時開始', cPlace1:'Nearby Cafe 2（附近咖啡二店）', cPlace2:'台北市中正區延平南路 37 號 1 樓',
   cTo:n=>`致　${n}`, cFrom:'Jason 敬邀',
   words:[['Friendsgiving','先乾為敬'],['他人即地獄？','上天堂是天氣好，','下地獄為了找同伴'],['馬不停蹄？','吃飽再跑']],
   dateLbl:'日　期', timeTop:'12 月 12 日（六）', timeBot:'準時開始',
@@ -169,20 +171,20 @@ const T = {
  en:{
   peek:'Details', skip:'Skip', open:'Open the invitation', details:'Just show me when & where',
   hint:'Drag to rewind / fast-forward · tap to pause', paused:'Paused · tap to continue',
-  kicker:'PIF12 · YEAR ONE', title:'PIF12 Year One: Year of the Horse Gathering',
-  msg:'PIF12 is my way of gathering the interesting souls I’ve met, and of sharing a year of growth and gratitude. I just want to plant America’s Friendsgiving in Taiwanese soil. Year one is simple — we eat and drink together, and see what grows over the next twelve years.',
+  kicker:'PIF12 · YEAR ONE · INVITATION ONLY', title:'PIF12 Year One: Year of the Horse Gathering',
+  msg:invited=>`PIF12 is my way of bringing together the interesting people I’ve met.${invited?' And of course I had to invite you!':''}\n\nI’d love for us to plant the American tradition of Friendsgiving here in Taiwan. For year one, let’s keep it simple: eat, drink, catch up on what I’ve been up to, and see what grows over the next twelve years.`,
   lDate:'Date', vDate:'Saturday, December 12, 2026', lTime:'Time',
   vTime:'Doors 11:30, <span class="nw">starts <b>12:12</b> sharp</span>',
   lPlace:'Place', vPlace:'Nearby Cafe 2<br>(附近咖啡二店)<span class="sub">5-minute walk from MRT Ximen Station, Exit 5</span>',
   lFood:'Eats &amp; drinks', vFood:'Lunch and drinks provided<span class="sub">It’s our yearly get-together — just come.</span>',
-  note:'Leave whenever you’re full. No pressure.<br>A thousand cups are too few among old friends — still, please drink responsibly.',
+  note:'Leave whenever you’re full. No pressure.',
   nav:'Google Maps', cal:'Add to calendar', replay:'Replay intro', langOther:'中文', sound:'Music',
   made:'This page was generated by Claude Opus 5.5. The HTML file was checked on VirusTotal and showed no malware.',
-  calTitle:'PIF12 Year One: Year of the Horse Gathering', calDesc:'Doors 11:30, starts 12:12 sharp.\n5-minute walk from MRT Ximen Station, Exit 5.\nLunch and drinks provided. It’s our yearly get-together, just come.\nLeave whenever you’re full. Please drink responsibly.', calLoc:'Nearby Cafe 2 (附近咖啡二店), 1F, No. 37, Yanping South Road, Zhongzheng District, Taipei', legal:'PIF12 · 2026 · Year of the Horse',
-  greet:n=>`${n},`, docTitle:'PIF12 Year One: Year of the Horse Gathering',
-  aria:'Invitation to PIF12 Year One: Year of the Horse Gathering. Saturday, December 12, 2026. Doors 11:30, starts 12:12 sharp. Nearby Cafe 2, 1F, No. 37, Yanping South Road, Zhongzheng District, Taipei.',
-  cTop:'PIF12 · YEAR ONE', cTitle:['Year of the Horse','Gathering'], cSub:'PIF12 第一年｜馬年聚會',
-  cDate:'Sat, December 12, 2026', cTime:'Doors 11:30 · Starts 12:12 sharp', cPlace1:'Nearby Cafe 2 (附近咖啡二店)', cPlace2:'5 min walk from MRT Ximen, Exit 5',
+  calTitle:'PIF12 Year One: Year of the Horse Gathering', calDesc:'Doors 11:30, starts 12:12 sharp.\n5-minute walk from MRT Ximen Station, Exit 5.\nLunch and drinks provided. It’s our yearly get-together, just come.\nLeave whenever you’re full.', calLoc:'Nearby Cafe 2 (附近咖啡二店), 1F, No. 37, Yanping South Road, Zhongzheng District, Taipei', legal:'PIF12 · 2026 · Year of the Horse',
+  greet:n=>`Hi ${n}!`, docTitle:'PIF12 Year One: Year of the Horse Gathering',
+  aria:'PIF12 Year One: Year of the Horse Gathering. By invitation only. Saturday, December 12, 2026. Doors 11:30, starts 12:12 sharp. Nearby Cafe 2, 1F, No. 37, Yanping South Road, Zhongzheng District, Taipei.',
+  cTop:'PIF12 · YEAR ONE · INVITATION ONLY', cTitle:['Year of the Horse','Gathering'], cSub:'PIF12 第一年｜馬年聚會',
+  cDate:'Sat, December 12, 2026', cTime:'Doors 11:30 · Starts 12:12 sharp', cPlace1:'Nearby Cafe 2 (附近咖啡二店)', cPlace2:'1F, No. 37, Yanping S. Rd., Zhongzheng, Taipei',
   cTo:n=>`For ${n}`, cFrom:'— Jason',
   words:[['FRIENDSGIVING','Bottoms up'],['HELL IS OTHER PEOPLE?','Heaven for the climate,','Hell for the company'],['NO TIME TO STOP?','Eat first, run later']],
   dateLbl:'DATE', timeTop:'SAT · DEC 12', timeBot:'STARTS SHARP',
@@ -208,14 +210,14 @@ function applyLang(){
  document.documentElement.lang = lang==='zh'?'zh-Hant':'en';
  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=L[el.dataset.i18n]; if(typeof v==='string') el.innerHTML=v;});
  document.querySelectorAll('[data-i18n-html]').forEach(el=>{el.innerHTML=L[el.dataset.i18nHtml];});
- const cm=lang==='en'?(msgEn||msgZh):(msgZh||msgEn), me=$('.msg');
- if(cm){me.textContent=cm;me.classList.add('custom');}else me.classList.remove('custom');
+ const cm=lang==='en'?(msgEn||msgZh):(msgZh||msgEn);
+ $('.msg').textContent=cm||L.msg(Boolean(guest));
  $('#langBtn').textContent = lang==='zh'?'English':'中文';
  $('#soundBtn').setAttribute('aria-label',L.sound);
  setCal();
  $('#langBtn').setAttribute('lang', lang==='zh'?'en':'zh-Hant');
- const cm0=lang==='en'?(msgEn||msgZh):(msgZh||msgEn);
- $('#greet').textContent = guest&&!(cm0&&cm0.startsWith(guest))? L.greet(guest):'';
+ const greeting=guest?L.greet(guest):'';
+ $('#greet').textContent=guest&&!cm.startsWith(guest)&&!cm.startsWith(greeting)?greeting:'';
  $('#hint').textContent = paused? L.paused : L.hint;
  document.title = L.docTitle;
  cv.setAttribute('aria-label', (guest? (lang==='zh'?`致 ${guest}。`:`For ${guest}. `):'') + L.aria);
