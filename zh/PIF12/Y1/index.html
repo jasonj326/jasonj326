@@ -90,6 +90,9 @@ html[lang=en] .facts>div{grid-template-columns:6.2em 1fr}
  #info{position:fixed;top:0;right:0;bottom:0;margin:0;width:min(470px,42vw);max-width:none;overflow-y:auto;padding:76px 28px 28px 0;display:flex;flex-direction:column;justify-content:center;transform:translateX(40px)}
  .sheet{padding:34px 30px 26px}
 }
+@media (prefers-reduced-motion:reduce){
+ #info,body.landed #info,.mark{transition:none}
+}
 body.static #stage{display:none}
 body.static #info{opacity:1;visibility:visible;transform:none;margin-top:20vh}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -196,6 +199,7 @@ let lang='zh', guest='', msgZh='', msgEn='', keepDefault=false;
 let mode='intro',Tm=0,playing=false,paused=false,scrub=null,needDraw=true,lastNow=0,raf=0,slowFrames=0,frames=0;
 const $=s=>document.querySelector(s);
 const body=document.body;
+const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
 
 function readHash(){
  const p=new URLSearchParams(location.hash.replace(/^#/,''));
@@ -230,6 +234,7 @@ function applyLang(){
  const venue=guest?L.calLoc:L.city;
  cv.setAttribute('aria-label', (guest? (lang==='zh'?`致 ${guest}。`:`For ${guest}. `):'') + L.aria+venue+(lang==='zh'?'。':'.'));
  needDraw=true;
+ if(ctx&&reducedMotion?.matches&&mode!=='show')kick();
 }
 function icsEsc(v){return v.replace(/\\/g,'\\\\').replace(/;/g,'\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');}
 function icsFold(line){const out=[];let cur='',bytes=0;const enc=new TextEncoder();for(const ch of line.match(/\\.|[\s\S]/gu)){const b=enc.encode(ch).length;if(bytes+b>73){out.push(cur);cur=' ';bytes=1;}cur+=ch;bytes+=b;}out.push(cur);return out.join('\r\n');}
@@ -928,7 +933,7 @@ function audioLand(natural){
 
 /* ============================ main loop ============================ */
 function render(now){
- const wall=now/1000;
+ const wall=reducedMotion?.matches&&mode!=='show'?0:now/1000;
  ctx.setTransform(1,0,0,1,0,0);ctx.filter='none';ctx.globalAlpha=1;
  if(mode==='intro'){drawA(-1,wall);overlays(0,wall,false);return;}
  const t=mode==='land'?END:Tm;
@@ -943,6 +948,7 @@ function loop(now){
   if(Tm>=END){Tm=END;land(true);}}
  audioTick(t0,Tm,mode==='show'&&!paused&&!scrub);
  render(now);
+ if(reducedMotion?.matches&&mode!=='show'){needDraw=false;return;}
  if(mode!=='land'||needDraw){needDraw=false;raf=requestAnimationFrame(loop);}
 }
 function kick(){if(!raf){lastNow=0;raf=requestAnimationFrame(loop);}}
@@ -963,6 +969,7 @@ $('#soundBtn').addEventListener('click',()=>{AU.on=!AU.on;$('#soundBtn').setAttr
 $('#langBtn').addEventListener('click',toggleLang);
 window.addEventListener('hashchange',()=>{readHash();applyLang();});
 window.addEventListener('resize',resize);
+reducedMotion?.addEventListener?.('change',kick);
 document.addEventListener('visibilitychange',()=>{if(AU.ctx){if(document.hidden)AU.ctx.suspend();else AU.ctx.resume();}if(!document.hidden){lastNow=0;kick();}});
 cv.addEventListener('pointerdown',e=>{
  if(mode==='intro'){startShow(0);return;}
@@ -980,9 +987,8 @@ document.addEventListener('keydown',e=>{
 /* ============================ boot ============================ */
 readHash();applyLang();resize();
 const q=new URLSearchParams(location.search);
-const rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(q.has('t')){const tt=parseFloat(q.get('t'))||0;mode='show';Tm=tt;paused=true;body.className='showing'+(tt>.9?' dark':'');}
-else if(q.has('land')||rm){land();}
+else if(q.has('land')){land();}
 kick();
 window.__pif12={get mode(){return mode},get t(){return Tm},seek:t=>{Tm=t;needDraw=true;kick();},land,startShow};
 })();
